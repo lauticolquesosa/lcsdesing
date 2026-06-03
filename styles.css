@@ -657,3 +657,44 @@ body.no-cursor-fx .cursor-dot, body.no-cursor-fx .cursor-ring { display: none !i
 .twk__btn { width: 100%; text-align: left; font-size: 12.5px; padding: 10px 12px; border: 1px solid var(--accent); color: var(--paper); margin-top: 4px; transition: background .25s; }
 .twk__btn:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
 @media (max-width: 560px) { .twk { right: 10px; bottom: 10px; width: calc(100vw - 20px); max-width: 300px; } }
+
+/* ============================================================
+   Responsive refinements — mobile & tablet polish
+   ============================================================ */
+:root { --nav-h: 84px; }
+
+/* Anchor jumps land below the fixed navbar (native scroll fallback) */
+html { scroll-padding-top: var(--nav-h); }
+section[id] { scroll-margin-top: var(--nav-h); }
+
+/* Never let anything force a horizontal scrollbar */
+html, body { max-width: 100%; }
+
+/* ---- Tablet (≤1024) ---- */
+@media (max-width: 1024px) {
+  .about__meta-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ---- Small tablet / large phone (≤768) ---- */
+@media (max-width: 768px) {
+  .hero__avail { margin-bottom: 26px; }
+  .hero__sub { margin-top: 22px; }
+  .hero__cta { margin-top: 36px; }
+}
+
+/* ---- Phones (≤560) ---- */
+@media (max-width: 560px) {
+  /* full-width, comfortable tap targets for the hero CTAs */
+  .hero__cta { width: 100%; gap: 12px; }
+  .hero__cta .btn { flex: 1 1 100%; justify-content: center; padding-block: 16px; }
+  .contact__wa .btn { width: 100%; justify-content: center; }
+  .about__meta-grid { grid-template-columns: 1fr; }
+  .svc__secondary .tag:not(:last-child)::after { margin-left: 12px; }
+  .modal__panel { padding-top: 20px; }
+}
+
+/* ---- Short landscape phones — let the hero grow instead of clipping ---- */
+@media (max-height: 560px) and (orientation: landscape) {
+  .hero { min-height: auto; padding-block: 116px 72px; }
+  .hero__jaguar { opacity: .3; }
+}

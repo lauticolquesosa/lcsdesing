@@ -103,7 +103,7 @@
   function scrollTo(target) {
     const el = typeof target === 'string' ? $(target) : target;
     if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: -10 });
+    if (lenis) lenis.scrollTo(el, { offset: -88 });
     else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 
