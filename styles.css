@@ -196,6 +196,7 @@ body.menu-open .nav__burger span:nth-child(3) { bottom: 50%; transform: translat
   pointer-events: none;
 }
 body.menu-open .mobile-menu { clip-path: inset(0 0 0 0); pointer-events: auto; }
+body.menu-open { overflow: hidden; touch-action: none; }
 .mobile-menu a {
   font-size: clamp(34px, 9vw, 62px); font-weight: 700; letter-spacing: -0.02em;
   line-height: 1.05; color: var(--paper);
@@ -205,10 +206,10 @@ body.menu-open .mobile-menu { clip-path: inset(0 0 0 0); pointer-events: auto; }
 body.menu-open .mobile-menu a { opacity: 1; transform: none; }
 .mobile-menu a:hover { color: var(--accent); }
 .mobile-menu a span { color: var(--accent); font-size: .4em; vertical-align: super; margin-right: 10px; font-weight: 600; }
-.mm-social { display: flex; gap: 14px; margin-top: 34px; flex-shrink: 0; }
+.mm-social { display: flex; gap: 12px; margin-top: 34px; flex-shrink: 0; }
 .mm-social__card {
   flex-shrink: 0;
-  width: 58px; height: 58px; border-radius: 16px; padding: 0;
+  width: 46px; height: 46px; border-radius: 13px; padding: 0;
   display: inline-flex; align-items: center; justify-content: center;
   color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, transparent);
@@ -218,8 +219,7 @@ body.menu-open .mobile-menu a { opacity: 1; transform: none; }
               color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
 }
 body.menu-open .mm-social__card { opacity: 1; transform: none; }
-.mm-social__card svg { width: 28px; height: 28px; }
-.mobile-menu .mm-foot { margin-top: 28px; font-size: 13px; color: var(--gray); letter-spacing: .04em; }
+.mm-social__card svg { width: 22px; height: 22px; }
 @media (hover: hover) {
   .mm-social__card:hover { color: #fff; border-color: var(--accent); background: var(--accent); transform: translateY(-3px); }
 }

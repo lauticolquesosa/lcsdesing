@@ -116,7 +116,11 @@
         const el = $(id);
         if (!el) return;
         e.preventDefault();
-        document.body.classList.remove('menu-open');
+        if (document.body.classList.contains('menu-open')) {
+          document.body.classList.remove('menu-open');
+          document.body.style.overflow = '';
+          if (lenis) lenis.start();
+        }
         scrollTo(el);
       });
     });
@@ -166,7 +170,11 @@
   function mobileMenu() {
     const burger = $('.nav__burger');
     if (!burger) return;
-    burger.addEventListener('click', () => document.body.classList.toggle('menu-open'));
+    burger.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      document.body.style.overflow = open ? 'hidden' : '';
+      if (lenis) { open ? lenis.stop() : lenis.start(); }
+    });
   }
 
   /* ---------- Custom cursor + button rings ---------- */
