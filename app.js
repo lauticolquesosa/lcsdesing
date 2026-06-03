@@ -243,34 +243,34 @@
   /* ---------- Case-study modal ---------- */
   const PROJECTS = {
     p1: {
-      cat: 'Diseño Web + UX', title: 'Doña Salta — Landing Page',
-      role: 'Diseñador Web · UX/UI', year: '2025', client: 'Restaurante Doña Salta',
+      cat: 'Diseño Web + UX/UI', title: 'La Vaca — Restaurante',
+      role: 'Diseñador Web · UX/UI', year: '2025', client: 'La Vaca · Salta',
       tools: ['Figma', 'HTML / CSS', 'JavaScript'],
-      problem: 'Uno de los restaurantes más reputados de Salta no tenía presencia web funcional. El turista que buscaba dónde comer no encontraba información clara ni una forma directa de reservar — perdía la reserva frente a competidores con mejor presencia digital.',
-      goal: 'Convertir al turista que busca dónde comer en una reserva real por WhatsApp, con una estética cálida que represente la cocina regional salteña.',
-      steps: [['01','Descubrir','Research de turistas y hábitos de búsqueda local'],['02','Definir','Foco en conversión a reserva por WhatsApp'],['03','Diseñar','Wireframes mobile-first → alta fidelidad en Figma'],['04','Entregar','Desarrollo, optimización de carga y CTA']],
-      result: 'Landing funcional y responsive, con una estética cálida de Salta regional orientada a la conversión. CTA de reserva por WhatsApp presente en cada scroll, jerarquía clara de menú y ubicación.',
-      learn: 'En turismo gastronómico, la fricción mata la reserva: cuanto más corto el camino a WhatsApp, mayor la conversión. El tono visual regional generó confianza inmediata.'
+      problem: 'La Vaca, una propuesta gastronómica de Salta, no tenía una web que estuviera a la altura de su carta ni de su experiencia en salón. El cliente potencial llegaba desde redes y no encontraba menú, ubicación ni una forma directa de reservar.',
+      goal: 'Construir una presencia web con identidad propia que transmita la calidad del lugar y convierta la visita en una reserva por WhatsApp, sin fricción.',
+      steps: [['01','Descubrir','Research del público local y de turismo gastronómico'],['02','Definir','Foco en menú, ambiente y reserva por WhatsApp'],['03','Diseñar','Wireframes mobile-first → alta fidelidad en Figma'],['04','Entregar','Desarrollo responsive, optimización de carga y CTA']],
+      result: 'Sitio en vivo, responsive y con estética cálida y regional. Menú claro, galería del salón y CTA de reserva por WhatsApp presente en todo el scroll.',
+      learn: 'En gastronomía, la foto y la cercanía al botón de reserva mandan: cuanto más corto el camino a WhatsApp, mayor la conversión.'
     },
     p2: {
-      cat: 'UX/UI Design + Diseño Web', title: 'Proyecto UX — en curso',
-      role: 'UX/UI Designer', year: '2026', client: 'Por confirmar',
-      tools: ['Figma', 'Adobe XD'],
-      problem: 'Espacio reservado para el próximo case study de UX/UI. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
-      goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
-      steps: [['01','Descubrir','Entrevistas y análisis de competencia'],['02','Definir','Personas y mapa de empatía'],['03','Diseñar','Flujos y prototipo de alta fidelidad'],['04','Entregar','Testing con usuarios y handoff']],
-      result: 'Placeholder — el resultado visual (flujos, pantallas y prototipo interactivo) se sumará al cerrar el proyecto.',
-      learn: 'Se completará con los aprendizajes reales del testing.'
+      cat: 'Diseño Web', title: 'Frigorífico Brunetti',
+      role: 'Diseñador Web · UX/UI', year: '2025', client: 'Frigorífico Brunetti · Salta',
+      tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      problem: 'Frigorífico Brunetti, empresa de la industria alimentaria de Salta, necesitaba una web institucional que comunicara seriedad, trazabilidad y escala a clientes mayoristas, distinguiéndose de la competencia regional.',
+      goal: 'Posicionar a la empresa como referente confiable del rubro y generar contacto comercial directo con compradores y distribuidores.',
+      steps: [['01','Descubrir','Análisis del rubro y de la audiencia B2B'],['02','Definir','Mensaje central: calidad, trazabilidad y capacidad'],['03','Diseñar','Identidad sobria y estructura institucional en Figma'],['04','Entregar','Desarrollo responsive y vías de contacto comercial']],
+      result: 'Sitio institucional en vivo, sobrio y profesional, con secciones de productos, procesos y contacto comercial directo, optimizado para mobile y desktop.',
+      learn: 'En B2B alimentario, la confianza se diseña: la consistencia visual y la claridad de la información pesan más que cualquier efecto.'
     },
     p3: {
-      cat: 'Diseño Web', title: 'Proyecto Web — en curso',
-      role: 'Diseñador Web', year: '2026', client: 'Por confirmar',
-      tools: ['Figma', 'HTML / CSS', 'JavaScript'],
-      problem: 'Espacio reservado para el próximo proyecto de diseño y desarrollo web. Aquí irá el problema de negocio y la audiencia objetivo.',
-      goal: 'Diseñar y desarrollar un sitio con alto criterio estético, responsive y optimizado.',
-      steps: [['01','Descubrir','Objetivos de negocio y audiencia'],['02','Definir','Estructura y mensaje central'],['03','Diseñar','Diseño de alta fidelidad'],['04','Entregar','Desarrollo y performance']],
-      result: 'Placeholder — mockups y prototipo se sumarán al cerrar el proyecto.',
-      learn: 'Se completará con los aprendizajes del desarrollo.'
+      cat: 'UX/UI Design', title: 'Proyecto UX — en proceso',
+      role: 'UX/UI Designer', year: '2026', client: 'Por confirmar',
+      tools: ['Figma', 'Adobe XD'],
+      problem: 'Espacio reservado para el case study de UX/UI en curso. Aquí irá el desafío real: contexto, usuarios y la métrica que define el éxito.',
+      goal: 'Documentar investigación, arquitectura de información y prototipo de alta fidelidad con foco en una tarea clave del usuario.',
+      steps: [['01','Descubrir','Entrevistas y análisis de competencia'],['02','Definir','Personas y mapa de empatía'],['03','Diseñar','Flujos y prototipo de alta fidelidad'],['04','Entregar','Testing con usuarios y handoff']],
+      result: 'En proceso — los flujos, pantallas y el prototipo interactivo se sumarán al cerrar el proyecto.',
+      learn: 'Se completará con los aprendizajes reales del testing.'
     }
   };
 
@@ -283,7 +283,7 @@
         <div class="modal__cat">${p.cat}</div>
         <h3 class="modal__title">${p.title}</h3>
         <div class="modal__hero">
-          <div class="proj-card__ph" style="position:relative;height:100%"><span>mockup / prototipo</span></div>
+          <div class="pcard__ph"><span>mockup / prototipo</span></div>
         </div>
         <div class="modal__meta">
           <div class="cell"><div class="k">Rol</div><div class="v">${p.role}</div></div>
