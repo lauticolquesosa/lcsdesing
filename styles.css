@@ -205,7 +205,24 @@ body.menu-open .mobile-menu { clip-path: inset(0 0 0 0); pointer-events: auto; }
 body.menu-open .mobile-menu a { opacity: 1; transform: none; }
 .mobile-menu a:hover { color: var(--accent); }
 .mobile-menu a span { color: var(--accent); font-size: .4em; vertical-align: super; margin-right: 10px; font-weight: 600; }
-.mobile-menu .mm-foot { margin-top: 40px; font-size: 13px; color: var(--gray); letter-spacing: .04em; }
+.mm-social { display: flex; gap: 14px; margin-top: 34px; }
+.mm-social__card {
+  width: 56px; height: 56px; border-radius: 16px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--paper);
+  background: color-mix(in srgb, var(--paper) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper) 16%, transparent);
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease),
+              color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+}
+body.menu-open .mm-social__card { opacity: 1; transform: none; }
+.mm-social__card svg { width: 26px; height: 26px; }
+.mobile-menu .mm-foot { margin-top: 28px; font-size: 13px; color: var(--gray); letter-spacing: .04em; }
+@media (hover: hover) {
+  .mm-social__card:hover { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+}
+.mm-social__card:active { transform: scale(.94); }
 @media (max-width: 820px) {
   .nav__links { display: none; }
   .nav__burger { display: block; }
@@ -307,20 +324,26 @@ body.menu-open .mobile-menu a { opacity: 1; transform: none; }
   transform: translateY(102%);
   transition: transform .45s var(--ease);
 }
-.btn:hover { transform: translateY(-3px); }
 .btn:active { transform: translateY(-1px) scale(.98); }
-.btn:hover::before { transform: translateY(0); }
 
 .btn--primary { background: var(--accent); color: #fff; }
 .btn--primary::before { background: color-mix(in srgb, var(--accent) 74%, #000); }
-.btn--primary:hover { box-shadow: 0 16px 34px -14px color-mix(in srgb, var(--accent) 72%, transparent); }
 
 .btn--ghost { border-color: color-mix(in srgb, var(--paper) 40%, transparent); color: var(--paper); }
 .btn--ghost::before { background: var(--paper); }
-.btn--ghost:hover { color: var(--ink); border-color: var(--paper); }
 
 .btn .arr { transition: transform .35s var(--ease); }
-.btn:hover .arr { transform: translate(4px, -4px); }
+
+/* Hover effects ONLY on devices with a real pointer (mouse). On touch the
+   :hover state sticks after a tap — leaving e.g. the ghost button frozen
+   white — so we never define hover there. :active still gives tap feedback. */
+@media (hover: hover) and (pointer: fine) {
+  .btn:hover { transform: translateY(-3px); }
+  .btn:hover::before { transform: translateY(0); }
+  .btn--primary:hover { box-shadow: 0 16px 34px -14px color-mix(in srgb, var(--accent) 72%, transparent); }
+  .btn--ghost:hover { color: var(--ink); border-color: var(--paper); }
+  .btn:hover .arr { transform: translate(4px, -4px); }
+}
 
 /* editorial counter bottom-left */
 .hero__counter {
@@ -684,6 +707,9 @@ html, body { max-width: 100%; }
 
 /* ---- Phones (≤560) ---- */
 @media (max-width: 560px) {
+  /* slightly larger hero title + a touch more breathing room before the CTAs */
+  .hero__title { font-size: clamp(33px, 8.5vw, 42px); }
+  .hero__cta { margin-top: 52px; }
   /* full-width, comfortable tap targets for the hero CTAs */
   .hero__cta { width: 100%; gap: 12px; }
   .hero__cta .btn { flex: 1 1 100%; justify-content: center; padding-block: 16px; }
