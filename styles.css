@@ -260,9 +260,9 @@ body.menu-open .mobile-menu a { opacity: 1; transform: none; }
 }
 
 .hero__title {
-  font-weight: 800; letter-spacing: -0.025em; line-height: 0.98;
-  font-size: clamp(44px, 8.2vw, 132px);
-  max-width: 14ch; text-wrap: balance;
+  font-weight: 800; letter-spacing: -0.025em; line-height: 1.02;
+  font-size: clamp(30px, 5vw, 80px);
+  max-width: 16ch; text-wrap: balance;
 }
 .hero__title em { font-style: normal; color: var(--accent); }
 /* ---- typewriter ---- */
