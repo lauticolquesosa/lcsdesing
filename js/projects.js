@@ -1,151 +1,12 @@
+/* ============================================================
+   LCS — projects.js
+   Case-study data + full-screen modal.
+   Loaded only on the Proyectos page; site.js calls
+   window.__lcsProjects(ctx) during boot.
+   ============================================================ */
 (function () {
   'use strict';
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $  = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
 
-  /* ---------- Smooth scroll (Lenis) + GSAP wiring ---------- */
-  let lenis = null;
-  const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
-
-  function smoothScroll() {
-    if (reduced || typeof window.Lenis === 'undefined') return;
-    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
-    if (hasGsap) {
-      lenis.on('scroll', ScrollTrigger.update);
-      gsap.ticker.add((t) => lenis.raf(t * 1000));
-      gsap.ticker.lagSmoothing(0);
-    } else {
-      const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
-      requestAnimationFrame(raf);
-    }
-    lenis.on('scroll', onScroll);
-  }
-
-  function scrollToEl(target) {
-    const el = typeof target === 'string' ? $(target) : target;
-    if (!el) return;
-    if (lenis) lenis.scrollTo(el, { offset: 0 });
-    else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
-  }
-
-  /* ---------- Progress bar + nav theme ---------- */
-  const progress = $('#progress');
-  const panels = $$('.panel');
-  function onScroll() {
-    const max = document.documentElement.scrollHeight - innerHeight || 1;
-    if (progress) progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, scrollY / max)) + ')';
-    let theme = 'dark';
-    for (const p of panels) {
-      const r = p.getBoundingClientRect();
-      if (r.top <= 72 && r.bottom > 72) theme = p.getAttribute('data-nav') || 'dark';
-    }
-    document.body.classList.toggle('nav-light', theme === 'light');
-  }
-
-  /* ---------- Menu ---------- */
-  function menu() {
-    const burger = $('.burger');
-    if (!burger) return;
-    const setOpen = (open) => {
-      document.body.classList.toggle('menu-open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      document.body.style.overflow = open ? 'hidden' : '';
-      if (lenis) open ? lenis.stop() : lenis.start();
-    };
-    burger.addEventListener('click', () => setOpen(!document.body.classList.contains('menu-open')));
-    $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      if (id.length < 2 || !$(id)) return;
-      e.preventDefault();
-      if (document.body.classList.contains('menu-open')) setOpen(false);
-      scrollToEl(id);
-    }));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-  }
-
-  /* ---------- Scroll animations (GSAP + ScrollTrigger) ---------- */
-  function animations() {
-    if (!hasGsap || reduced) { document.documentElement.classList.remove('js'); return; }
-
-    $$('[data-reveal-title]').forEach(h => {
-      const lines = $$('.ln > span', h);
-      gsap.set(lines, { yPercent: 110 });
-      if (h.getBoundingClientRect().top < window.innerHeight) {
-        gsap.to(lines, { yPercent: 0, duration: 0.9, ease: 'power3.out', stagger: 0.13, delay: 0.25 });
-      } else {
-        gsap.to(lines, {
-          yPercent: 0, duration: 0.8, ease: 'power3.out', stagger: 0.12,
-          scrollTrigger: { trigger: h, start: 'top 84%' }
-        });
-      }
-    });
-
-    $$('[data-reveal-text]').forEach(el => {
-      gsap.to(el, {
-        clipPath: 'inset(0 0 -4% 0)', duration: 1, ease: 'power2.inOut',
-        scrollTrigger: { trigger: el, start: 'top 88%' }
-      });
-    });
-
-    $$('[data-stagger]').forEach(c => {
-      gsap.to($$(':scope > *', c), {
-        autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.12,
-        scrollTrigger: { trigger: c, start: 'top 82%' }
-      });
-    });
-
-    $$('[data-fade-scale]').forEach(el => {
-      gsap.to(el, {
-        autoAlpha: 1, scale: 1, duration: 0.9, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 80%' }
-      });
-    });
-
-    $$('[data-parallax]').forEach(img => {
-      const panel = img.closest('.panel');
-      gsap.fromTo(img, { yPercent: -8 }, {
-        yPercent: 10, ease: 'none',
-        scrollTrigger: { trigger: panel, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    });
-
-    window.addEventListener('load', () => ScrollTrigger.refresh());
-  }
-
-  /* ---------- Bilingual ES | EN ---------- */
-  function i18n() {
-    const KEY = 'lcs-lang';
-    const META = {
-      es: { title: 'LCS — Diseño Web & UX/UI · Lautaro Colque Sosa', desc: 'Lautaro Colque Sosa — Diseñador UX/UI & Web en Salta, Argentina. Diseño web que se siente, UX que funciona.' },
-      en: { title: 'LCS — Web Design & UX/UI · Lautaro Colque Sosa', desc: 'Lautaro Colque Sosa — UX/UI & Web Designer in Salta, Argentina. Web design that feels, UX that works.' }
-    };
-    let lang = localStorage.getItem(KEY);
-    if (lang !== 'es' && lang !== 'en') lang = 'es';
-    function apply(next) {
-      lang = next === 'en' ? 'en' : 'es';
-      window.__lcsLang = lang;
-      try { localStorage.setItem(KEY, lang); } catch (e) {}
-      document.documentElement.lang = lang;
-      $$('[data-es]').forEach(el => {
-        const v = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
-        if (v != null && el.innerHTML !== v) el.innerHTML = v;
-      });
-      $$('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
-      document.title = META[lang].title;
-      const md = $('meta[name="description"]');
-      if (md) md.setAttribute('content', META[lang].desc);
-      if (window.__modalRerender) window.__modalRerender();
-      if (hasGsap && !reduced) ScrollTrigger.refresh();
-    }
-    window.setLang = apply;
-    $$('.lang-btn').forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
-    apply(lang);
-  }
-
-  /* ---------- Case-study modal ---------- */
   const PROJECTS = {
     p1: {
       year: '2025', tools: ['Figma', 'HTML / CSS', 'JavaScript'],
@@ -238,90 +99,87 @@
         learn: 'To be completed with the real learnings from testing.' }
     }
   };
-  const MODAL_L = {
-    es: { role: 'Rol', year: 'Año', client: 'Cliente', tools: 'Herramientas', problem: 'Problema / Desafío', goal: 'Objetivo', process: 'Proceso', result: 'Resultado', learn: 'Aprendizajes clave', stack: 'Stack', mock: 'mockup / prototipo' },
-    en: { role: 'Role', year: 'Year', client: 'Client', tools: 'Tools', problem: 'Problem / Challenge', goal: 'Goal', process: 'Process', result: 'Result', learn: 'Key takeaways', stack: 'Stack', mock: 'mockup / prototype' }
+
+  const L = {
+    es: { role: 'Rol', year: 'Año', client: 'Cliente', tools: 'Herramientas', problem: 'Problema / Desafío', goal: 'Objetivo', process: 'Proceso', result: 'Resultado', learn: 'Aprendizajes clave', stack: 'Stack' },
+    en: { role: 'Role', year: 'Year', client: 'Client', tools: 'Tools', problem: 'Problem / Challenge', goal: 'Goal', process: 'Process', result: 'Result', learn: 'Key takeaways', stack: 'Stack' }
   };
 
-  function modal() {
+  function buildModalShell() {
+    if (document.getElementById('modal')) return;
+    document.body.insertAdjacentHTML('beforeend', `
+      <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Case study">
+        <div class="modal__scrim"></div>
+        <div class="modal__panel" data-lenis-prevent>
+          <button class="modal__close" aria-label="Cerrar">
+            <span data-es="Cerrar" data-en="Close">Cerrar</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="modal__body"></div>
+        </div>
+      </div>`);
+  }
+
+  window.__lcsProjects = function init(ctx) {
+    const { $, $$, getLenis } = ctx;
+    if (!$('[data-project]')) return; // only on Proyectos page
+
+    buildModalShell();
     const m = $('#modal');
-    if (!m) return;
     const panel = $('.modal__body', m);
     let key = null;
+
     function render(k) {
       const base = PROJECTS[k]; if (!base) return;
       const lang = window.__lcsLang === 'en' ? 'en' : 'es';
-      const p = base[lang] || base.es, L = MODAL_L[lang] || MODAL_L.es;
+      const p = base[lang] || base.es, T = L[lang] || L.es;
       panel.innerHTML = `
-        <div class="cs-hero">
-          <span class="cs-hero__label">${p.cat}</span>
-        </div>
+        <div class="cs-hero"><span class="cs-hero__label">${p.cat}</span></div>
         <div class="cs-inner">
           <div class="cs-cat">${p.cat}</div>
           <h2 class="cs-title">${p.title}</h2>
           <div class="cs-meta">
-            <div class="cs-meta__cell"><div class="k">${L.role}</div><div class="v">${p.role}</div></div>
-            <div class="cs-meta__cell"><div class="k">${L.year}</div><div class="v">${base.year}</div></div>
-            <div class="cs-meta__cell"><div class="k">${L.client}</div><div class="v">${p.client}</div></div>
-            <div class="cs-meta__cell"><div class="k">${L.tools}</div><div class="v">${base.tools.join(' · ')}</div></div>
+            <div class="cs-meta__cell"><div class="k">${T.role}</div><div class="v">${p.role}</div></div>
+            <div class="cs-meta__cell"><div class="k">${T.year}</div><div class="v">${base.year}</div></div>
+            <div class="cs-meta__cell"><div class="k">${T.client}</div><div class="v">${p.client}</div></div>
+            <div class="cs-meta__cell"><div class="k">${T.tools}</div><div class="v">${base.tools.join(' · ')}</div></div>
           </div>
           <div class="cs-body">
             <div>
-              <div class="cs-block"><h4>${L.problem}</h4><p>${p.problem}</p></div>
-              <div class="cs-block"><h4>${L.goal}</h4><p>${p.goal}</p></div>
+              <div class="cs-block"><h4>${T.problem}</h4><p>${p.problem}</p></div>
+              <div class="cs-block"><h4>${T.goal}</h4><p>${p.goal}</p></div>
             </div>
             <div>
-              <div class="cs-block"><h4>${L.result}</h4><p>${p.result}</p></div>
-              <div class="cs-block"><h4>${L.learn}</h4><p>${p.learn}</p></div>
+              <div class="cs-block"><h4>${T.result}</h4><p>${p.result}</p></div>
+              <div class="cs-block"><h4>${T.learn}</h4><p>${p.learn}</p></div>
             </div>
           </div>
-          <div class="cs-block"><h4>${L.process}</h4>
-            <div class="cs-steps">
-              ${p.steps.map(s => `<div class="cs-step"><b>${s[0]} ${s[1]}</b><span>${s[2]}</span></div>`).join('')}
-            </div>
+          <div class="cs-block"><h4>${T.process}</h4>
+            <div class="cs-steps">${p.steps.map(s => `<div class="cs-step"><b>${s[0]} ${s[1]}</b><span>${s[2]}</span></div>`).join('')}</div>
           </div>
-          <div class="cs-block"><h4>${L.stack}</h4>
+          <div class="cs-block"><h4>${T.stack}</h4>
             <div class="cs-stack">${base.tools.map(t => `<span class="cs-tag">${t}</span>`).join('')}</div>
           </div>
         </div>`;
     }
-    function open(k) { if (!PROJECTS[k]) return; key = k; render(k); m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; if (lenis) lenis.stop(); }
-    function close() { m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; key = null; if (lenis) lenis.start(); }
+
+    function open(k) {
+      if (!PROJECTS[k]) return;
+      key = k; render(k);
+      m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const lenis = getLenis(); if (lenis) lenis.stop();
+    }
+    function close() {
+      m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = ''; key = null;
+      const lenis = getLenis(); if (lenis) lenis.start();
+    }
+
     window.__modalRerender = () => { if (key && m.classList.contains('open')) render(key); };
     $$('[data-project]').forEach(c => c.addEventListener('click', () => open(c.getAttribute('data-project'))));
     $('.modal__scrim', m).addEventListener('click', close);
     $('.modal__close', m).addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });
-  }
-
-  /* ---------- Custom cursor ---------- */
-  function cursor() {
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-    const dot = $('.cursor-dot');
-    if (!dot) return;
-
-    window.addEventListener('mousemove', e => {
-      dot.style.transform = `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
-    });
-
-    const hov = 'a, button, [data-project], .inv__card, .work__card, input, label, .lang-btn, .corner-logo';
-    document.addEventListener('mouseover', e => {
-      if (e.target.closest(hov)) dot.classList.add('is-hover');
-    });
-    document.addEventListener('mouseout', e => {
-      if (e.target.closest(hov)) dot.classList.remove('is-hover');
-    });
-    document.addEventListener('mousedown', () => dot.classList.add('is-down'));
-    document.addEventListener('mouseup', () => dot.classList.remove('is-down'));
-  }
-
-  /* ---------- Boot ---------- */
-  document.addEventListener('DOMContentLoaded', () => {
-    smoothScroll(); menu(); modal(); i18n(); animations(); cursor();
-    if (location.hash) history.replaceState(null, '', location.pathname);
-    scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('load', () => { scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true }); });
-  });
+  };
 })();

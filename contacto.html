@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contacto — LCS · Diseño Web & UX/UI</title>
+<meta name="description" content="Hablemos de tu proyecto. Contacto directo con Lautaro Colque Sosa: formulario, WhatsApp, email e Instagram. Disponible para nuevos proyectos." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="css/pages.css" />
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body data-page="contacto"
+      data-title-en="Contact — LCS · Web Design & UX/UI"
+      data-desc-en="Let's talk about your project. Direct contact with Lautaro Colque Sosa: form, WhatsApp, email and Instagram. Available for new projects.">
+
+<a id="top" aria-hidden="true"></a>
+<div id="chrome"></div>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <header class="page-hero" data-nav="dark">
+    <span class="page-hero__index" aria-hidden="true">06</span>
+    <div class="shell page-hero__inner">
+      <span class="eyebrow"><i>06</i> <span data-es="Contacto" data-en="Contact">Contacto</span></span>
+      <h1 class="big" data-reveal-title aria-label="Trabajemos juntos." style="margin-top:18px">
+        <span class="ln"><span data-es="Trabajemos" data-en="Let's work">Trabajemos</span></span>
+        <span class="ln"><span data-es="<em>juntos.</em>" data-en="<em>together.</em>"><em>juntos.</em></span></span>
+      </h1>
+      <p class="lead measure" data-reveal-text style="margin-top:26px"
+         data-es="Contame qué tenés en mente. Respondo a todos los mensajes y, si encaja, agendamos una primera charla sin compromiso para definir el alcance."
+         data-en="Tell me what you have in mind. I reply to every message and, if it fits, we schedule a first no-commitment call to define the scope.">Contame qué tenés en mente. Respondo a todos los mensajes y, si encaja, agendamos una primera charla sin compromiso para definir el alcance.</p>
+    </div>
+  </header>
+
+  <!-- ============ FORM + INFO ============ -->
+  <section class="section section--ink" data-nav="dark">
+    <div class="shell">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <form class="form" id="contact-form" novalidate>
+          <span class="eyebrow"><i>—</i> <span data-es="Escribime" data-en="Write to me">Escribime</span></span>
+          <div class="field--row">
+            <div class="field">
+              <label for="cf-name" data-es="Nombre" data-en="Name">Nombre</label>
+              <input id="cf-name" name="name" type="text" required data-ph-es="Tu nombre" data-ph-en="Your name" placeholder="Tu nombre" />
+            </div>
+            <div class="field">
+              <label for="cf-email" data-es="Email" data-en="Email">Email</label>
+              <input id="cf-email" name="email" type="email" required data-ph-es="tu@email.com" data-ph-en="you@email.com" placeholder="tu@email.com" />
+            </div>
+          </div>
+          <div class="field--row">
+            <div class="field">
+              <label for="cf-type" data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</label>
+              <select id="cf-type" name="type">
+                <option data-es="Landing Page" data-en="Landing Page">Landing Page</option>
+                <option data-es="Web Institucional" data-en="Corporate Site">Web Institucional</option>
+                <option data-es="Web Compleja" data-en="Custom Web">Web Compleja</option>
+                <option data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</option>
+                <option data-es="Otro / no estoy seguro" data-en="Other / not sure">Otro / no estoy seguro</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cf-budget" data-es="Presupuesto (USD)" data-en="Budget (USD)">Presupuesto (USD)</label>
+              <select id="cf-budget" name="budget">
+                <option data-es="A definir" data-en="To define">A definir</option>
+                <option>200 – 450</option>
+                <option>450 – 900</option>
+                <option>900+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-msg" data-es="Mensaje" data-en="Message">Mensaje</label>
+            <textarea id="cf-msg" name="message" required data-ph-es="Contame sobre tu proyecto, plazos y objetivos…" data-ph-en="Tell me about your project, timeline and goals…" placeholder="Contame sobre tu proyecto, plazos y objetivos…"></textarea>
+          </div>
+          <button class="btn btn--solid form__submit" type="submit" data-es="Enviar mensaje ↗" data-en="Send message ↗">Enviar mensaje ↗</button>
+          <p class="form__note" data-es="Se abrirá tu cliente de correo con el mensaje listo para enviar. ¿Preferís WhatsApp? Está acá al lado." data-en="Your email client will open with the message ready to send. Prefer WhatsApp? It's right next to this.">Se abrirá tu cliente de correo con el mensaje listo para enviar. ¿Preferís WhatsApp? Está acá al lado.</p>
+        </form>
+
+        <!-- Aside -->
+        <aside class="contact-aside">
+          <span class="avail" data-es="Disponible para nuevos proyectos" data-en="Available for new projects">Disponible para nuevos proyectos</span>
+          <div class="contact-aside__rows">
+            <a class="contact-aside__row" href="mailto:lauticolquesosa@gmail.com"><span class="k">Email</span><span class="v">lauticolquesosa@gmail.com</span></a>
+            <a class="contact-aside__row" href="https://wa.me/543874834041" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+54 387 483 4041</span></a>
+            <a class="contact-aside__row" href="tel:+543874834041"><span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 483 4041</span></a>
+            <a class="contact-aside__row" href="https://instagram.com/lauticolquesosa" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@lauticolquesosa</span></a>
+            <div class="contact-aside__row"><span class="k" data-es="Ubicación" data-en="Location">Ubicación</span><span class="v" data-es="Salta, Argentina · Remoto" data-en="Salta, Argentina · Remote">Salta, Argentina · Remoto</span></div>
+            <div class="contact-aside__row"><span class="k" data-es="Respuesta" data-en="Response">Respuesta</span><span class="v" data-es="Normalmente en 24–48 h" data-en="Usually within 24–48 h">Normalmente en 24–48 h</span></div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section section--paper" data-nav="light">
+    <div class="shell">
+      <div class="sec-head">
+        <span class="eyebrow"><i>—</i> <span data-es="Antes de escribir" data-en="Before you write">Antes de escribir</span></span>
+      </div>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span data-es="¿Qué información te ayuda a cotizar más rápido?" data-en="What info helps you quote faster?">¿Qué información te ayuda a cotizar más rápido?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Contame qué tipo de proyecto es, si ya tenés identidad de marca, cuántas secciones imaginás, tu plazo ideal y un rango de presupuesto. Con eso puedo darte una respuesta concreta enseguida." data-en="Tell me the project type, whether you already have brand identity, how many sections you picture, your ideal timeline and a budget range. With that I can give you a concrete answer right away.">Contame qué tipo de proyecto es, si ya tenés identidad de marca, cuántas secciones imaginás, tu plazo ideal y un rango de presupuesto. Con eso puedo darte una respuesta concreta enseguida.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span data-es="¿Hacés reuniones por videollamada?" data-en="Do you do video calls?">¿Hacés reuniones por videollamada?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Sí. Después del primer contacto coordinamos una videollamada para entender el proyecto a fondo antes de pasar un presupuesto cerrado." data-en="Yes. After the first contact we set up a video call to understand the project in depth before sending a closed quote.">Sí. Después del primer contacto coordinamos una videollamada para entender el proyecto a fondo antes de pasar un presupuesto cerrado.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span data-es="¿En cuánto tiempo respondés?" data-en="How fast do you reply?">¿En cuánto tiempo respondés?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Normalmente dentro de las 24–48 horas hábiles. Si es urgente, WhatsApp es el canal más rápido." data-en="Usually within 24–48 business hours. If it's urgent, WhatsApp is the fastest channel.">Normalmente dentro de las 24–48 horas hábiles. Si es urgente, WhatsApp es el canal más rápido.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="js/site.js"></script>
+<script>
+  /* Contact form → composes a pre-filled email (no backend required) */
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var en = (window.__lcsLang === 'en');
+      var name = form.name.value.trim();
+      var email = form.email.value.trim();
+      var type = form.type.value;
+      var budget = form.budget.value;
+      var message = form.message.value.trim();
+      if (!name || !email || !message) {
+        form.reportValidity();
+        return;
+      }
+      var subject = (en ? 'New project — ' : 'Nuevo proyecto — ') + name + ' (' + type + ')';
+      var bodyLines = [
+        (en ? 'Name: ' : 'Nombre: ') + name,
+        'Email: ' + email,
+        (en ? 'Project type: ' : 'Tipo de proyecto: ') + type,
+        (en ? 'Budget: ' : 'Presupuesto: ') + budget,
+        '',
+        (en ? 'Message:' : 'Mensaje:'),
+        message
+      ];
+      var href = 'mailto:lauticolquesosa@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+      window.location.href = href;
+    });
+  })();
+</script>
+</body>
+</html>
