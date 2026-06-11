@@ -273,6 +273,27 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .modal__tools .t { font-size: 12.5px; padding: 7px 13px; border: 1px solid var(--line-d); }
 
 /* ============================================================
+   INVERSIÓN
+   ============================================================ */
+.inv { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2.5vw, 40px); margin-top: clamp(28px, 4vh, 50px); }
+.inv__card { position: relative; padding: 28px 24px 24px; border: 1.5px solid rgba(247,246,243,.15); display: flex; flex-direction: column; gap: 0; transition: border-color .3s var(--ease); }
+.inv__card:hover { border-color: rgba(247,246,243,.4); }
+.inv__card--highlight { border-color: var(--accent); }
+.inv__card--highlight:hover { border-color: var(--accent); }
+.inv__no { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .12em; opacity: .5; }
+.inv__name { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2.6vw, 36px); letter-spacing: -.02em; line-height: 1; margin: 14px 0 18px; }
+.inv__card--highlight .inv__name { color: var(--accent); }
+.inv__price { font-size: 13px; font-weight: 400; letter-spacing: .04em; color: color-mix(in srgb, var(--cream) 65%, transparent); margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid rgba(247,246,243,.12); }
+.inv__price strong { font-family: var(--display); font-size: clamp(26px, 3vw, 40px); font-weight: 700; letter-spacing: -.03em; color: var(--cream); display: block; margin-top: 4px; }
+.inv__list { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 28px; }
+.inv__list li { font-size: clamp(13px, 1.2vw, 15px); font-weight: 300; line-height: 1.4; color: color-mix(in srgb, var(--cream) 75%, transparent); padding-left: 14px; position: relative; }
+.inv__list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; }
+.inv__cta { display: inline-flex; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid rgba(247,246,243,.3); padding-bottom: 3px; transition: color .25s, border-color .25s; }
+.inv__cta:hover { color: var(--accent); border-color: var(--accent); }
+.inv__quote { display: inline-flex; margin-top: clamp(36px, 5vh, 60px); font-family: var(--display); font-size: clamp(18px, 2.2vw, 30px); font-weight: 700; letter-spacing: -.02em; color: var(--cream); border-bottom: 2px solid var(--accent); padding-bottom: 4px; transition: color .3s var(--ease); }
+.inv__quote:hover { color: var(--accent); }
+
+/* ============================================================
    JS-DRIVEN INITIAL STATES (avoid flash; no-JS shows everything)
    ============================================================ */
 .js .big .ln > span { transform: translateY(110%); }
@@ -297,6 +318,7 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 @media (max-width: 1100px) {
   .proc { grid-template-columns: repeat(2, 1fr); }
   .work { grid-template-columns: 1fr 1fr; }
+  .inv { grid-template-columns: 1fr; }
 }
 @media (max-width: 860px) {
   /* mobile: drop sticky stacking → natural vertical scroll */
