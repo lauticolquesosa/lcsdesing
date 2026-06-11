@@ -140,6 +140,12 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .panel__media--cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.82)); }
 
 /* ---------- HERO (split) ---------- */
+.hero-logo {
+  width: 54px; height: 54px; display: grid; place-content: center; line-height: .82;
+  border: 2px solid currentColor;
+  font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: .02em; text-align: center;
+}
+.hero-logo span { display: block; }
 .panel--hero { background: var(--ink); }
 .panel--hero .panel__fill {
   position: relative; z-index: 2; width: 52%; background: var(--green); color: var(--cream);
