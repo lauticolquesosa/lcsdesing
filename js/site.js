@@ -117,7 +117,12 @@
 
   function smoothScroll() {
     if (reduced || typeof window.Lenis === 'undefined') return;
-    lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    lenis = new Lenis({
+      lerp: 0.12,            // snappier catch-up (less floaty lag)
+      wheelMultiplier: 1.1,  // a touch more travel per wheel notch
+      smoothWheel: true,
+      syncTouch: false,      // native momentum on touch = always 60fps
+    });
     window.__lenis = lenis;
     if (hasGsap) {
       lenis.on('scroll', ScrollTrigger.update);
@@ -136,17 +141,27 @@
     else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 
-  /* ---------- Progress bar + nav theme ---------- */
-  let progress, themed;
-  function onScroll() {
+  /* ---------- Progress bar + nav theme (rAF-throttled) ---------- */
+  let progress, themed = [], scrollTicking = false, lastLight = null;
+  function readScroll() {
+    scrollTicking = false;
     const max = document.documentElement.scrollHeight - innerHeight || 1;
     if (progress) progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, scrollY / max)) + ')';
     let theme = 'dark';
-    for (const el of themed) {
-      const r = el.getBoundingClientRect();
-      if (r.top <= 72 && r.bottom > 72) theme = el.getAttribute('data-nav') || 'dark';
+    for (let i = 0; i < themed.length; i++) {
+      const r = themed[i].el.getBoundingClientRect();
+      if (r.top <= 72 && r.bottom > 72) theme = themed[i].nav;
     }
-    document.body.classList.toggle('nav-light', theme === 'light');
+    const light = theme === 'light';
+    if (light !== lastLight) {            // only touch the DOM when it actually changes
+      lastLight = light;
+      document.body.classList.toggle('nav-light', light);
+    }
+  }
+  function onScroll() {
+    if (scrollTicking) return;            // coalesce multiple events into one frame
+    scrollTicking = true;
+    requestAnimationFrame(readScroll);
   }
 
   /* ---------- Menu ---------- */
@@ -267,7 +282,7 @@
     footer();
 
     progress = $('#progress');
-    themed = $$('[data-nav]');
+    themed = $$('[data-nav]').map(el => ({ el, nav: el.getAttribute('data-nav') || 'dark' }));
 
     smoothScroll();
     menu();
