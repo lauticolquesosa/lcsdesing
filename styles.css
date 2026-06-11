@@ -140,16 +140,10 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .panel__media--cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,.55), rgba(10,10,10,.82)); }
 
 /* ---------- HERO (split) ---------- */
-.hero-logo {
-  width: 54px; height: 54px; display: grid; place-content: center; line-height: .82;
-  border: 2px solid currentColor;
-  font-family: var(--display); font-weight: 700; font-size: 16px; letter-spacing: .02em; text-align: center;
-}
-.hero-logo span { display: block; }
 .panel--hero { background: var(--ink); }
 .panel--hero .panel__fill {
   position: relative; z-index: 2; width: 52%; background: var(--green); color: var(--cream);
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(96px, 13vh, 170px) clamp(28px, 4vw, 64px) clamp(40px, 6vh, 72px);
 }
 .panel--hero .panel__media { left: 52%; }
@@ -165,7 +159,6 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
   font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em;
   font-size: clamp(52px, 11vw, 184px);
 }
-.hero-title { font-size: clamp(26px, 4.2vw, 64px); white-space: nowrap; }
 .big .ln { display: block; overflow: hidden; padding-block: .015em; }
 .big .ln > span { display: block; }
 .big em { font-style: normal; color: var(--accent); }
@@ -276,15 +269,6 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
    JS-DRIVEN INITIAL STATES (avoid flash; no-JS shows everything)
    ============================================================ */
 .js .big .ln > span { transform: translateY(110%); }
-.js .hero-title .ln > span {
-  transform: none;
-  animation: heroLineReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-.js .hero-title .ln:nth-child(1) > span { animation-delay: 0.2s; }
-.js .hero-title .ln:nth-child(2) > span { animation-delay: 0.36s; }
-.js .hero-title .ln:nth-child(3) > span { animation-delay: 0.52s; }
-@keyframes heroLineReveal { from { transform: translateY(110%); } to { transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) { .hero-title .ln > span { animation: none !important; } }
 .js [data-reveal-text] { clip-path: inset(0 0 100% 0); }
 .js [data-stagger] > * { opacity: 0; transform: translateY(40px); }
 .js [data-fade-scale] { opacity: 0; transform: scale(.95); }
