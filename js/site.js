@@ -83,7 +83,7 @@
         <div class="shell">
           <div class="site-footer__top">
             <div class="site-footer__brand">
-              <div class="big-mark">LCS</div>
+              <a href="index.html" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/Logo%20header.png" alt="LCS — Lautaro Colque Sosa" /></a>
               <p data-es="Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
                  data-en="Web &amp; UX/UI design with its own identity. From concept to live site, from Salta to everywhere.">Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>

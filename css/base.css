@@ -277,7 +277,8 @@ h2.title em { font-style: normal; color: var(--accent); }
   padding-block: clamp(56px, 8vh, 110px) clamp(28px, 4vh, 44px);
 }
 .site-footer__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
-.site-footer__brand .big-mark { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 6vw, 84px); letter-spacing: -.04em; line-height: .9; }
+.site-footer__logo { display: inline-block; width: clamp(150px, 19vw, 220px); }
+.site-footer__logo img { width: 100%; height: auto; }
 .site-footer__brand p { margin-top: 18px; font-size: 14px; font-weight: 300; line-height: 1.6; color: color-mix(in srgb, var(--cream) 62%, transparent); max-width: 34ch; }
 .site-footer__col h4 { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
 .site-footer__col ul { display: flex; flex-direction: column; gap: 11px; }
