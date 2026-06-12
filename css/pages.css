@@ -190,6 +190,19 @@
 .studio__row p { margin-top: 12px; font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, var(--paper) 60%, transparent); max-width: 52ch; transition: color .35s var(--ease); }
 .studio__row:hover p { color: color-mix(in srgb, var(--paper) 88%, transparent); }
 
+/* Manifesto + Studio on the green (accent) background */
+.section--accent .manifesto__text em { color: var(--ink); }
+.section--accent .studio__meta { color: var(--ink); }
+.section--accent .studio__title em { color: var(--ink); }
+.section--accent .studio__list,
+.section--accent .studio__row { border-color: var(--line); }
+.section--accent .studio__row::after { background: var(--ink); }
+.section--accent .studio__row h3 { color: var(--cream); }
+.section--accent .studio__row:hover h3 { color: var(--ink); }
+.section--accent .studio__n { color: color-mix(in srgb, var(--ink) 55%, transparent); }
+.section--accent .studio__row p { color: color-mix(in srgb, var(--cream) 80%, transparent); }
+.section--accent .studio__row:hover p { color: var(--cream); }
+
 /* ---------- Selected work — infinite carousel ---------- */
 .work-marquee {
   margin-top: clamp(28px, 4vh, 52px); overflow: hidden;
