@@ -104,7 +104,7 @@
           <div class="site-footer__bottom">
             <span data-es="© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI"
                   data-en="© 2026 Lautaro Colque Sosa — LCS · Web Design &amp; UX/UI">© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI</span>
-            <a href="#top" data-es="Volver arriba ↑" data-en="Back to top ↑">Volver arriba ↑</a>
+            <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
           </div>
         </div>
       </footer>`;

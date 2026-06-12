@@ -26,6 +26,12 @@
   --ease:    cubic-bezier(0.16, 1, 0.3, 1);
 
   --section-pad: clamp(72px, 11vh, 150px);
+
+  /* Inline SVG icons (used as CSS masks, tinted with currentColor) */
+  --ico-arrow: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='black'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M7%2017%2017%207'/%3E%3Cpath%20d='M8%207h9v9'/%3E%3C/svg%3E");
+  --ico-up: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='black'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M12%2019V5'/%3E%3Cpath%20d='M5%2012l7-7%207%207'/%3E%3C/svg%3E");
+  --ico-east: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='black'%20stroke-width='2.4'%20stroke-linecap='round'%20stroke-linejoin='round'%3E%3Cpath%20d='M5%2012h14'/%3E%3Cpath%20d='M13%205l7%207-7%207'/%3E%3C/svg%3E");
+  --ico-star: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2024%2024'%20fill='none'%20stroke='black'%20stroke-width='2.2'%20stroke-linecap='round'%3E%3Cpath%20d='M12%203v18'/%3E%3Cpath%20d='M4.2%207.5l15.6%209'/%3E%3Cpath%20d='M19.8%207.5l-15.6%209'/%3E%3C/svg%3E");
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -244,12 +250,26 @@ h2.title em { font-style: normal; color: var(--accent); }
 .section--accent .btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 
 .link-arrow {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: inline-flex; align-items: center; gap: .45em;
   font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-  color: var(--accent); transition: gap .3s var(--ease), color .25s;
+  color: var(--accent); transition: color .25s;
 }
-.link-arrow:hover { gap: 14px; }
 .section--accent .link-arrow { color: var(--ink); }
+
+/* Icon affordances (SVG masks tinted with currentColor) */
+.ico-arrow, .ico-up { display: inline-flex; align-items: center; gap: .45em; }
+.link-arrow::after,
+.ico-arrow::after,
+.ico-up::after {
+  content: ""; flex: none; width: 1em; height: 1em; background: currentColor;
+  -webkit-mask: var(--ico-arrow) center / contain no-repeat;
+          mask: var(--ico-arrow) center / contain no-repeat;
+  transition: transform .3s var(--ease);
+}
+.ico-up::after { -webkit-mask-image: var(--ico-up); mask-image: var(--ico-up); }
+.link-arrow:hover::after,
+.ico-arrow:hover::after { transform: translate(3px, -3px); }
+.ico-up:hover::after { transform: translateY(-3px); }
 
 /* Generic key/value meta grid */
 .meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 36px); }
