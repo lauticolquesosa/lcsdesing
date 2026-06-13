@@ -40,7 +40,8 @@
       .map(n => `<li><a href="${n.href}"${current(n.key)}><i>${n.num}</i><span data-es="${n.es}" data-en="${n.en}">${n.es}</span></a></li>`)
       .join('');
 
-    const footerNav = NAV
+    const headerLinks = NAV
+      .filter(n => n.key !== 'home')
       .map(n => `<li><a href="${n.href}"${current(n.key)} data-es="${n.es}" data-en="${n.en}">${n.es}</a></li>`)
       .join('');
 
@@ -48,15 +49,24 @@
       <div id="progress" aria-hidden="true"></div>
       <div class="cursor-dot" aria-hidden="true"></div>
 
-      <button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
-
-      <div class="lang-toggle" role="group" aria-label="Idioma / Language">
-        <button class="lang-btn active" type="button" data-lang="es">ES</button>
-        <span class="lang-sep" aria-hidden="true">/</span>
-        <button class="lang-btn" type="button" data-lang="en">EN</button>
-      </div>
-
-      <a class="corner-logo" href="/" aria-label="LCS — Inicio"><img src="assets/logo-isotipo-white.png" alt="LCS" /></a>
+      <header class="site-header" id="site-header">
+        <div class="shell site-header__inner">
+          <a class="site-header__logo" href="/" aria-label="LCS — Inicio">
+            <img src="assets/logo-isotipo-white.png" alt="LCS" />
+          </a>
+          <nav class="site-header__nav" aria-label="Navegación principal">
+            <ul>${headerLinks}</ul>
+          </nav>
+          <div class="site-header__end">
+            <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+              <button class="lang-btn active" type="button" data-lang="es">ES</button>
+              <span class="lang-sep" aria-hidden="true">/</span>
+              <button class="lang-btn" type="button" data-lang="en">EN</button>
+            </div>
+            <button class="burger" aria-label="Menú" aria-expanded="false"><span></span><span></span></button>
+          </div>
+        </div>
+      </header>
 
       <nav class="menu" aria-hidden="true">
         <ul class="menu__links">${menuLinks}</ul>
@@ -127,11 +137,12 @@
   }
 
   /* ---------- Progress bar + nav theme (rAF-throttled) ---------- */
-  let progress, themed = [], scrollTicking = false, lastLight = null, lastAccent = null;
+  let progress, siteHeader, themed = [], scrollTicking = false, lastLight = null, lastAccent = null;
   function readScroll() {
     scrollTicking = false;
     const max = document.documentElement.scrollHeight - innerHeight || 1;
     if (progress) progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, scrollY / max)) + ')';
+    if (siteHeader) siteHeader.classList.toggle('scrolled', scrollY > 60);
     let theme = 'dark';
     for (let i = 0; i < themed.length; i++) {
       const r = themed[i].el.getBoundingClientRect();
@@ -260,7 +271,7 @@
     window.addEventListener('mousemove', e => {
       dot.style.transform = `translate(${e.clientX}px,${e.clientY}px) translate(-50%,-50%)`;
     });
-    const hov = 'a, button, [data-project], .card-hover, input, label, textarea, .lang-btn, .corner-logo';
+    const hov = 'a, button, [data-project], .card-hover, input, label, textarea, .lang-btn';
     document.addEventListener('mouseover', e => { if (e.target.closest(hov)) dot.classList.add('is-hover'); });
     document.addEventListener('mouseout',  e => { if (e.target.closest(hov)) dot.classList.remove('is-hover'); });
     document.addEventListener('mousedown', () => dot.classList.add('is-down'));
@@ -273,6 +284,7 @@
     footer();
 
     progress = $('#progress');
+    siteHeader = $('#site-header');
     themed = $$('[data-nav]').map(el => ({ el, nav: el.getAttribute('data-nav') || 'dark' }));
 
     menu();
