@@ -41,7 +41,6 @@
       .join('');
 
     const headerLinks = NAV
-      .filter(n => n.key !== 'home')
       .map(n => `<li><a href="${n.href}"${current(n.key)} data-es="${n.es}" data-en="${n.en}">${n.es}</a></li>`)
       .join('');
 
