@@ -157,14 +157,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .site-header__nav ul { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 28px); }
 .site-header__nav a {
   font-size: 14px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  color: rgba(247,246,243,.6); transition: color .25s var(--ease);
+  color: var(--cream); transition: color .25s var(--ease);
 }
-.site-header__nav a:hover { color: var(--cream); }
+.site-header__nav a:hover { color: var(--accent); }
 .site-header__nav a[aria-current="page"] { color: var(--accent); }
 .site-header__end { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
 
-body.nav-light .site-header:not(.scrolled) .site-header__nav a { color: rgba(10,10,10,.45); }
-body.nav-light .site-header:not(.scrolled) .site-header__nav a:hover { color: var(--ink); }
 body.nav-light .site-header:not(.scrolled) .site-header__logo img { filter: invert(1); }
 
 .burger {
