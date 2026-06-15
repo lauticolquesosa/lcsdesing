@@ -283,6 +283,8 @@ h2.title em { font-style: normal; color: var(--accent); }
 .section--accent .btn--ghost:hover { background: var(--cream); border-color: var(--cream); color: var(--green); }
 .section--paper .btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 .section--paper .btn--solid:hover  { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.home-hero .btn--ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+.home-hero .btn--solid:hover  { background: var(--ink); border-color: var(--ink); color: var(--cream); }
 
 .link-arrow {
   display: inline-flex; align-items: center; gap: .45em;
