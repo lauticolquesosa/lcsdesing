@@ -185,12 +185,12 @@
 .wm-track { display: inline-flex; gap: clamp(16px, 1.6vw, 28px); will-change: transform; animation: marquee 48s linear infinite; }
 .wm-card { flex: 0 0 auto; width: clamp(280px, 33vw, 440px); }
 .wm-card__shot {
-  position: relative; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--line);
+  position: relative; aspect-ratio: 16 / 11; overflow: hidden; border: 1px solid var(--line);
   display: grid; place-items: center;
   background: radial-gradient(120% 90% at 80% 12%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 58%), linear-gradient(160deg, #0e211b, #060c0a 72%);
 }
 .wm-card__shot--wip { background: linear-gradient(160deg, #1b1b1a, #0c0c0b 72%); }
-.wm-card__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wm-card__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .wm-card__ph { font-family: var(--display); font-size: clamp(20px, 2.6vw, 34px); font-weight: 600; letter-spacing: -.02em; color: rgba(247,246,243,.32); text-transform: lowercase; transition: color .4s var(--ease), transform .6s var(--ease); }
 .wm-card:hover .wm-card__ph { color: rgba(247,246,243,.55); transform: scale(1.04); }
 .wm-card__badge { position: absolute; top: 14px; right: 14px; font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid; }
