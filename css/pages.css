@@ -516,7 +516,8 @@
   font-size: .58rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(10,10,10,.45);
+  color: var(--ink);
+  font-weight: 600;
   background: #e7e1d3;
   border-top: 1px solid var(--line-d);
 }
