@@ -137,7 +137,7 @@
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
           mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
 }
-.home-hero__media img { position: absolute; inset: -15% 0; width: 100%; height: 130%; object-fit: cover; object-position: 60% center; will-change: transform; }
+.home-hero__media img { position: absolute; inset: -15% 0; width: 100%; height: 130%; object-fit: cover; object-position: 100% center; will-change: transform; }
 .home-hero__media::after {
   content: ""; position: absolute; inset: 0;
   background:
