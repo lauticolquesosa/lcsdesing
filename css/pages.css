@@ -111,6 +111,13 @@
   padding: clamp(120px, 16vh, 200px) var(--gutter) clamp(48px, 8vh, 90px);
   transform: translate(8cm, -2cm);
 }
+.home-hero__logo {
+  position: absolute; z-index: 1; top: 50%;
+  right: clamp(28px, 6vw, 120px);
+  transform: translateY(-50%);
+  width: clamp(200px, 26vw, 400px);
+}
+.home-hero__logo img { display: block; width: 100%; height: auto; }
 .hero-eyebrow {
   align-self: flex-start;
   font-family: var(--display); font-size: 13px; font-weight: 600;
@@ -551,6 +558,11 @@
     padding-left: var(--gutter); padding-right: var(--gutter);
     padding-top: clamp(40px, 8vh, 80px);
     transform: none;
+  }
+  .home-hero__logo {
+    position: static; transform: none; align-self: center;
+    width: clamp(160px, 44vw, 240px);
+    margin: clamp(80px, 12vh, 120px) auto 0;
   }
   .split, .split--reverse > :first-child { grid-template-columns: 1fr; }
   .split--reverse > :first-child { order: 0; }
