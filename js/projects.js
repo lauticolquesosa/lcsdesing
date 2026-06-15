@@ -133,11 +133,11 @@
       const base = PROJECTS[k]; if (!base) return;
       const lang = window.__lcsLang === 'en' ? 'en' : 'es';
       const p = base[lang] || base.es, T = L[lang] || L.es;
-      const hint = lang === 'en' ? '↕ Scroll to explore the full website' : '↕ Scrolleá para ver la web completa';
+      const hint = lang === 'en' ? '↕ Scroll · click to visit the live site ↗' : '↕ Scrolleá · clic para visitar el sitio real ↗';
       const shots = (base.full || []).map(f =>
         `<img src="assets/${f}" alt="${p.title} — preview" loading="lazy" onerror="this.remove()">`).join('');
       const preview = `
-        <div class="modal-preview">
+        <a class="modal-preview" href="https://${base.url}" target="_blank" rel="noopener noreferrer" aria-label="${lang === 'en' ? 'Visit live site' : 'Visitar sitio real'}: ${base.url}">
           <div class="modal-preview__bar">
             <span class="modal-preview__dot modal-preview__dot--red"></span>
             <span class="modal-preview__dot modal-preview__dot--yellow"></span>
@@ -146,7 +146,7 @@
           </div>
           <div class="modal-preview__screen" data-empty="${lang === 'en' ? 'Screenshot coming soon' : 'Screenshot pendiente'}">${shots}</div>
           <div class="modal-preview__hint">${hint}</div>
-        </div>`;
+        </a>`;
       panel.innerHTML = `
         <div class="cs-inner">
           ${preview}
