@@ -18,7 +18,7 @@
   /* ---------- Navigation model (single source of truth) ---------- */
   const NAV = [
     { key: 'home',      href: '/',           num: '01', es: 'Inicio',    en: 'Home' },
-    { key: 'sobre',     href: 'sobre',       num: '02', es: 'Sobre mí',  en: 'About' },
+    { key: 'sobre',     href: 'sobre',       num: '02', es: 'Identidad',  en: 'Identity' },
     { key: 'servicios', href: 'servicios',   num: '03', es: 'Servicios', en: 'Services' },
     { key: 'proceso',   href: 'proceso',     num: '04', es: 'Proceso',   en: 'Process' },
     { key: 'proyectos', href: 'proyectos',   num: '05', es: 'Proyectos', en: 'Work' },
@@ -93,8 +93,8 @@
           <div class="site-footer__top">
             <div class="site-footer__brand">
               <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="160" height="75" loading="lazy" decoding="async" /></a>
-              <p data-es="Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
-                 data-en="Web &amp; UX/UI design with its own identity. From concept to live site, from Salta to everywhere.">Diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
+              <p data-es="LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
+                 data-en="LCS is a web &amp; UX/UI design studio with its own identity. From concept to live site, from Salta to everywhere.">LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>
             <nav class="site-footer__col" aria-label="Footer">
               <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
@@ -111,8 +111,8 @@
             </div>
           </div>
           <div class="site-footer__bottom">
-            <span data-es="© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI"
-                  data-en="© 2026 Lautaro Colque Sosa — LCS · Web Design &amp; UX/UI">© 2026 Lautaro Colque Sosa — LCS · Diseño Web &amp; UX/UI</span>
+            <span data-es="© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina"
+                  data-en="© 2026 LCS · Web Design &amp; UX/UI Studio · Salta, Argentina">© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina</span>
             <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
           </div>
         </div>
