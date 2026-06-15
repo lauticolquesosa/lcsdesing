@@ -113,9 +113,9 @@
 }
 .home-hero__logo {
   position: absolute; z-index: 1; top: 50%;
-  right: clamp(28px, 6vw, 120px);
+  right: clamp(24px, 5vw, 100px);
   transform: translateY(-50%);
-  width: clamp(200px, 26vw, 400px);
+  width: clamp(300px, 38vw, 560px);
 }
 .home-hero__logo img { display: block; width: 100%; height: auto; }
 .hero-eyebrow {
@@ -561,7 +561,7 @@
   }
   .home-hero__logo {
     position: static; transform: none; align-self: center;
-    width: clamp(160px, 44vw, 240px);
+    width: clamp(200px, 56vw, 320px);
     margin: clamp(80px, 12vh, 120px) auto 0;
   }
   .split, .split--reverse > :first-child { grid-template-columns: 1fr; }
