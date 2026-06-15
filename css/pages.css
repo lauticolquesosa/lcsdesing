@@ -134,6 +134,7 @@
 
 .home-hero__media {
   position: absolute; inset: 0; left: 40%; z-index: 1; overflow: hidden;
+  transform: translateX(5cm);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
           mask-image: linear-gradient(90deg, transparent 0%, #000 32%);
 }
@@ -568,6 +569,7 @@
   }
   .home-hero__media {
     position: relative; left: 0; inset: auto; height: 64vw; min-height: 260px; max-height: 440px;
+    transform: none;
     -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 38%);
             mask-image: linear-gradient(0deg, transparent 0%, #000 38%);
   }
