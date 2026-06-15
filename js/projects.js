@@ -9,7 +9,7 @@
 
   const PROJECTS = {
     p1: {
-      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Restaurante', role: 'Diseñador Web · UX/UI', client: 'La Vaca · Salta',
         problem: 'La Vaca, una propuesta gastronómica de Salta, no tenía una web que estuviera a la altura de su carta ni de su experiencia en salón. El cliente potencial llegaba desde redes y no encontraba menú, ubicación ni una forma directa de reservar.',
         goal: 'Construir una presencia web con identidad propia que transmita la calidad del lugar y convierta la visita en una reserva por WhatsApp, sin fricción.',
