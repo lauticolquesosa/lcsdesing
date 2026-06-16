@@ -50,7 +50,7 @@
 .section--accent .steps { background: rgba(247,246,243,.25); border-color: rgba(247,246,243,.25); }
 .section--accent .step { background: var(--green); }
 .step__no { font-family: var(--display); font-size: clamp(34px, 4vw, 60px); font-weight: 700; color: var(--accent); line-height: 1; letter-spacing: -.04em; }
-.section--accent .step__no { color: var(--ink); }
+.section--accent .step__no { color: #fff; }
 .step h3 { font-family: var(--display); font-weight: 600; font-size: clamp(18px, 2vw, 26px); margin-top: auto; letter-spacing: -.01em; }
 .step p { font-size: 13.5px; font-weight: 300; line-height: 1.5; color: color-mix(in srgb, currentColor 66%, transparent); }
 .step__line { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--accent); transition: width .6s var(--ease); }
@@ -153,7 +153,7 @@
 .ov-head { display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 4vw, 64px); align-items: end; margin-bottom: clamp(32px, 4.5vh, 56px); }
 .ov-head__title { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 62px); letter-spacing: -.03em; line-height: .98; }
 .ov-head__title em { font-style: normal; color: var(--accent); }
-.section--accent .ov-head__title em { color: var(--ink); }
+.section--accent .ov-head__title em { color: #fff; }
 .ov-head__aside { display: flex; flex-direction: column; gap: 16px; }
 
 /* ============================================================
@@ -230,18 +230,18 @@
 .flow__step:hover p { color: color-mix(in srgb, var(--cream) 90%, transparent); }
 
 /* ---------- Studio + Flow on green (accent) sections ---------- */
-.section--accent .studio__meta { color: var(--ink); }
-.section--accent .studio__title em { color: var(--ink); }
+.section--accent .studio__meta { color: #fff; }
+.section--accent .studio__title em { color: #fff; }
 .section--accent .studio__list { border-top-color: rgba(247,246,243,.28); }
 .section--accent .studio__row { border-bottom-color: rgba(247,246,243,.28); }
-.section--accent .studio__row::after { background: var(--ink); }
-.section--accent .studio__row:hover h3 { color: var(--ink); }
+.section--accent .studio__row::after { background: #fff; }
+.section--accent .studio__row:hover h3 { color: #fff; }
 .section--accent .studio__n { color: color-mix(in srgb, var(--cream) 62%, transparent); }
 .section--accent .studio__row p { color: color-mix(in srgb, var(--cream) 78%, transparent); }
 .section--accent .studio__row:hover p { color: var(--cream); }
 .section--accent .flow__rail { background: rgba(247,246,243,.28); }
-.section--accent .flow__progress { background: var(--ink); }
-.section--accent .flow__step .n { color: var(--ink); }
+.section--accent .flow__progress { background: #fff; }
+.section--accent .flow__step .n { color: #fff; }
 .section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 
 /* ---------- Magnetic ---------- */
@@ -262,12 +262,12 @@
   transition: padding-left .4s var(--ease);
 }
 .cta-link:last-child { border-bottom: 1px solid rgba(247,246,243,.32); }
-.cta-link::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--ink); transform: scaleY(0); transform-origin: top; transition: transform .4s var(--ease); }
+.cta-link::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: #fff; transform: scaleY(0); transform-origin: top; transition: transform .4s var(--ease); }
 .cta-link:hover { padding-left: 16px; }
 .cta-link:hover::after { transform: scaleY(1); }
-.cta-link .k { flex: none; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink); }
+.cta-link .k { flex: none; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #fff; }
 .cta-link .v { flex: 1; text-align: right; font-family: var(--display); font-weight: 500; font-size: clamp(15px, 1.6vw, 21px); letter-spacing: -.01em; color: var(--cream); }
-.cta-link .ar { flex: none; color: var(--ink); transition: transform .4s var(--ease); }
+.cta-link .ar { flex: none; color: #fff; transition: transform .4s var(--ease); }
 .cta-link:hover .ar { transform: translate(4px, -4px); }
 
 .cta-marquee { margin-top: clamp(46px, 7vh, 88px); overflow: hidden; border-top: 1px solid rgba(247,246,243,.28); padding-top: clamp(22px, 3vh, 38px); }
@@ -414,8 +414,8 @@
 
 /* Contact rows used on home contact CTA */
 .contact__rows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(247,246,243,.22); border: 1px solid rgba(247,246,243,.22); }
-.contact__row { background: var(--green); display: flex; flex-direction: column; gap: 4px; padding: clamp(16px, 1.8vw, 24px); transition: background .3s var(--ease); }
-.contact__row .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(10,10,10,.7); }
+.contact__row { background: var(--green); color: var(--cream); display: flex; flex-direction: column; gap: 4px; padding: clamp(16px, 1.8vw, 24px); transition: background .3s var(--ease); }
+.contact__row .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.72); }
 .contact__row .v { font-size: clamp(15px, 1.5vw, 19px); font-weight: 400; }
 .contact__row:hover { background: var(--green-d); }
 
