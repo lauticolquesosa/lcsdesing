@@ -589,7 +589,7 @@
     width: 100%; min-height: auto; justify-content: flex-end;
     padding-left: var(--gutter); padding-right: var(--gutter);
     padding-top: calc(clamp(56px, 8vh, 72px) + 1.2cm);
-    padding-bottom: clamp(36px, 6vh, 64px);
+    padding-bottom: clamp(58px, 9vh, 92px);
     transform: none;
   }
   .home-hero__logo {
