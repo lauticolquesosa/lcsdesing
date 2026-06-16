@@ -245,6 +245,17 @@
 .section--accent .wm-card__meta span { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 .section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 
+/* ---------- Flow + CTA links on light (paper) sections ---------- */
+.section--paper .flow__rail { background: var(--line-d); }
+.section--paper .flow__step p { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.section--paper .flow__step:hover p { color: var(--paper); }
+.section--paper .cta-link { border-top-color: var(--line-d); }
+.section--paper .cta-link:last-child { border-bottom-color: var(--line-d); }
+.section--paper .cta-link::after { background: var(--accent); }
+.section--paper .cta-link .k { color: color-mix(in srgb, var(--paper) 62%, transparent); }
+.section--paper .cta-link .v { color: var(--paper); }
+.section--paper .cta-link .ar { color: var(--paper); }
+
 /* ---------- Magnetic ---------- */
 .magnetic { will-change: transform; }
 
