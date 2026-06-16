@@ -586,9 +586,10 @@
   .hero-mbrk { display: inline; }
   .home-hero { flex-direction: column; min-height: auto; }
   .home-hero__fill {
-    width: 100%; min-height: calc(70vh - 3cm); justify-content: flex-end;
+    width: 100%; min-height: auto; justify-content: flex-end;
     padding-left: var(--gutter); padding-right: var(--gutter);
-    padding-top: clamp(50px, 10vh, 90px);
+    padding-top: clamp(64px, 8vh, 84px);
+    padding-bottom: clamp(36px, 6vh, 64px);
     transform: none;
   }
   .home-hero__logo {
