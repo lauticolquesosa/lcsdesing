@@ -597,7 +597,7 @@
     right: var(--gutter);
     bottom: clamp(190px, 34vh, 320px);
     width: clamp(124px, 34vw, 182px);
-    margin: 0; transform: translate(-0.9cm, -1.2cm);
+    margin: 0; transform: translate(-0.8cm, -1.2cm);
   }
   .split, .split--reverse > :first-child { grid-template-columns: 1fr; }
   .split--reverse > :first-child { order: 0; }
