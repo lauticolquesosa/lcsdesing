@@ -116,6 +116,7 @@
   right: clamp(24px, 5vw, 100px);
   transform: translate(-5cm, -50%);
   width: clamp(380px, 48vw, 720px);
+  background: var(--cream);
 }
 .home-hero__logo img,
 .home-hero__logo video { display: block; width: 100%; height: auto; }
