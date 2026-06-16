@@ -586,7 +586,7 @@
   .hero-mbrk { display: inline; }
   .home-hero { flex-direction: column; min-height: auto; }
   .home-hero__fill {
-    width: 100%; min-height: calc(70vh - 2cm); justify-content: flex-end;
+    width: 100%; min-height: calc(70vh - 3cm); justify-content: flex-end;
     padding-left: var(--gutter); padding-right: var(--gutter);
     padding-top: clamp(50px, 10vh, 90px);
     transform: none;
