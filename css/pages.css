@@ -586,17 +586,17 @@
   .hero-mbrk { display: inline; }
   .home-hero { flex-direction: column; min-height: auto; }
   .home-hero__fill {
-    width: 100%; min-height: 86vh; justify-content: flex-end;
+    width: 100%; min-height: 70vh; justify-content: flex-end;
     padding-left: var(--gutter); padding-right: var(--gutter);
-    padding-top: clamp(70px, 14vh, 120px);
+    padding-top: clamp(50px, 10vh, 90px);
     transform: none;
   }
   .home-hero__logo {
     position: absolute; z-index: 1; top: auto; align-self: auto;
     right: var(--gutter);
     bottom: clamp(190px, 34vh, 320px);
-    width: clamp(108px, 30vw, 158px);
-    margin: 0; transform: none;
+    width: clamp(124px, 34vw, 182px);
+    margin: 0; transform: translate(-1cm, -1.2cm);
   }
   .split, .split--reverse > :first-child { grid-template-columns: 1fr; }
   .split--reverse > :first-child { order: 0; }
