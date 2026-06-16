@@ -595,10 +595,11 @@
   .home-hero__logo {
     position: absolute; z-index: 1; top: auto; align-self: auto;
     right: var(--gutter);
-    bottom: clamp(190px, 34vh, 320px);
+    bottom: calc(clamp(190px, 34vh, 320px) + 0.8cm);
     width: clamp(124px, 34vw, 182px);
     margin: 0; transform: translate(-0.8cm, -1.2cm);
   }
+  .hero-actions { margin-top: calc(clamp(28px, 4vh, 44px) + 0.8cm); }
   .split, .split--reverse > :first-child { grid-template-columns: 1fr; }
   .split--reverse > :first-child { order: 0; }
   .svc, .svc-detail, .svc-detail__grid, .phase, .phase__cols, .ov-head, .contact-grid, .cards--2, .field--row { grid-template-columns: 1fr; }
