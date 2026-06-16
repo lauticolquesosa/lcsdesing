@@ -117,7 +117,9 @@
   transform: translate(-5cm, -50%);
   width: clamp(380px, 48vw, 720px);
 }
-.home-hero__logo img { display: block; width: 100%; height: auto; }
+.home-hero__logo img,
+.home-hero__logo video { display: block; width: 100%; height: auto; }
+.home-hero__video { mix-blend-mode: multiply; }
 .hero-eyebrow {
   align-self: flex-start;
   font-family: var(--display); font-size: 13px; font-weight: 600;
@@ -225,6 +227,21 @@
 .flow__step p { font-size: 14px; font-weight: 300; line-height: 1.55; color: color-mix(in srgb, var(--cream) 52%, transparent); transition: color .4s var(--ease); max-width: 34ch; }
 .flow__step:hover h3 { transform: translateX(6px); }
 .flow__step:hover p { color: color-mix(in srgb, var(--cream) 90%, transparent); }
+
+/* ---------- Studio + Flow on green (accent) sections ---------- */
+.section--accent .studio__meta { color: var(--ink); }
+.section--accent .studio__title em { color: var(--ink); }
+.section--accent .studio__list { border-top-color: rgba(247,246,243,.28); }
+.section--accent .studio__row { border-bottom-color: rgba(247,246,243,.28); }
+.section--accent .studio__row::after { background: var(--ink); }
+.section--accent .studio__row:hover h3 { color: var(--ink); }
+.section--accent .studio__n { color: color-mix(in srgb, var(--cream) 62%, transparent); }
+.section--accent .studio__row p { color: color-mix(in srgb, var(--cream) 78%, transparent); }
+.section--accent .studio__row:hover p { color: var(--cream); }
+.section--accent .flow__rail { background: rgba(247,246,243,.28); }
+.section--accent .flow__progress { background: var(--ink); }
+.section--accent .flow__step .n { color: var(--ink); }
+.section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 
 /* ---------- Magnetic ---------- */
 .magnetic { will-change: transform; }
