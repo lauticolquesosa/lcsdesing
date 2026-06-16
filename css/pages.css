@@ -101,7 +101,7 @@
    HOME — split hero
    ============================================================ */
 .home-hero {
-  position: relative; min-height: 100vh; min-height: 100dvh;
+  position: relative; min-height: calc(100vh - 3cm); min-height: calc(100dvh - 3cm);
   display: flex; overflow: clip;
   background: var(--cream);
 }
