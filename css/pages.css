@@ -588,7 +588,7 @@
   .home-hero__fill {
     width: 100%; min-height: auto; justify-content: flex-end;
     padding-left: var(--gutter); padding-right: var(--gutter);
-    padding-top: clamp(64px, 8vh, 84px);
+    padding-top: calc(clamp(56px, 8vh, 72px) + 1.2cm);
     padding-bottom: clamp(36px, 6vh, 64px);
     transform: none;
   }
