@@ -242,6 +242,7 @@
 .section--accent .flow__rail { background: rgba(247,246,243,.28); }
 .section--accent .flow__progress { background: #fff; }
 .section--accent .flow__step .n { color: #fff; }
+.section--accent .wm-card__meta span { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 .section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 
 /* ---------- Magnetic ---------- */
