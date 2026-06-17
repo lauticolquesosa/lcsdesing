@@ -95,13 +95,6 @@
 .section--paper .edu__item { border-top-color: var(--line-d); }
 .section--paper .edu__item:last-child { border-bottom-color: var(--line-d); }
 .edu__meta { display: flex; flex-direction: column; gap: 11px; align-items: flex-start; }
-.edu__status {
-  display: inline-flex; align-items: center; gap: 7px;
-  font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-  padding: 6px 13px; border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); color: var(--accent);
-}
-.edu__status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
 .edu__years { font-family: var(--display); font-weight: 600; font-size: clamp(16px, 1.6vw, 21px); letter-spacing: -.01em; }
 .edu__org { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in srgb, currentColor 52%, transparent); }
 .edu__body h3 { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.6vw, 34px); letter-spacing: -.02em; line-height: 1.02; }
