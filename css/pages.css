@@ -91,6 +91,7 @@
   display: grid; grid-template-columns: 220px 1fr; gap: clamp(20px, 3.5vw, 60px);
   padding: clamp(30px, 4.5vh, 52px) 0; border-top: 1px solid var(--line);
 }
+.edu__item:first-child { border-top: none; padding-top: 0; }
 .edu__item:last-child { border-bottom: 1px solid var(--line); }
 .section--paper .edu__item { border-top-color: var(--line-d); }
 .section--paper .edu__item:last-child { border-bottom-color: var(--line-d); }
