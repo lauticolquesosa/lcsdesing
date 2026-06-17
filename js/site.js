@@ -202,6 +202,37 @@
       }
     });
 
+    $$('[data-typewriter]').forEach(el => {
+      const span = el.querySelector('span') || el;
+      const chars = [];
+      span.childNodes.forEach(n => {
+        if (n.nodeType === 3) { for (const c of n.textContent) chars.push([c, false]); }
+        else if (n.nodeName === 'EM') { for (const c of n.textContent) chars.push([c, true]); }
+      });
+      if (!chars.length) return;
+      span.style.visibility = 'visible';
+      const build = n => {
+        let html = '', em = false;
+        for (let k = 0; k < n; k++) {
+          const [c, isEm] = chars[k];
+          if (isEm && !em) { html += '<em>'; em = true; }
+          else if (!isEm && em) { html += '</em>'; em = false; }
+          html += c;
+        }
+        return em ? html + '</em>' : html;
+      };
+      const caret = '<span class="tw-caret" aria-hidden="true"></span>';
+      let i = 0;
+      const step = () => {
+        i++;
+        span.innerHTML = build(i) + caret;
+        if (i < chars.length) setTimeout(step, 58);
+        else setTimeout(() => { span.innerHTML = build(chars.length); }, 1300);
+      };
+      span.innerHTML = caret;
+      setTimeout(step, 200);
+    });
+
     $$('[data-reveal-text]').forEach(el => {
       gsap.to(el, { clipPath: 'inset(0 0 -4% 0)', duration: 1, ease: 'power2.inOut',
         scrollTrigger: { trigger: el, start: 'top 88%' } });

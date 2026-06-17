@@ -21,9 +21,18 @@
 .section--paper .split__media { border-color: var(--line-d); }
 .split__media img { position: absolute; inset: -8% 0; width: 100%; height: 116%; object-fit: cover; will-change: transform; }
 
-/* Prose column — párrafos a todo el ancho (Identidad) */
-.study-prose { margin-top: clamp(26px, 4vh, 46px); display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 28px); }
-.study-prose .lead { max-width: none; }
+/* Prose column — párrafos a todo el ancho, sin espacio entre ellos (Identidad) */
+.study-prose { margin-top: clamp(26px, 4vh, 46px); }
+.study-prose .lead { max-width: none; margin: 0; }
+
+/* Typewriter title */
+.js [data-typewriter] > span { visibility: hidden; }
+.tw-caret {
+  display: inline-block; width: .055em; height: .82em; margin-left: .06em;
+  vertical-align: -.06em; background: var(--green);
+  animation: twBlink .8s steps(1, end) infinite;
+}
+@keyframes twBlink { 50% { opacity: 0; } }
 
 /* Card grid + generic feature card */
 .cards { display: grid; gap: clamp(16px, 2vw, 28px); }
