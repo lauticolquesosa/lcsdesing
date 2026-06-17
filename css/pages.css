@@ -72,6 +72,34 @@
 .tl-body h3 { font-family: var(--display); font-weight: 600; font-size: clamp(19px, 2vw, 26px); letter-spacing: -.01em; margin-bottom: 8px; }
 .tl-body p { font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 75%, transparent); max-width: 60ch; }
 
+/* ---------- Education / formación (Identidad) ---------- */
+.edu { display: flex; flex-direction: column; }
+.edu__item {
+  display: grid; grid-template-columns: 220px 1fr; gap: clamp(20px, 3.5vw, 60px);
+  padding: clamp(30px, 4.5vh, 52px) 0; border-top: 1px solid var(--line);
+}
+.edu__item:last-child { border-bottom: 1px solid var(--line); }
+.section--paper .edu__item { border-top-color: var(--line-d); }
+.section--paper .edu__item:last-child { border-bottom-color: var(--line-d); }
+.edu__meta { display: flex; flex-direction: column; gap: 11px; align-items: flex-start; }
+.edu__status {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  padding: 6px 13px; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); color: var(--accent);
+}
+.edu__status::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.edu__years { font-family: var(--display); font-weight: 600; font-size: clamp(16px, 1.6vw, 21px); letter-spacing: -.01em; }
+.edu__org { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: color-mix(in srgb, currentColor 52%, transparent); }
+.edu__body h3 { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.6vw, 34px); letter-spacing: -.02em; line-height: 1.02; }
+.edu__body > p { margin-top: 13px; font-size: clamp(14px, 1.35vw, 17px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 78%, transparent); max-width: 64ch; }
+.edu__courses { display: flex; flex-direction: column; gap: 13px; margin-top: clamp(18px, 2.6vh, 28px); }
+.edu__courses li { position: relative; padding-left: 22px; font-size: clamp(13.5px, 1.25vw, 15.5px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 72%, transparent); max-width: 72ch; }
+.edu__courses li::before { content: ""; position: absolute; left: 0; top: 10px; width: 11px; height: 1.5px; background: var(--accent); }
+.edu__courses strong { font-weight: 600; color: currentColor; }
+.edu__row { margin-top: clamp(18px, 2.4vh, 26px); }
+.edu__row .k { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 13px; }
+
 /* FAQ (native <details>) */
 .faq { border-top: 1px solid var(--line); }
 .section--paper .faq { border-top-color: var(--line-d); }
@@ -607,6 +635,8 @@
   .work { grid-template-columns: 1fr 1fr; }
   .contact__rows { grid-template-columns: 1fr; }
   .tl-item { grid-template-columns: 1fr; gap: 8px; }
+  .edu__item { grid-template-columns: 1fr; gap: clamp(14px, 3vw, 22px); }
+  .edu__meta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
   .big--edge { text-align: left; }
   .modal__panel { inset: 0.75cm; border-radius: 14px; }
   .modal__close { top: calc(0.75cm + 14px); right: calc(0.75cm + 14px); }
