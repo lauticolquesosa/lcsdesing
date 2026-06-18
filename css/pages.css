@@ -395,6 +395,7 @@
 /* Detailed service block (servicios page) */
 .svc-detail { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 80px); padding-block: clamp(40px, 6vh, 80px); border-top: 1px solid var(--line); }
 .svc-detail:first-of-type { border-top: 0; }
+.section--paper .svc-detail { border-top-color: var(--line-d); }
 .svc-detail__head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 60px); letter-spacing: -.03em; line-height: .98; margin: 14px 0 18px; }
 .svc-detail__head p { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 80%, transparent); max-width: 44ch; }
 .svc-detail__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 36px); }
@@ -409,6 +410,7 @@
 /* Expanded phase block (proceso page) */
 .phase { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(24px, 4vw, 72px); padding-block: clamp(40px, 6vh, 78px); border-top: 1px solid var(--line); }
 .phase:first-of-type { border-top: 0; }
+.section--paper .phase { border-top-color: var(--line-d); }
 .phase__no { font-family: var(--display); font-weight: 700; font-size: clamp(64px, 10vw, 150px); letter-spacing: -.05em; line-height: .8; color: var(--accent); }
 .phase__head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.4vw, 46px); letter-spacing: -.02em; margin: 10px 0 14px; }
 .phase__head p { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 80%, transparent); }
