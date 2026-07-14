@@ -232,9 +232,9 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 }
 .big .ln { display: block; overflow: hidden; padding-block: .015em; }
 .big .ln > span { display: block; }
-.big em { font-style: normal; color: var(--accent); }
-.section--accent .big em { color: #fff; }
-.section--paper .big em { color: var(--accent); }
+.big em { font-style: normal; color: inherit; }
+.section--accent .big em { color: inherit; }
+.section--paper .big em { color: inherit; }
 .big--edge { text-align: right; }
 .big--link { display: block; transition: opacity .3s; }
 .big--link:hover { opacity: .85; }
@@ -243,8 +243,8 @@ h2.title {
   font-family: var(--display); font-weight: 700; letter-spacing: -.03em; line-height: .96;
   font-size: clamp(34px, 5.2vw, 76px);
 }
-h2.title em { font-style: normal; color: var(--accent); }
-.section--accent h2.title em { color: #fff; }
+h2.title em { font-style: normal; color: inherit; }
+.section--accent h2.title em { color: inherit; }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;

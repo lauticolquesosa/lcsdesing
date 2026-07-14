@@ -168,7 +168,7 @@
 .hero-title { font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em; font-size: clamp(40px, 5.6vw, 88px); color: var(--ink); }
 .hero-title .ln { display: block; overflow: hidden; padding-block: .015em; }
 .hero-title .ln > span { display: block; }
-.hero-title em { font-style: normal; color: var(--green); }
+.hero-title em { font-style: normal; color: inherit; }
 .hero-mbrk { display: none; }
 .hero-sub-wrap { overflow: hidden; margin-top: 1.4em; }
 .hero-sub { max-width: 38ch; color: color-mix(in srgb, var(--ink) 70%, transparent); }
@@ -188,8 +188,8 @@
 /* Home overview rows: label · title · teaser · link */
 .ov-head { display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 4vw, 64px); align-items: end; margin-bottom: clamp(32px, 4.5vh, 56px); }
 .ov-head__title { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 62px); letter-spacing: -.03em; line-height: .98; }
-.ov-head__title em { font-style: normal; color: var(--accent); }
-.section--accent .ov-head__title em { color: #fff; }
+.ov-head__title em { font-style: normal; color: inherit; }
+.section--accent .ov-head__title em { color: inherit; }
 .ov-head__aside { display: flex; flex-direction: column; gap: 16px; }
 
 /* ---- El método — process teaser (servicios) ---- */
@@ -206,7 +206,7 @@
   font-family: var(--display); font-weight: 700;
   font-size: clamp(30px, 4.4vw, 62px); letter-spacing: -.03em; line-height: .98;
 }
-.method__title em { font-style: normal; color: var(--accent); }
+.method__title em { font-style: normal; color: inherit; }
 .method__link { grid-column: 2; grid-row: 2; align-self: end; white-space: nowrap; }
 
 .method__grid {
@@ -257,13 +257,13 @@
   font-size: clamp(28px, 4.6vw, 66px); max-width: 19ch; margin-bottom: clamp(28px, 4vh, 48px);
 }
 .manifesto__text .word { display: inline-block; }
-.manifesto__text em { font-style: normal; color: var(--accent); }
+.manifesto__text em { font-style: normal; color: inherit; }
 
 /* ---------- El estudio (interactive index) ---------- */
 .studio { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(32px, 5vw, 88px); align-items: start; }
 .studio__meta { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; }
 .studio__title { font-family: var(--display); font-weight: 700; letter-spacing: -.03em; line-height: .98; font-size: clamp(30px, 4.4vw, 60px); }
-.studio__title em { font-style: normal; color: var(--accent); }
+.studio__title em { font-style: normal; color: inherit; }
 .studio__intro .lead { margin-top: 24px; max-width: 46ch; }
 .studio__intro .link-arrow { margin-top: 26px; }
 
@@ -507,6 +507,7 @@
    ============================================================ */
 .contact-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: clamp(32px, 5vw, 88px); align-items: start; }
 .form { display: flex; flex-direction: column; gap: clamp(18px, 2.4vh, 28px); }
+.form__title { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.02em; line-height: 1; margin-bottom: clamp(2px, 1vh, 8px); }
 .field { display: flex; flex-direction: column; gap: 9px; }
 .field label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
 .field input, .field textarea, .field select {
