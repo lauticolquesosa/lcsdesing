@@ -337,6 +337,7 @@
   function heroMark() {
     $$('.page-hero').forEach(h => {
       if (h.querySelector('.hero-mark')) return;
+      if (h.querySelector('.study-hero__visual')) return;   // already has a brand visual
       const img = document.createElement('img');
       img.className = 'hero-mark';
       img.src = 'assets/logo-isotipo-white.webp';
