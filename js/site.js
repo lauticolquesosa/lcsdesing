@@ -20,10 +20,9 @@
     { key: 'home',      href: '/',           num: '01', es: 'Inicio',    en: 'Home' },
     { key: 'sobre',     href: 'sobre',       num: '02', es: 'Identidad',  en: 'Identity' },
     { key: 'servicios', href: 'servicios',   num: '03', es: 'Servicios', en: 'Services' },
-    { key: 'proceso',   href: 'proceso',     num: '04', es: 'Proceso',   en: 'Process' },
-    { key: 'proyectos', href: 'proyectos',   num: '05', es: 'Proyectos', en: 'Work' },
-    { key: 'inversion', href: 'inversion',   num: '06', es: 'Inversión', en: 'Investment' },
-    { key: 'contacto',  href: 'contacto',    num: '07', es: 'Contacto',  en: 'Contact' },
+    { key: 'proyectos', href: 'proyectos',   num: '04', es: 'Proyectos', en: 'Work' },
+    { key: 'inversion', href: 'inversion',   num: '05', es: 'Inversión', en: 'Investment' },
+    { key: 'contacto',  href: 'contacto',    num: '06', es: 'Contacto',  en: 'Contact' },
   ];
   const SOCIAL = {
     instagram: 'https://instagram.com/lauticolquesosa',
