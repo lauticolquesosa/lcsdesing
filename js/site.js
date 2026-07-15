@@ -202,15 +202,16 @@
       }
     });
 
-    $$('[data-typewriter]').forEach(el => {
-      const span = el.querySelector('span') || el;
+    /* Typewriter — unified for hero titles and every section title (h2.title).
+       Faster than before and triggered on scroll so each title types into view. */
+    function runTypewriter(el, speed, endPause) {
+      const span = el.querySelector('span[data-es]') || el.querySelector('span') || el;
       const chars = [];
       span.childNodes.forEach(n => {
         if (n.nodeType === 3) { for (const c of n.textContent) chars.push([c, false]); }
         else if (n.nodeName === 'EM') { for (const c of n.textContent) chars.push([c, true]); }
       });
-      if (!chars.length) return;
-      span.style.visibility = 'visible';
+      if (!chars.length) { span.style.visibility = 'visible'; return; }
       const build = n => {
         let html = '', em = false;
         for (let k = 0; k < n; k++) {
@@ -222,16 +223,25 @@
         return em ? html + '</em>' : html;
       };
       const caret = '<span class="tw-caret" aria-hidden="true"></span>';
-      let i = 0;
-      const step = () => {
-        i++;
-        span.innerHTML = build(i) + caret;
-        if (i < chars.length) setTimeout(step, 58);
-        else setTimeout(() => { span.innerHTML = build(chars.length); }, 1300);
+      const start = () => {
+        const h = el.getBoundingClientRect().height;
+        if (h) el.style.minHeight = h + 'px';   // reserve space → no layout jump
+        span.style.visibility = 'visible';
+        let i = 0;
+        span.innerHTML = caret;
+        const step = () => {
+          i++;
+          span.innerHTML = build(i) + caret;
+          if (i < chars.length) setTimeout(step, speed);
+          else setTimeout(() => { span.innerHTML = build(chars.length); el.style.minHeight = ''; }, endPause);
+        };
+        setTimeout(step, 110);
       };
-      span.innerHTML = caret;
-      setTimeout(step, 200);
-    });
+      if (el.getBoundingClientRect().top < window.innerHeight) setTimeout(start, 140);
+      else ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: start });
+    }
+    $$('[data-typewriter]').forEach(el => runTypewriter(el, 26, 700));
+    $$('h2.title').forEach(el => runTypewriter(el, 20, 380));
 
     $$('[data-reveal-text]').forEach(el => {
       gsap.to(el, { clipPath: 'inset(0 0 -4% 0)', duration: 1, ease: 'power2.inOut',
@@ -241,6 +251,21 @@
     $$('[data-stagger]').forEach(c => {
       gsap.to($$(':scope > *', c), { autoAlpha: 1, y: 0, duration: 0.7, ease: 'power3.out', stagger: 0.1,
         scrollTrigger: { trigger: c, start: 'top 82%' } });
+    });
+
+    /* Unified subtle reveal — a small fade-up so every text block shares
+       the same quiet entrance (blocks that had no animation before). */
+    $$('.phase, .svc-detail').forEach(el => {
+      gsap.from(el, { autoAlpha: 0, y: 28, duration: 0.75, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 84%' } });
+    });
+    $$('.faq').forEach(f => {
+      gsap.from($$('.faq__item', f), { autoAlpha: 0, y: 18, duration: 0.6, ease: 'power2.out',
+        stagger: 0.08, scrollTrigger: { trigger: f, start: 'top 85%' } });
+    });
+    $$('.sec-head .lead, .study-lead').forEach(el => {
+      gsap.from(el, { autoAlpha: 0, y: 14, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
 
     $$('[data-fade-scale]').forEach(el => {
@@ -308,10 +333,25 @@
     document.addEventListener('mouseup',   () => dot.classList.remove('is-down'));
   }
 
+  /* ---------- Brand watermark in page heroes (unifying motif) ---------- */
+  function heroMark() {
+    $$('.page-hero').forEach(h => {
+      if (h.querySelector('.hero-mark')) return;
+      const img = document.createElement('img');
+      img.className = 'hero-mark';
+      img.src = 'assets/logo-isotipo-white.webp';
+      img.alt = '';
+      img.setAttribute('aria-hidden', 'true');
+      img.setAttribute('loading', 'lazy');
+      h.insertBefore(img, h.firstChild);
+    });
+  }
+
   /* ---------- Boot ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     chrome();
     footer();
+    heroMark();
 
     progress = $('#progress');
     siteHeader = $('#site-header');

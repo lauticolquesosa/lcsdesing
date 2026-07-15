@@ -27,6 +27,7 @@
 
 /* Typewriter title */
 .js [data-typewriter] > span { visibility: hidden; }
+.js h2.title { visibility: hidden; }   /* revealed as it types (JS); no-JS/reduced shows it */
 .tw-caret {
   display: inline-block; width: .055em; height: .82em; margin-left: .06em;
   vertical-align: -.06em; background: var(--green);
