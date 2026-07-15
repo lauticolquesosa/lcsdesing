@@ -297,6 +297,8 @@
 .wm-card__meta { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
 .wm-card__meta h3 { font-family: var(--display); font-weight: 600; font-size: clamp(16px, 1.7vw, 21px); letter-spacing: -.01em; }
 .wm-card__meta span { font-size: 12px; color: var(--gray); white-space: nowrap; }
+.section--paper .wm-card__shot { border-color: var(--line-d); }
+.section--paper .wm-card__meta { border-top-color: var(--line-d); }
 
 /* ---------- How I work — interactive flow ---------- */
 .flow { margin-top: clamp(34px, 5vh, 62px); }
