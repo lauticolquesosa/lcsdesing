@@ -25,7 +25,7 @@
     { key: 'contacto',  href: 'contacto',    num: '06', es: 'Contacto',  en: 'Contact' },
   ];
   const SOCIAL = {
-    instagram: 'https://instagram.com/lauticolquesosa',
+    instagram: 'https://instagram.com/lcswebstudio',
     whatsapp:  'https://wa.me/543874834041',
     email:     'mailto:lauticolquesosa@gmail.com',
     phone:     'tel:+543874834041',
