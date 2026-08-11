@@ -204,19 +204,19 @@
         learn: 'First project for the US market: the decision pattern is shorter than in Argentina. Call and directions must come before any brand storytelling.' }
     },
     p14: {
-      year: '2026', url: 'pielcanela.vercel.app', full: ['pielcanela-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
-      es: { cat: 'Diseño Web + Producto', title: 'Piel Canela', role: 'LCS · Diseño & Desarrollo Web', client: 'Piel Canela · Experiencia karaoke',
-        problem: 'Piel Canela no es un sitio institucional sino una experiencia: una app de karaoke pensada para usarse dentro del local, en pantalla y con música. El desafío fue diseñar algo que no se navega como una web común, sino que se activa.',
-        goal: 'Diseñar una entrada de una sola pantalla que funcione como telón: sin menú, sin scroll, con una única acción posible.',
-        steps: [['01','Descubrir','Contexto de uso real: pantalla del local, no navegador de escritorio'],['02','Definir','Una sola pantalla, una sola acción: empezar'],['03','Diseñar','Paleta negro y dorado, tipografía itálica y notas en movimiento'],['04','Entregar','Interfaz responsive que arranca con un toque']],
-        result: 'Pantalla de entrada a oscuras con el nombre en dorado, notas musicales flotando y un único botón de play que abre la experiencia. Todo lo demás se corrió fuera de la vista para que no compita con esa única decisión.',
-        learn: 'Cuando la interfaz se usa de pie y en grupo, cada elemento extra estorba. Quitar el menú, el scroll y el texto fue la decisión de diseño más importante del proyecto.' },
-      en: { cat: 'Web Design + Product', title: 'Piel Canela', role: 'LCS · Web Design & Development', client: 'Piel Canela · Karaoke experience',
-        problem: 'Piel Canela is not a corporate site but an experience: a karaoke app meant to be used inside the venue, on screen and with music. The challenge was designing something you do not browse like a normal site — you activate it.',
-        goal: 'Design a single-screen entry that works like a curtain: no menu, no scroll, one possible action.',
-        steps: [['01','Discover','Real usage context: venue screen, not a desktop browser'],['02','Define','One screen, one action: start'],['03','Design','Black and gold palette, italic type and drifting notes'],['04','Deliver','Responsive interface that starts with one tap']],
-        result: 'A dark entry screen with the name in gold, floating musical notes and a single play button that opens the experience. Everything else was moved out of sight so nothing competes with that one decision.',
-        learn: 'When an interface is used standing up and in a group, every extra element gets in the way. Removing the menu, the scroll and the copy was the most important design decision of the project.' }
+      year: '2026', url: 'pielcanela-spa.vercel.app', full: ['pielcanela-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      es: { cat: 'Diseño Web + UX/UI', title: 'Piel Canela', role: 'LCS · Diseño & Desarrollo Web', client: 'Piel Canela Spa & Bronceo · Bucaramanga, Colombia',
+        problem: 'Piel Canela es la primera Casa Rosada de Bucaramanga: un spa de bronceado brasileño que nació del sueño de Dalia Marulanda y ya pasó las 8.000 clientas. Todo ese recorrido vivía en Instagram, donde una clienta nueva no podía entender la diferencia entre terraza, cabina y marcación, ni ver los horarios reales de cada servicio.',
+        goal: 'Ordenar los cuatro servicios y sus horarios distintos en un solo lugar, y llevar la reserva al WhatsApp — que es donde el spa efectivamente agenda.',
+        steps: [['01','Descubrir','Qué no entiende la clienta nueva: terraza vs. cabina vs. marcación'],['02','Definir','Servicio, resultado y horario propio para cada modalidad'],['03','Diseñar','Sistema rosa Casa Rosa: cálido, femenino y con foto real del lugar'],['04','Entregar','Sitio responsive con WhatsApp flotante y mapa']],
+        result: 'Sitio en vivo con los cuatro servicios diferenciados y etiquetados por modalidad (al sol, sin sol, la técnica, piel radiante), un bloque que explica por qué la técnica brasileña da color uniforme y realza la figura, galería de resultados reales, la historia de la Casa Rosa con sus 8.000 clientas, testimonios y la tabla de horarios separada por terraza, cabina y domingos. Reserva por WhatsApp desde cualquier punto del scroll.',
+        learn: 'Cuando un negocio vende varias modalidades del mismo servicio, la web tiene que explicar la diferencia antes que el precio. Separar los horarios por modalidad resolvió la consulta que más entraba por mensaje.' },
+      en: { cat: 'Web Design + UX/UI', title: 'Piel Canela', role: 'LCS · Web Design & Development', client: 'Piel Canela Spa & Bronceo · Bucaramanga, Colombia',
+        problem: 'Piel Canela is Bucaramanga\'s first Casa Rosada: a Brazilian tanning spa born from Dalia Marulanda\'s dream, now past 8,000 clients. All of that lived on Instagram, where a new client could not tell the difference between terrace, booth and body contouring, nor see each service\'s actual hours.',
+        goal: 'Organize the four services and their different schedules in one place, and move booking to WhatsApp — where the spa actually schedules.',
+        steps: [['01','Discover','What a new client misses: terrace vs. booth vs. contouring'],['02','Define','A service, a result and its own schedule for each option'],['03','Design','Casa Rosa pink system: warm, feminine, with real venue photography'],['04','Deliver','Responsive site with floating WhatsApp and map']],
+        result: 'Live site with four clearly distinguished services labelled by mode (in the sun, no sun, the technique, radiant skin), a block explaining why the Brazilian technique yields even colour and enhances the figure, a real results gallery, the Casa Rosa story with its 8,000 clients, testimonials, and a schedule table split by terrace, booth and Sundays. WhatsApp booking from anywhere in the scroll.',
+        learn: 'When a business sells several versions of the same service, the site must explain the difference before the price. Splitting schedules by mode answered the question that arrived most often by message.' }
     }
   };
 
