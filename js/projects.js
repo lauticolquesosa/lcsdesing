@@ -174,7 +174,7 @@
         learn: 'You do not beat OTAs with photos: you beat them with an explicit price and a human reply. Putting the saving into words, rather than implying it, is the whole argument.' }
     },
     p12: {
-      year: '2026', url: 'la-vieja-estacion.vercel.app', full: ['viejaestacion-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2026', url: 'la-vieja-estacion.vercel.app', full: ['viejaestacion-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Peña La Vieja Estación', role: 'LCS · Diseño & Desarrollo Web', client: 'La Vieja Estación · Paseo Balcarce, Salta',
         problem: 'La peña más conocida de la Balcarce —4,5 estrellas con 9.500 reseñas en Google, #9 de 377 en TripAdvisor y 35.000 seguidores— dependía de terceros para algo tan básico como explicar a qué hora empieza el show y cómo se reserva una mesa.',
         goal: 'Ordenar la noche completa en una sola página y llevar la reserva online, que es la acción que el local necesita antes de que el salón se llene.',
