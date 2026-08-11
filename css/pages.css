@@ -432,6 +432,14 @@
 .work__badge { position: absolute; top: 14px; right: 14px; font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; border: 1px solid; }
 .work__badge--live { color: #6df3b8; border-color: rgba(109,243,184,.5); }
 .work__badge--wip { color: #e0a93e; border-color: rgba(224,169,62,.5); }
+/* Los casos que exceden los 6 primeros quedan plegados hasta que se pide
+   "Ver todos los proyectos". Siguen en el DOM: el modal ya los tiene enganchados. */
+.work__card--more { display: none; }
+.work.is-expanded .work__card--more { display: block; animation: workCardIn .5s var(--ease) backwards; }
+@keyframes workCardIn { from { opacity: 0; transform: translateY(24px); } }
+.work-more { display: flex; justify-content: center; margin-top: clamp(28px, 4vh, 46px); }
+@media (prefers-reduced-motion: reduce) { .work.is-expanded .work__card--more { animation: none; } }
+
 .work__meta { padding: clamp(16px, 1.5vw, 22px); }
 .work__meta h3 { font-family: var(--display); font-weight: 600; font-size: clamp(18px, 1.8vw, 23px); color: var(--paper); letter-spacing: -.01em; }
 .work__meta p { font-size: 12.5px; color: var(--gray); margin-top: 5px; }

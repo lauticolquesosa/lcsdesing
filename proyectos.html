@@ -44,9 +44,9 @@
     <div class="shell">
       <div class="kicker-row">
         <h2 class="title" style="font-size:clamp(24px,2.8vw,38px);margin:0" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</h2>
-        <span class="lead" style="font-size:15px" data-es="6 casos" data-en="6 cases">6 casos</span>
+        <span class="lead" style="font-size:15px" data-es="14 casos" data-en="14 cases">14 casos</span>
       </div>
-      <div class="work" data-stagger>
+      <div class="work" id="work-grid" data-stagger>
         <article class="work__card card-hover" data-project="p1">
           <div class="work__shot"><img class="work__img" src="assets/lavaca.webp" alt="La Vaca" width="1200" height="825" loading="lazy" decoding="async"></div>
           <div class="work__meta"><h3>La Vaca</h3><p data-es="Gastronomía local · Salta" data-en="Local gastronomy · Salta">Gastronomía local · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
@@ -71,6 +71,47 @@
           <div class="work__shot"><img class="work__img" src="assets/ipv.webp" alt="IPV" width="1200" height="825" loading="lazy" decoding="async"></div>
           <div class="work__meta"><h3>IPV</h3><p data-es="Diseño Web · Salta" data-en="Web Design · Salta">Diseño Web · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
         </article>
+
+        <!-- Los que siguen aparecen al tocar "Ver todos los proyectos" -->
+        <article class="work__card card-hover work__card--more" data-project="p7">
+          <div class="work__shot"><img class="work__img" src="assets/forlani.webp" alt="Dra. Karina Forlani" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Dra. Karina Forlani</h3><p data-es="Odontología · Campana, Bs. As." data-en="Dentistry · Campana, Bs. As.">Odontología · Campana, Bs. As.</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p8">
+          <div class="work__shot"><img class="work__img" src="assets/baltazar.webp" alt="Baltazar Aguiar" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Baltazar Aguiar</h3><p data-es="Marketing gastronómico" data-en="Restaurant marketing">Marketing gastronómico</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p9">
+          <div class="work__shot"><img class="work__img" src="assets/danielvilla.webp" alt="Daniel Villa Real Estate" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Daniel Villa Real Estate</h3><p data-es="Inmobiliaria · Salta" data-en="Real estate · Salta">Inmobiliaria · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p10">
+          <div class="work__shot"><img class="work__img" src="assets/totalgym.webp" alt="Total Gym Salta" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Total Gym Salta</h3><p data-es="Gimnasio y pilates · Salta" data-en="Gym &amp; pilates · Salta">Gimnasio y pilates · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p11">
+          <div class="work__shot"><img class="work__img" src="assets/posadadelsol.webp" alt="Hotel Posada del Sol" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Hotel Posada del Sol</h3><p data-es="Hotelería · Salta" data-en="Hospitality · Salta">Hotelería · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p12">
+          <div class="work__shot"><img class="work__img" src="assets/viejaestacion.webp" alt="Peña La Vieja Estación" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Peña La Vieja Estación</h3><p data-es="Peña folklórica · Salta" data-en="Folk music venue · Salta">Peña folklórica · Salta</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p13">
+          <div class="work__shot"><img class="work__img" src="assets/lacondesa.webp" alt="La Condesa" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>La Condesa</h3><p data-es="Gastronomía · Austin, Texas" data-en="Dining · Austin, Texas">Gastronomía · Austin, Texas</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+        <article class="work__card card-hover work__card--more" data-project="p14">
+          <div class="work__shot"><img class="work__img" src="assets/pielcanela.webp" alt="Piel Canela" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <div class="work__meta"><h3>Piel Canela</h3><p data-es="Experiencia karaoke" data-en="Karaoke experience">Experiencia karaoke</p><span class="work__cta" data-es="Ver caso" data-en="View case">Ver caso</span></div>
+        </article>
+      </div>
+
+      <div class="work-more">
+        <button class="btn btn--ghost magnetic work-more__btn" type="button" data-work-more
+                aria-expanded="false" aria-controls="work-grid">
+          <span data-es="Ver todos los proyectos" data-en="View all projects">Ver todos los proyectos</span>
+        </button>
       </div>
     </div>
   </section>
