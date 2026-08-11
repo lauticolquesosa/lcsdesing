@@ -144,7 +144,7 @@
         learn: 'In real estate, publishing what sold convinces more than publishing what is available: it is the only proof the work closes. And if the client cannot update it alone, the catalogue ages within a week.' }
     },
     p10: {
-      year: '2026', url: 'totalgymsalta.vercel.app', full: ['totalgym-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2026', url: 'totalgymsalta.vercel.app', full: ['totalgym-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Total Gym Salta', role: 'LCS · Diseño & Desarrollo Web', client: 'Total Gym Salta · Dos sedes',
         problem: 'Total Gym opera dos sedes con lógicas distintas: el gimnasio de Vicente López 770 (musculación, funcional, boxeo, spinning, GAP y estética) y el studio de pilates reformer de Leguizamón 321, con turnos por hora. Contarlas juntas confundía, y separarlas en dos sitios rompía la marca.',
         goal: 'Unificar las dos sedes en una sola web sin que ninguna pierda identidad, y que el visitante llegue a reservar su clase de prueba por WhatsApp.',
