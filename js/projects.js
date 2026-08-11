@@ -99,7 +99,7 @@
         learn: 'On a public site, success is not measured in time on page but the opposite: how fast someone resolves and leaves. The homepage was designed to empty out quickly.' }
     },
     p7: {
-      year: '2026', url: 'odontologiaforlani.vercel.app', full: ['forlani-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2026', url: 'odontologiaforlani.vercel.app', full: ['forlani-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Dra. Karina Forlani', role: 'LCS · Diseño & Desarrollo Web', client: 'Dra. Karina Forlani · Campana, Buenos Aires',
         problem: 'La Dra. Forlani lleva más de quince años haciendo ortodoncia estética en Campana y ya cambió más de doscientas sonrisas, pero no tenía dónde mostrarlo. Quien buscaba alineadores invisibles en la zona encontraba solo cadenas y precios, sin poder ver a la profesional que iba a atenderlo.',
         goal: 'Poner la confianza en el centro: mostrar resultados reales y llevar la consulta directo al WhatsApp, sin formularios ni intermediarios.',
@@ -114,7 +114,7 @@
         learn: 'In healthcare the before/after does the heavy lifting — but only alongside the person providing care. Showing the practitioner\'s face converted better than any list of technology.' }
     },
     p8: {
-      year: '2026', url: 'baltazar-aguiar.vercel.app', full: ['baltazar-fullpage.webp'], tools: ['Figma', 'Next.js', 'React'],
+      year: '2026', url: 'baltazar-aguiar.vercel.app', full: ['baltazar-fullpage-v2.webp'], tools: ['Figma', 'Next.js', 'React'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Baltazar Aguiar', role: 'LCS · Diseño & Desarrollo Web', client: 'Baltazar Aguiar · Marketing gastronómico',
         problem: 'Baltazar asesora a dueños de restaurantes y tiene una comunidad de casi treinta mil personas, pero toda su autoridad vivía en Instagram y TikTok. Sin un sitio propio, el seguidor que quería contratarlo no tenía dónde entender la oferta ni ver la prueba de que el sistema funciona.',
         goal: 'Transformar audiencia en clientes: una landing de venta que ordene diagnóstico, método, resultados y programa, y termine en una llamada agendada.',
@@ -129,7 +129,7 @@
         learn: 'To sell a marketing service, the site has to demonstrate the marketing. Every section was ordered as an argument, not as a page area.' }
     },
     p9: {
-      year: '2026', url: 'danielvilla.vercel.app', full: ['danielvilla-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript', 'Supabase'],
+      year: '2026', url: 'danielvilla.vercel.app', full: ['danielvilla-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript', 'Supabase'],
       es: { cat: 'Diseño Web + Producto', title: 'Daniel Villa Real Estate', role: 'LCS · Diseño, Desarrollo & Panel', client: 'Daniel Villa Real Estate · Salta',
         problem: 'Daniel Villa es corredor matriculado y fue reconocida como la mejor inmobiliaria de Salta, pero su catálogo vivía en redes: cada propiedad se publicaba suelta, sin ficha, sin historial de operaciones cerradas y sin forma de actualizar precios rápido.',
         goal: 'Darle un catálogo propio y actualizable sin depender de nadie, y usar las ventas cerradas como prueba comercial para captar propietarios que quieran vender.',
