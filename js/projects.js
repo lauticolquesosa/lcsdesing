@@ -204,7 +204,7 @@
         learn: 'First project for the US market: the decision pattern is shorter than in Argentina. Call and directions must come before any brand storytelling.' }
     },
     p14: {
-      year: '2026', url: 'pielcanela-spa.vercel.app', full: ['pielcanela-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2026', url: 'pielcanela-spa.vercel.app', full: ['pielcanela-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Piel Canela', role: 'LCS · Diseño & Desarrollo Web', client: 'Piel Canela Spa & Bronceo · Bucaramanga, Colombia',
         problem: 'Piel Canela es la primera Casa Rosada de Bucaramanga: un spa de bronceado brasileño que nació del sueño de Dalia Marulanda y ya pasó las 8.000 clientas. Todo ese recorrido vivía en Instagram, donde una clienta nueva no podía entender la diferencia entre terraza, cabina y marcación, ni ver los horarios reales de cada servicio.',
         goal: 'Ordenar los cuatro servicios y sus horarios distintos en un solo lugar, y llevar la reserva al WhatsApp — que es donde el spa efectivamente agenda.',
