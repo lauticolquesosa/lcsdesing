@@ -159,7 +159,7 @@
         learn: 'Two locations are not two sites: they are two hierarchies inside one story. Splitting schedules into tabs avoided an endless page without hiding information.' }
     },
     p11: {
-      year: '2026', url: 'hotelposadadelsol.vercel.app', full: ['posadadelsol-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2026', url: 'hotelposadadelsol.vercel.app', full: ['posadadelsol-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Hotel Posada del Sol', role: 'LCS · Diseño & Desarrollo Web', client: 'Hotel Posada del Sol · Salta capital',
         problem: 'Hotel 3★ en Alvarado 646, a metros de la peatonal, con 8,1 en Booking y más de 2.000 opiniones. Todas esas reservas llegaban por plataformas que se llevan su comisión, y el hotel no tenía un canal propio que compitiera con ellas.',
         goal: 'Recuperar la reserva directa: dejar claro que reservando en el sitio se paga menos, y bajar la fricción a un WhatsApp con respuesta humana.',
