@@ -492,7 +492,6 @@
 .work__img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .6s var(--ease); }
 .work__card:hover .work__img { transform: scale(1.045); }
 /* Encuadre por proyecto (composiciones con el título a la izquierda) */
-[data-project="p1"] .work__img { object-position: right center; } /* La Vaca — destaca la hamburguesa */
 [data-project="p2"] .work__img { object-position: left center; }  /* Brunetti — título + campo */
 
 /* ============================================================

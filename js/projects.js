@@ -9,19 +9,19 @@
 
   const PROJECTS = {
     p1: {
-      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v2.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
-      es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Restaurante', role: 'LCS · Diseño & Desarrollo Web', client: 'La Vaca · Salta',
-        problem: 'La Vaca, una propuesta gastronómica de Salta, no tenía una web que estuviera a la altura de su carta ni de su experiencia en salón. El cliente potencial llegaba desde redes y no encontraba menú, ubicación ni una forma directa de reservar.',
-        goal: 'Construir una presencia web con identidad propia que transmita la calidad del lugar y convierta la visita en una reserva por WhatsApp, sin fricción.',
-        steps: [['01','Descubrir','Research del público local y de turismo gastronómico'],['02','Definir','Foco en menú, ambiente y reserva por WhatsApp'],['03','Diseñar','Wireframes mobile-first → alta fidelidad en Figma'],['04','Entregar','Desarrollo responsive, optimización de carga y CTA']],
-        result: 'Sitio en vivo, responsive y con estética cálida y regional. Menú claro, galería del salón y CTA de reserva por WhatsApp presente en todo el scroll.',
-        learn: 'En gastronomía, la foto y la cercanía al botón de reserva mandan: cuanto más corto el camino a WhatsApp, mayor la conversión.' },
-      en: { cat: 'Web Design + UX/UI', title: 'La Vaca — Restaurant', role: 'LCS · Web Design & Development', client: 'La Vaca · Salta',
-        problem: 'La Vaca, a Salta dining spot, had no website that matched its menu or its in-room experience. Potential guests arrived from social media and found no menu, location, or a direct way to book.',
-        goal: 'Build a web presence with its own identity that conveys the quality of the place and turns the visit into a WhatsApp booking, friction-free.',
-        steps: [['01','Discover','Research on the local audience and food tourism'],['02','Define','Focus on menu, atmosphere and WhatsApp booking'],['03','Design','Mobile-first wireframes → high fidelity in Figma'],['04','Deliver','Responsive build, load optimization and CTA']],
-        result: 'Live, responsive site with a warm, regional aesthetic. Clear menu, room gallery and a WhatsApp booking CTA present throughout the scroll.',
-        learn: 'In hospitality, photos and proximity to the booking button rule: the shorter the path to WhatsApp, the higher the conversion.' }
+      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v3.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Bar de barrio', role: 'LCS · Diseño & Desarrollo Web', client: 'La Vaca · Grand Bourg, Salta',
+        problem: 'La Vaca es una sanguchería de barrio en Álvarez Thomas 714, Grand Bourg, que abre solo de noche: de 20:30 a 00:30 entre semana y hasta la 01:30 los fines de semana. Su público llegaba por Instagram y por las apps de delivery, sin un lugar propio donde ver qué se pide, hasta qué hora está abierto ni por dónde encargar. El riesgo era el opuesto al habitual: una web demasiado prolija hubiera traicionado a un local que se define por no tener pretensiones.',
+        goal: 'Darle una web con el tono real del local —barrial, nocturno, sin pose— que resuelva las tres preguntas que importan a la una de la mañana: qué hay, hasta qué hora y cómo lo pido.',
+        steps: [['01','Descubrir','Cómo y cuándo pide el cliente: apps, WhatsApp o retiro en local'],['02','Definir','Prioridad: menú, horarios de cada día y canales de pedido'],['03','Diseñar','Dirección nocturna en negro y rojo, tipografía condensada de cartel'],['04','Entregar','One-page responsive con click-to-call y mapa']],
+        result: 'Sitio en vivo con el manifiesto del local en el hero ("no somos un restaurante, somos el lugar donde terminás la noche"), los seis productos con su foto y su descripción —lomito, burga, papas, milanga, bondiola y juliana—, la tabla de horarios día por día, los tres canales de pedido (Rappi, PedidosYa y retiro en local) y el bloque de contacto con WhatsApp, Instagram, Facebook, mail y mapa.',
+        learn: 'El primer proyecto del estudio, y el que fijó una regla: el diseño tiene que sonar como habla el cliente. Acá el copy manda sobre la estética, y una web más "elegante" hubiera vendido menos.' },
+      en: { cat: 'Web Design + UX/UI', title: 'La Vaca — Neighbourhood bar', role: 'LCS · Web Design & Development', client: 'La Vaca · Grand Bourg, Salta',
+        problem: 'La Vaca is a neighbourhood sandwich bar at Álvarez Thomas 714, Grand Bourg, open nights only: 8:30pm to 12:30am on weekdays and until 1:30am on weekends. Its customers arrived via Instagram and delivery apps, with no place of their own to see what is on offer, how late it stays open or where to order. The risk was the opposite of the usual one: an over-polished site would have betrayed a place that defines itself by having no pretensions.',
+        goal: 'Give it a site in the venue\'s real voice — local, nocturnal, no posturing — answering the three questions that matter at 1am: what is there, until when, and how do I order.',
+        steps: [['01','Discover','How and when customers order: apps, WhatsApp or pickup'],['02','Define','Priority: menu, day-by-day hours and ordering channels'],['03','Design','Nocturnal black-and-red direction, condensed signage type'],['04','Deliver','Responsive one-pager with click-to-call and map']],
+        result: 'Live site leading with the venue\'s own manifesto ("we are not a restaurant, we are where your night ends"), the six products with photo and description — lomito, burger, fries, milanesa, pulled pork and the veggie one — a day-by-day hours table, the three ordering channels (Rappi, PedidosYa and pickup) and a contact block with WhatsApp, Instagram, Facebook, email and map.',
+        learn: 'The studio\'s first project, and the one that set a rule: design has to sound the way the client speaks. Here the copy leads and the aesthetics follow — a more "elegant" site would have sold less.' }
     },
     p2: {
       year: '2025', url: 'brunetti-jade.vercel.app', full: ['brunetti-fullpage.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
