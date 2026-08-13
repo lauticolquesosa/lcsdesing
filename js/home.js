@@ -34,6 +34,23 @@
     // La barra de progreso vive fuera de .wc, dentro del .shell de la sección.
     const bar   = $('[data-wc-bar]', root.closest('section') || document);
 
+    /* El recorrido es infinito: detrás de la última tarjeta vuelve a
+       empezar la primera. Para eso el set se clona dos veces y, cuando el
+       scroll entra en la tercera copia, se resta el ancho de un set. Como
+       el contenido de esa posición es idéntico, el salto no se ve. */
+    const SETS = 2;
+    const originals = items.length;
+    for (let c = 0; c < SETS; c++) {
+      const frag = document.createDocumentFragment();
+      items.forEach(li => {
+        const clone = li.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        $$('a', clone).forEach(a => { a.tabIndex = -1; });
+        frag.appendChild(clone);
+      });
+      track.appendChild(frag);
+    }
+
     // Un "paso" = ancho de tarjeta + gap. Con scroll-padding = gutter,
     // la tarjeta i queda exactamente en scrollLeft = i * step.
     const step = () => {
@@ -41,6 +58,7 @@
       const b = items[1] && items[1].getBoundingClientRect();
       return Math.round(b ? b.left - a.left : a.width) || 1;
     };
+    const setW = () => originals * step();          // ancho de una vuelta
     const maxScroll = () => Math.max(0, vp.scrollWidth - vp.clientWidth);
     const perPage = () => Math.max(1, Math.floor(vp.clientWidth / step()));
     const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
@@ -49,16 +67,34 @@
     // Destino de la última animación: mientras está en curso, los clics
     // encadenados parten de ahí y no de un scrollLeft a mitad de camino.
     let target = null;
+
+    /* Reubica el scroll dentro de la primera vuelta sin que se note. */
+    function shift(delta) {
+      const behavior = vp.style.scrollBehavior;
+      vp.style.scrollBehavior = 'auto';
+      vp.scrollLeft += delta;
+      vp.style.scrollBehavior = behavior;
+      if (target !== null) target += delta;
+      if (dragging) startLeft += delta;
+    }
+    function normalize() {
+      const w = setW();
+      if (vp.scrollLeft >= 2 * w) shift(-w);
+    }
+
     function sync() {
       raf = 0;
-      const max = maxScroll(), x = vp.scrollLeft;
-      const ratio = Math.min(1, vp.clientWidth / vp.scrollWidth);
+      const x = vp.scrollLeft, w = setW();
       if (bar) {
-        const offset = max > 0 ? (x / max) * (1 - ratio) : 0;
-        bar.style.transform = `translateX(${(offset * 100).toFixed(3)}%) scaleX(${ratio.toFixed(4)})`;
+        // Progreso dentro de la vuelta actual (los clones no cuentan).
+        const seen = ((x % w) + vp.clientWidth) / w;
+        bar.style.transform = `scaleX(${clamp(seen, 0.04, 1).toFixed(4)})`;
       }
       clearTimeout(idle);
-      idle = setTimeout(() => { target = null; }, 140);   // el scroll se detuvo
+      idle = setTimeout(() => {                       // el scroll se detuvo
+        target = null;
+        if (!dragging) normalize();
+      }, 140);
     }
     const queueSync = () => { if (!raf) raf = requestAnimationFrame(sync); };
 
@@ -70,38 +106,13 @@
       scrollTo(clamp(index * step(), 0, maxScroll()));
     }
 
-    /* Vuelta al otro extremo: el scroll nativo tarda lo que le pinta cuando
-       son 5.000px, así que este tramo se anima a duración fija. */
-    let animRaf = 0;
-    function stopAnim() {
-      if (!animRaf) return;
-      cancelAnimationFrame(animRaf); animRaf = 0;
-      root.classList.remove('is-animating');
-    }
-    function rewindTo(left) {
-      stopAnim();
-      target = left;
-      if (reduced) { vp.scrollLeft = left; target = null; return; }
-      const from = vp.scrollLeft, delta = left - from, t0 = performance.now(), dur = 760;
-      const ease = t => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-      root.classList.add('is-animating');
-      const frame = now => {
-        const t = Math.min(1, (now - t0) / dur);
-        vp.scrollLeft = from + delta * ease(t);
-        if (t < 1) { animRaf = requestAnimationFrame(frame); }
-        else { animRaf = 0; root.classList.remove('is-animating'); target = null; }
-      };
-      animRaf = requestAnimationFrame(frame);
-    }
-
-    /* Las flechas dan la vuelta: en la última tarjeta, "siguiente" vuelve
-       al principio, y en la primera, "anterior" salta al final. */
+    /* Avanza o retrocede una pantalla. Al llegar a la última tarjeta el
+       recorrido sigue de largo con las primeras; hacia atrás, si ya está
+       en el arranque, se salta una vuelta adelante y se retrocede desde ahí. */
     function page(dir) {
-      const s = step(), max = maxScroll();
+      const s = step();
+      if (dir < 0 && (target === null ? vp.scrollLeft : target) < s) shift(setW());
       const x = target === null ? vp.scrollLeft : target;
-      if (dir > 0 && x >= max - 2) return rewindTo(0);
-      if (dir < 0 && x <= 2) return rewindTo(max);
-      stopAnim();
       goTo(Math.round(x / s) + dir * perPage());
     }
 
@@ -120,7 +131,6 @@
     let startX = 0, startLeft = 0, lastX = 0, lastT = 0, vel = 0;
     vp.addEventListener('pointerdown', e => {
       if (e.pointerType === 'touch' || e.button !== 0) return;
-      stopAnim();                       // agarrar el carrusel corta la vuelta
       dragging = true; active = false; moved = 0; vel = 0;
       startX = lastX = e.clientX; lastT = e.timeStamp;
       startLeft = vp.scrollLeft;
@@ -138,6 +148,10 @@
         try { vp.setPointerCapture(e.pointerId); } catch (err) {}
       }
       vp.scrollLeft = startLeft - dx;
+      // El arrastre también es infinito: se reubica en cuanto pisa un borde.
+      const w = setW();
+      if (vp.scrollLeft >= 2 * w) shift(-w);
+      else if (vp.scrollLeft < step()) shift(w);
       const dt = e.timeStamp - lastT;
       if (dt > 0) vel = (e.clientX - lastX) / dt;   // px por ms
       lastX = e.clientX; lastT = e.timeStamp;

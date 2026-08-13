@@ -214,8 +214,6 @@
 .wc__viewport::-webkit-scrollbar { display: none; }
 .wc__viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .wc.is-dragging .wc__viewport { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
-/* Mientras corre la vuelta al otro extremo, el snap no debe frenar la animación */
-.wc.is-animating .wc__viewport { scroll-snap-type: none; scroll-behavior: auto; }
 .wc.is-dragging .wc-card { pointer-events: none; }
 .wc__track {
   display: flex; gap: var(--wc-gap);
