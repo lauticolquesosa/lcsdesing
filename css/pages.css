@@ -89,27 +89,22 @@
 /* ============================================================
    HOME — split hero
    ============================================================ */
-/* Dos columnas reales: el texto nunca pisa la marca. Antes se resolvía con
-   translate() en centímetros, que se superponía según el ancho de pantalla. */
 .home-hero {
-  position: relative;
-  min-height: 100vh; min-height: 100svh;
-  width: 100%; max-width: var(--maxw); margin-inline: auto;
-  padding: clamp(112px, 15vh, 180px) var(--gutter) clamp(52px, 8vh, 96px);
-  display: grid; grid-template-columns: 1.06fr 0.94fr;
-  align-items: center; gap: clamp(20px, 4vw, 72px);
+  position: relative; min-height: calc(100vh - 3cm); min-height: calc(100dvh - 3cm);
+  display: flex; overflow: clip;
   background: var(--cream);
-  overflow: clip;
 }
 .home-hero__fill {
-  position: relative; z-index: 2; color: var(--ink);
+  position: relative; z-index: 2; width: 60%; color: var(--ink);
   display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(120px, 16vh, 200px) var(--gutter) clamp(48px, 8vh, 90px);
+  transform: translate(8cm, -2cm);
 }
 .home-hero__logo {
-  position: relative; z-index: 1;
-  width: min(100%, 620px); justify-self: center;
-  /* el z-index aísla el mix-blend-mode del video: necesita este fondo detrás
-     para que el multiply tenga contra qué mezclar y el recuadro desaparezca */
+  position: absolute; z-index: 1; top: 50%;
+  right: clamp(24px, 5vw, 100px);
+  transform: translate(-5cm, -50%);
+  width: clamp(380px, 48vw, 720px);
   background: var(--cream);
 }
 .home-hero__logo img,
@@ -602,12 +597,22 @@
 }
 @media (max-width: 860px) {
   .hero-mbrk { display: inline; }
-  .home-hero {
-    grid-template-columns: 1fr; min-height: auto;
-    padding-top: clamp(104px, 14vh, 140px);
-    row-gap: clamp(26px, 5vh, 44px);
+  .home-hero { flex-direction: column; min-height: auto; }
+  .home-hero__fill {
+    width: 100%; min-height: auto; justify-content: flex-end;
+    padding-left: var(--gutter); padding-right: var(--gutter);
+    padding-top: calc(clamp(56px, 8vh, 72px) + 1.2cm);
+    padding-bottom: clamp(58px, 9vh, 92px);
+    transform: none;
   }
-  .home-hero__logo { order: -1; justify-self: start; width: clamp(140px, 38vw, 230px); }
+  .home-hero__logo {
+    position: absolute; z-index: 1; top: auto; align-self: auto;
+    right: var(--gutter);
+    bottom: calc(clamp(190px, 34vh, 320px) + 0.8cm);
+    width: clamp(124px, 34vw, 182px);
+    margin: 0; transform: translate(-0.8cm, -1.2cm);
+  }
+  .hero-actions { margin-top: calc(clamp(28px, 4vh, 44px) + 0.8cm); }
   .split, .svc-detail, .svc-detail__grid, .phase, .phase__cols, .contact-grid, .field--row { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr 1fr; }
   .modal__panel { inset: 0.75cm; border-radius: 14px; }
