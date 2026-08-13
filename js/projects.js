@@ -297,9 +297,10 @@
         </div>`;
     }
 
-    function open(k) {
+    function open(k, pushHash = true) {
       if (!PROJECTS[k]) return;
       key = k; render(k);
+      if (pushHash && location.hash !== '#' + k) history.replaceState(null, '', '#' + k);
       m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
       const lenis = getLenis(); if (lenis) lenis.stop();
@@ -308,6 +309,7 @@
       m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = ''; key = null;
       const lenis = getLenis(); if (lenis) lenis.start();
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     }
 
     window.__modalRerender = () => { if (key && m.classList.contains('open')) render(key); };
@@ -338,6 +340,21 @@
         if (window.ScrollTrigger) window.ScrollTrigger.refresh();
       });
     }
+    /* Deep-link: /proyectos#p8 abre el caso directo (lo usan las tarjetas
+       del carrusel del home). Si el caso está entre los plegados, primero
+       se despliega el grid para que quede visible al cerrar el modal. */
+    function openFromHash() {
+      const k = (location.hash || '').slice(1);
+      if (!PROJECTS[k]) return;
+      const card = $(`[data-project="${k}"]`);
+      if (card && card.classList.contains('work__card--more') && grid && !grid.classList.contains('is-expanded')) {
+        if (moreBtn) moreBtn.click(); else grid.classList.add('is-expanded');
+      }
+      open(k, false);
+    }
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+
     $('.modal__scrim', m).addEventListener('click', close);
     $('.modal__close', m).addEventListener('click', close);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && m.classList.contains('open')) close(); });

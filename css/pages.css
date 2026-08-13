@@ -131,9 +131,8 @@
 }
 
 /* ============================================================
-   HOME — kinetic redesign (marquees, manifesto fill, flow)
+   HOME — kinetic redesign (work carousel, manifesto fill, flow)
    ============================================================ */
-@keyframes marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
 /* Editorial line + link row (no section labels on home) */
 .home-line { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
@@ -193,25 +192,127 @@
 .studio__row p { margin-top: 12px; font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, var(--cream) 60%, transparent); max-width: 52ch; transition: color .35s var(--ease); }
 .studio__row:hover p { color: color-mix(in srgb, var(--cream) 90%, transparent); }
 
-/* ---------- Selected work — infinite carousel ---------- */
-.work-marquee {
-  margin-top: clamp(28px, 4vh, 52px); overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+/* ---------- Selected work — carrusel arrastrable (14 casos) ----------
+   Sin degradés en los costados y sin loop infinito: el track arranca y
+   termina. Se recorre con las flechas, arrastrando con el mouse, con
+   swipe en touch o con las teclas ← →. El scroll es nativo (scroll-snap),
+   así que sigue funcionando sin JS.                                     */
+.wc {
+  --wc-card: clamp(280px, 31vw, 430px);
+  --wc-gap: clamp(16px, 1.6vw, 28px);
+  position: relative;
+  margin-top: clamp(28px, 4vh, 52px);
 }
-.wm-track { display: inline-flex; gap: clamp(16px, 1.6vw, 28px); will-change: transform; animation: marquee 48s linear infinite; }
-.wm-card { flex: 0 0 auto; width: clamp(280px, 33vw, 440px); }
-.wm-card__shot {
-  position: relative; aspect-ratio: 16 / 11; overflow: hidden; border: 1px solid var(--line);
-  display: grid; place-items: center;
-  background: radial-gradient(120% 90% at 80% 12%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 58%), linear-gradient(160deg, #0e211b, #060c0a 72%);
+.wc__viewport {
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  scrollbar-width: none; -ms-overflow-style: none;
+  cursor: grab;
 }
-.wm-card__shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.wm-card__meta { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
-.wm-card__meta h3 { font-family: var(--display); font-weight: 600; font-size: clamp(16px, 1.7vw, 21px); letter-spacing: -.01em; }
-.wm-card__meta span { font-size: 12px; color: var(--gray); white-space: nowrap; }
-.section--paper .wm-card__shot { border-color: var(--line-d); }
-.section--paper .wm-card__meta { border-top-color: var(--line-d); }
+.wc__viewport::-webkit-scrollbar { display: none; }
+.wc__viewport:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.wc.is-dragging .wc__viewport { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.wc.is-dragging .wc-card { pointer-events: none; }
+.wc__track {
+  display: flex; gap: var(--wc-gap);
+  padding-inline: var(--gutter);
+  width: max-content;
+}
+.wc__item { flex: 0 0 var(--wc-card); scroll-snap-align: start; }
+
+.wc-card { display: block; -webkit-user-drag: none; }
+.wc-card__shot {
+  position: relative; display: block; aspect-ratio: 16 / 11; overflow: hidden;
+  border: 1px solid var(--line-d);
+  background: linear-gradient(160deg, #0e211b, #060c0a 72%);
+  transition: border-color .4s var(--ease), box-shadow .5s var(--ease);
+}
+.wc-card__shot img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  transition: transform .7s var(--ease);
+  user-select: none; -webkit-user-drag: none;
+}
+.wc-card__tag {
+  position: absolute; left: 14px; bottom: 14px; z-index: 2;
+  display: inline-flex; align-items: center; gap: .45em;
+  padding: 8px 14px; border-radius: 999px;
+  background: var(--accent); color: #fff;
+  font-family: var(--display); font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity .35s var(--ease), transform .45s var(--ease);
+}
+.wc-card__tag::after {
+  content: ""; width: 1em; height: 1em; background: currentColor;
+  -webkit-mask: var(--ico-arrow) center / contain no-repeat;
+          mask: var(--ico-arrow) center / contain no-repeat;
+}
+.wc-card:hover .wc-card__shot,
+.wc-card:focus-visible .wc-card__shot { border-color: color-mix(in srgb, var(--accent) 45%, var(--line-d)); box-shadow: 0 26px 50px -34px rgba(17,17,17,.55); }
+.wc-card:hover img,
+.wc-card:focus-visible img { transform: scale(1.045); }
+.wc-card:hover .wc-card__tag,
+.wc-card:focus-visible .wc-card__tag { opacity: 1; transform: none; }
+
+.wc-card__meta {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 14px;
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-d);
+}
+.wc-card__name {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(16px, 1.7vw, 21px); letter-spacing: -.01em;
+  transition: color .35s var(--ease);
+}
+.wc-card:hover .wc-card__name { color: var(--accent); }
+.wc-card__cat { font-size: 12px; color: var(--gray); white-space: nowrap; }
+
+/* Flechas — una de cada lado, centradas sobre la altura de la captura */
+.wc__arrow {
+  position: absolute; z-index: 3;
+  top: calc(var(--wc-card) * 11 / 16 / 2); transform: translateY(-50%);
+  width: 52px; height: 52px; border-radius: 999px;
+  background: var(--cream); color: var(--paper);
+  border: 1px solid var(--line-d);
+  box-shadow: 0 14px 30px -18px rgba(17,17,17,.5);
+  transition: background .35s var(--ease), color .35s var(--ease),
+              border-color .35s var(--ease), opacity .3s var(--ease), transform .35s var(--ease);
+}
+.wc__arrow::after {
+  content: ""; position: absolute; inset: 0; margin: auto;
+  width: 20px; height: 20px; background: currentColor;
+  -webkit-mask: var(--ico-east) center / contain no-repeat;
+          mask: var(--ico-east) center / contain no-repeat;
+}
+html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo */
+.wc__arrow--prev { left: max(12px, calc(var(--gutter) - 26px)); }
+.wc__arrow--prev::after { rotate: 180deg; }
+.wc__arrow--next { right: max(12px, calc(var(--gutter) - 26px)); }
+.wc__arrow:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: translateY(-50%) scale(1.06); }
+/* En los extremos la flecha queda tenue: se ve el límite del carrusel
+   sin que desaparezca la referencia visual. */
+.wc__arrow[disabled] { opacity: .32; pointer-events: none; box-shadow: none; }
+
+/* Barra de progreso + contador */
+.wc__foot {
+  display: flex; align-items: center; gap: clamp(16px, 2.4vw, 34px);
+  margin-top: clamp(24px, 3.4vh, 40px);
+}
+.wc__rail { position: relative; flex: 1; height: 2px; background: var(--line-d); overflow: hidden; }
+.wc__bar {
+  position: absolute; left: 0; top: 0; height: 100%; width: 100%;
+  background: var(--accent); transform-origin: left center;
+  transform: scaleX(.2); will-change: transform;
+  transition: transform .18s linear;
+}
+.wc__count {
+  flex: none; margin: 0;
+  font-family: var(--display); font-size: 12px; font-weight: 600;
+  letter-spacing: .12em; color: color-mix(in srgb, var(--paper) 45%, transparent);
+}
+.wc__count b { color: var(--paper); font-weight: 700; }
 
 /* ---------- How I work — interactive flow ---------- */
 .flow { margin-top: clamp(34px, 5vh, 62px); }
@@ -237,7 +338,6 @@
 .section--accent .flow__rail { background: rgba(247,246,243,.28); }
 .section--accent .flow__progress { background: #fff; }
 .section--accent .flow__step .n { color: #fff; }
-.section--accent .wm-card__meta span { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 .section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
 
 /* ---------- Flow + CTA links on light (paper) sections ---------- */
@@ -285,12 +385,19 @@
   .studio { grid-template-columns: 1fr; }
   .cta-grid { grid-template-columns: 1fr; align-items: start; }
 }
+@media (max-width: 860px) {
+  .wc__arrow { width: 46px; height: 46px; }
+  .wc__arrow::after { width: 17px; height: 17px; }
+}
 @media (max-width: 560px) {
   .flow__steps { grid-template-columns: 1fr; }
-  .wm-card { width: 78vw; }
+  .wc { --wc-card: 78vw; }
+  /* En touch se pasa con el dedo: las flechas ocuparían media captura */
+  .wc__arrow { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .wm-track { animation: none !important; }
+  .wc__viewport { scroll-behavior: auto; }
+  .wc-card__shot img, .wc-card__tag { transition: none; }
   .flow__progress { transform: scaleX(1) !important; }
 }
 

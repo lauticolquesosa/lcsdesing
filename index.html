@@ -179,7 +179,7 @@
     </div>
   </section>
 
-  <!-- ============ TRABAJO (infinite carousel) ============ -->
+  <!-- ============ TRABAJO (carrusel arrastrable · 14 casos) ============ -->
   <section class="section section--paper" data-nav="light">
     <div class="shell">
       <div class="home-line">
@@ -187,32 +187,193 @@
         <a class="link-arrow magnetic" data-magnetic href="proyectos" data-es="Ver todos" data-en="See all">Ver todos</a>
       </div>
     </div>
-    <div class="work-marquee">
-      <div class="wm-track" data-marquee>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/lavaca-v3.webp" alt="La Vaca" width="1200" height="825" loading="lazy" decoding="async"></div>
-          <div class="wm-card__meta"><h3>La Vaca</h3><span data-es="Gastronomía" data-en="Hospitality">Gastronomía</span></div>
-        </a>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/brunetti.webp" alt="Frigorífico Brunetti" width="1200" height="825" loading="lazy" decoding="async" style="object-position:left center"></div>
-          <div class="wm-card__meta"><h3>Frigorífico Brunetti</h3><span data-es="Industria" data-en="Industry">Industria</span></div>
-        </a>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/donasalta-v2.webp" alt="Doña Salta" width="1200" height="825" loading="lazy" decoding="async"></div>
-          <div class="wm-card__meta"><h3>Doña Salta</h3><span data-es="Gastronomía" data-en="Hospitality">Gastronomía</span></div>
-        </a>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/zur.webp" alt="Espacio Zur" width="1200" height="825" loading="lazy" decoding="async"></div>
-          <div class="wm-card__meta"><h3>Espacio Zur</h3><span data-es="Cultural" data-en="Cultural">Cultural</span></div>
-        </a>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/jockey.webp" alt="Jockey Club Salta" width="1200" height="825" loading="lazy" decoding="async"></div>
-          <div class="wm-card__meta"><h3>Jockey Club Salta</h3><span data-es="Institucional" data-en="Institutional">Institucional</span></div>
-        </a>
-        <a class="wm-card card-hover" href="proyectos">
-          <div class="wm-card__shot"><img src="assets/ipv.webp" alt="IPV" width="1200" height="825" loading="lazy" decoding="async"></div>
-          <div class="wm-card__meta"><h3>IPV</h3><span data-es="Institucional" data-en="Institutional">Institucional</span></div>
-        </a>
+    <div class="wc" data-carousel>
+      <div class="wc__viewport" data-wc-viewport role="group" aria-roledescription="carousel"
+           aria-label="Proyectos del estudio" tabindex="0">
+        <ul class="wc__track">
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p1">
+              <span class="wc-card__shot">
+                <img src="assets/lavaca-v3.webp" alt="La Vaca" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">La Vaca</span>
+                <span class="wc-card__cat" data-es="Gastronomía" data-en="Hospitality">Gastronomía</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p2">
+              <span class="wc-card__shot">
+                <img src="assets/brunetti.webp" alt="Frigorífico Brunetti" width="1200" height="825" loading="lazy" decoding="async" style="object-position:left center">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Frigorífico Brunetti</span>
+                <span class="wc-card__cat" data-es="Industria" data-en="Industry">Industria</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p8">
+              <span class="wc-card__shot">
+                <img src="assets/baltazar-v2.webp" alt="Baltazar Aguiar" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Baltazar Aguiar</span>
+                <span class="wc-card__cat" data-es="Marketing" data-en="Marketing">Marketing</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p4">
+              <span class="wc-card__shot">
+                <img src="assets/zur.webp" alt="Espacio Zur" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Espacio Zur</span>
+                <span class="wc-card__cat" data-es="Bienestar" data-en="Wellness">Bienestar</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p5">
+              <span class="wc-card__shot">
+                <img src="assets/jockey.webp" alt="Jockey Club Salta" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Jockey Club Salta</span>
+                <span class="wc-card__cat" data-es="Institucional" data-en="Institutional">Institucional</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p6">
+              <span class="wc-card__shot">
+                <img src="assets/ipv.webp" alt="IPV" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">IPV</span>
+                <span class="wc-card__cat" data-es="Institucional" data-en="Institutional">Institucional</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p7">
+              <span class="wc-card__shot">
+                <img src="assets/forlani-v2.webp" alt="Dra. Karina Forlani" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Dra. Karina Forlani</span>
+                <span class="wc-card__cat" data-es="Salud" data-en="Health">Salud</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p3">
+              <span class="wc-card__shot">
+                <img src="assets/donasalta-v2.webp" alt="Doña Salta" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Doña Salta</span>
+                <span class="wc-card__cat" data-es="Gastronomía" data-en="Hospitality">Gastronomía</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p9">
+              <span class="wc-card__shot">
+                <img src="assets/danielvilla-v2.webp" alt="Daniel Villa Real Estate" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Daniel Villa</span>
+                <span class="wc-card__cat" data-es="Inmobiliaria" data-en="Real estate">Inmobiliaria</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p10">
+              <span class="wc-card__shot">
+                <img src="assets/totalgym-v3.webp" alt="Total Gym Salta" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Total Gym Salta</span>
+                <span class="wc-card__cat" data-es="Fitness" data-en="Fitness">Fitness</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p11">
+              <span class="wc-card__shot">
+                <img src="assets/posadadelsol-v2.webp" alt="Hotel Posada del Sol" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Hotel Posada del Sol</span>
+                <span class="wc-card__cat" data-es="Hotelería" data-en="Hotels">Hotelería</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p12">
+              <span class="wc-card__shot">
+                <img src="assets/viejaestacion-v2.webp" alt="Peña La Vieja Estación" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Peña La Vieja Estación</span>
+                <span class="wc-card__cat" data-es="Cultural" data-en="Cultural">Cultural</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p13">
+              <span class="wc-card__shot">
+                <img src="assets/lacondesa-v3.webp" alt="La Condesa" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">La Condesa</span>
+                <span class="wc-card__cat" data-es="Estética" data-en="Aesthetics">Estética</span>
+              </span>
+            </a>
+          </li>
+          <li class="wc__item">
+            <a class="wc-card" href="proyectos#p14">
+              <span class="wc-card__shot">
+                <img src="assets/pielcanela-v2.webp" alt="Piel Canela" width="1200" height="825" loading="lazy" decoding="async">
+                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
+              </span>
+              <span class="wc-card__meta">
+                <span class="wc-card__name">Piel Canela</span>
+                <span class="wc-card__cat" data-es="Spa" data-en="Spa">Spa</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="wc__arrow wc__arrow--prev" type="button" data-wc-prev
+              aria-label="Proyectos anteriores"
+              data-label-es="Proyectos anteriores" data-label-en="Previous projects"></button>
+      <button class="wc__arrow wc__arrow--next" type="button" data-wc-next
+              aria-label="Proyectos siguientes"
+              data-label-es="Proyectos siguientes" data-label-en="Next projects"></button>
+    </div>
+
+    <div class="shell">
+      <div class="wc__foot">
+        <div class="wc__rail" aria-hidden="true"><span class="wc__bar" data-wc-bar></span></div>
+        <p class="wc__count" aria-hidden="true"><b data-wc-current>01</b> / <span data-wc-total>14</span></p>
       </div>
     </div>
   </section>
