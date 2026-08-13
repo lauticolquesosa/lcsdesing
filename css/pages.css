@@ -152,12 +152,6 @@
   display: grid; grid-template-columns: 1.15fr 0.85fr;
   gap: clamp(32px, 5.5vw, 90px); align-items: center;
 }
-.identity__kicker {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: clamp(16px, 2.4vh, 26px);
-}
-.identity__kicker::before { content: ""; width: 26px; height: 1.5px; background: currentColor; }
 .identity__prose { margin-top: clamp(20px, 3vh, 32px); display: flex; flex-direction: column; gap: clamp(14px, 2vh, 20px); }
 .identity__prose .lead { max-width: 54ch; }
 .identity__prose strong { font-weight: 600; }
