@@ -71,31 +71,72 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .section--paper { background: var(--cream); color: var(--paper); border-top-color: var(--line-d); }
 .section--accent { background: var(--green); color: var(--cream); }
-.section--ink, .section--dark { background: var(--ink); color: var(--cream); }
+.section--ink { background: var(--ink); color: var(--cream); }
 .section--tight { padding-block: clamp(48px, 7vh, 96px); }
+/* El header es fijo: las anclas se frenan antes para no quedar debajo */
+.section[id], [id="top"] { scroll-margin-top: clamp(70px, 9vh, 90px); }
 
-/* Per-page hero band */
+/* ============================================================
+   PAGE HERO — editorial mini-hero for interior pages
+   index rule · title · lead · meta row
+   ============================================================ */
 .page-hero {
   position: relative;
-  padding-top: clamp(120px, 15vh, 170px);
-  padding-bottom: clamp(48px, 7vh, 88px);
-  background: var(--ink); color: var(--cream);
+  padding-top: clamp(104px, 14vh, 158px);
+  padding-bottom: clamp(40px, 6vh, 76px);
+  background: var(--cream); color: var(--paper);
   overflow: clip;
 }
-.page-hero--paper { background: var(--cream); color: var(--paper); }
-.page-hero + .section { border-top: none; }
+/* El hero ya aporta aire por abajo: la sección siguiente no repite el padding
+   completo ni dibuja el filete. */
+.page-hero + .section { border-top: none; padding-top: clamp(40px, 6vh, 84px); }
 .page-hero__inner { position: relative; z-index: 2; width: 100%; }
+
+/* Numbered section index — "02 / Servicios ————" */
+.page-hero__index {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: clamp(18px, 2.6vh, 32px);
+}
+.page-hero__num {
+  font-family: var(--display); font-size: 12px; font-weight: 700;
+  letter-spacing: .14em; color: var(--accent);
+}
+.page-hero__kicker {
+  font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  color: color-mix(in srgb, currentColor 58%, transparent);
+}
+.page-hero__rule { flex: 1; height: 1px; background: currentColor; opacity: .16; }
+
+.page-hero__title {
+  font-family: var(--display); font-weight: 700;
+  line-height: .92; letter-spacing: -.035em;
+  font-size: clamp(38px, 6.6vw, 100px);
+  text-wrap: balance;
+}
+.page-hero__title em { font-style: normal; color: var(--accent); }
+.page-hero__lead { margin-top: clamp(16px, 2.4vh, 28px); max-width: 60ch; }
+
+/* Meta row — grounds each page with a fact line (also good for crawlers) */
+.page-hero__meta {
+  margin-top: clamp(26px, 4vh, 48px); padding-top: 18px;
+  border-top: 1px solid var(--line-d);
+  display: flex; flex-wrap: wrap; gap: 14px clamp(24px, 5vw, 72px);
+}
+.page-hero__meta > div { display: flex; flex-direction: column; gap: 5px; }
+.page-hero__meta dt {
+  font-size: 10.5px; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--accent);
+}
+.page-hero__meta dd { font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; }
+
 /* Brand isotype watermark — quiet unifying motif behind hero content */
 .hero-mark {
   position: absolute; z-index: 1; pointer-events: none; user-select: none;
   right: clamp(-30px, -1vw, 8px); bottom: -6%;
   width: clamp(200px, 30vw, 400px); height: auto; opacity: .05;
+  filter: invert(1);
 }
-.page-hero--paper .hero-mark { filter: invert(1); }
 @media (max-width: 760px) { .hero-mark { display: none; } }
-.page-hero .big { font-size: clamp(18px, 5.2vw, 72px); white-space: nowrap; }
-.page-hero .big .ln > span { transform: none !important; }
-.page-hero__lead { margin-top: clamp(8px, 1vh, 16px); }
 
 /* ============================================================
    CUSTOM CURSOR
@@ -243,7 +284,6 @@ body.menu-open .menu__links a { opacity: 1; transform: none; }
 .big em { font-style: normal; color: inherit; }
 .section--accent .big em { color: inherit; }
 .section--paper .big em { color: inherit; }
-.big--edge { text-align: right; }
 .big--link { display: block; transition: opacity .3s; }
 .big--link:hover { opacity: .85; }
 
@@ -253,14 +293,6 @@ h2.title {
 }
 h2.title em { font-style: normal; color: inherit; }
 .section--accent h2.title em { color: inherit; }
-
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-  color: color-mix(in srgb, currentColor 64%, transparent);
-}
-.eyebrow i { font-style: normal; color: var(--accent); }
-.section--accent .eyebrow i { color: #fff; }
 
 .lead {
   font-size: clamp(17px, 1.7vw, 23px); font-weight: 300; line-height: 1.42;
@@ -272,7 +304,7 @@ h2.title em { font-style: normal; color: inherit; }
 /* Section header block (title + green subtitle) reused across pages */
 .sec-head { max-width: 640px; margin-bottom: clamp(36px, 5vh, 64px); }
 .sec-head .lead { margin-top: 16px; color: var(--green); font-weight: 400; font-size: clamp(15px, 1.4vw, 19px); }
-.section--ink .sec-head .lead, .section--dark .sec-head .lead { color: var(--green-l); }
+.section--ink .sec-head .lead { color: var(--green-l); }
 .sec-head--wide { max-width: 860px; }
 
 /* ============================================================
@@ -317,22 +349,6 @@ h2.title em { font-style: normal; color: inherit; }
 .ico-arrow:hover::after { transform: translate(3px, -3px); }
 .ico-up:hover::after { transform: translateY(-3px); }
 
-/* Generic key/value meta grid */
-.meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 2.4vw, 36px); }
-.meta-cell { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--line); }
-.section--paper .meta-cell { border-top-color: var(--line-d); }
-.meta-cell .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-.meta-cell .v { font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; color: color-mix(in srgb, currentColor 86%, transparent); }
-
-/* Pills / tags */
-.tags { display: flex; flex-wrap: wrap; gap: 10px; }
-.tag {
-  font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 500;
-  padding: 9px 18px; border: 1px solid color-mix(in srgb, currentColor 22%, transparent);
-  color: color-mix(in srgb, currentColor 72%, transparent);
-  transition: border-color .25s, color .25s;
-}
-.tag:hover { border-color: var(--accent); color: currentColor; }
 
 /* ============================================================
    GLOBAL FOOTER (injected on every page)
@@ -373,14 +389,13 @@ h2.title em { font-style: normal; color: inherit; }
   .site-footer__brand { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
-  .meta-grid { grid-template-columns: 1fr; }
   .site-footer__top { grid-template-columns: 1fr; gap: 36px; }
   .site-footer__bottom { flex-direction: column; align-items: flex-start; }
-  .big--edge { text-align: left; }
   .page-hero {
-    padding-top: clamp(96px, 16vh, 150px);
-    padding-bottom: clamp(40px, 7vh, 72px);
+    padding-top: clamp(92px, 15vh, 140px);
+    padding-bottom: clamp(34px, 6vh, 60px);
   }
+  .page-hero__meta { gap: 14px 28px; }
   .menu { padding-inline: var(--gutter); }
   .menu__links a { font-size: clamp(28px, 9vw, 52px); }
   .btn { padding: 13px 22px; font-size: 13px; }

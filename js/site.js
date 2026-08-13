@@ -18,11 +18,10 @@
   /* ---------- Navigation model (single source of truth) ---------- */
   const NAV = [
     { key: 'home',      href: '/',           num: '01', es: 'Inicio',    en: 'Home' },
-    { key: 'sobre',     href: 'sobre',       num: '02', es: 'Identidad',  en: 'Identity' },
-    { key: 'servicios', href: 'servicios',   num: '03', es: 'Servicios', en: 'Services' },
-    { key: 'proyectos', href: 'proyectos',   num: '04', es: 'Proyectos', en: 'Work' },
-    { key: 'inversion', href: 'inversion',   num: '05', es: 'Inversión', en: 'Investment' },
-    { key: 'contacto',  href: 'contacto',    num: '06', es: 'Contacto',  en: 'Contact' },
+    { key: 'servicios', href: 'servicios',   num: '02', es: 'Servicios', en: 'Services' },
+    { key: 'proyectos', href: 'proyectos',   num: '03', es: 'Proyectos', en: 'Work' },
+    { key: 'inversion', href: 'inversion',   num: '04', es: 'Inversión', en: 'Investment' },
+    { key: 'contacto',  href: 'contacto',    num: '05', es: 'Contacto',  en: 'Contact' },
   ];
   const SOCIAL = {
     instagram: 'https://instagram.com/lcswebstudio',
@@ -262,7 +261,7 @@
       gsap.from($$('.faq__item', f), { autoAlpha: 0, y: 18, duration: 0.6, ease: 'power2.out',
         stagger: 0.08, scrollTrigger: { trigger: f, start: 'top 85%' } });
     });
-    $$('.sec-head .lead, .study-lead').forEach(el => {
+    $$('.sec-head .lead').forEach(el => {
       gsap.from(el, { autoAlpha: 0, y: 14, duration: 0.7, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 90%' } });
     });
@@ -336,7 +335,6 @@
   function heroMark() {
     $$('.page-hero').forEach(h => {
       if (h.querySelector('.hero-mark')) return;
-      if (h.querySelector('.study-hero__visual')) return;   // already has a brand visual
       const img = document.createElement('img');
       img.className = 'hero-mark';
       img.src = 'assets/logo-isotipo-white.webp';

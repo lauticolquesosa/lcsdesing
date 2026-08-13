@@ -3,7 +3,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/proceso", "destination": "/servicios#proceso", "permanent": true }
+    { "source": "/proceso", "destination": "/servicios#proceso", "permanent": true },
+    { "source": "/sobre", "destination": "/#identidad", "permanent": true }
   ],
   "headers": [
     {
