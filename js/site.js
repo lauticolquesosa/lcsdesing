@@ -94,11 +94,11 @@
               <p data-es="LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
                  data-en="LCS is a web &amp; UX/UI design studio with its own identity. From concept to live site, from Salta to everywhere.">LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>
-            <nav class="site-footer__col" aria-label="Footer">
+            <nav class="site-footer__col site-footer__col--nav" aria-label="Footer">
               <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
               <ul>${links}</ul>
             </nav>
-            <div class="site-footer__col">
+            <div class="site-footer__col site-footer__col--contact">
               <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
               <ul>
                 <li><a href="${SOCIAL.email}">lauticolquesosa@gmail.com</a></li>
@@ -109,9 +109,12 @@
             </div>
           </div>
           <div class="site-footer__bottom">
-            <span data-es="© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina"
+            <span class="site-footer__copy" data-es="© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina"
                   data-en="© 2026 LCS · Web Design &amp; UX/UI Studio · Salta, Argentina">© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina</span>
-            <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
+            <div class="site-footer__bottom-links">
+              <a href="terminos.html" class="site-footer__legal" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+              <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
+            </div>
           </div>
         </div>
       </footer>`;

@@ -83,6 +83,13 @@
 .faq__answer { overflow: hidden; }
 .faq__answer p { padding-bottom: clamp(20px, 2.6vh, 30px); font-size: clamp(14px, 1.4vw, 17px); font-weight: 300; line-height: 1.65; color: color-mix(in srgb, currentColor 76%, transparent); max-width: 70ch; }
 
+/* Legal / plain-text pages (terms, policies) */
+.legal { display: flex; flex-direction: column; gap: clamp(30px, 4vh, 46px); max-width: 70ch; }
+.legal__item h2 { font-family: var(--display); font-weight: 600; font-size: clamp(17px, 1.7vw, 21px); letter-spacing: -.01em; margin-bottom: 12px; }
+.legal__item p { font-size: clamp(14px, 1.4vw, 16px); font-weight: 300; line-height: 1.7; color: color-mix(in srgb, currentColor 76%, transparent); }
+.legal__item p a { color: currentColor; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); transition: color .25s; }
+.legal__item p a:hover { color: var(--accent); }
+
 /* Breadcrumb-ish back link used atop interior pages */
 .kicker-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: clamp(20px, 3vh, 34px); }
 
@@ -475,6 +482,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .inv__list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-size: 10px; top: 3px; transition: transform .35s var(--ease); }
 .inv__card:hover .inv__list li { color: color-mix(in srgb, var(--cream) 90%, transparent); }
 .inv__card:hover .inv__list li::before { transform: translateX(4px); }
+.inv__note { font-size: 12px; font-weight: 300; font-style: italic; line-height: 1.5; color: color-mix(in srgb, var(--cream) 55%, transparent); margin: -16px 0 22px; }
 .inv__cta { display: inline-flex; align-items: center; gap: .45em; align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--cream); border-bottom: 1px solid rgba(247,246,243,.3); padding-bottom: 3px; transition: color .25s, border-color .25s, letter-spacing .3s var(--ease); }
 .inv__cta:hover { color: var(--accent); border-color: var(--accent); letter-spacing: .2em; }
 
@@ -491,6 +499,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .section--paper .inv__card--highlight:hover .inv__price strong { color: var(--paper); }
 .section--paper .inv__list li { color: color-mix(in srgb, var(--paper) 75%, transparent); }
 .section--paper .inv__card:hover .inv__list li { color: color-mix(in srgb, var(--paper) 92%, transparent); }
+.section--paper .inv__note { color: color-mix(in srgb, var(--paper) 55%, transparent); }
 .section--paper .inv__cta { color: var(--paper); border-bottom-color: rgba(17,17,17,.28); }
 .section--paper .inv__cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
