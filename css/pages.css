@@ -587,8 +587,6 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
    ============================================================ */
 .work__img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform .6s var(--ease); }
 .work__card:hover .work__img { transform: scale(1.045); }
-/* Encuadre por proyecto (composiciones con el título a la izquierda) */
-[data-project="p2"] .work__img { object-position: left center; }  /* Brunetti — título + campo */
 
 /* ============================================================
    MODAL PREVIEW — MINI BROWSER SCROLLEABLE
