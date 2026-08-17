@@ -217,24 +217,30 @@
        Faster than before and triggered on scroll so each title types into view. */
     function runTypewriter(el, speed, endPause) {
       const span = el.querySelector('span[data-es]') || el.querySelector('span') || el;
-      const chars = [];
-      span.childNodes.forEach(n => {
-        if (n.nodeType === 3) { for (const c of n.textContent) chars.push([c, false]); }
-        else if (n.nodeName === 'EM') { for (const c of n.textContent) chars.push([c, true]); }
-      });
-      if (!chars.length) { span.style.visibility = 'visible'; return; }
-      const build = n => {
-        let html = '', em = false;
-        for (let k = 0; k < n; k++) {
-          const [c, isEm] = chars[k];
-          if (isEm && !em) { html += '<em>'; em = true; }
-          else if (!isEm && em) { html += '</em>'; em = false; }
-          html += c;
-        }
-        return em ? html + '</em>' : html;
+      /* El texto se lee al arrancar y no al registrar: si se cambió el idioma
+         antes de que el título entre en pantalla, tipea el idioma vigente. */
+      const collect = () => {
+        const chars = [];
+        span.childNodes.forEach(n => {
+          if (n.nodeType === 3) { for (const c of n.textContent) chars.push([c, false]); }
+          else if (n.nodeName === 'EM') { for (const c of n.textContent) chars.push([c, true]); }
+        });
+        return chars;
       };
       const caret = '<span class="tw-caret" aria-hidden="true"></span>';
       const start = () => {
+        const chars = collect();
+        if (!chars.length) { span.style.visibility = 'visible'; return; }
+        const build = n => {
+          let html = '', em = false;
+          for (let k = 0; k < n; k++) {
+            const [c, isEm] = chars[k];
+            if (isEm && !em) { html += '<em>'; em = true; }
+            else if (!isEm && em) { html += '</em>'; em = false; }
+            html += c;
+          }
+          return em ? html + '</em>' : html;
+        };
         const h = el.getBoundingClientRect().height;
         if (h) el.style.minHeight = h + 'px';   // reserve space → no layout jump
         span.style.visibility = 'visible';
@@ -266,7 +272,7 @@
 
     /* Unified subtle reveal — a small fade-up so every text block shares
        the same quiet entrance (blocks that had no animation before). */
-    $$('.phase, .svc-detail').forEach(el => {
+    $$('.phase, .svc-detail, [data-fade-up]').forEach(el => {
       gsap.from(el, { autoAlpha: 0, y: 28, duration: 0.75, ease: 'power2.out',
         scrollTrigger: { trigger: el, start: 'top 84%' } });
     });

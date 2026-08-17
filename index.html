@@ -86,48 +86,71 @@
     </div>
   </section>
 
-  <!-- ============ IDENTIDAD ============ -->
+  <!-- ============ IDENTIDAD (ficha del estudio) ============ -->
   <section class="section section--paper" id="identidad" data-nav="light" style="border-top:none">
     <div class="shell">
-      <div class="identity">
-        <div class="identity__text">
-          <h2 class="title"
+      <div class="ident">
+
+        <p class="ident__index">
+          <span class="ident__num">01</span>
+          <span class="ident__kicker" data-es="El estudio" data-en="The studio">El estudio</span>
+          <span class="ident__rule" aria-hidden="true"></span>
+        </p>
+
+        <div class="ident__top">
+          <h2 class="title ident__title"
               data-es="Un estudio. Una persona. <em>Criterio propio.</em>"
               data-en="One studio. One person. <em>Its own judgment.</em>">Un estudio. Una persona. <em>Criterio propio.</em></h2>
-          <div class="identity__prose" data-reveal-text>
-            <p class="lead"
-               data-es="LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, con base en Salta, Argentina. Trabaja en la intersección entre diseño y desarrollo: no alcanza con que algo se vea bien, tiene que funcionar, cargar rápido y llevar al usuario a una acción."
-               data-en="LCS is the web &amp; UX/UI design studio of <strong>Lautaro Colque Sosa</strong>, based in Salta, Argentina. It works at the intersection of design and development: looking good is not enough — it has to work, load fast and lead the user to an action.">LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, con base en Salta, Argentina. Trabaja en la intersección entre diseño y desarrollo: no alcanza con que algo se vea bien, tiene que funcionar, cargar rápido y llevar al usuario a una acción.</p>
-            <p class="lead"
-               data-es="Cada proyecto empieza con una pregunta: ¿qué problema real hay que resolver? La estética viene después, al servicio de esa respuesta. Sin intermediarios: quien piensa la estrategia es quien escribe el código."
-               data-en="Every project starts with a question: what real problem needs solving? Aesthetics come later, in service of that answer. No middlemen: the person who shapes the strategy writes the code.">Cada proyecto empieza con una pregunta: ¿qué problema real hay que resolver? La estética viene después, al servicio de esa respuesta. Sin intermediarios: quien piensa la estrategia es quien escribe el código.</p>
-          </div>
-          <div class="identity__creds">
-            <div class="identity__cred">
-              <span class="k" data-es="Formación" data-en="Education">Formación</span>
-              <span class="v" data-es="Licenciatura en Diseño Gráfico" data-en="Bachelor's in Graphic Design">Licenciatura en Diseño Gráfico</span>
-              <span class="s" data-es="UCASAL · 2024 — actualidad" data-en="UCASAL · 2024 — present">UCASAL · 2024 — actualidad</span>
-            </div>
-            <div class="identity__cred">
-              <span class="k" data-es="Especialización" data-en="Specialization">Especialización</span>
-              <span class="v" data-es="Carrera de Diseño UX/UI" data-en="UX/UI Design Program">Carrera de Diseño UX/UI</span>
-              <span class="s" data-es="Coderhouse · 2023 — 2024" data-en="Coderhouse · 2023 — 2024">Coderhouse · 2023 — 2024</span>
-            </div>
-            <div class="identity__cred">
-              <span class="k" data-es="Método" data-en="Method">Método</span>
-              <span class="v" data-es="Design Thinking · Doble Diamante" data-en="Design Thinking · Double Diamond">Design Thinking · Doble Diamante</span>
-              <span class="s" data-es="Research, prototipado y testing con usuarios" data-en="Research, prototyping and user testing">Research, prototipado y testing con usuarios</span>
-            </div>
-            <div class="identity__cred">
-              <span class="k" data-es="Base" data-en="Based in">Base</span>
-              <span class="v">Salta, Argentina</span>
-              <span class="s" data-es="Proyectos en todo el país y en Colombia" data-en="Projects across Argentina and in Colombia">Proyectos en todo el país y en Colombia</span>
-            </div>
+
+          <div class="ident__aside">
+            <p class="lead ident__lede" data-reveal-text
+               data-es="LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, en Salta. Diseño y código en la misma cabeza: nada se pierde en la traducción entre lo que se piensa y lo que se programa."
+               data-en="LCS is the web &amp; UX/UI design studio of <strong>Lautaro Colque Sosa</strong>, in Salta. Design and code in the same head: nothing gets lost in translation between what is thought and what is built.">LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, en Salta. Diseño y código en la misma cabeza: nada se pierde en la traducción entre lo que se piensa y lo que se programa.</p>
+            <a class="ident__status" href="contacto">
+              <span class="ident__dot" aria-hidden="true"></span>
+              <span data-es="Agenda abierta para nuevos proyectos" data-en="Open for new projects">Agenda abierta para nuevos proyectos</span>
+            </a>
           </div>
         </div>
-        <figure class="identity__visual" data-fade-scale>
-          <img src="assets/isotipo-green.webp" alt="Isotipo de LCS — el león de la marca" width="653" height="900" loading="lazy" decoding="async" />
-        </figure>
+
+        <ul class="ident__stats" data-stagger>
+          <li class="ident__stat">
+            <span class="ident__fig" data-count-to="14">14</span>
+            <span class="ident__lab" data-es="casos reales, en vivo" data-en="real cases, live">casos reales, en vivo</span>
+          </li>
+          <li class="ident__stat">
+            <span class="ident__fig" data-count-to="2">2</span>
+            <span class="ident__lab" data-es="países: Argentina y Colombia" data-en="countries: Argentina and Colombia">países: Argentina y Colombia</span>
+          </li>
+          <li class="ident__stat">
+            <span class="ident__fig" data-count-to="1">1</span>
+            <span class="ident__lab" data-es="persona detrás de cada decisión" data-en="person behind every decision">persona detrás de cada decisión</span>
+          </li>
+        </ul>
+
+        <dl class="ident__specs">
+          <div class="ident__spec">
+            <dt data-es="Formación" data-en="Education">Formación</dt>
+            <dd data-es="Lic. en Diseño Gráfico" data-en="BA in Graphic Design">Lic. en Diseño Gráfico</dd>
+            <dd class="s" data-es="UCASAL · 2024 — hoy" data-en="UCASAL · 2024 — today">UCASAL · 2024 — hoy</dd>
+          </div>
+          <div class="ident__spec">
+            <dt data-es="Especialización" data-en="Specialization">Especialización</dt>
+            <dd data-es="Diseño UX/UI" data-en="UX/UI Design">Diseño UX/UI</dd>
+            <dd class="s">Coderhouse · 2023 — 2024</dd>
+          </div>
+          <div class="ident__spec">
+            <dt data-es="Método" data-en="Method">Método</dt>
+            <dd data-es="Doble Diamante" data-en="Double Diamond">Doble Diamante</dd>
+            <dd class="s" data-es="Research, prototipado y testing" data-en="Research, prototyping and testing">Research, prototipado y testing</dd>
+          </div>
+          <div class="ident__spec">
+            <dt data-es="Base" data-en="Based in">Base</dt>
+            <dd>Salta, Argentina</dd>
+            <dd class="s" data-es="Trabajo remoto en todo el país" data-en="Remote work across the country">Trabajo remoto en todo el país</dd>
+          </div>
+        </dl>
+
       </div>
     </div>
   </section>
