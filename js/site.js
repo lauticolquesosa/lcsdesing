@@ -116,6 +116,16 @@
               <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
             </div>
           </div>
+          <div class="site-footer__mobile">
+            <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="140" height="66" loading="lazy" decoding="async" /></a>
+            <div class="site-footer__mobile-right">
+              <div class="site-footer__social">
+                <a class="social-card" href="${SOCIAL.instagram}" target="_blank" rel="noopener" aria-label="Instagram"></a>
+                <a class="social-card social-card--whatsapp" href="${SOCIAL.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
+              </div>
+              <a href="terminos.html" class="site-footer__legal-mobile" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+            </div>
+          </div>
         </div>
       </footer>`;
   }
