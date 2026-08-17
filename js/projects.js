@@ -9,7 +9,7 @@
 
   const PROJECTS = {
     p1: {
-      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v3.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v4.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Bar de barrio', role: 'LCS · Diseño & Desarrollo Web', client: 'La Vaca · Grand Bourg, Salta',
         problem: 'La Vaca es una sanguchería de barrio en Álvarez Thomas 714, Grand Bourg, que abre solo de noche: de 20:30 a 00:30 entre semana y hasta la 01:30 los fines de semana. Su público llegaba por Instagram y por las apps de delivery, sin un lugar propio donde ver qué se pide, hasta qué hora está abierto ni por dónde encargar. El riesgo era el opuesto al habitual: una web demasiado prolija hubiera traicionado a un local que se define por no tener pretensiones.',
         goal: 'Darle una web con el tono real del local —barrial, nocturno, sin pose— que resuelva las tres preguntas que importan a la una de la mañana: qué hay, hasta qué hora y cómo lo pido.',
