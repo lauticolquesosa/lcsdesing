@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <meta name="theme-color" content="#0A0A0A" />
 <title>Contacto — LCS · Estudio de Diseño Web en Salta</title>
-<meta name="description" content="Escribinos por WhatsApp, email o el formulario. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
+<meta name="description" content="Escribinos por WhatsApp, email o Instagram. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -25,14 +25,14 @@
 <meta property="og:locale:alternate" content="en_US" />
 <meta property="og:url" content="https://lcsdesign.vercel.app/contacto" />
 <meta property="og:title" content="Contacto — LCS · Estudio de Diseño Web en Salta" />
-<meta property="og:description" content="Escribinos por WhatsApp, email o el formulario. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
+<meta property="og:description" content="Escribinos por WhatsApp, email o Instagram. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
 <meta property="og:image" content="https://lcsdesign.vercel.app/assets/og-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="LCS — Estudio de Diseño Web y UX/UI en Salta" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Contacto — LCS · Estudio de Diseño Web en Salta" />
-<meta name="twitter:description" content="Escribinos por WhatsApp, email o el formulario. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
+<meta name="twitter:description" content="Escribinos por WhatsApp, email o Instagram. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
 <meta name="twitter:image" content="https://lcsdesign.vercel.app/assets/og-cover.jpg" />
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
@@ -42,7 +42,7 @@
 </head>
 <body data-page="contacto"
       data-title-en="Contact — LCS · Web Design Studio in Salta"
-      data-desc-en="Reach us on WhatsApp, email or the form. Every message gets a reply within 24–48 h and the first scoping call is free of commitment.">
+      data-desc-en="Reach us on WhatsApp, email or Instagram. Every message gets a reply within 24–48 h and the first scoping call is free of commitment.">
 
 <a id="top" aria-hidden="true"></a>
 <div id="chrome"></div>
@@ -66,64 +66,52 @@
     </div>
   </header>
 
-  <!-- ============ FORM + INFO ============ -->
+  <!-- ============ CONTACT CHANNELS ============ -->
   <section class="section section--paper" data-nav="light">
     <div class="shell">
-      <div class="contact-grid">
+      <div class="contact-cards" data-stagger>
 
-        <!-- Form -->
-        <form class="form" id="contact-form" novalidate>
-          <h2 class="form__title" data-es="Escribí a LCS" data-en="Write to LCS">Escribí a LCS</h2>
-          <div class="field--row">
-            <div class="field">
-              <label for="cf-name" data-es="Nombre" data-en="Name">Nombre</label>
-              <input id="cf-name" name="name" type="text" required data-ph-es="Tu nombre" data-ph-en="Your name" placeholder="Tu nombre" />
-            </div>
-            <div class="field">
-              <label for="cf-email" data-es="Email" data-en="Email">Email</label>
-              <input id="cf-email" name="email" type="email" required data-ph-es="tu@email.com" data-ph-en="you@email.com" placeholder="tu@email.com" />
-            </div>
+        <a class="contact-card contact-card--whatsapp" href="https://wa.me/543874834041" target="_blank" rel="noopener">
+          <div class="contact-card__top">
+            <span class="contact-card__icon" aria-hidden="true"></span>
+            <span class="contact-card__ar" aria-hidden="true"></span>
           </div>
-          <div class="field--row">
-            <div class="field">
-              <label for="cf-type" data-es="Tipo de proyecto" data-en="Project type">Tipo de proyecto</label>
-              <select id="cf-type" name="type">
-                <option data-es="Landing Page" data-en="Landing Page">Landing Page</option>
-                <option data-es="Web Institucional" data-en="Corporate Site">Web Institucional</option>
-                <option data-es="Web Compleja" data-en="Custom Web">Web Compleja</option>
-                <option data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</option>
-                <option data-es="Otro / no estoy seguro" data-en="Other / not sure">Otro / no estoy seguro</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="cf-budget" data-es="Presupuesto (USD)" data-en="Budget (USD)">Presupuesto (USD)</label>
-              <select id="cf-budget" name="budget">
-                <option data-es="A definir" data-en="To define">A definir</option>
-                <option>200 – 450</option>
-                <option>450 – 900</option>
-                <option>900+</option>
-              </select>
-            </div>
+          <div class="contact-card__body">
+            <span class="contact-card__label">WhatsApp</span>
+            <span class="contact-card__value">+54 387 483 4041</span>
+            <span class="contact-card__hint" data-es="La vía más rápida para hablar" data-en="The fastest way to reach us">La vía más rápida para hablar</span>
           </div>
-          <div class="field">
-            <label for="cf-msg" data-es="Mensaje" data-en="Message">Mensaje</label>
-            <textarea id="cf-msg" name="message" required data-ph-es="Contame sobre tu proyecto, plazos y objetivos…" data-ph-en="Tell me about your project, timeline and goals…" placeholder="Contame sobre tu proyecto, plazos y objetivos…"></textarea>
-          </div>
-          <button class="btn btn--solid form__submit ico-arrow" type="submit" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
-          <p class="form__note" data-es="Se abrirá tu cliente de correo con el mensaje listo para enviar. ¿Preferís WhatsApp? Está acá al lado." data-en="Your email client will open with the message ready to send. Prefer WhatsApp? It's right next to this.">Se abrirá tu cliente de correo con el mensaje listo para enviar. ¿Preferís WhatsApp? Está acá al lado.</p>
-        </form>
+        </a>
 
-        <!-- Aside -->
-        <aside class="contact-aside">
-          <div class="contact-aside__rows">
-            <a class="contact-aside__row" href="mailto:lauticolquesosa@gmail.com"><span class="k">Email</span><span class="v">lauticolquesosa@gmail.com</span></a>
-            <a class="contact-aside__row" href="https://wa.me/543874834041" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+54 387 483 4041</span></a>
-            <a class="contact-aside__row" href="tel:+543874834041"><span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 483 4041</span></a>
-            <a class="contact-aside__row" href="https://instagram.com/lcswebstudio" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@lcswebstudio</span></a>
-            <div class="contact-aside__row"><span class="k" data-es="Ubicación" data-en="Location">Ubicación</span><span class="v" data-es="Salta, Argentina · Remoto" data-en="Salta, Argentina · Remote">Salta, Argentina · Remoto</span></div>
+        <a class="contact-card contact-card--mail" href="mailto:lauticolquesosa@gmail.com">
+          <div class="contact-card__top">
+            <span class="contact-card__icon" aria-hidden="true"></span>
+            <span class="contact-card__ar" aria-hidden="true"></span>
           </div>
-        </aside>
+          <div class="contact-card__body">
+            <span class="contact-card__label" data-es="Email" data-en="Email">Email</span>
+            <span class="contact-card__value">lauticolquesosa@gmail.com</span>
+            <span class="contact-card__hint" data-es="Respuesta en 24–48 h" data-en="We reply within 24–48 h">Respuesta en 24–48 h</span>
+          </div>
+        </a>
 
+        <a class="contact-card contact-card--instagram" href="https://instagram.com/lcswebstudio" target="_blank" rel="noopener">
+          <div class="contact-card__top">
+            <span class="contact-card__icon" aria-hidden="true"></span>
+            <span class="contact-card__ar" aria-hidden="true"></span>
+          </div>
+          <div class="contact-card__body">
+            <span class="contact-card__label">Instagram</span>
+            <span class="contact-card__value">@lcswebstudio</span>
+            <span class="contact-card__hint" data-es="Proyectos y detrás de escena" data-en="Projects & behind the scenes">Proyectos y detrás de escena</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="contact-extra">
+        <a class="contact-extra__row" href="tel:+543874834041"><span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 483 4041</span></a>
+        <div class="contact-extra__row"><span class="k" data-es="Ubicación" data-en="Location">Ubicación</span><span class="v" data-es="Salta, Argentina · Remoto" data-en="Salta, Argentina · Remote">Salta, Argentina · Remoto</span></div>
       </div>
     </div>
   </section>
@@ -158,39 +146,5 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="js/site.js"></script>
-<script>
-  /* Contact form → composes a pre-filled email (no backend required) */
-  (function () {
-    var form = document.getElementById('contact-form');
-    if (!form) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var en = (window.__lcsLang === 'en');
-      var name = form.name.value.trim();
-      var email = form.email.value.trim();
-      var type = form.type.value;
-      var budget = form.budget.value;
-      var message = form.message.value.trim();
-      if (!name || !email || !message) {
-        form.reportValidity();
-        return;
-      }
-      var subject = (en ? 'New project — ' : 'Nuevo proyecto — ') + name + ' (' + type + ')';
-      var bodyLines = [
-        (en ? 'Name: ' : 'Nombre: ') + name,
-        'Email: ' + email,
-        (en ? 'Project type: ' : 'Tipo de proyecto: ') + type,
-        (en ? 'Budget: ' : 'Presupuesto: ') + budget,
-        '',
-        (en ? 'Message:' : 'Mensaje:'),
-        message
-      ];
-      var href = 'mailto:lauticolquesosa@gmail.com'
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(bodyLines.join('\n'));
-      window.location.href = href;
-    });
-  })();
-</script>
 </body>
 </html>
