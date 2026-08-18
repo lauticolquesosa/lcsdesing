@@ -175,7 +175,8 @@
   margin-top: clamp(26px, 4vh, 46px);
 }
 .ident__lede { margin: 0; max-width: 52ch; }
-.ident__lede strong { font-weight: 600; }
+/* El nombre queda marcado para SEO, pero se lee igual que el resto */
+.ident__lede strong { font-weight: inherit; }
 
 /* Cifras — compactas, alineadas como una ficha de datos */
 .ident__stats { display: flex; flex-direction: column; }
