@@ -158,15 +158,15 @@
    izquierda, las cifras compactas al costado y la ficha técnica abajo. */
 .ident { display: flex; flex-direction: column; }
 
-/* Titular de margen a margen: el cuerpo está calibrado para que
-   "Un estudio. Una persona." ocupe una sola línea y llegue casi al borde
-   del shell (queda aire para el cursor del efecto máquina de escribir).
+/* Titular en una sola línea, sin llegar al borde del shell.
    La doble clase gana por especificidad al h2.title de base.css. */
 .ident .ident__title {
   margin: 0; max-width: none;
-  font-size: clamp(40px, 7.86vw, 119px);
-  line-height: .94; letter-spacing: -.038em;
+  font-size: clamp(34px, 6.1vw, 92px);
+  line-height: .96; letter-spacing: -.035em;
+  color: var(--accent);
 }
+.ident .ident__title em { color: inherit; }
 
 /* Texto a la izquierda + cifras al costado */
 .ident__row {
