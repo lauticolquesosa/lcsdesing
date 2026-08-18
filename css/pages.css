@@ -157,6 +157,8 @@
    Sin imagen: un titular de margen a margen, el texto debajo a la
    izquierda, las cifras compactas al costado y la ficha técnica abajo. */
 .ident { display: flex; flex-direction: column; }
+/* La sección respira un poco menos arriba: el titular sube */
+#identidad { padding-top: calc(var(--section-pad) - clamp(16px, 3vh, 34px)); }
 
 /* Titular en una sola línea, sin llegar al borde del shell.
    La doble clase gana por especificidad al h2.title de base.css. */
@@ -190,9 +192,9 @@
 .ident__fig {
   font-family: var(--display); font-weight: 700; letter-spacing: -.03em; line-height: 1;
   font-size: clamp(26px, 2.4vw, 34px); font-variant-numeric: tabular-nums; text-align: right;
+  color: var(--accent);
 }
-/* El acento va en el "1": es el que sostiene el titular */
-.ident__stat:last-child .ident__fig { color: var(--accent); }
+
 .ident__lab {
   font-size: clamp(12.5px, 1.05vw, 14px); font-weight: 400; line-height: 1.4;
   color: color-mix(in srgb, var(--paper) 58%, transparent);
