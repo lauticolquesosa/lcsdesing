@@ -294,7 +294,7 @@
         learn: 'In healthcare, design is decided by what you refuse to promise. The result cards say they are examples, risks are listed before benefits, and every rating carries its source. Published as a review version for the doctor: the result photos await his material and each patient consent, and until then the site stays out of search engines.' }
     },
     p20: {
-      year: '2026', url: 'vero-saguier.vercel.app', full: ['verosaguier-fullpage.webp'], tools: ['Figma', 'Next.js', 'React'],
+      year: '2026', url: 'vero-saguier.vercel.app', full: ['verosaguier-fullpage-v2.webp', 'verosaguier-fullpage2-v2.webp'], tools: ['Figma', 'Next.js', 'React'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Vero Saguier', role: 'LCS · Diseño & Desarrollo Web', client: 'Vero Saguier · Diseño del paisaje · Salta y Buenos Aires',
         problem: 'Vero Saguier proyecta y dirige jardines privados y espacios públicos en Salta y en Buenos Aires. Se formó en la Escuela Pampa Infinita, afiliada a la John Brookes School inglesa, y egresó con la máxima nota; su jardín de Los Zarzos, en Villa San Lorenzo, salió publicado en La Nación, Revista Jardín. Su trabajo se ordenaba como se ordenan casi todos los sitios de paisajismo —una galería de fotos lindas—, cuando lo que define un jardín suyo no es el estilo sino el lugar: en la selva de montaña y en el valle seco no se comparte ni una sola especie.',
         goal: 'Convertir la ecorregión en el eje del sitio, para que cada proyecto se entienda desde el territorio donde está, y sostener el criterio de que el jardín se piensa junto con la arquitectura y no después.',
