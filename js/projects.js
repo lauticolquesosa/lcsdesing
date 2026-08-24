@@ -439,7 +439,14 @@
         label.textContent = window.__lcsLang === 'en' ? next.en : next.es;
         moreBtn.setAttribute('aria-expanded', String(expanded));
         if (!expanded) {
-          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // al plegar, volver al arranque de la subseccion ("Todos los proyectos"),
+          // descontando el alto del nav fijo para que el titulo no quede tapado
+          const head = grid.closest('.shell').querySelector('.kicker-row') || grid;
+          const nav = document.getElementById('site-header');
+          const offset = (nav ? nav.getBoundingClientRect().height : 0) + 24;
+          const top = head.getBoundingClientRect().top + window.pageYOffset - offset;
+          const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+          window.scrollTo({ top: Math.max(top, 0), behavior: reduced ? 'auto' : 'smooth' });
         }
         // el grid cambió de alto: ScrollTrigger tiene que recalcular
         if (window.ScrollTrigger) window.ScrollTrigger.refresh();
