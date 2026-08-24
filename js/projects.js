@@ -234,7 +234,7 @@
         learn: 'For a distributor with its own stock, the sales pitch is not price — it is the certainty that the material is there today, with no factory wait. Ordering the site by sector — construction, mining, industry, agriculture — instead of by product let every visitor see what they actually buy first.' }
     },
     p16: {
-      year: '2026', url: 'paraviciniarquitectura.vercel.app', full: ['paravicini-fullpage-v2.webp'], tools: ['Figma', 'Next.js', 'React'],
+      year: '2026', url: 'paraviciniarquitectura.vercel.app', full: ['paravicini-fullpage-v3.webp'], tools: ['Figma', 'Next.js', 'React'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Paravicini Arquitectura', role: 'LCS · Diseño & Desarrollo Web', client: 'Estudio Paravicini · San Lorenzo Chico, Salta',
         problem: 'Paravicini es un estudio familiar de San Lorenzo Chico que proyecta y construye casas de autor en Salta y Tucumán desde 2006, con adobe, teja, piedra y madera. Además de arquitectura lleva dos unidades más —Desarrollos, a cargo de Guido Paravicini, y Propiedades, a cargo de Franca Paravicini—, cada una con consultas y clientes distintos. Toda la obra construida vivía en Instagram, mezclada con el día a día: no había dónde ver una casa con su ubicación, su superficie y su año, ni cómo explicarle a alguien de otra provincia que se puede proyectar a distancia.',
         goal: 'Convertir la obra construida en el argumento del sitio —una ficha por casa, con foto grande, ubicación, metros y año—, explicar el proceso a distancia con plazos reales para quien no puede viajar a Salta, y darle a cada una de las tres unidades su propia puerta y su propio WhatsApp.',
