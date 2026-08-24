@@ -249,7 +249,7 @@
         learn: 'The site does not have a single form: everything ends in the WhatsApp of the person who should answer. For a three-person studio running three businesses, that decision did more than any contact field, because the enquiry reaches whoever can actually reply. And publishing every house with its location, floor area and year turned the built work into proof: you stop promising and start showing.' }
     },
     p17: {
-      year: '2026', url: 'todosaridosalta.vercel.app', full: ['todoaridos-fullpage.webp'], tools: ['Figma', 'Next.js', 'React'],
+      year: '2026', url: 'todosaridosalta.vercel.app', full: ['todoaridos-fullpage-v2.webp'], tools: ['Figma', 'Next.js', 'React'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Todo Áridos Salta', role: 'LCS · Diseño & Desarrollo Web', client: 'Todo Áridos Salta · Norte Piscinas · Salta',
         problem: 'Todo Áridos Salta hace dos cosas que el cliente ve como una sola: vende áridos y mueve suelos con equipos propios desde 2020, y con esos mismos equipos construye piscinas en Salta capital, San Lorenzo, Vaqueros y la zona sur. Su ventaja real —que el pozo y la pileta los hace la misma gente, sin un tercero que atrase la obra— no aparecía en ningún lado, y la pregunta que reciben todos los días, hormigón o fibra de vidrio, se contestaba de nuevo en cada conversación.',
         goal: 'Separar las dos líneas del negocio sin partir la empresa en dos, contestar de una vez la comparación entre hormigón y fibra, y convertir cada visita en un presupuesto que llegue por WhatsApp con los datos de la obra ya cargados.',
