@@ -239,7 +239,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* El nav no se centra: se apoya contra el bloque de la derecha, así
    las secciones y el selector de idioma leen como un solo grupo y el
    ultimo elemento termina en el mismo margen que el resto del sitio. */
-.site-header__nav { flex: 1; display: flex; justify-content: flex-end; }
+.site-header__nav {
+  flex: 1; display: flex; justify-content: flex-end;
+  /* Aire propio antes del selector de idioma: los enlaces traen padding
+     con margen negativo para agrandar el area de clic, asi que el hueco
+     real entre el texto y el ES/EN era mucho menor de lo que sugeria el
+     gap del contenedor. Este margen separa los dos grupos de verdad. */
+  margin-right: clamp(26px, 3.4vw, 56px);
+}
 .site-header__nav ul { display: flex; align-items: center; gap: clamp(10px, 1.6vw, 28px); }
 .site-header__nav a {
   display: inline-block;
