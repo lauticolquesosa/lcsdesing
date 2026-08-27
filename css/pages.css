@@ -478,6 +478,13 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .phase__col li { position: relative; padding-left: 18px; font-size: 14px; font-weight: 300; line-height: 1.45; color: color-mix(in srgb, currentColor 80%, transparent); }
 .phase__col li::before { content: ""; position: absolute; left: 0; top: .35em; width: .85em; height: .85em; background: var(--accent); -webkit-mask: var(--ico-east) center / contain no-repeat; mask: var(--ico-east) center / contain no-repeat; }
 
+/* Compact variant — feature rows (servicios: "Cómo se siente trabajar con LCS"),
+   sin listas ni sub-columnas, no necesitan el número ni el título tan grandes. */
+.phases--compact .phase { grid-template-columns: clamp(38px, 5vw, 60px) 1fr; padding-block: clamp(20px, 3vh, 36px); }
+.phases--compact .phase__no { font-size: clamp(22px, 2.6vw, 36px); }
+.phases--compact .phase__head h3 { font-size: clamp(19px, 2vw, 26px); margin: 4px 0 8px; }
+.phases--compact .phase__head p { font-size: clamp(14px, 1.3vw, 16px); }
+
 /* ============================================================
    WORK (project grid)
    ============================================================ */
