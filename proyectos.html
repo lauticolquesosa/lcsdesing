@@ -10,13 +10,11 @@
 <meta name="theme-color" content="#0A0A0A" />
 <title>Proyectos de diseño web y UX/UI — LCS · Salta</title>
 <meta name="description" content="14 casos reales de diseño web y UX/UI: gastronomía, salud, hotelería e institucional, en Argentina y Colombia. Cada caso con problema, objetivo, proceso y resultado." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/pages.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesign.vercel.app/proyectos" />
 <meta property="og:type" content="website" />
@@ -37,14 +35,14 @@
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
 <meta name="geo.placename" content="Salta, Argentina" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lauticolquesosa@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Proyectos","item":"https://lcsdesign.vercel.app/proyectos"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lcsdesignstudio1@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Proyectos","item":"https://lcsdesign.vercel.app/proyectos"}]}]}</script>
 <!-- SEO:END -->
 </head>
 <body data-page="proyectos"
       data-title-en="Web design and UX/UI projects — LCS · Salta"
       data-desc-en="14 real web and UX/UI cases: hospitality, health, hotels and institutional, across Argentina and Colombia. Every case with problem, goal, process and result.">
 
-<a id="top" aria-hidden="true"></a>
+<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
 <main>
@@ -70,8 +68,8 @@
   <section class="section section--paper" data-nav="light">
     <div class="shell">
       <div class="kicker-row">
-        <h2 class="title" style="font-size:clamp(24px,2.8vw,38px);margin:0" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</h2>
-        <span class="lead" style="font-size:15px" data-es="21 casos" data-en="21 cases">21 casos</span>
+        <h2 class="title title--sm" data-es="Todos los proyectos" data-en="All projects">Todos los proyectos</h2>
+        <span class="lead lead--sm" data-es="21 casos" data-en="21 cases">21 casos</span>
       </div>
       <div class="work" id="work-grid" data-stagger>
         <article class="work__card card-hover" data-project="p15">
@@ -176,9 +174,9 @@
 
 <div id="site-footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/projects.js"></script>
-<script src="js/site.js"></script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/projects.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

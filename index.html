@@ -8,16 +8,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 <meta name="theme-color" content="#0A0A0A" />
-<title>LCS — Estudio de Diseño Web y UX/UI en Salta</title>
-<meta name="description" content="Estudio de diseño web y UX/UI en Salta, Argentina. Sitios a medida con research, prototipado en Figma y código propio: rápidos, responsive y pensados para convertir." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<title>LCS — Diseño y desarrollo web en Salta · Sitios que venden</title>
+<meta name="description" content="Diseñamos y programamos sitios web a medida en Salta para negocios que quieren más consultas y más ventas. Sin plantillas: rápidos, impecables en el celular y listos para Google." />
 <link rel="preload" as="image" href="assets/logo-hero-poster.webp" fetchpriority="high" />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/pages.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesign.vercel.app/" />
 <meta property="og:type" content="website" />
@@ -25,180 +23,184 @@
 <meta property="og:locale" content="es_AR" />
 <meta property="og:locale:alternate" content="en_US" />
 <meta property="og:url" content="https://lcsdesign.vercel.app/" />
-<meta property="og:title" content="LCS — Estudio de Diseño Web y UX/UI en Salta" />
-<meta property="og:description" content="Estudio de diseño web y UX/UI en Salta, Argentina. Sitios a medida con research, prototipado en Figma y código propio: rápidos, responsive y pensados para convertir." />
+<meta property="og:title" content="LCS — Diseño y desarrollo web en Salta · Sitios que venden" />
+<meta property="og:description" content="Diseñamos y programamos sitios web a medida en Salta para negocios que quieren más consultas y más ventas. Sin plantillas: rápidos, impecables en el celular y listos para Google." />
 <meta property="og:image" content="https://lcsdesign.vercel.app/assets/og-cover.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="LCS — Estudio de Diseño Web y UX/UI en Salta" />
+<meta property="og:image:alt" content="LCS — Diseño y desarrollo web en Salta · Sitios que venden" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="LCS — Estudio de Diseño Web y UX/UI en Salta" />
-<meta name="twitter:description" content="Estudio de diseño web y UX/UI en Salta, Argentina. Sitios a medida con research, prototipado en Figma y código propio: rápidos, responsive y pensados para convertir." />
+<meta name="twitter:title" content="LCS — Diseño y desarrollo web en Salta · Sitios que venden" />
+<meta name="twitter:description" content="Diseñamos y programamos sitios web a medida en Salta para negocios que quieren más consultas y más ventas. Sin plantillas: rápidos, impecables en el celular y listos para Google." />
 <meta name="twitter:image" content="https://lcsdesign.vercel.app/assets/og-cover.jpg" />
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
 <meta name="geo.placename" content="Salta, Argentina" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lauticolquesosa@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"WebSite","@id":"https://lcsdesign.vercel.app/#website","url":"https://lcsdesign.vercel.app/","name":"LCS — Estudio de Diseño Web","inLanguage":"es-AR","publisher":{"@id":"https://lcsdesign.vercel.app/#studio"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño y desarrollo web en Salta, Argentina. Sitios a medida para negocios: rápidos, pensados para convertir y listos para Google.","email":"lcsdesignstudio1@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"WebSite","@id":"https://lcsdesign.vercel.app/#website","url":"https://lcsdesign.vercel.app/","name":"LCS — Estudio de Diseño Web","inLanguage":"es-AR","publisher":{"@id":"https://lcsdesign.vercel.app/#studio"}},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/#faq","mainEntity":[{"@type":"Question","name":"¿Cuánto sale una web?","acceptedAnswer":{"@type":"Answer","text":"Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir."}},{"@type":"Question","name":"¿Cuánto tarda?","acceptedAnswer":{"@type":"Answer","text":"Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha."}},{"@type":"Question","name":"Ya tengo una web, ¿sirve rehacerla?","acceptedAnswer":{"@type":"Answer","text":"Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado."}},{"@type":"Question","name":"¿Después la puedo actualizar yo?","acceptedAnswer":{"@type":"Answer","text":"Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga."}}]}]}</script>
 <!-- SEO:END -->
 </head>
 <body data-page="home"
-      data-title-en="LCS — Web Design & UX/UI Studio in Salta"
-      data-desc-en="Web design and UX/UI studio in Salta, Argentina. Custom sites with research, Figma prototyping and hand-written code: fast, responsive and built to convert.">
+      data-title-en="LCS — Web Design &amp; Development in Salta · Sites that sell"
+      data-desc-en="We design and build custom websites in Salta for businesses that want more enquiries and more sales. No templates: fast, flawless on mobile and ready for Google.">
 
-<a id="top" aria-hidden="true"></a>
+<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
 <main>
 
-  <!-- ============ HERO ============ -->
+  <!-- ============ HERO — la promesa en tres segundos ============ -->
   <section class="home-hero" data-nav="light" data-parallax-host>
     <div class="home-hero__fill">
-      <h1 class="hero-title" aria-label="Diseño que se siente, UX que funciona.">
-        <span class="ln"><span data-es="Diseño que" data-en="Design that">Diseño que</span></span>
-        <span class="ln"><span data-es="se siente," data-en="feels,">se siente,</span></span>
-        <span class="ln"><span data-es="<em>UX que<br class='hero-mbrk'> funciona.</em>" data-en="<em>UX that<br class='hero-mbrk'> works.</em>"><em>UX que<br class="hero-mbrk"> funciona.</em></span></span>
+      <p class="hero-eyebrow" data-es="Estudio de diseño y desarrollo web · Salta" data-en="Web design &amp; development studio · Salta">Estudio de diseño y desarrollo web · Salta</p>
+      <h1 class="hero-title" aria-label="Tu web puede vender por vos todos los días.">
+        <span class="ln"><span data-es="Tu web puede" data-en="Your site can">Tu web puede</span></span>
+        <span class="ln"><span data-es="vender por vos" data-en="sell for you">vender por vos</span></span>
+        <span class="ln"><span data-es="<em>todos los<br class='hero-mbrk'> días.</em>" data-en="<em>every single<br class='hero-mbrk'> day.</em>"><em>todos los<br class="hero-mbrk"> días.</em></span></span>
       </h1>
       <div class="hero-sub-wrap">
         <p class="lead hero-sub"
-           data-es="Webs con identidad propia, código limpio y UX que convierte. Del concepto al sitio en vivo, sin concesiones."
-           data-en="Sites with their own identity, clean code and UX that converts. From concept to live site, no compromises.">Webs con identidad propia, código limpio y UX que convierte. Del concepto al sitio en vivo, sin concesiones.</p>
+           data-es="Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas."
+           data-en="We design and build custom sites for businesses that want more enquiries, more sales and an image that measures up. No templates.">Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.</p>
       </div>
       <div class="hero-actions">
-        <a class="btn btn--solid magnetic ico-arrow" data-magnetic href="proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
-        <a class="btn btn--ghost magnetic ico-arrow" data-magnetic href="contacto" data-es="Trabajemos juntos" data-en="Let's work together">Trabajemos juntos</a>
+        <a class="btn btn--solid magnetic ico-arrow" data-magnetic href="contacto" data-es="Quiero mi web" data-en="I want my site">Quiero mi web</a>
+        <a class="btn btn--ghost magnetic ico-arrow" data-magnetic href="proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
       </div>
     </div>
     <div class="home-hero__logo">
-      <video class="home-hero__video" autoplay muted loop playsinline preload="auto"
+      <video class="home-hero__video" data-hero-video autoplay muted loop playsinline preload="auto"
              poster="assets/logo-hero-poster.webp" width="1080" height="1080" aria-label="LCS">
         <source src="assets/logo-hero.mp4" type="video/mp4" />
       </video>
     </div>
   </section>
 
-  <!-- ============ MANIFIESTO (fill on scroll) ============ -->
-  <section class="section section--paper" data-nav="light">
+  <!-- ============ PRUEBA — barra de confianza, apenas pasa el hero ============ -->
+  <section class="section section--ink section--tight" data-nav="dark">
     <div class="shell">
-      <p class="manifesto__text" data-manifesto
-         data-es="Webs con <em>identidad</em>, código que <em>rinde</em> y experiencias que se <em>sienten</em>. En LCS cada proyecto arranca con una pregunta, nunca con una plantilla."
-         data-en="Sites with <em>identity</em>, code that <em>performs</em> and experiences you can <em>feel</em>. At LCS every project starts with a question, never a template.">Webs con <em>identidad</em>, código que <em>rinde</em> y experiencias que se <em>sienten</em>. En LCS cada proyecto arranca con una pregunta, nunca con una plantilla.</p>
-      <a class="link-arrow magnetic" data-magnetic href="#identidad" data-es="Quién está detrás" data-en="Who's behind this">Quién está detrás</a>
+      <ul class="proof" data-stagger>
+        <li class="proof__item">
+          <span class="proof__fig"><span data-count-to="21">21</span></span>
+          <span class="proof__lab" data-es="sitios en vivo, no maquetas" data-en="live sites, not mockups">sitios en vivo, no maquetas</span>
+        </li>
+        <li class="proof__item">
+          <span class="proof__fig"><span data-count-to="2">2</span></span>
+          <span class="proof__lab" data-es="países: Argentina y Colombia" data-en="countries: Argentina and Colombia">países: Argentina y Colombia</span>
+        </li>
+        <li class="proof__item">
+          <span class="proof__fig"><span data-count-to="48">48</span><i>h</i></span>
+          <span class="proof__lab" data-es="máximo para responderte" data-en="max to get back to you">máximo para responderte</span>
+        </li>
+        <li class="proof__item">
+          <span class="proof__fig"><span data-count-to="100">100</span><i>%</i></span>
+          <span class="proof__lab" data-es="a medida: cero plantillas" data-en="custom-made: zero templates">a medida: cero plantillas</span>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- ============ IDENTIDAD (ficha del estudio) ============ -->
-  <section class="section section--paper" id="identidad" data-nav="light" style="border-top:none">
+  <!-- ============ POR QUÉ — el problema que resuelve una web ============ -->
+  <section class="section section--paper" id="por-que" data-nav="light">
     <div class="shell">
-      <div class="ident">
+      <h2 class="manifesto__text" data-manifesto
+         data-es="Si no te <em>encuentran</em>, no te <em>compran</em>. Y hoy la primera visita a tu negocio pasa por una <em>pantalla</em>."
+         data-en="If they cannot <em>find</em> you, they do not <em>buy</em>. Today the first visit to your business happens on a <em>screen</em>.">Si no te <em>encuentran</em>, no te <em>compran</em>. Y hoy la primera visita a tu negocio pasa por una <em>pantalla</em>.</h2>
 
-        <h2 class="title ident__title"
-            data-es="Un estudio. <em>Una persona.</em>"
-            data-en="One studio. <em>One person.</em>">Un estudio. <em>Una persona.</em></h2>
-
-        <div class="ident__row">
-          <p class="lead ident__lede" data-reveal-text
-             data-es="LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, en Salta. Diseño y código en la misma cabeza: nada se pierde en la traducción entre lo que se piensa y lo que se programa."
-             data-en="LCS is the web &amp; UX/UI design studio of <strong>Lautaro Colque Sosa</strong>, in Salta. Design and code in the same head: nothing gets lost in translation between what is thought and what is built.">LCS es el estudio de diseño web y UX/UI de <strong>Lautaro Colque Sosa</strong>, en Salta. Diseño y código en la misma cabeza: nada se pierde en la traducción entre lo que se piensa y lo que se programa.</p>
-
-          <ul class="ident__stats" data-stagger>
-            <li class="ident__stat">
-              <span class="ident__fig" data-count-to="19">19</span>
-              <span class="ident__lab" data-es="casos reales, en vivo" data-en="real cases, live">casos reales, en vivo</span>
-            </li>
-            <li class="ident__stat">
-              <span class="ident__fig" data-count-to="2">2</span>
-              <span class="ident__lab" data-es="países: Argentina y Colombia" data-en="countries: Argentina and Colombia">países: Argentina y Colombia</span>
-            </li>
-            <li class="ident__stat">
-              <span class="ident__fig" data-count-to="1">1</span>
-              <span class="ident__lab" data-es="persona detrás de cada decisión" data-en="person behind every decision">persona detrás de cada decisión</span>
-            </li>
+      <div class="why" data-stagger>
+        <div class="why__col why__col--pain">
+          <h3 class="why__head" data-es="Sin web propia" data-en="Without your own site">Sin web propia</h3>
+          <ul class="why__list">
+            <li data-es="Te buscan en Google y aparece tu competencia." data-en="They google you and your competitor shows up.">Te buscan en Google y aparece tu competencia.</li>
+            <li data-es="Contestás las mismas preguntas diez veces por día." data-en="You answer the same questions ten times a day.">Contestás las mismas preguntas diez veces por día.</li>
+            <li data-es="Tu marca se ve improvisada al lado de la de al lado." data-en="Your brand looks improvised next to the one beside it.">Tu marca se ve improvisada al lado de la de al lado.</li>
+            <li data-es="Todo depende de que alguien te recomiende." data-en="Everything depends on someone recommending you.">Todo depende de que alguien te recomiende.</li>
+            <li data-es="Una red social decide quién te ve, y cuándo." data-en="A social network decides who sees you, and when.">Una red social decide quién te ve, y cuándo.</li>
           </ul>
         </div>
-
-        <dl class="ident__specs">
-          <div class="ident__spec">
-            <dt data-es="Formación" data-en="Education">Formación</dt>
-            <dd data-es="Lic. en Diseño Gráfico" data-en="BA in Graphic Design">Lic. en Diseño Gráfico</dd>
-            <dd class="s" data-es="UCASAL · 2024 — hoy" data-en="UCASAL · 2024 — today">UCASAL · 2024 — hoy</dd>
-          </div>
-          <div class="ident__spec">
-            <dt data-es="Especialización" data-en="Specialization">Especialización</dt>
-            <dd data-es="Diseño UX/UI" data-en="UX/UI Design">Diseño UX/UI</dd>
-            <dd class="s">Coderhouse · 2023 — 2024</dd>
-          </div>
-          <div class="ident__spec">
-            <dt data-es="Método" data-en="Method">Método</dt>
-            <dd data-es="Doble Diamante" data-en="Double Diamond">Doble Diamante</dd>
-            <dd class="s" data-es="Research, prototipado y testing" data-en="Research, prototyping and testing">Research, prototipado y testing</dd>
-          </div>
-          <div class="ident__spec">
-            <dt data-es="Base" data-en="Based in">Base</dt>
-            <dd>Salta, Argentina</dd>
-            <dd class="s" data-es="Trabajo remoto en todo el país" data-en="Remote work across the country">Trabajo remoto en todo el país</dd>
-          </div>
-        </dl>
-
+        <div class="why__col why__col--gain">
+          <h3 class="why__head" data-es="Con tu web hecha por LCS" data-en="With your site built by LCS">Con tu web hecha por LCS</h3>
+          <ul class="why__list">
+            <li data-es="Te encuentran por lo que hacés, con tu nombre arriba." data-en="They find you for what you do, with your name on top.">Te encuentran por lo que hacés, con tu nombre arriba.</li>
+            <li data-es="El sitio responde esas preguntas por vos, a toda hora." data-en="The site answers those questions for you, around the clock.">El sitio responde esas preguntas por vos, a toda hora.</li>
+            <li data-es="Tu marca se ve profesional en la primera pantalla." data-en="Your brand looks professional on the very first screen.">Tu marca se ve profesional en la primera pantalla.</li>
+            <li data-es="Llegan consultas mientras dormís o atendés." data-en="Enquiries arrive while you sleep or serve customers.">Llegan consultas mientras dormís o atendés.</li>
+            <li data-es="El canal es tuyo: nadie te cambia el alcance." data-en="The channel is yours: nobody changes your reach.">El canal es tuyo: nadie te cambia el alcance.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ EL ESTUDIO ============ -->
-  <section class="section section--accent" data-nav="accent">
+  <!-- ============ QUÉ TE LLEVÁS — por qué contratar al estudio ============ -->
+  <section class="section section--accent" id="beneficios" data-nav="accent">
     <div class="shell">
       <div class="studio">
         <div class="studio__intro">
           <h2 class="studio__title" data-reveal-text
-              data-es="Un <em>estudio</em> de diseño web sin intermediarios. Y ahí está la ventaja."
-              data-en="A <em>web design</em> studio with no middlemen. And that's the edge.">Un <em>estudio</em> de diseño web sin intermediarios. Y ahí está la ventaja.</h2>
+              data-es="No comprás una web. Comprás <em>un canal que trabaja.</em>"
+              data-en="You are not buying a site. You are buying <em>a channel that works.</em>">No comprás una web. Comprás <em>un canal que trabaja.</em></h2>
           <p class="lead"
-             data-es="LCS es el estudio de diseño de Lautaro Colque Sosa. Sin capas ni intermediarios: quien piensa la estrategia es quien escribe el código. Decisiones rápidas, criterio coherente y foco total en tu proyecto."
-             data-en="LCS is the design studio of Lautaro Colque Sosa. No layers, no middlemen: the person who shapes the strategy is the one who writes the code. Fast decisions, consistent judgment and total focus on your project.">LCS es el estudio de diseño de Lautaro Colque Sosa. Sin capas ni intermediarios: quien piensa la estrategia es quien escribe el código. Decisiones rápidas, criterio coherente y foco total en tu proyecto.</p>
+             data-es="Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración."
+             data-en="Every design decision aims at the same thing: whoever lands understands what you do, trusts you and writes to you. The rest is decoration.">Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración.</p>
           <a class="link-arrow magnetic" data-magnetic href="servicios" data-es="Ver los servicios" data-en="See the services">Ver los servicios</a>
         </div>
         <div class="studio__list" data-stagger>
           <article class="studio__row card-hover">
             <div class="studio__row-head">
-              <h3 data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
+              <h3 data-es="Diseño a medida" data-en="Custom design">Diseño a medida</h3>
               <span class="studio__n">01</span>
             </div>
-            <p data-es="Sitios a medida, del concepto al deploy. Código propio, rápido y 100% responsive." data-en="Custom sites, from concept to deploy. Hand-written, fast and 100% responsive code.">Sitios a medida, del concepto al deploy. Código propio, rápido y 100% responsive.</p>
+            <p data-es="Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta." data-en="No templates: your site looks like your business, not like forty others.">Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta.</p>
           </article>
           <article class="studio__row card-hover">
             <div class="studio__row-head">
-              <h3>UX / UI</h3>
+              <h3 data-es="Pensada para convertir" data-en="Built to convert">Pensada para convertir</h3>
               <span class="studio__n">02</span>
             </div>
-            <p data-es="Research, arquitectura de información y prototipos de alta fidelidad que se prueban." data-en="Research, information architecture and high-fidelity prototypes that get tested.">Research, arquitectura de información y prototipos de alta fidelidad que se prueban.</p>
+            <p data-es="Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar." data-en="Every screen leads to one clear action: message, call, book or buy.">Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar.</p>
           </article>
           <article class="studio__row card-hover">
             <div class="studio__row-head">
-              <h3 data-es="Identidad digital" data-en="Digital identity">Identidad digital</h3>
+              <h3 data-es="Rápida de verdad" data-en="Genuinely fast">Rápida de verdad</h3>
               <span class="studio__n">03</span>
             </div>
-            <p data-es="Sistemas visuales coherentes que hacen que tu marca se reconozca en cada pantalla." data-en="Coherent visual systems that make your brand recognizable on every screen.">Sistemas visuales coherentes que hacen que tu marca se reconozca en cada pantalla.</p>
+            <p data-es="Código propio y liviano. Una web lenta pierde la visita antes del primer scroll." data-en="Hand-written, lightweight code. A slow site loses the visit before the first scroll.">Código propio y liviano. Una web lenta pierde la visita antes del primer scroll.</p>
           </article>
           <article class="studio__row card-hover">
             <div class="studio__row-head">
-              <h3 data-es="Front-end & motion" data-en="Front-end & motion">Front-end & motion</h3>
+              <h3 data-es="Impecable en el celular" data-en="Flawless on mobile">Impecable en el celular</h3>
               <span class="studio__n">04</span>
             </div>
-            <p data-es="Animación, microinteracciones y performance cuidada al detalle. Una web que se siente viva." data-en="Animation, microinteractions and performance polished to the detail. A site that feels alive.">Animación, microinteracciones y performance cuidada al detalle. Una web que se siente viva.</p>
+            <p data-es="Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla." data-en="That is where most visits happen, so it is designed for that screen first.">Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla.</p>
+          </article>
+          <article class="studio__row card-hover">
+            <div class="studio__row-head">
+              <h3 data-es="Lista para Google" data-en="Ready for Google">Lista para Google</h3>
+              <span class="studio__n">05</span>
+            </div>
+            <p data-es="Estructura, textos y datos en orden para que te encuentren por lo que hacés." data-en="Structure, copy and data in order so people find you for what you do.">Estructura, textos y datos en orden para que te encuentren por lo que hacés.</p>
+          </article>
+          <article class="studio__row card-hover">
+            <div class="studio__row-head">
+              <h3 data-es="Trato directo" data-en="Direct contact">Trato directo</h3>
+              <span class="studio__n">06</span>
+            </div>
+            <p data-es="Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento." data-en="You always talk to whoever does the work, and support continues after launch.">Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento.</p>
           </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ TRABAJO (carrusel arrastrable · 14 casos) ============ -->
+  <!-- ============ TRABAJO — la prueba, en vivo ============ -->
   <section class="section section--paper" data-nav="light">
     <div class="shell">
       <div class="home-line">
-        <p class="lead measure" data-es="Trabajo del estudio — del primer boceto al sitio en vivo." data-en="Studio work — from first sketch to live site.">Trabajo del estudio — del primer boceto al sitio en vivo.</p>
+        <p class="lead measure" data-es="No son promesas: son sitios en vivo. Entrá y miralos antes de decidir." data-en="These are not promises: they are live sites. Go in and look before deciding.">No son promesas: son sitios en vivo. Entrá y miralos antes de decidir.</p>
         <a class="link-arrow magnetic" data-magnetic href="proyectos" data-es="Ver todos" data-en="See all">Ver todos</a>
       </div>
     </div>
-    <div class="wc" data-carousel>
+<div class="wc" data-carousel>
       <div class="wc__viewport" data-wc-viewport role="group" aria-roledescription="carousel"
            aria-label="Proyectos del estudio" tabindex="0">
         <ul class="wc__track">
@@ -388,38 +390,69 @@
     </div>
   </section>
 
-  <!-- ============ CÓMO TRABAJO (interactive flow) ============ -->
-  <section class="section section--paper" data-nav="light">
+  <!-- ============ CÓMO SE HACE — el proceso, sin sorpresas ============ -->
+  <section class="section section--ink" id="proceso" data-nav="dark">
     <div class="shell">
-      <p class="lead measure-sm" data-es="El estudio trabaja en cuatro movimientos. Pensar antes de ejecutar." data-en="The studio works in four movements. Think before building.">El estudio trabaja en cuatro movimientos. Pensar antes de ejecutar.</p>
+      <div class="home-line">
+        <p class="lead measure" data-es="Cuatro pasos, plazos cerrados y una sola persona respondiendo. Sabés siempre en qué etapa está tu web." data-en="Four steps, closed deadlines and one person answering. You always know which stage your site is in.">Cuatro pasos, plazos cerrados y una sola persona respondiendo. Sabés siempre en qué etapa está tu web.</p>
+        <a class="link-arrow magnetic" data-magnetic href="servicios#proceso" data-es="Ver el proceso completo" data-en="See the full process">Ver el proceso completo</a>
+      </div>
       <div class="flow">
         <div class="flow__rail"><span class="flow__progress" data-flow-progress></span></div>
         <div class="flow__steps" data-stagger>
           <div class="flow__step">
             <span class="n">01</span>
-            <h3 data-es="Descubrir" data-en="Discover">Descubrir</h3>
-            <p data-es="Research, entrevistas y contexto. Entender antes de proponer." data-en="Research, interviews and context. Understand before proposing.">Research, entrevistas y contexto. Entender antes de proponer.</p>
+            <h3 data-es="Entender tu negocio" data-en="Understand your business">Entender tu negocio</h3>
+            <p data-es="Charlamos qué vendés, a quién y qué te está frenando hoy." data-en="We talk about what you sell, to whom, and what is holding you back today.">Charlamos qué vendés, a quién y qué te está frenando hoy.</p>
           </div>
           <div class="flow__step">
             <span class="n">02</span>
-            <h3 data-es="Definir" data-en="Define">Definir</h3>
-            <p data-es="Síntesis, personas y el problema real a resolver." data-en="Synthesis, personas and the real problem to solve.">Síntesis, personas y el problema real a resolver.</p>
+            <h3 data-es="Definir el plan" data-en="Define the plan">Definir el plan</h3>
+            <p data-es="Secciones, textos y objetivo de cada pantalla. Presupuesto y plazo cerrados." data-en="Sections, copy and the goal of each screen. Closed budget and deadline.">Secciones, textos y objetivo de cada pantalla. Presupuesto y plazo cerrados.</p>
           </div>
           <div class="flow__step">
             <span class="n">03</span>
-            <h3 data-es="Diseñar" data-en="Design">Diseñar</h3>
-            <p data-es="Wireframes, flujos y prototipos de alta fidelidad en Figma." data-en="Wireframes, flows and high-fidelity prototypes in Figma.">Wireframes, flujos y prototipos de alta fidelidad en Figma.</p>
+            <h3 data-es="Diseñar y mostrar" data-en="Design and show">Diseñar y mostrar</h3>
+            <p data-es="Ves el diseño antes de que exista una sola línea de código, y opinás." data-en="You see the design before a single line of code exists, and you weigh in.">Ves el diseño antes de que exista una sola línea de código, y opinás.</p>
           </div>
           <div class="flow__step">
             <span class="n">04</span>
-            <h3 data-es="Entregar" data-en="Deliver">Entregar</h3>
-            <p data-es="Desarrollo responsive, testing y métricas de éxito." data-en="Responsive build, testing and success metrics.">Desarrollo responsive, testing y métricas de éxito.</p>
+            <h3 data-es="Publicar y acompañar" data-en="Launch and support">Publicar y acompañar</h3>
+            <p data-es="Sale en vivo, medimos qué pasa y seguimos disponibles después." data-en="It goes live, we measure what happens and stay available afterwards.">Sale en vivo, medimos qué pasa y seguimos disponibles después.</p>
           </div>
         </div>
-        <div class="home-line" style="margin-top:clamp(28px,4vh,44px)">
-          <span></span>
-          <a class="link-arrow magnetic" data-magnetic href="servicios#proceso" data-es="Ver el proceso completo" data-en="See the full process">Ver el proceso completo</a>
-        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUDAS — las objeciones, resueltas antes de escribir ============ -->
+  <section class="section section--paper" data-nav="light">
+    <div class="shell">
+      <div class="sec-head">
+        <h2 class="title" data-es="Lo que todos preguntan" data-en="What everyone asks">Lo que todos preguntan</h2>
+        <p class="lead" data-es="Las cuatro dudas que aparecen antes de decidir." data-en="The four doubts that show up before deciding.">Las cuatro dudas que aparecen antes de decidir.</p>
+      </div>
+      <div class="faq">
+        <details class="faq__item">
+          <summary><span data-es="¿Cuánto sale una web?" data-en="How much does a site cost?">¿Cuánto sale una web?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir." data-en="It depends on how many sections you need and whether there is a store, bookings or a catalogue. The ranges are published on the investment page, so you know the ballpark before writing.">Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span data-es="¿Cuánto tarda?" data-en="How long does it take?">¿Cuánto tarda?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha." data-en="A brochure site is usually live in two to four weeks once the content is ready. The deadline is fixed in the quote and does not stretch along the way.">Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span data-es="Ya tengo una web, ¿sirve rehacerla?" data-en="I already have a site, is a rebuild worth it?">Ya tengo una web, ¿sirve rehacerla?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado." data-en="If it loads slowly, looks bad on mobile or nobody writes to you from it, yes. It can be rebuilt keeping what already works: domain, content and the ranking you earned.">Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary><span data-es="¿Después la puedo actualizar yo?" data-en="Can I update it myself afterwards?">¿Después la puedo actualizar yo?</span><span class="ic" aria-hidden="true"></span></summary>
+          <div class="faq__answer"><p data-es="Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga." data-en="Yes. If the project calls for it, the site ships with a panel to change copy, photos and prices without touching code. And if you would rather not deal with it, the studio handles it.">Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga.</p></div>
+        </details>
+      </div>
+      <div class="home-line faq-foot">
+        <span></span>
+        <a class="link-arrow magnetic" data-magnetic href="inversion" data-es="Ver rangos de inversión" data-en="See investment ranges">Ver rangos de inversión</a>
       </div>
     </div>
   </section>
@@ -429,20 +462,20 @@
     <div class="shell">
       <div class="cta-grid">
         <div class="cta-head">
-          <a class="big big--link cta-title" href="contacto" data-reveal-title aria-label="Trabajemos juntos.">
-            <span class="ln"><span data-es="Trabajemos" data-en="Let's work">Trabajemos</span></span>
-            <span class="ln"><span data-es="<em>juntos.</em>" data-en="<em>together.</em>"><em>juntos.</em></span></span>
+          <a class="big big--link cta-title" href="contacto" data-reveal-title aria-label="Contame tu proyecto.">
+            <span class="ln"><span data-es="Contame tu" data-en="Tell me about">Contame tu</span></span>
+            <span class="ln"><span data-es="<em>proyecto.</em>" data-en="<em>your project.</em>"><em>proyecto.</em></span></span>
           </a>
           <p class="lead measure"
-             data-es="Contame tu idea y LCS la convierte en una web con identidad propia. Todos los mensajes se responden en 24–48 h."
-             data-en="Tell us your idea and LCS turns it into a site with its own identity. Every message gets a reply within 24–48 h.">Contame tu idea y LCS la convierte en una web con identidad propia. Todos los mensajes se responden en 24–48 h.</p>
+             data-es="En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso."
+             data-en="Within 24–48 h you get a concrete answer: what it would take, what it costs and how soon it goes live. No strings attached.">En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso.</p>
           <div class="cta-actions">
-            <a class="btn btn--ghost magnetic" data-magnetic href="contacto" data-es="Ir a contacto" data-en="Go to contact">Ir a contacto</a>
+            <a class="btn btn--solid magnetic ico-arrow" data-magnetic href="contacto" data-es="Empecemos" data-en="Let us start">Empecemos</a>
             <a class="btn btn--ghost magnetic" data-magnetic href="https://wa.me/543874834041" target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
         <div class="cta-links">
-          <a class="cta-link card-hover" href="mailto:lauticolquesosa@gmail.com"><span class="k">Email</span><span class="v">lauticolquesosa@gmail.com</span><span class="ar" aria-hidden="true"></span></a>
+          <a class="cta-link card-hover" href="mailto:lcsdesignstudio1@gmail.com"><span class="k">Email</span><span class="v">lcsdesignstudio1@gmail.com</span><span class="ar" aria-hidden="true"></span></a>
           <a class="cta-link card-hover" href="https://wa.me/543874834041" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+54 387 483 4041</span><span class="ar" aria-hidden="true"></span></a>
           <a class="cta-link card-hover" href="https://instagram.com/lcswebstudio" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@lcswebstudio</span><span class="ar" aria-hidden="true"></span></a>
           <a class="cta-link card-hover" href="tel:+543874834041"><span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 483 4041</span><span class="ar" aria-hidden="true"></span></a>
@@ -455,9 +488,9 @@
 
 <div id="site-footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/home.js"></script>
-<script src="js/site.js"></script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/home.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

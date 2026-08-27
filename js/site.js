@@ -2,7 +2,7 @@
    LCS — site.js
    Shared engine for every page:
    chrome injection · menu · cursor · progress · nav theme
-   smooth scroll (Lenis) · scroll reveals (GSAP) · i18n ES|EN
+   scroll nativo · scroll reveals (GSAP) · i18n ES|EN
    ============================================================ */
 (function () {
   'use strict';
@@ -26,7 +26,7 @@
   const SOCIAL = {
     instagram: 'https://instagram.com/lcswebstudio',
     whatsapp:  'https://wa.me/543874834041',
-    email:     'mailto:lauticolquesosa@gmail.com',
+    email:     'mailto:lcsdesignstudio1@gmail.com',
     phone:     'tel:+543874834041',
   };
 
@@ -95,13 +95,13 @@
                  data-en="LCS is a web &amp; UX/UI design studio with its own identity. From concept to live site, from Salta to everywhere.">LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
             </div>
             <nav class="site-footer__col site-footer__col--nav" aria-label="Footer">
-              <h4 data-es="Navegación" data-en="Navigation">Navegación</h4>
+              <h2 class="site-footer__h" data-es="Navegación" data-en="Navigation">Navegación</h2>
               <ul>${links}</ul>
             </nav>
             <div class="site-footer__col site-footer__col--contact">
-              <h4 data-es="Contacto" data-en="Contact">Contacto</h4>
+              <h2 class="site-footer__h" data-es="Contacto" data-en="Contact">Contacto</h2>
               <ul>
-                <li><a href="${SOCIAL.email}">lauticolquesosa@gmail.com</a></li>
+                <li><a href="${SOCIAL.email}">lcsdesignstudio1@gmail.com</a></li>
                 <li><a href="${SOCIAL.phone}">+54 387 483 4041</a></li>
                 <li><a href="${SOCIAL.instagram}" target="_blank" rel="noopener">Instagram</a></li>
                 <li><a href="${SOCIAL.whatsapp}" target="_blank" rel="noopener">WhatsApp</a></li>
@@ -112,7 +112,7 @@
             <span class="site-footer__copy" data-es="© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina"
                   data-en="© 2026 LCS · Web Design &amp; UX/UI Studio · Salta, Argentina">© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina</span>
             <div class="site-footer__bottom-links">
-              <a href="terminos.html" class="site-footer__legal" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+              <a href="terminos" class="site-footer__legal" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
               <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
             </div>
           </div>
@@ -123,17 +123,16 @@
                 <a class="social-card" href="${SOCIAL.instagram}" target="_blank" rel="noopener" aria-label="Instagram"></a>
                 <a class="social-card social-card--whatsapp" href="${SOCIAL.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
               </div>
-              <a href="terminos.html" class="site-footer__legal-mobile" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+              <a href="terminos" class="site-footer__legal-mobile" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
             </div>
           </div>
         </div>
       </footer>`;
   }
 
-  /* ---------- Scroll: native (most fluid — runs on the compositor) ---------- */
-  // No smooth-scroll hijacking. ScrollTrigger drives parallax/reveals off the
-  // browser's native scroll, which stays 1:1 with input and buttery at 60fps.
-  const lenis = null; // kept null so existing guards (menu/modal) are no-ops
+  /* ---------- Scroll: nativo (lo más fluido — corre en el compositor) ----------
+     Sin secuestro del scroll: ScrollTrigger monta el parallax y los reveals
+     sobre el scroll del navegador, que va 1:1 con el gesto y a 60 fps. */
   const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   if (hasGsap) {
     gsap.registerPlugin(ScrollTrigger);
@@ -183,7 +182,6 @@
       document.body.classList.toggle('menu-open', open);
       burger.setAttribute('aria-expanded', String(open));
       document.body.style.overflow = open ? 'hidden' : '';
-      if (lenis) open ? lenis.stop() : lenis.start();
     };
     burger.addEventListener('click', () => setOpen(!document.body.classList.contains('menu-open')));
 
@@ -201,6 +199,8 @@
   /* ---------- Scroll reveals (GSAP + ScrollTrigger) ---------- */
   function animations() {
     if (!hasGsap || reduced) { document.documentElement.classList.remove('js'); return; }
+    // Confirma a la red de seguridad del <head> que las animaciones sí corren
+    document.documentElement.dataset.anim = '1';
 
     $$('[data-reveal-title]').forEach(h => {
       const lines = $$('.ln > span', h);
@@ -375,7 +375,7 @@
     themed = $$('[data-nav]').map(el => ({ el, nav: el.getAttribute('data-nav') || 'dark' }));
 
     menu();
-    if (window.__lcsProjects) window.__lcsProjects({ $, $$, getLenis: () => lenis });
+    if (window.__lcsProjects) window.__lcsProjects({ $, $$ });
     i18n();
     animations();
     cursor();

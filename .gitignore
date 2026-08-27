@@ -1,9 +1,24 @@
-# Deploy / tooling
+# Deploy / herramientas
 .vercel
 .claude/
 
-# OS / editor noise
+# Entorno: ninguna clave entra al repositorio, en ninguna variante
+.env
+.env.*
+!.env.example
+
+# Ruido del sistema y del editor
 .DS_Store
 Thumbs.db
+desktop.ini
 *.log
 node_modules/
+
+# Respaldos y volcados: nunca se publican junto al sitio
+*.bak
+*.old
+*.orig
+*.zip
+*.rar
+*.sql
+*.map

@@ -335,7 +335,7 @@
     document.body.insertAdjacentHTML('beforeend', `
       <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Case study">
         <div class="modal__scrim"></div>
-        <div class="modal__panel" data-lenis-prevent>
+        <div class="modal__panel">
           <button class="modal__close" aria-label="Cerrar">
             <span data-es="Cerrar" data-en="Close">Cerrar</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -346,7 +346,7 @@
   }
 
   window.__lcsProjects = function init(ctx) {
-    const { $, $$, getLenis } = ctx;
+    const { $, $$ } = ctx;
     if (!$('[data-project]')) return; // only on Proyectos page
 
     buildModalShell();
@@ -354,13 +354,18 @@
     const panel = $('.modal__body', m);
     let key = null;
 
+    /* Solo abren caso las claves propias del catálogo: un ancla como
+       #constructor devolvía algo heredado de Object y rompía el panel. */
+    const isCase = k => Object.prototype.hasOwnProperty.call(PROJECTS, k);
+
+
     function render(k) {
-      const base = PROJECTS[k]; if (!base) return;
+      const base = isCase(k) ? PROJECTS[k] : null; if (!base) return;
       const lang = window.__lcsLang === 'en' ? 'en' : 'es';
       const p = base[lang] || base.es, T = L[lang] || L.es;
       const hint = lang === 'en' ? '↕ Scroll · click to visit the live site ↗' : '↕ Scrolleá · clic para visitar el sitio real ↗';
       const shots = (base.full || []).map(f =>
-        `<img src="assets/${f}" alt="${p.title} — preview" loading="lazy" onerror="this.remove()">`).join('');
+        `<img src="assets/${f}" alt="${p.title} — preview" loading="lazy" data-shot>`).join('');
       const preview = `
         <a class="modal-preview" href="https://${base.url}" target="_blank" rel="noopener noreferrer" aria-label="${lang === 'en' ? 'Visit live site' : 'Visitar sitio real'}: ${base.url}">
           <div class="modal-preview__bar">
@@ -400,20 +405,24 @@
             <div class="cs-stack">${base.tools.map(t => `<span class="cs-tag">${t}</span>`).join('')}</div>
           </div>
         </div>`;
+      /* Una captura que no está todavía no debe dejar un hueco roto:
+         se quita cuando el navegador avisa que no pudo cargarla. (Antes
+         iba en un atributo onerror, que la política de contenido bloquea.) */
+      $$('[data-shot]', panel).forEach(img => {
+        img.addEventListener('error', () => img.remove(), { once: true });
+      });
     }
 
     function open(k, pushHash = true) {
-      if (!PROJECTS[k]) return;
+      if (!isCase(k)) return;
       key = k; render(k);
       if (pushHash && location.hash !== '#' + k) history.replaceState(null, '', '#' + k);
       m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      const lenis = getLenis(); if (lenis) lenis.stop();
     }
     function close() {
       m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = ''; key = null;
-      const lenis = getLenis(); if (lenis) lenis.start();
       if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     }
 
@@ -457,7 +466,7 @@
        se despliega el grid para que quede visible al cerrar el modal. */
     function openFromHash() {
       const k = (location.hash || '').slice(1);
-      if (!PROJECTS[k]) return;
+      if (!isCase(k)) return;
       const card = $(`[data-project="${k}"]`);
       if (card && card.classList.contains('work__card--more') && grid && !grid.classList.contains('is-expanded')) {
         if (moreBtn) moreBtn.click(); else grid.classList.add('is-expanded');

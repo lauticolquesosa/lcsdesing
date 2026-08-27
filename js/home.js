@@ -1,6 +1,7 @@
 /* ============================================================
    LCS — home.js
    Home-only interactions:
+   · video del logo en el hero (autoplay a prueba de bloqueos)
    · carrusel de trabajo (flechas, drag, teclado, progreso)
    · magnetic buttons
    · manifesto word-fill on scroll
@@ -15,6 +16,62 @@
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const hasGsap = () => typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+
+  /* ---------- 0 · Video del logo en el hero ----------
+     El navegador puede negarse a reproducir solo: modo de ahorro de
+     energía, ahorro de datos, la pestaña abierta en segundo plano o el
+     archivo todavía sin bufear. Cuando eso pasa el video se queda en el
+     póster y parece una imagen estática. Acá se insiste: apenas hay
+     datos, cuando entra en pantalla, cuando la pestaña vuelve al frente
+     y —última red— ante el primer gesto del visitante. Si aun así no
+     arranca, el póster sigue siendo un cierre digno.                   */
+  function heroVideo() {
+    const v = $('[data-hero-video]');
+    if (!v) return;
+
+    // Safari solo respeta el silencio si además se fija la propiedad.
+    v.muted = true;
+    v.playsInline = true;
+    v.setAttribute('disablepictureinpicture', '');
+
+    if (reduced) { try { v.pause(); } catch (e) {} return; }
+
+    let done = false;
+    const playing = () => !v.paused && !v.ended && v.readyState > 2;
+
+    function attempt() {
+      if (playing()) return;
+      const p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});   // sin ruido en consola
+    }
+
+    // Reintentos ligados al ciclo de vida del propio archivo
+    ['loadeddata', 'canplay', 'canplaythrough', 'stalled', 'suspend'].forEach(
+      ev => v.addEventListener(ev, attempt)
+    );
+    v.addEventListener('playing', () => { done = true; }, { once: true });
+
+    // Solo se reproduce mientras se ve: fuera de pantalla no gasta batería
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        entries.forEach(e => { e.isIntersecting ? attempt() : v.pause(); });
+      }, { threshold: 0.1 }).observe(v);
+    }
+
+    // La pestaña vuelve al frente, o la página vuelve del historial
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) attempt(); });
+    window.addEventListener('pageshow', attempt);
+
+    // Último recurso: el primer gesto del visitante desbloquea el autoplay
+    const gestures = ['pointerdown', 'touchstart', 'keydown', 'scroll'];
+    const onGesture = () => {
+      attempt();
+      if (done) gestures.forEach(g => window.removeEventListener(g, onGesture));
+    };
+    gestures.forEach(g => window.addEventListener(g, onGesture, { passive: true }));
+
+    attempt();
+  }
 
   /* ---------- 1 · Carrusel de trabajo (finito, flechas + drag) ----------
      El scroll es nativo (scroll-snap): sin JS el carrusel se sigue
@@ -248,7 +305,7 @@
     manifestoST = tween.scrollTrigger;
   }
 
-  /* ---------- 3b · Cifras de la ficha del estudio (cuentan una vez) ---------- */
+  /* ---------- 3b · Cifras de la barra de confianza (cuentan una vez) ---------- */
   let countersReady = false;
   function counters() {
     if (countersReady) return;
@@ -293,6 +350,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
+    heroVideo();
     workCarousel();
     magnetic();
     // manifesto() + flow() are kicked off by __lcsOnLang during site.js i18n().

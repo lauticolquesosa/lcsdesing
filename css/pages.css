@@ -8,12 +8,6 @@
    REUSABLE CONTENT COMPONENTS
    ============================================================ */
 
-/* Two-column split: text + media */
-.split {
-  display: grid; grid-template-columns: 1.05fr 1fr;
-  gap: clamp(28px, 5vw, 88px); align-items: center;
-}
-
 /* Servicios — banda de trabajo reciente (mockups reales) */
 .work-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(14px, 1.6vw, 22px); }
 .work-strip__item { position: relative; display: block; overflow: hidden; border-radius: 10px; border: 1px solid var(--line); }
@@ -53,7 +47,7 @@
 }
 .section--paper .feature { border-color: var(--line-d); background: color-mix(in srgb, var(--paper) 3%, transparent); }
 .feature:hover { transform: translateY(-5px); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-.feature__no { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .12em; color: var(--accent); }
+.feature__no { font-family: var(--display); font-size: 13px; font-weight: 600; letter-spacing: .12em; color: var(--accent-text); }
 .feature h3 { font-family: var(--display); font-weight: 600; font-size: clamp(20px, 2.2vw, 30px); letter-spacing: -.02em; line-height: 1.04; }
 .feature p { font-size: clamp(14px, 1.3vw, 16px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 78%, transparent); }
 .feature ul { display: flex; flex-direction: column; gap: 9px; margin-top: 4px; }
@@ -96,27 +90,41 @@
 /* ============================================================
    HOME — split hero
    ============================================================ */
+/* Dos columnas reales: el texto manda a la izquierda y la marca acompaña
+   a la derecha. Sin posiciones absolutas ni desplazamientos en centímetros,
+   así el titular puede crecer sin pisar el logo en ninguna pantalla. */
 .home-hero {
-  position: relative; min-height: calc(100vh - 3cm); min-height: calc(100dvh - 3cm);
-  display: flex; overflow: clip;
+  position: relative; overflow: clip;
+  min-height: 100vh; min-height: 100svh;
+  display: grid; align-items: center;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: clamp(24px, 4vw, 80px);
+  padding: clamp(116px, 15vh, 172px) var(--gutter) clamp(64px, 9vh, 112px);
   background: var(--cream);
 }
 .home-hero__fill {
-  position: relative; z-index: 2; width: 60%; color: var(--ink);
+  position: relative; z-index: 2; color: var(--ink);
   display: flex; flex-direction: column; justify-content: center;
-  padding: clamp(120px, 16vh, 200px) var(--gutter) clamp(48px, 8vh, 90px);
-  transform: translate(8cm, -2cm);
 }
+/* Sin z-index propio a propósito: si el contenedor abriera su propio
+   contexto de apilado, la fusión del video se mezclaría contra la nada
+   y el fondo blanco del archivo quedaría visible como un recuadro. */
 .home-hero__logo {
-  position: absolute; z-index: 1; top: 50%;
-  right: clamp(24px, 5vw, 100px);
-  transform: translate(-5cm, -50%);
-  width: clamp(380px, 48vw, 720px);
+  justify-self: end;
+  width: min(100%, clamp(300px, 40vw, 560px));
   background: var(--cream);
 }
 .home-hero__logo img,
 .home-hero__logo video { display: block; width: 100%; height: auto; }
+/* El video viene con fondo claro: la fusión lo recorta contra el papel */
 .home-hero__video { mix-blend-mode: multiply; }
+/* Antetítulo del hero — dice qué es esto antes de leer el titular */
+.hero-eyebrow {
+  font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--ink) 68%, transparent);
+  margin-bottom: clamp(16px, 2.2vh, 26px);
+}
+.js .hero-eyebrow { animation: heroFade .7s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: .05s; }
 .hero-title { font-family: var(--display); font-weight: 700; line-height: .9; letter-spacing: -.035em; font-size: clamp(40px, 5.6vw, 88px); color: var(--ink); }
 .hero-title .ln { display: block; overflow: hidden; padding-block: .015em; }
 .hero-title .ln > span { display: block; }
@@ -133,8 +141,9 @@
 .js .hero-title .ln:nth-child(2) > span { animation-delay: .3s; }
 .js .hero-title .ln:nth-child(3) > span { animation-delay: .45s; }
 @keyframes heroReveal { from { transform: translateY(110%); } to { transform: translateY(0); } }
+@keyframes heroFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) {
-  .hero-title .ln > span, .hero-sub, .hero-actions { animation: none !important; }
+  .hero-title .ln > span, .hero-sub, .hero-actions, .hero-eyebrow { animation: none !important; }
 }
 
 /* ============================================================
@@ -153,90 +162,90 @@
 .manifesto__text .word { display: inline-block; }
 .manifesto__text em { font-style: normal; color: inherit; }
 
-/* ---------- Identidad — ficha del estudio ----------
-   Sin imagen: un titular de margen a margen, el texto debajo a la
-   izquierda, las cifras compactas al costado y la ficha técnica abajo. */
-.ident { display: flex; flex-direction: column; }
-/* La sección respira un poco menos arriba: el titular sube */
-#identidad { padding-top: calc(var(--section-pad) - clamp(16px, 3vh, 34px)); }
-
-/* Titular en una sola línea, sin llegar al borde del shell.
-   La doble clase gana por especificidad al h2.title de base.css. */
-.ident .ident__title {
-  margin: 0; max-width: none;
-  font-size: clamp(34px, 6.1vw, 92px);
-  line-height: .96; letter-spacing: -.035em;
-  color: var(--accent);
-}
-.ident .ident__title em { color: inherit; }
-
-/* Texto a la izquierda + cifras al costado */
-.ident__row {
-  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-  gap: clamp(28px, 5vw, 90px); align-items: start;
-  margin-top: clamp(26px, 4vh, 46px);
-}
-.ident__lede { margin: 0; max-width: 52ch; }
-/* El nombre queda marcado para SEO, pero se lee igual que el resto */
-.ident__lede strong { font-weight: inherit; }
-
-/* Cifras — compactas, alineadas como una ficha de datos */
-.ident__stats { display: flex; flex-direction: column; }
-.ident__stat {
-  display: grid; grid-template-columns: clamp(38px, 3.4vw, 54px) 1fr; align-items: baseline;
-  gap: clamp(14px, 1.4vw, 22px);
-  padding: 13px 0; border-top: 1px solid var(--line-d);
-}
-.ident__stat:first-child { border-top: 0; padding-top: 0; }
-.ident__stat:last-child { padding-bottom: 0; }
-.ident__fig {
-  font-family: var(--display); font-weight: 700; letter-spacing: -.03em; line-height: 1;
-  font-size: clamp(26px, 2.4vw, 34px); font-variant-numeric: tabular-nums; text-align: right;
-  color: var(--accent);
-}
-
-.ident__lab {
-  font-size: clamp(12.5px, 1.05vw, 14px); font-weight: 400; line-height: 1.4;
-  color: color-mix(in srgb, var(--paper) 58%, transparent);
-}
-
-/* Ficha técnica — cuatro datos duros, con más presencia */
-.ident__specs {
+/* ---------- Prueba — barra de confianza bajo el hero ----------
+   Cuatro cifras en una línea. Es lo primero que se ve después de la
+   promesa: responde "¿y por qué te creo?" antes de que la pregunta
+   llegue a formularse. */
+.proof {
   display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: clamp(18px, 2.4vw, 44px);
-  margin-top: clamp(44px, 6.5vh, 88px);
-  border-top: 1px solid var(--line-d); padding-top: clamp(24px, 3.2vh, 38px);
+  gap: clamp(20px, 3vw, 56px);
 }
-.ident__spec { position: relative; padding-top: clamp(16px, 1.8vh, 22px); }
-.ident__spec::before {
-  content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 2px;
-  background: var(--accent); transform: scaleX(0); transform-origin: left;
-  transition: transform .5s var(--ease);
+.proof__item {
+  display: flex; flex-direction: column; gap: 10px;
+  padding-left: clamp(14px, 1.4vw, 22px);
+  border-left: 1px solid var(--line);
 }
-.ident__spec:hover::before { transform: scaleX(1); }
-.ident__spec dt { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-.ident__spec dd {
-  margin: 12px 0 0; font-family: var(--display); font-weight: 600;
-  font-size: clamp(17px, 1.75vw, 23px); letter-spacing: -.015em; line-height: 1.15;
+.proof__fig {
+  display: flex; align-items: baseline; gap: .06em;
+  font-family: var(--display); font-weight: 700; line-height: 1;
+  letter-spacing: -.035em; font-size: clamp(34px, 4.4vw, 60px);
+  font-variant-numeric: tabular-nums; color: var(--green-l);
 }
-.ident__spec dd.s {
-  margin-top: 8px; font-family: var(--body); font-weight: 300;
-  font-size: clamp(12.5px, 1.05vw, 14px); line-height: 1.45;
-  color: color-mix(in srgb, var(--paper) 55%, transparent);
+.proof__fig i { font-style: normal; font-size: .48em; letter-spacing: -.02em; }
+.proof__lab {
+  font-size: clamp(12.5px, 1.05vw, 14.5px); font-weight: 300; line-height: 1.4;
+  color: color-mix(in srgb, var(--cream) 62%, transparent);
+  max-width: 22ch;
+}
+/* En vertical se mantiene en dos columnas: apiladas de a una la barra
+   se comía una pantalla entera y perdía el efecto de golpe de vista. */
+@media (max-width: 860px) {
+  .proof { grid-template-columns: 1fr 1fr; row-gap: clamp(24px, 4vh, 36px); column-gap: clamp(14px, 3vw, 28px); }
+  .proof__lab { max-width: none; }
 }
 
-@media (max-width: 980px) {
-  .ident__row { grid-template-columns: 1fr; gap: clamp(24px, 4vh, 34px); }
-  .ident__lede { max-width: 60ch; }
-  .ident__specs { grid-template-columns: 1fr 1fr; row-gap: clamp(24px, 3.6vh, 34px); }
+/* ---------- Por qué — el antes y el después, uno al lado del otro ----------
+   La columna del problema se lee en gris y con una cruz; la de la
+   solución en verde y con un tilde. La lectura es de un vistazo: no
+   hace falta leer las dos para entender cuál conviene. */
+.why {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(20px, 2.6vw, 40px);
+  margin-top: clamp(36px, 5vh, 64px);
 }
-@media (max-width: 620px) {
-  .ident__title { letter-spacing: -.03em; }
-  .ident__specs { grid-template-columns: 1fr; row-gap: 0; }
-  .ident__spec { padding: 18px 0 20px; border-top: 1px solid var(--line-d); }
-  .ident__spec:first-child { border-top: 0; padding-top: 4px; }
-  .ident__spec::before { display: none; }
+.why__col {
+  padding: clamp(24px, 2.6vw, 40px);
+  border: 1px solid var(--line-d);
+  background: color-mix(in srgb, var(--paper) 2.5%, transparent);
+  transition: border-color .45s var(--ease), transform .45s var(--ease), background-color .45s var(--ease);
 }
+.why__col--gain {
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+.why__col:hover { transform: translateY(-4px); }
+.why__col--pain:hover { border-color: color-mix(in srgb, var(--paper) 28%, transparent); }
+.why__col--gain:hover { border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+
+.why__head {
+  font-family: var(--display); font-weight: 600;
+  font-size: clamp(18px, 1.9vw, 25px); letter-spacing: -.02em; line-height: 1.1;
+  padding-bottom: clamp(16px, 2vh, 22px); margin-bottom: clamp(16px, 2vh, 22px);
+  border-bottom: 1px solid var(--line-d);
+}
+.why__col--gain .why__head { color: var(--accent); border-bottom-color: color-mix(in srgb, var(--accent) 26%, transparent); }
+
+.why__list { display: flex; flex-direction: column; gap: clamp(12px, 1.6vh, 17px); }
+.why__list li {
+  position: relative; padding-left: 30px;
+  font-size: clamp(14px, 1.35vw, 16.5px); font-weight: 300; line-height: 1.5;
+  color: color-mix(in srgb, var(--paper) 74%, transparent);
+}
+.why__list li::before {
+  content: ""; position: absolute; left: 0; top: .12em;
+  width: 18px; height: 18px; background: currentColor;
+  -webkit-mask: var(--ico-cross) center / contain no-repeat;
+          mask: var(--ico-cross) center / contain no-repeat;
+  opacity: .45;
+}
+.why__col--gain .why__list li::before {
+  -webkit-mask-image: var(--ico-check); mask-image: var(--ico-check);
+  background: var(--accent); opacity: 1;
+}
+@media (max-width: 760px) { .why { grid-template-columns: 1fr; } }
+
+/* El pie de las dudas alinea el enlace a la derecha, como el resto */
+.faq-foot { margin-top: clamp(26px, 3.6vh, 40px); }
 
 /* ---------- El estudio (interactive index) ---------- */
 .studio { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(32px, 5vw, 88px); align-items: start; }
@@ -374,25 +383,37 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .flow__progress { position: absolute; inset: 0; background: var(--accent); transform-origin: left; transform: scaleX(1); will-change: transform; }
 .flow__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 2.6vw, 48px); margin-top: clamp(26px, 3.5vh, 40px); }
 .flow__step { position: relative; }
-.flow__step .n { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--accent); }
+.flow__step .n { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: .14em; color: var(--accent-text); }
 .flow__step h3 { font-family: var(--display); font-weight: 600; font-size: clamp(19px, 2.3vw, 30px); letter-spacing: -.02em; margin: 14px 0 12px; transition: transform .4s var(--ease); }
 .flow__step p { font-size: 14px; font-weight: 300; line-height: 1.55; color: color-mix(in srgb, var(--cream) 52%, transparent); transition: color .4s var(--ease); max-width: 34ch; }
 .flow__step:hover h3 { transform: translateX(6px); }
 .flow__step:hover p { color: color-mix(in srgb, var(--cream) 90%, transparent); }
 
-/* ---------- Studio + Flow on green (accent) sections ---------- */
+/* ---------- Studio + Flow sobre la banda verde ----------
+   El verde de marca es claro: sobre él, ni el blanco puro pasa holgado el
+   mínimo de contraste. Por eso acá nada se atenúa con transparencias —
+   todo el texto va en blanco lleno, que es lo máximo que ese fondo permite.
+   La jerarquía la marcan el tamaño y el peso, no la opacidad. */
 .section--accent .studio__title em { color: #fff; }
-.section--accent .studio__list { border-top-color: rgba(247,246,243,.28); }
-.section--accent .studio__row { border-bottom-color: rgba(247,246,243,.28); }
+.section--accent .studio__list { border-top-color: rgba(255,255,255,.4); }
+.section--accent .studio__row { border-bottom-color: rgba(255,255,255,.4); }
 .section--accent .studio__row::after { background: #fff; }
+.section--accent .studio__row h3,
 .section--accent .studio__row:hover h3 { color: #fff; }
-.section--accent .studio__n { color: color-mix(in srgb, var(--cream) 62%, transparent); }
-.section--accent .studio__row p { color: color-mix(in srgb, var(--cream) 78%, transparent); }
-.section--accent .studio__row:hover p { color: var(--cream); }
-.section--accent .flow__rail { background: rgba(247,246,243,.28); }
+.section--accent .studio__n { color: #fff; }
+.section--accent .studio__row p,
+.section--accent .studio__row:hover p { color: #fff; }
+.section--accent .lead { color: #fff; }
+.section--accent .flow__rail { background: rgba(255,255,255,.4); }
 .section--accent .flow__progress { background: #fff; }
 .section--accent .flow__step .n { color: #fff; }
-.section--accent .flow__step p { color: color-mix(in srgb, var(--cream) 72%, transparent); }
+/* Sobre negro el verde oscuro se apaga: ahí manda el verde claro */
+.section--ink .flow__step .n,
+.section--ink .svc-incl h3,
+.section--ink .phase__col h3,
+.section--ink .feature__no,
+.section--ink .page-hero__num { color: var(--green-l); }
+.section--accent .flow__step p { color: #fff; }
 
 /* ---------- Flow + CTA links on light (paper) sections ---------- */
 .section--paper .flow__rail { background: var(--line-d); }
@@ -462,10 +483,10 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .svc-detail { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 80px); padding-block: clamp(40px, 6vh, 80px); border-top: 1px solid var(--line); }
 .svc-detail:first-of-type { border-top: 0; }
 .section--paper .svc-detail { border-top-color: var(--line-d); }
-.svc-detail__head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 60px); letter-spacing: -.03em; line-height: .98; margin: 14px 0 18px; }
+.svc-detail__head h2 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 60px); letter-spacing: -.03em; line-height: .98; margin: 14px 0 18px; }
 .svc-detail__head p { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 80%, transparent); max-width: 44ch; }
 .svc-detail__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 36px); }
-.svc-incl h4 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.svc-incl h3 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 14px; }
 .svc-incl ul { display: flex; flex-direction: column; gap: 11px; }
 .svc-incl li { position: relative; padding-left: 18px; font-size: 14.5px; font-weight: 300; line-height: 1.45; color: color-mix(in srgb, currentColor 82%, transparent); }
 .svc-incl li::before { content: ""; position: absolute; left: 0; top: 8px; width: 7px; height: 7px; background: var(--accent); border-radius: 50%; }
@@ -481,7 +502,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .phase__head h3 { font-family: var(--display); font-weight: 700; font-size: clamp(26px, 3.4vw, 46px); letter-spacing: -.02em; margin: 10px 0 14px; }
 .phase__head p { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 80%, transparent); }
 .phase__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(22px, 3vw, 44px); margin-top: 6px; }
-.phase__col h4 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+.phase__col h3 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 14px; }
 .phase__col ul { display: flex; flex-direction: column; gap: 10px; }
 .phase__col li { position: relative; padding-left: 18px; font-size: 14px; font-weight: 300; line-height: 1.45; color: color-mix(in srgb, currentColor 80%, transparent); }
 .phase__col li::before { content: ""; position: absolute; left: 0; top: .35em; width: .85em; height: .85em; background: var(--accent); -webkit-mask: var(--ico-east) center / contain no-repeat; mask: var(--ico-east) center / contain no-repeat; }
@@ -524,7 +545,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .inv__card--highlight { border-color: var(--accent); }
 .inv__card--highlight::before { background: rgba(1,135,81,.07); }
 .inv__card--highlight:hover { border-color: var(--accent); box-shadow: 0 28px 64px rgba(1,135,81,.2); }
-.inv__tag { position: absolute; top: 18px; right: 18px; font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); border: 1px solid rgba(1,135,81,.5); padding: 5px 10px; border-radius: 999px; }
+.inv__tag { position: absolute; top: 18px; right: 18px; font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-text); border: 1px solid rgba(1,135,81,.5); padding: 5px 10px; border-radius: 999px; }
 .inv__no { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: .12em; opacity: .4; transition: opacity .35s var(--ease); }
 .inv__card:hover .inv__no { opacity: .9; }
 .inv__name { font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2.6vw, 36px); letter-spacing: -.02em; line-height: 1; margin: 14px 0 18px; transition: color .35s var(--ease); }
@@ -557,7 +578,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .section--paper .inv__card--highlight:hover .inv__price strong { color: var(--paper); }
 .section--paper .inv__list li { color: color-mix(in srgb, var(--paper) 75%, transparent); }
 .section--paper .inv__card:hover .inv__list li { color: color-mix(in srgb, var(--paper) 92%, transparent); }
-.section--paper .inv__note { color: color-mix(in srgb, var(--paper) 55%, transparent); }
+.section--paper .inv__note { color: color-mix(in srgb, var(--paper) 68%, transparent); }
 .section--paper .inv__cta { color: var(--paper); border-bottom-color: rgba(17,17,17,.28); }
 .section--paper .inv__cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
@@ -629,13 +650,13 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 
 .ch__body { display: flex; flex-direction: column; gap: 3px; min-width: 0; transition: transform .45s var(--ease); }
 .ch__link:hover .ch__body, .ch__link:focus-visible .ch__body { transform: translateX(4px); }
-.ch__k { font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.ch__k { font-size: 10.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); }
 .ch__v {
   font-family: var(--display); font-weight: 600; letter-spacing: -.01em;
   font-size: clamp(16px, 1.55vw, 20px); color: var(--paper);
   overflow-wrap: anywhere; transition: color .35s var(--ease);
 }
-.ch__h { font-size: 12.5px; font-weight: 300; line-height: 1.45; color: color-mix(in srgb, var(--paper) 55%, transparent); }
+.ch__h { font-size: 12.5px; font-weight: 400; line-height: 1.45; color: color-mix(in srgb, var(--paper) 68%, transparent); }
 
 .ch__ar {
   flex: none; margin-left: auto; position: relative;
@@ -680,7 +701,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .contact-aside__rows { display: grid; gap: 1px; background: rgba(247,246,243,.16); border: 1px solid rgba(247,246,243,.16); }
 .contact-aside__row { background: var(--ink); display: flex; flex-direction: column; gap: 5px; padding: clamp(16px, 1.8vw, 22px); transition: background .3s var(--ease); }
 .contact-aside__row:hover { background: #141414; }
-.contact-aside__row .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.contact-aside__row .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-text); }
 .contact-aside__row .v { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; }
 
 /* ---- Aside de contacto sobre fondo claro ---- */
@@ -831,23 +852,18 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 }
 @media (max-width: 860px) {
   .hero-mbrk { display: inline; }
-  .home-hero { flex-direction: column; min-height: auto; }
-  .home-hero__fill {
-    width: 100%; min-height: auto; justify-content: flex-end;
-    padding-left: var(--gutter); padding-right: var(--gutter);
-    padding-top: calc(clamp(56px, 8vh, 72px) + 1.2cm);
-    padding-bottom: clamp(58px, 9vh, 92px);
-    transform: none;
+  /* En vertical la marca va arriba, chica, y el mensaje debajo entero */
+  .home-hero {
+    grid-template-columns: 1fr; align-content: center;
+    gap: clamp(22px, 4vh, 40px);
+    min-height: auto;
+    padding-top: clamp(104px, 15vh, 140px);
+    padding-bottom: clamp(56px, 9vh, 92px);
   }
-  .home-hero__logo {
-    position: absolute; z-index: 1; top: auto; align-self: auto;
-    right: var(--gutter);
-    bottom: calc(clamp(190px, 34vh, 320px) + 0.8cm);
-    width: clamp(124px, 34vw, 182px);
-    margin: 0; transform: translate(-0.8cm, -1.2cm);
-  }
-  .hero-actions { margin-top: calc(clamp(28px, 4vh, 44px) + 0.8cm); }
-  .split, .svc-detail, .svc-detail__grid, .phase, .phase__cols, .contact-grid { grid-template-columns: 1fr; }
+  .home-hero__fill { order: 2; }
+  .home-hero__logo { order: 1; justify-self: start; width: clamp(132px, 34vw, 200px); }
+  .hero-actions { margin-top: clamp(26px, 4vh, 40px); }
+  .svc-detail, .svc-detail__grid, .phase, .phase__cols, .contact-grid { grid-template-columns: 1fr; }
   .work { grid-template-columns: 1fr 1fr; }
   .modal__panel { inset: 0.75cm; border-radius: 14px; }
   .modal__close { top: calc(0.75cm + 14px); right: calc(0.75cm + 14px); }

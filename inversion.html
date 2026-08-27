@@ -10,13 +10,11 @@
 <meta name="theme-color" content="#0A0A0A" />
 <title>Precios de diseño web — LCS · Salta</title>
 <meta name="description" content="Cuánto cuesta una web en Salta: tres planes con precio de partida, qué incluye cada uno y qué afecta el presupuesto. Precio cerrado por proyecto, sin letra chica." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/pages.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesign.vercel.app/inversion" />
 <meta property="og:type" content="website" />
@@ -37,14 +35,14 @@
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
 <meta name="geo.placename" content="Salta, Argentina" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lauticolquesosa@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/inversion#faq","mainEntity":[{"@type":"Question","name":"¿El precio incluye el dominio y el hosting?","acceptedAnswer":{"@type":"Answer","text":"El desarrollo y la publicación están incluidos. El costo del dominio y, si aplica, del hosting, corre por separado y se elige según tu proyecto (muchos sitios funcionan en hosting gratuito tipo Vercel)."}},{"@type":"Question","name":"¿Puedo empezar con poco y escalar después?","acceptedAnswer":{"@type":"Answer","text":"Sí, es lo recomendable. LCS arma la base con una estructura escalable para que sumar secciones o funciones más adelante sea simple y económico."}},{"@type":"Question","name":"¿Cómo es la forma de pago?","acceptedAnswer":{"@type":"Answer","text":"50% al inicio y 50% contra entrega. Se aceptan transferencia y medios digitales; para proyectos largos se pueden pactar pagos por etapas."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Inversión","item":"https://lcsdesign.vercel.app/inversion"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lcsdesignstudio1@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/inversion#faq","mainEntity":[{"@type":"Question","name":"¿El precio incluye el dominio y el hosting?","acceptedAnswer":{"@type":"Answer","text":"El desarrollo y la publicación están incluidos. El costo del dominio y, si aplica, del hosting, corre por separado y se elige según tu proyecto (muchos sitios funcionan en hosting gratuito tipo Vercel)."}},{"@type":"Question","name":"¿Puedo empezar con poco y escalar después?","acceptedAnswer":{"@type":"Answer","text":"Sí, es lo recomendable. LCS arma la base con una estructura escalable para que sumar secciones o funciones más adelante sea simple y económico."}},{"@type":"Question","name":"¿Cómo es la forma de pago?","acceptedAnswer":{"@type":"Answer","text":"50% al inicio y 50% contra entrega. Se aceptan transferencia y medios digitales; para proyectos largos se pueden pactar pagos por etapas."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Inversión","item":"https://lcsdesign.vercel.app/inversion"}]}]}</script>
 <!-- SEO:END -->
 </head>
 <body data-page="inversion"
       data-title-en="Web design pricing — LCS · Salta"
       data-desc-en="What a website costs in Salta: three plans with starting prices, what each includes and what affects the quote. Fixed price per project, no fine print.">
 
-<a id="top" aria-hidden="true"></a>
+<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
 <main>
@@ -69,6 +67,9 @@
   <!-- ============ PLANES ============ -->
   <section class="section section--paper" data-nav="light">
     <div class="shell">
+      <!-- El encabezado de la parrilla lo llevan los lectores de pantalla:
+           en pantalla el titular ya lo dio el hero de la página. -->
+      <h2 class="sr-only" data-es="Planes y precios" data-en="Plans and prices">Planes y precios</h2>
       <div class="inv" data-stagger>
         <article class="inv__card card-hover">
           <span class="inv__no">01</span>
@@ -116,7 +117,7 @@
   </section>
 
   <!-- ============ CONDICIONES ============ -->
-  <section class="section section--paper section--tight" data-nav="light" style="border-top:none">
+  <section class="section section--paper section--tight section--seam" data-nav="light">
     <div class="shell">
       <div class="sec-head sec-head--wide">
         <h2 class="title"
@@ -132,13 +133,13 @@
   </section>
 
   <!-- ============ QUÉ AFECTA EL PRECIO ============ -->
-  <section class="section section--paper" data-nav="light" style="border-top:none">
+  <section class="section section--paper section--seam" data-nav="light">
     <div class="shell">
       <div class="sec-head sec-head--wide">
         <h2 class="title"
             data-es="Cómo se arma el presupuesto"
             data-en="How the quote is built">Cómo se arma el presupuesto</h2>
-        <p class="lead" style="margin-top:20px"
+        <p class="lead lead--spaced"
            data-es="Qué mueve la aguja del precio."
            data-en="What moves the price needle.">Qué mueve la aguja del precio.</p>
       </div>
@@ -207,8 +208,8 @@
 
 <div id="site-footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/site.js"></script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>

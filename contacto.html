@@ -10,13 +10,11 @@
 <meta name="theme-color" content="#0A0A0A" />
 <title>Contacto — LCS · Estudio de Diseño Web en Salta</title>
 <meta name="description" content="Escribinos por WhatsApp, Instagram o email. Todos los mensajes se responden en 24–48 h y la primera charla para definir el alcance es sin compromiso." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/pages.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesign.vercel.app/contacto" />
 <meta property="og:type" content="website" />
@@ -37,14 +35,14 @@
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
 <meta name="geo.placename" content="Salta, Argentina" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lauticolquesosa@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/contacto#faq","mainEntity":[{"@type":"Question","name":"¿Qué información te ayuda a cotizar más rápido?","acceptedAnswer":{"@type":"Answer","text":"Contame qué tipo de proyecto es, si ya tenés identidad de marca, cuántas secciones imaginás, tu plazo ideal y un rango de presupuesto. Con eso, LCS puede darte una respuesta concreta enseguida."}},{"@type":"Question","name":"¿Hacés reuniones por videollamada?","acceptedAnswer":{"@type":"Answer","text":"Sí. Después del primer contacto coordinamos una videollamada para entender el proyecto a fondo antes de pasar un presupuesto cerrado."}},{"@type":"Question","name":"¿En cuánto tiempo respondés?","acceptedAnswer":{"@type":"Answer","text":"Normalmente dentro de las 24–48 horas hábiles. Si es urgente, WhatsApp es el canal más rápido."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Contacto","item":"https://lcsdesign.vercel.app/contacto"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lcsdesignstudio1@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/contacto#faq","mainEntity":[{"@type":"Question","name":"¿Qué información te ayuda a cotizar más rápido?","acceptedAnswer":{"@type":"Answer","text":"Contame qué tipo de proyecto es, si ya tenés identidad de marca, cuántas secciones imaginás, tu plazo ideal y un rango de presupuesto. Con eso, LCS puede darte una respuesta concreta enseguida."}},{"@type":"Question","name":"¿Hacés reuniones por videollamada?","acceptedAnswer":{"@type":"Answer","text":"Sí. Después del primer contacto coordinamos una videollamada para entender el proyecto a fondo antes de pasar un presupuesto cerrado."}},{"@type":"Question","name":"¿En cuánto tiempo respondés?","acceptedAnswer":{"@type":"Answer","text":"Normalmente dentro de las 24–48 horas hábiles. Si es urgente, WhatsApp es el canal más rápido."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Contacto","item":"https://lcsdesign.vercel.app/contacto"}]}]}</script>
 <!-- SEO:END -->
 </head>
 <body data-page="contacto"
       data-title-en="Contact — LCS · Web Design Studio in Salta"
       data-desc-en="Reach us on WhatsApp, Instagram or email. Every message gets a reply within 24–48 h and the first scoping call is free of commitment.">
 
-<a id="top" aria-hidden="true"></a>
+<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
 <main>
@@ -166,61 +164,9 @@
 
 <div id="site-footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/site.js"></script>
-<script>
-  /* Copiar el email al portapapeles, con vuelta atrás si el navegador
-     no expone la Clipboard API (http, permisos denegados, etc.). */
-  (function () {
-    var btn = document.querySelector('.ch__copy');
-    if (!btn) return;
-    var timer = null;
-    var label = function (kind) {
-      var en = (window.__lcsLang === 'en');
-      return btn.getAttribute('data-' + kind + (en ? '-en' : '-es')) || btn.textContent;
-    };
-    function legacyCopy(text) {
-      var ta = document.createElement('textarea');
-      ta.value = text;
-      ta.setAttribute('readonly', '');
-      ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
-      document.body.appendChild(ta);
-      ta.select();
-      var okey = false;
-      try { okey = document.execCommand('copy'); } catch (e) { okey = false; }
-      document.body.removeChild(ta);
-      return okey;
-    }
-    function done() {
-      btn.classList.add('is-done');
-      btn.textContent = label('done');
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        btn.classList.remove('is-done');
-        btn.textContent = label('copy');
-      }, 1900);
-    }
-    /* site.js dispara este hook en cada cambio de idioma (y en el inicial):
-       así el botón y su etiqueta accesible siguen al idioma vigente. */
-    function syncLang() {
-      if (!btn.classList.contains('is-done')) btn.textContent = label('copy');
-      var en = (window.__lcsLang === 'en');
-      btn.setAttribute('aria-label', (en ? 'Copy the email ' : 'Copiar el email ') + btn.getAttribute('data-copy'));
-    }
-    window.__lcsOnLang = syncLang;
-    syncLang();
-
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      var text = btn.getAttribute('data-copy');
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(done, function () { if (legacyCopy(text)) done(); });
-      } else if (legacyCopy(text)) {
-        done();
-      }
-    });
-  })();
-</script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/site.js" defer></script>
+<script src="js/contacto.js" defer></script>
 </body>
 </html>

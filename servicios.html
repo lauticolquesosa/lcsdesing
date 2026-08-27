@@ -10,13 +10,11 @@
 <meta name="theme-color" content="#0A0A0A" />
 <title>Servicios de diseño web y UX/UI — LCS · Salta</title>
 <meta name="description" content="Diseño web a medida y UX/UI en Salta: research, arquitectura de información, prototipado en Figma y desarrollo responsive. Proceso de 4 fases, del descubrimiento al deploy." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
 <link rel="stylesheet" href="css/base.css" />
 <link rel="stylesheet" href="css/pages.css" />
-<script>document.documentElement.classList.add('js');</script>
+<script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesign.vercel.app/servicios" />
 <meta property="og:type" content="website" />
@@ -37,14 +35,14 @@
 <meta name="author" content="Lautaro Colque Sosa" />
 <meta name="geo.region" content="AR-A" />
 <meta name="geo.placename" content="Salta, Argentina" />
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lauticolquesosa@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"OfferCatalog","@id":"https://lcsdesign.vercel.app/servicios#catalog","name":"Servicios de LCS","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Diseño Web","serviceType":"Diseño y desarrollo de sitios web","description":"Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado.","provider":{"@id":"https://lcsdesign.vercel.app/#studio"},"areaServed":"Argentina"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UX/UI","serviceType":"Diseño de experiencia e interfaz","description":"Research, arquitectura de información, wireframes y prototipos de alta fidelidad en Figma, con testing de usabilidad.","provider":{"@id":"https://lcsdesign.vercel.app/#studio"},"areaServed":"Argentina"}}]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/servicios#faq","mainEntity":[{"@type":"Question","name":"¿Cuánto tarda un proyecto?","acceptedAnswer":{"@type":"Answer","text":"Una landing toma 1–2 semanas; una web institucional, 3–4; un proyecto complejo, 6–8. Los plazos exactos se confirman tras la primera reunión."}},{"@type":"Question","name":"¿Trabajás con clientes fuera de Salta?","acceptedAnswer":{"@type":"Answer","text":"Sí. LCS trabaja de forma remota con clientes de toda Argentina y el exterior. Todo el proceso puede ser 100% online."}},{"@type":"Question","name":"¿Puedo pedir solo el diseño o solo el desarrollo?","acceptedAnswer":{"@type":"Answer","text":"Sí. Podés contratar solo el diseño UX/UI (con prototipo y handoff incluidos) o solo el desarrollo a partir de un diseño existente."}},{"@type":"Question","name":"¿Qué pasa con cambios después de la entrega?","acceptedAnswer":{"@type":"Answer","text":"Cada proyecto incluye una ronda de ajustes finales. Después, LCS ofrece mantenimiento y nuevas iteraciones por separado."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"https://lcsdesign.vercel.app/servicios"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["ProfessionalService","Organization"],"@id":"https://lcsdesign.vercel.app/#studio","name":"LCS — Estudio de Diseño Web","alternateName":"LCS Web Studio","url":"https://lcsdesign.vercel.app/","logo":"https://lcsdesign.vercel.app/assets/logo-header.webp","image":"https://lcsdesign.vercel.app/assets/logo-hero-poster.webp","description":"Estudio de diseño web y UX/UI en Salta, Argentina. Diseño y desarrollo de sitios a medida, con research, prototipado y código propio.","email":"lcsdesignstudio1@gmail.com","telephone":"+54-387-483-4041","priceRange":"$$","founder":{"@type":"Person","@id":"https://lcsdesign.vercel.app/#lautaro","name":"Lautaro Colque Sosa","jobTitle":"Diseñador web y UX/UI","knowsAbout":["Diseño web","UX/UI","Diseño de interfaces","Front-end","Sistemas de diseño"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Universidad Católica de Salta (UCASAL)"},{"@type":"EducationalOrganization","name":"Coderhouse"}]},"address":{"@type":"PostalAddress","addressLocality":"Salta","addressRegion":"Salta","addressCountry":"AR"},"areaServed":[{"@type":"Country","name":"Argentina"},{"@type":"Country","name":"Colombia"}],"sameAs":["https://instagram.com/lcswebstudio"],"knowsLanguage":["es","en"]},{"@type":"OfferCatalog","@id":"https://lcsdesign.vercel.app/servicios#catalog","name":"Servicios de LCS","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Diseño Web","serviceType":"Diseño y desarrollo de sitios web","description":"Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado.","provider":{"@id":"https://lcsdesign.vercel.app/#studio"},"areaServed":"Argentina"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"UX/UI","serviceType":"Diseño de experiencia e interfaz","description":"Research, arquitectura de información, wireframes y prototipos de alta fidelidad en Figma, con testing de usabilidad.","provider":{"@id":"https://lcsdesign.vercel.app/#studio"},"areaServed":"Argentina"}}]},{"@type":"FAQPage","@id":"https://lcsdesign.vercel.app/servicios#faq","mainEntity":[{"@type":"Question","name":"¿Cuánto tarda un proyecto?","acceptedAnswer":{"@type":"Answer","text":"Una landing toma 1–2 semanas; una web institucional, 3–4; un proyecto complejo, 6–8. Los plazos exactos se confirman tras la primera reunión."}},{"@type":"Question","name":"¿Trabajás con clientes fuera de Salta?","acceptedAnswer":{"@type":"Answer","text":"Sí. LCS trabaja de forma remota con clientes de toda Argentina y el exterior. Todo el proceso puede ser 100% online."}},{"@type":"Question","name":"¿Puedo pedir solo el diseño o solo el desarrollo?","acceptedAnswer":{"@type":"Answer","text":"Sí. Podés contratar solo el diseño UX/UI (con prototipo y handoff incluidos) o solo el desarrollo a partir de un diseño existente."}},{"@type":"Question","name":"¿Qué pasa con cambios después de la entrega?","acceptedAnswer":{"@type":"Answer","text":"Cada proyecto incluye una ronda de ajustes finales. Después, LCS ofrece mantenimiento y nuevas iteraciones por separado."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://lcsdesign.vercel.app/"},{"@type":"ListItem","position":2,"name":"Servicios","item":"https://lcsdesign.vercel.app/servicios"}]}]}</script>
 <!-- SEO:END -->
 </head>
 <body data-page="servicios"
       data-title-en="Web design and UX/UI services — LCS · Salta"
       data-desc-en="Custom web design and UX/UI in Salta: research, information architecture, Figma prototyping and responsive development. A 4-phase process, from discovery to deploy.">
 
-<a id="top" aria-hidden="true"></a>
+<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
 <main>
@@ -71,13 +69,13 @@
     <div class="shell">
       <div class="svc-detail">
         <div class="svc-detail__head">
-          <h3 data-es="Diseño Web" data-en="Web Design">Diseño Web</h3>
+          <h2 data-es="Diseño Web" data-en="Web Design">Diseño Web</h2>
           <p data-es="Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar."
              data-en="Design and development of sites with their own identity: landing pages, portfolios and corporate websites. Clean, responsive, optimized code, ready to ship.">Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar.</p>
         </div>
         <div class="svc-detail__grid">
           <div class="svc-incl">
-            <h4 data-es="Qué incluye" data-en="What's included">Qué incluye</h4>
+            <h3 data-es="Qué incluye" data-en="What's included">Qué incluye</h3>
             <ul>
               <li data-es="Diseño a medida en Figma" data-en="Custom design in Figma">Diseño a medida en Figma</li>
               <li data-es="Maquetado HTML / CSS / JS" data-en="HTML / CSS / JS build">Maquetado HTML / CSS / JS</li>
@@ -88,7 +86,7 @@
             </ul>
           </div>
           <div class="svc-incl">
-            <h4 data-es="Ideal para" data-en="Ideal for">Ideal para</h4>
+            <h3 data-es="Ideal para" data-en="Ideal for">Ideal para</h3>
             <ul>
               <li data-es="Negocios locales que quieren presencia seria" data-en="Local businesses wanting a serious presence">Negocios locales que quieren presencia seria</li>
               <li data-es="Profesionales y portfolios" data-en="Professionals & portfolios">Profesionales y portfolios</li>
@@ -102,13 +100,13 @@
       <!-- SERVICIO 02 — UX/UI -->
       <div class="svc-detail">
         <div class="svc-detail__head">
-          <h3 data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h3>
+          <h2 data-es="UX/UI Design" data-en="UX/UI Design">UX/UI Design</h2>
           <p data-es="Diseño de producto centrado en el usuario: desde la investigación hasta un prototipo de alta fidelidad listo para desarrollar. Decisiones basadas en evidencia, no en suposiciones."
              data-en="User-centered product design: from research to a high-fidelity prototype ready to build. Decisions based on evidence, not assumptions.">Diseño de producto centrado en el usuario: desde la investigación hasta un prototipo de alta fidelidad listo para desarrollar. Decisiones basadas en evidencia, no en suposiciones.</p>
         </div>
         <div class="svc-detail__grid">
           <div class="svc-incl">
-            <h4 data-es="Qué incluye" data-en="What's included">Qué incluye</h4>
+            <h3 data-es="Qué incluye" data-en="What's included">Qué incluye</h3>
             <ul>
               <li data-es="Investigación de usuarios y entrevistas" data-en="User research & interviews">Investigación de usuarios y entrevistas</li>
               <li data-es="Personas y mapas de empatía" data-en="Personas & empathy maps">Personas y mapas de empatía</li>
@@ -119,7 +117,7 @@
             </ul>
           </div>
           <div class="svc-incl">
-            <h4 data-es="Ideal para" data-en="Ideal for">Ideal para</h4>
+            <h3 data-es="Ideal para" data-en="Ideal for">Ideal para</h3>
             <ul>
               <li data-es="Apps y productos digitales" data-en="Apps & digital products">Apps y productos digitales</li>
               <li data-es="Rediseños basados en datos" data-en="Data-driven redesigns">Rediseños basados en datos</li>
@@ -156,7 +154,7 @@
         <h2 class="title"
             data-es="Cómo se siente trabajar con LCS"
             data-en="What working with LCS feels like">Cómo se siente trabajar con LCS</h2>
-        <p class="lead" style="margin-top:20px"
+        <p class="lead lead--spaced"
            data-es="Pocas promesas, muchos detalles."
            data-en="Few promises, lots of detail.">Pocas promesas, muchos detalles.</p>
       </div>
@@ -206,7 +204,7 @@
             </div>
             <div class="phase__cols">
               <div class="phase__col">
-                <h4 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h4>
+                <h3 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h3>
                 <ul>
                   <li data-es="Investigación de usuarios" data-en="User research">Investigación de usuarios</li>
                   <li data-es="Entrevistas y encuestas" data-en="Interviews & surveys">Entrevistas y encuestas</li>
@@ -215,7 +213,7 @@
                 </ul>
               </div>
               <div class="phase__col">
-                <h4 data-es="Entregables" data-en="Deliverables">Entregables</h4>
+                <h3 data-es="Entregables" data-en="Deliverables">Entregables</h3>
                 <ul>
                   <li data-es="Brief y alcance del proyecto" data-en="Brief & project scope">Brief y alcance del proyecto</li>
                   <li data-es="Hallazgos de investigación" data-en="Research findings">Hallazgos de investigación</li>
@@ -236,7 +234,7 @@
             </div>
             <div class="phase__cols">
               <div class="phase__col">
-                <h4 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h4>
+                <h3 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h3>
                 <ul>
                   <li data-es="Síntesis de insights" data-en="Insight synthesis">Síntesis de insights</li>
                   <li data-es="Personas de usuario" data-en="User personas">Personas de usuario</li>
@@ -245,7 +243,7 @@
                 </ul>
               </div>
               <div class="phase__col">
-                <h4 data-es="Entregables" data-en="Deliverables">Entregables</h4>
+                <h3 data-es="Entregables" data-en="Deliverables">Entregables</h3>
                 <ul>
                   <li data-es="Definición del problema" data-en="Problem statement">Definición del problema</li>
                   <li data-es="Personas y mapa de empatía" data-en="Personas & empathy map">Personas y mapa de empatía</li>
@@ -266,7 +264,7 @@
             </div>
             <div class="phase__cols">
               <div class="phase__col">
-                <h4 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h4>
+                <h3 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h3>
                 <ul>
                   <li data-es="Wireframes de baja fidelidad" data-en="Low-fidelity wireframes">Wireframes de baja fidelidad</li>
                   <li data-es="Flujos de usuario" data-en="User flows">Flujos de usuario</li>
@@ -275,7 +273,7 @@
                 </ul>
               </div>
               <div class="phase__col">
-                <h4 data-es="Entregables" data-en="Deliverables">Entregables</h4>
+                <h3 data-es="Entregables" data-en="Deliverables">Entregables</h3>
                 <ul>
                   <li data-es="Wireframes y flujos" data-en="Wireframes & flows">Wireframes y flujos</li>
                   <li data-es="Prototipo interactivo" data-en="Interactive prototype">Prototipo interactivo</li>
@@ -296,7 +294,7 @@
             </div>
             <div class="phase__cols">
               <div class="phase__col">
-                <h4 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h4>
+                <h3 data-es="Qué hace LCS" data-en="What LCS does">Qué hace LCS</h3>
                 <ul>
                   <li data-es="Desarrollo front-end responsive" data-en="Responsive front-end build">Desarrollo front-end responsive</li>
                   <li data-es="Testing con usuarios reales" data-en="Testing with real users">Testing con usuarios reales</li>
@@ -305,7 +303,7 @@
                 </ul>
               </div>
               <div class="phase__col">
-                <h4 data-es="Entregables" data-en="Deliverables">Entregables</h4>
+                <h3 data-es="Entregables" data-en="Deliverables">Entregables</h3>
                 <ul>
                   <li data-es="Sitio en vivo y responsive" data-en="Live, responsive site">Sitio en vivo y responsive</li>
                   <li data-es="Informe de testing" data-en="Testing report">Informe de testing</li>
@@ -320,7 +318,7 @@
   </section>
 
   <!-- ============ FAQ ============ -->
-  <section class="section section--ink" data-nav="dark" style="border-top:none">
+  <section class="section section--ink section--seam" data-nav="dark">
     <div class="shell">
       <div class="sec-head">
         <h2 class="title" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</h2>
@@ -350,8 +348,8 @@
 
 <div id="site-footer"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="js/site.js"></script>
+<script src="js/vendor/gsap.min.js" defer></script>
+<script src="js/vendor/ScrollTrigger.min.js" defer></script>
+<script src="js/site.js" defer></script>
 </body>
 </html>
