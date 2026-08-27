@@ -455,6 +455,7 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .svc-detail__head h2 { font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4.4vw, 60px); letter-spacing: -.03em; line-height: .98; margin: 14px 0 18px; }
 .svc-detail__head p { font-size: clamp(15px, 1.5vw, 18px); font-weight: 300; line-height: 1.55; color: color-mix(in srgb, currentColor 80%, transparent); max-width: 44ch; }
 .svc-detail__head .svc-detail__cta { margin-top: 20px; }
+.svc-detail__head .svc-detail__cta:first-child { margin-top: 0; }
 .svc-detail__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.5vw, 36px); }
 .svc-incl h3 { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 14px; }
 .svc-incl ul { display: flex; flex-direction: column; gap: 11px; }
@@ -835,6 +836,8 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
   .home-hero__logo { order: 1; justify-self: start; width: clamp(132px, 34vw, 200px); }
   .hero-actions { margin-top: clamp(26px, 4vh, 40px); }
   .svc-detail, .svc-detail__grid, .phase, .phase__cols, .contact-grid { grid-template-columns: 1fr; }
+  .page-hero + .section:has(.svc-detail) { padding-top: clamp(20px, 3vh, 36px); }
+  .svc-detail:first-of-type { padding-top: clamp(16px, 2.5vh, 28px); }
   .work { grid-template-columns: 1fr 1fr; }
   .modal__panel { inset: 0.75cm; border-radius: 14px; }
   .modal__close { top: calc(0.75cm + 14px); right: calc(0.75cm + 14px); }
