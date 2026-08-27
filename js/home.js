@@ -305,27 +305,6 @@
     manifestoST = tween.scrollTrigger;
   }
 
-  /* ---------- 3b · Cifras de la barra de confianza (cuentan una vez) ---------- */
-  let countersReady = false;
-  function counters() {
-    if (countersReady) return;
-    const figs = $$('[data-count-to]');
-    if (!figs.length) return;
-    countersReady = true;
-    if (reduced || !hasGsap()) return;      // sin animación quedan en su valor final
-    figs.forEach(el => {
-      const to = parseInt(el.dataset.countTo, 10);
-      if (!Number.isFinite(to)) return;
-      const n = { v: 0 };
-      el.textContent = '0';
-      gsap.to(n, {
-        v: to, duration: 1.2, ease: 'power2.out', snap: { v: 1 },
-        onUpdate: () => { el.textContent = Math.round(n.v); },
-        scrollTrigger: { trigger: el, start: 'top 90%', once: true }
-      });
-    });
-  }
-
   /* ---------- 4 · Interactive process line (one-time) ---------- */
   let flowReady = false;
   function flow() {
@@ -344,7 +323,6 @@
   window.__lcsOnLang = function () {
     manifesto();   // re-wrap after i18n swapped the text
     flow();
-    counters();
     if (wcSyncLabels) wcSyncLabels();
     if (!reduced && hasGsap()) ScrollTrigger.refresh();
   };
@@ -355,6 +333,6 @@
     magnetic();
     // manifesto() + flow() are kicked off by __lcsOnLang during site.js i18n().
     // Fallback if i18n never runs (e.g. site.js failed to load):
-    setTimeout(() => { if (!window.__lcsLang) { manifesto(); flow(); counters(); } }, 0);
+    setTimeout(() => { if (!window.__lcsLang) { manifesto(); flow(); } }, 0);
   });
 })();

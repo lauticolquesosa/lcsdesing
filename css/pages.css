@@ -92,15 +92,24 @@
    ============================================================ */
 /* Dos columnas reales: el texto manda a la izquierda y la marca acompaña
    a la derecha. Sin posiciones absolutas ni desplazamientos en centímetros,
-   así el titular puede crecer sin pisar el logo en ninguna pantalla. */
+   así el titular puede crecer sin pisar el logo en ninguna pantalla.
+
+   La sección va a sangre para que el papel llegue a los bordes; la grilla
+   vive dentro de un .shell, el mismo contenedor que usan todas las demás
+   secciones. Por eso el texto del hero arranca exactamente en la misma
+   línea vertical que el contenido de abajo, también en pantallas anchas
+   donde el .shell ya topó su ancho máximo. */
 .home-hero {
   position: relative; overflow: clip;
   min-height: 100vh; min-height: 100svh;
+  display: flex; align-items: center;
+  padding-block: clamp(116px, 15vh, 172px) clamp(64px, 9vh, 112px);
+  background: var(--cream);
+}
+.home-hero__inner {
   display: grid; align-items: center;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
   gap: clamp(24px, 4vw, 80px);
-  padding: clamp(116px, 15vh, 172px) var(--gutter) clamp(64px, 9vh, 112px);
-  background: var(--cream);
 }
 .home-hero__fill {
   position: relative; z-index: 2; color: var(--ink);
@@ -161,38 +170,6 @@
 }
 .manifesto__text .word { display: inline-block; }
 .manifesto__text em { font-style: normal; color: inherit; }
-
-/* ---------- Prueba — barra de confianza bajo el hero ----------
-   Cuatro cifras en una línea. Es lo primero que se ve después de la
-   promesa: responde "¿y por qué te creo?" antes de que la pregunta
-   llegue a formularse. */
-.proof {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: clamp(20px, 3vw, 56px);
-}
-.proof__item {
-  display: flex; flex-direction: column; gap: 10px;
-  padding-left: clamp(14px, 1.4vw, 22px);
-  border-left: 1px solid var(--line);
-}
-.proof__fig {
-  display: flex; align-items: baseline; gap: .06em;
-  font-family: var(--display); font-weight: 700; line-height: 1;
-  letter-spacing: -.035em; font-size: clamp(34px, 4.4vw, 60px);
-  font-variant-numeric: tabular-nums; color: var(--green-l);
-}
-.proof__fig i { font-style: normal; font-size: .48em; letter-spacing: -.02em; }
-.proof__lab {
-  font-size: clamp(12.5px, 1.05vw, 14.5px); font-weight: 300; line-height: 1.4;
-  color: color-mix(in srgb, var(--cream) 62%, transparent);
-  max-width: 22ch;
-}
-/* En vertical se mantiene en dos columnas: apiladas de a una la barra
-   se comía una pantalla entera y perdía el efecto de golpe de vista. */
-@media (max-width: 860px) {
-  .proof { grid-template-columns: 1fr 1fr; row-gap: clamp(24px, 4vh, 36px); column-gap: clamp(14px, 3vw, 28px); }
-  .proof__lab { max-width: none; }
-}
 
 /* ---------- Por qué — el antes y el después, uno al lado del otro ----------
    La columna del problema se lee en gris y con una cruz; la de la
@@ -854,11 +831,12 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
   .hero-mbrk { display: inline; }
   /* En vertical la marca va arriba, chica, y el mensaje debajo entero */
   .home-hero {
+    min-height: auto;
+    padding-block: clamp(104px, 15vh, 140px) clamp(56px, 9vh, 92px);
+  }
+  .home-hero__inner {
     grid-template-columns: 1fr; align-content: center;
     gap: clamp(22px, 4vh, 40px);
-    min-height: auto;
-    padding-top: clamp(104px, 15vh, 140px);
-    padding-bottom: clamp(56px, 9vh, 92px);
   }
   .home-hero__fill { order: 2; }
   .home-hero__logo { order: 1; justify-self: start; width: clamp(132px, 34vw, 200px); }
