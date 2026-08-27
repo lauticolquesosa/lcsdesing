@@ -275,11 +275,16 @@
     });
 
     /* Unified subtle reveal — a small fade-up so every text block shares
-       the same quiet entrance (blocks that had no animation before). */
-    $$('.phase, .svc-detail, [data-fade-up]').forEach(el => {
-      gsap.from(el, { autoAlpha: 0, y: 28, duration: 0.75, ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 84%' } });
-    });
+       the same quiet entrance (blocks that had no animation before).
+       Se excluyen los que ya viven dentro de un [data-stagger]: si no,
+       ambos tweens pelean por el mismo opacity/y y el texto queda
+       invisible a mitad de scroll. */
+    $$('.phase, .svc-detail, [data-fade-up]')
+      .filter(el => !el.closest('[data-stagger]'))
+      .forEach(el => {
+        gsap.from(el, { autoAlpha: 0, y: 28, duration: 0.75, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 84%' } });
+      });
     $$('.faq').forEach(f => {
       gsap.from($$('.faq__item', f), { autoAlpha: 0, y: 18, duration: 0.6, ease: 'power2.out',
         stagger: 0.08, scrollTrigger: { trigger: f, start: 'top 85%' } });
