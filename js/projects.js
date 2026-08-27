@@ -24,7 +24,7 @@
         learn: 'The studio\'s first project, and the one that set a rule: design has to sound the way the client speaks. Here the copy leads and the aesthetics follow — a more "elegant" site would have sold less.' }
     },
     p2: {
-      year: '2025', url: 'brunetti-jade.vercel.app', full: ['brunetti-fullpage-v3.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'brunetti-jade.vercel.app', full: ['brunetti-fullpage-v4.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web', title: 'Frigorífico Brunetti', role: 'LCS · Diseño & Desarrollo Web', client: 'Establecimiento Frigorífico Brunetti · Salta',
         problem: 'Brunetti es una empresa familiar salteña que faena, desposta y distribuye carne vacuna desde 1981, cuando compró su predio en una licitación pública de la provincia. Opera como Compañía Industrializadora Argentina de Carnes S.A., procesa unas treinta mil cabezas por año y da trabajo a cerca de ciento cincuenta familias, pero no tenía sitio propio: el comprador mayorista que quería precio o coordinar un reparto no encontraba ni el teléfono, y la trazabilidad —su mayor argumento frente a la competencia— no estaba contada en ningún lado.',
         goal: 'Construir la presencia institucional que faltaba: dejar la trayectoria y la trazabilidad a la vista, y llevar tanto al mayorista como al público a la llamada, que es donde el negocio efectivamente cierra.',
