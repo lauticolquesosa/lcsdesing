@@ -842,10 +842,11 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
   /* El logo flota a la derecha, un poco por debajo del título: cae en el
      hueco que dejan las líneas cortas del título, no sobre el bloque de
      texto entero, así queda integrado y no tapa nada. */
+  .hero-title { font-size: clamp(44px, 8.8vw, 60px); }
   .home-hero__logo {
     position: absolute;
     top: clamp(70px, 11vh, 120px);
-    right: clamp(6px, 4vw, 32px);
+    right: clamp(20px, 8vw, 52px);
     width: clamp(104px, 31vw, 158px);
   }
   /* El bloque de texto + botones baja para no pisar el logo: queda el
