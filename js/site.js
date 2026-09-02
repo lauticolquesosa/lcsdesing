@@ -30,6 +30,8 @@
   const SOCIAL = {
     instagram: 'https://instagram.com/lcswebstudio',
     whatsapp:  'https://wa.me/543874834041',
+    whatsappFab: 'https://wa.me/543874834041?text=' +
+      encodeURIComponent('Hola LCS, vi la web y quiero consultar por un proyecto.'),
     email:     'mailto:lcsdesignstudio1@gmail.com',
     phone:     'tel:+543874834041',
   };
@@ -81,6 +83,26 @@
     const mount = $('#chrome') || document.body;
     if (mount === document.body) mount.insertAdjacentHTML('afterbegin', html);
     else mount.innerHTML = html;
+
+    waFab();
+  }
+
+  /* ---------- Botón flotante de WhatsApp (todas las páginas) ---------- */
+  function waFab() {
+    if ($('.wa-fab')) return;
+    const a = document.createElement('a');
+    a.className = 'wa-fab';
+    a.href = SOCIAL.whatsappFab;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    // el nombre accesible va en un span traducible y no en aria-label,
+    // porque i18n solo recorre [data-es] y no tocaria un atributo
+    a.innerHTML =
+      '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">' +
+      '<path d="M16.06 3.2c-7.02 0-12.73 5.7-12.73 12.72 0 2.24.59 4.43 1.71 6.36L3.2 28.8l6.7-1.75a12.7 12.7 0 0 0 6.15 1.57h.01c7.01 0 12.72-5.71 12.72-12.73 0-3.4-1.32-6.6-3.73-9a12.64 12.64 0 0 0-8.99-3.7zm0 23.23h-.01a10.56 10.56 0 0 1-5.38-1.47l-.39-.23-4 1.05 1.07-3.9-.25-.4a10.53 10.53 0 0 1-1.62-5.63c0-5.83 4.75-10.58 10.59-10.58 2.83 0 5.48 1.1 7.48 3.1a10.5 10.5 0 0 1 3.1 7.49c0 5.84-4.75 10.57-10.59 10.57zm5.8-7.92c-.31-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.71.16-.21.31-.82 1.03-1 1.24-.19.21-.37.24-.68.08-.32-.16-1.34-.5-2.55-1.58-.94-.84-1.58-1.88-1.77-2.2-.18-.31-.02-.48.14-.64.14-.14.32-.37.47-.55.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.55-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.53-.71-.54l-.6-.01c-.21 0-.55.08-.84.4-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.75.75.33 1.34.52 1.8.66.76.24 1.44.21 1.99.13.61-.09 1.87-.76 2.14-1.5.26-.74.26-1.37.18-1.5-.08-.13-.29-.21-.6-.37z"/>' +
+      '</svg>' +
+      '<span class="sr-only" data-es="Escribinos por WhatsApp" data-en="Message us on WhatsApp">Escribinos por WhatsApp</span>';
+    document.body.appendChild(a);
   }
 
   function footer() {

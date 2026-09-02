@@ -557,6 +557,14 @@ html:not(.js) .wc__arrow { display: none; }   /* sin JS queda el scroll nativo *
 .section--paper .inv__list li { color: color-mix(in srgb, var(--paper) 75%, transparent); }
 .section--paper .inv__card:hover .inv__list li { color: color-mix(in srgb, var(--paper) 92%, transparent); }
 .section--paper .inv__note { color: color-mix(in srgb, var(--paper) 68%, transparent); }
+/* Aviso de que los tres precios son estimativos: cierra la grilla, no una tarjeta */
+.inv__aviso {
+  max-width: 62ch; margin: clamp(26px, 3.5vh, 40px) auto 0;
+  font-size: clamp(13px, 1.15vw, 15px); font-weight: 300; line-height: 1.6; text-align: center;
+  color: color-mix(in srgb, var(--cream) 62%, transparent);
+}
+.section--paper .inv__aviso { color: color-mix(in srgb, var(--paper) 72%, transparent); }
+
 .section--paper .inv__cta { color: var(--paper); border-bottom-color: rgba(17,17,17,.28); }
 .section--paper .inv__cta:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
