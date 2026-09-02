@@ -339,7 +339,7 @@
         learn: 'In an expensive treatment, what decides is not the treatment but who performs it. That is why the homepage opens with the person and the principle, and the catalogue comes after. And stating in the terms that a photo is a reference image looks like a cost, but it is the opposite: marking what is not yet real is the only thing that lets the rest of the site read as true.' }
     },
     p25: {
-      year: '2026', url: 'nostra-construccion.vercel.app', full: ['nostra-fullpage.webp'], tools: ['Figma', 'Next.js', 'React'],
+      year: '2026', url: 'nostra-construccion.vercel.app', full: ['nostra-fullpage-v2.webp'], tools: ['Figma', 'Next.js', 'React'],
       es: { cat: 'Diseño Web + UX/UI', title: 'Nostra Construcción', role: 'LCS · Diseño & Desarrollo Web', client: 'Nostra Construcción · Desarrolladora · Villa María, Córdoba',
         problem: 'Nostra Construcción levanta departamentos en Villa María desde septiembre de 2017 y vende en pozo, que es la operación donde más desconfianza hay: se paga durante la obra y se entrega al final. Encima venía de cambiar de nombre —antes TSB Desarrollos—, y un cambio de nombre en una desarrolladora es justo lo que un comprador lee como señal de alarma.',
         goal: 'Explicar cómo funciona comprar en pozo sin esconder el riesgo, darle al comprador las herramientas para evaluar a cualquier desarrolladora —incluida esta— y llevar la consulta por una unidad concreta a WhatsApp.',
