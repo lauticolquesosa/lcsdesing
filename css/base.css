@@ -164,7 +164,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: clamp(38px, 6.6vw, 100px);
   text-wrap: balance;
 }
-.page-hero__title em { font-style: normal; color: var(--accent); }
+.page-hero__title em { font-style: normal; color: inherit; }
 .page-hero__lead { margin-top: clamp(16px, 2.4vh, 28px); max-width: 60ch; }
 
 /* Brand isotype watermark — quiet unifying motif behind hero content */
