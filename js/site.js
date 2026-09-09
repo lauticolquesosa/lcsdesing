@@ -2,7 +2,7 @@
    LCS — site.js
    Shared engine for every page:
    chrome injection · menu · cursor · progress · nav theme
-   scroll nativo · scroll reveals (GSAP) · i18n ES|EN
+   scroll suave · scroll reveals (GSAP) · i18n ES|EN
    ============================================================ */
 (function () {
   'use strict';
@@ -156,18 +156,118 @@
       </footer>`;
   }
 
-  /* ---------- Scroll: nativo (lo más fluido — corre en el compositor) ----------
-     Sin secuestro del scroll: ScrollTrigger monta el parallax y los reveals
-     sobre el scroll del navegador, que va 1:1 con el gesto y a 60 fps. */
+  /* ---------- Scroll: la posición real del navegador ----------
+     Nada de contenedores transformados: ScrollTrigger monta el parallax y los
+     reveals sobre el scroll de verdad. Lo único que hace el bloque de abajo es
+     repartir cada muesca de la rueda en varios cuadros para que el recorrido
+     tenga inercia. */
   const hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
   if (hasGsap) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.ticker.lagSmoothing(0);
   }
 
+  /* ---------- Scroll suave (rueda del mouse) ----------
+     La rueda mueve el navegador de a saltos secos de ~100px. Acá cada muesca
+     suma a un objetivo y en cada cuadro la posición se acerca a ese objetivo
+     por interpolación, así el recorrido arranca y frena con inercia. El
+     parallax y los reveals de ScrollTrigger siguen colgados del scroll real,
+     que es el que seguimos escribiendo: no hay contenedor transformado.
+     Solo con puntero fino: en táctil el sistema ya trae su propia inercia, y
+     con prefers-reduced-motion no se activa. */
+  const smooth = (function () {
+    if (reduced || !matchMedia('(pointer: fine)').matches) return null;
+
+    const EASE  = 0.12;          // porción del camino que se recorre por cuadro a 60 fps
+    const FRAME = 1000 / 60;
+    const LINE  = 16;            // deltaMode en líneas → px
+    const KEYS  = /^(Arrow(Up|Down)|Page(Up|Down)|Home|End|\s)$/;
+
+    let target = 0, current = 0, written = -1, running = false, prev = 0;
+
+    // Si html conserva scroll-behavior:smooth, cada escritura nuestra se
+    // volvería un scroll suave del navegador encima del nuestro. 'instant'
+    // lo evita sin sacarle el suavizado nativo al teclado ni a las anclas;
+    // donde no exista, se apaga el de CSS y alcanza con eso.
+    let instant = true;
+    try { window.scrollTo({ top: window.scrollY, behavior: 'instant' }); }
+    catch (_) { instant = false; document.documentElement.classList.add('no-css-smooth'); }
+
+    const limit = () => Math.max(0, document.documentElement.scrollHeight - innerHeight);
+
+    function write(y) {
+      written = y;
+      if (instant) window.scrollTo({ top: y, left: 0, behavior: 'instant' });
+      else window.scrollTo(0, y);
+    }
+
+    function frame(now) {
+      if (!running) return;
+      const dt = prev ? Math.min(now - prev, 100) : FRAME;
+      prev = now;
+      target = Math.min(target, limit());   // el alto cambia mientras cargan imágenes
+      current += (target - current) * (1 - Math.pow(1 - EASE, dt / FRAME));
+      if (Math.abs(target - current) < 0.4) { current = target; running = false; prev = 0; }
+      write(current);
+      if (running) requestAnimationFrame(frame);
+    }
+
+    // Vuelve a tomar la posición real: barra de scroll, teclado, otro script.
+    function sync() { current = target = window.scrollY; running = false; prev = 0; }
+
+    function to(y) {
+      const next = Math.max(0, Math.min(y, limit()));
+      if (Math.abs(next - window.scrollY) < 1) { sync(); return; }
+      target = next;
+      if (!running) { current = window.scrollY; running = true; prev = 0; requestAnimationFrame(frame); }
+    }
+
+    // ¿El puntero está sobre algo que scrollea por su cuenta (modal, panel)?
+    // Ahí el gesto es de ese elemento y el navegador lo resuelve mejor solo.
+    function inner(node, dy) {
+      for (let el = node; el && el.nodeType === 1 && el !== document.body; el = el.parentElement) {
+        if (el.scrollHeight - el.clientHeight <= 1) continue;
+        const oy = getComputedStyle(el).overflowY;
+        if (oy !== 'auto' && oy !== 'scroll') continue;
+        if (dy < 0 ? el.scrollTop > 1 : el.scrollTop < el.scrollHeight - el.clientHeight - 1) return true;
+      }
+      return false;
+    }
+
+    addEventListener('wheel', (e) => {
+      if (e.ctrlKey || e.defaultPrevented) return;              // zoom del navegador
+      if (document.body.style.overflow === 'hidden') return;    // menú o caso abiertos
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;     // gesto horizontal: carruseles
+      if (inner(e.target, e.deltaY)) return;
+      const unit = e.deltaMode === 1 ? LINE : e.deltaMode === 2 ? innerHeight * 0.9 : 1;
+      e.preventDefault();
+      to((running ? target : window.scrollY) + e.deltaY * unit);
+    }, { passive: false });
+
+    // Un clic en la barra de scroll la maneja el navegador; el de adentro de
+    // la página no tiene por qué cortar el envión.
+    addEventListener('mousedown', (e) => {
+      if (e.clientX > document.documentElement.clientWidth) sync();
+    });
+    addEventListener('touchstart', sync, { passive: true });
+    addEventListener('keydown', (e) => { if (KEYS.test(e.key)) sync(); });
+    addEventListener('scroll', () => {
+      if (!running || Math.abs(window.scrollY - written) > 3) sync();
+    }, { passive: true });
+
+    return { to, sync };
+  })();
+
   function scrollToEl(target) {
     const el = typeof target === 'string' ? $(target) : target;
     if (!el) return;
+    if (smooth) {
+      // mismo encuadre que scrollIntoView: el scroll-margin-top de las
+      // secciones es el que deja el título libre del header fijo
+      const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
+      smooth.to(window.scrollY + el.getBoundingClientRect().top - margin);
+      return;
+    }
     el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   }
 

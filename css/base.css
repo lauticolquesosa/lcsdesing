@@ -85,6 +85,10 @@
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+/* Respaldo del scroll suave por JS: si el navegador no entiende
+   scrollTo({ behavior: 'instant' }), el suavizado del navegador se apagaría
+   encima del nuestro, así que site.js marca el html y acá se apaga. */
+html.no-css-smooth { scroll-behavior: auto; }
 body {
   font-family: var(--body);
   background: var(--ink);
