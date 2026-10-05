@@ -1,0 +1,29 @@
+# LCS — Estudio de Branding y Diseño Web
+
+> LCS es un estudio de branding y diseño web en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Diseña identidades visuales completas —logo, color, tipografía y manual de marca— y sitios web a medida, con código propio, rápidos y listos para Google. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
+
+El sitio tiene dos caminos que parten de la portada: Branding y Diseño web. Contacto y términos son comunes a los dos.
+
+- Ubicación: Salta, Argentina (trabajo 100% remoto)
+- Email: lcsdesignstudio1@gmail.com
+- Teléfono / WhatsApp: +54 387 483 4041
+- Instagram: https://instagram.com/lcswebstudio
+
+## Branding
+
+- [Branding e identidad visual](https://lcsdesign.vercel.app/branding): qué resuelve una identidad, qué incluye el sistema de marca y el proceso en cuatro etapas.
+- [Servicios de branding](https://lcsdesign.vercel.app/branding/servicios): identidad desde cero, rediseño de marca y aplicaciones (papelería, packaging, cartelería, redes).
+- [Proyectos de branding](https://lcsdesign.vercel.app/branding/proyectos): caso La Vaca, bar de Grand Bourg (Salta) — estrategia, isologo, paleta, tipografías, brandbook y aplicaciones.
+- [Inversión en branding](https://lcsdesign.vercel.app/branding/inversion): tres paquetes (logo esencial, identidad visual, marca completa) con presupuesto cerrado a medida.
+
+## Diseño web
+
+- [Diseño y desarrollo web](https://lcsdesign.vercel.app/diseno-web): sitios a medida en Salta para negocios que quieren más consultas y ventas; sin plantillas, rápidos y pensados para el celular.
+- [Servicios de diseño web](https://lcsdesign.vercel.app/servicios): landings, portfolios y webs institucionales; diseño UX/UI y desarrollo con código propio.
+- [Proyectos web](https://lcsdesign.vercel.app/proyectos): 23 casos reales de diseño web y UX/UI en gastronomía, salud, construcción e institucional, en Argentina y Colombia.
+- [Inversión en diseño web](https://lcsdesign.vercel.app/inversion): tres planes con precio estimado en USD y qué incluye cada uno.
+
+## Estudio
+
+- [Contacto](https://lcsdesign.vercel.app/contacto): canales de contacto; respuesta en 24–48 h y primera charla sin compromiso.
+- [Términos y condiciones](https://lcsdesign.vercel.app/terminos)
