@@ -19,19 +19,52 @@
 
   const PAGE = document.body.dataset.page || 'home';
 
+  /* ---------- Los dos caminos del estudio ----------
+     La portada (/) abre dos recorridos con su propio menú: Diseño web y
+     Branding. Cada página declara el suyo en <body data-section>. Las que
+     son de los dos (contacto, términos) heredan el último camino que se
+     recorrió en la visita, para que el menú no cambie de golpe. */
+  const PATH_KEY = 'lcs-path';
+  let SECTION = document.body.dataset.section || 'web';
+  if (SECTION === 'shared') {
+    let last = null;
+    try { last = sessionStorage.getItem(PATH_KEY); } catch (e) {}
+    SECTION = last === 'branding' ? 'branding' : 'web';
+  } else if (SECTION !== 'portal') {
+    try { sessionStorage.setItem(PATH_KEY, SECTION); } catch (e) {}
+  }
+  document.documentElement.dataset.section = SECTION;
+
   /* ---------- Navigation model (single source of truth) ---------- */
-  const NAV = [
-    { key: 'home',      href: '/',           num: '01', es: 'Inicio',    en: 'Home' },
-    { key: 'servicios', href: 'servicios',   num: '02', es: 'Servicios', en: 'Services' },
-    { key: 'proyectos', href: 'proyectos',   num: '03', es: 'Proyectos', en: 'Work' },
-    { key: 'inversion', href: 'inversion',   num: '04', es: 'Inversión', en: 'Investment' },
-    { key: 'contacto',  href: 'contacto',    num: '05', es: 'Contacto',  en: 'Contact' },
-  ];
+  const NAVS = {
+    web: [
+      { key: 'home',      href: '/diseno-web', num: '01', es: 'Inicio',    en: 'Home' },
+      { key: 'servicios', href: '/servicios',  num: '02', es: 'Servicios', en: 'Services' },
+      { key: 'proyectos', href: '/proyectos',  num: '03', es: 'Proyectos', en: 'Work' },
+      { key: 'inversion', href: '/inversion',  num: '04', es: 'Inversión', en: 'Investment' },
+      { key: 'contacto',  href: '/contacto',   num: '05', es: 'Contacto',  en: 'Contact' },
+    ],
+    branding: [
+      { key: 'home',      href: '/branding',           num: '01', es: 'Inicio',    en: 'Home' },
+      { key: 'servicios', href: '/branding/servicios', num: '02', es: 'Servicios', en: 'Services' },
+      { key: 'proyectos', href: '/branding/proyectos', num: '03', es: 'Proyectos', en: 'Work' },
+      { key: 'inversion', href: '/branding/inversion', num: '04', es: 'Inversión', en: 'Investment' },
+      { key: 'contacto',  href: '/contacto',           num: '05', es: 'Contacto',  en: 'Contact' },
+    ],
+    portal: [
+      { key: 'branding',  href: '/branding',   num: '01', es: 'Branding',   en: 'Branding' },
+      { key: 'web',       href: '/diseno-web', num: '02', es: 'Diseño web', en: 'Web design' },
+      { key: 'contacto',  href: '/contacto',   num: '03', es: 'Contacto',   en: 'Contact' },
+    ],
+  };
+  const NAV = NAVS[SECTION] || NAVS.web;
   const SOCIAL = {
     instagram: 'https://instagram.com/lcswebstudio',
     whatsapp:  'https://wa.me/543874834041',
     whatsappFab: 'https://wa.me/543874834041?text=' +
-      encodeURIComponent('Hola LCS, vi la web y quiero consultar por un proyecto.'),
+      encodeURIComponent(SECTION === 'branding'
+        ? 'Hola LCS, vi la web y quiero consultar por branding para mi marca.'
+        : 'Hola LCS, vi la web y quiero consultar por un proyecto.'),
     email:     'mailto:lcsdesignstudio1@gmail.com',
     phone:     'tel:+543874834041',
   };
@@ -44,9 +77,19 @@
       .map(n => `<li><a href="${n.href}"${current(n.key)}><i>${n.num}</i><span data-es="${n.es}" data-en="${n.en}">${n.es}</span></a></li>`)
       .join('');
 
-    const headerLinks = NAV
+    const headerLinks = SECTION === 'portal' ? '' : NAV
       .map(n => `<li><a href="${n.href}"${current(n.key)} data-es="${n.es}" data-en="${n.en}">${n.es}</a></li>`)
       .join('');
+
+    // Selector de camino: pasar de Diseño web a Branding sin volver a la portada
+    const pathLink = (key, href, es, en) =>
+      `<a href="${href}"${SECTION === key ? ' aria-current="true"' : ''} data-es="${es}" data-en="${en}">${es}</a>`;
+    const pathSwitch = (extra) => SECTION === 'portal' ? '' :
+      `<nav class="path-switch${extra}" aria-label="Área del estudio">${
+        pathLink('branding', '/branding', 'Branding', 'Branding')
+      }<span class="path-switch__sep" aria-hidden="true">/</span>${
+        pathLink('web', '/diseno-web', 'Web', 'Web')
+      }</nav>`;
 
     const html = `
       <div id="progress" aria-hidden="true"></div>
@@ -55,12 +98,13 @@
       <header class="site-header" id="site-header">
         <div class="shell site-header__inner">
           <a class="site-header__logo" href="/" aria-label="LCS — Inicio">
-            <img src="assets/logo-isotipo-white.webp" alt="LCS" width="42" height="41" />
+            <img src="/assets/logo-isotipo-white.webp" alt="LCS" width="42" height="41" />
           </a>
           <nav class="site-header__nav" aria-label="Navegación principal">
             <ul>${headerLinks}</ul>
           </nav>
           <div class="site-header__end">
+            ${pathSwitch('')}
             <div class="lang-toggle" role="group" aria-label="Idioma / Language">
               <button class="lang-btn active" type="button" data-lang="es">ES</button>
               <span class="lang-sep" aria-hidden="true">/</span>
@@ -72,6 +116,7 @@
       </header>
 
       <nav class="menu" aria-hidden="true">
+        ${pathSwitch(' path-switch--menu')}
         <ul class="menu__links">${menuLinks}</ul>
         <div class="menu__foot">
           <a href="${SOCIAL.instagram}" target="_blank" rel="noopener">Instagram</a>
@@ -116,9 +161,9 @@
         <div class="shell">
           <div class="site-footer__top">
             <div class="site-footer__brand">
-              <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="160" height="75" loading="lazy" decoding="async" /></a>
-              <p data-es="LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados."
-                 data-en="LCS is a web &amp; UX/UI design studio with its own identity. From concept to live site, from Salta to everywhere.">LCS es un estudio de diseño web y UX/UI con identidad propia. Del concepto al sitio en vivo, desde Salta para todos lados.</p>
+              <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="/assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="160" height="75" loading="lazy" decoding="async" /></a>
+              <p data-es="LCS es un estudio de branding y diseño web con identidad propia. De la marca al sitio en vivo, desde Salta para todos lados."
+                 data-en="LCS is a branding &amp; web design studio with its own identity. From brand to live site, from Salta to everywhere.">LCS es un estudio de branding y diseño web con identidad propia. De la marca al sitio en vivo, desde Salta para todos lados.</p>
             </div>
             <nav class="site-footer__col site-footer__col--nav" aria-label="Footer">
               <h2 class="site-footer__h" data-es="Navegación" data-en="Navigation">Navegación</h2>
@@ -135,21 +180,21 @@
             </div>
           </div>
           <div class="site-footer__bottom">
-            <span class="site-footer__copy" data-es="© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina"
-                  data-en="© 2026 LCS · Web Design &amp; UX/UI Studio · Salta, Argentina">© 2026 LCS · Estudio de Diseño Web &amp; UX/UI · Salta, Argentina</span>
+            <span class="site-footer__copy" data-es="© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina"
+                  data-en="© 2026 LCS · Branding &amp; Web Design Studio · Salta, Argentina">© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina</span>
             <div class="site-footer__bottom-links">
-              <a href="terminos" class="site-footer__legal" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+              <a href="/terminos" class="site-footer__legal" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
               <a href="#top" class="ico-up" data-es="Volver arriba" data-en="Back to top">Volver arriba</a>
             </div>
           </div>
           <div class="site-footer__mobile">
-            <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="140" height="66" loading="lazy" decoding="async" /></a>
+            <a href="/" class="site-footer__logo" aria-label="LCS — Inicio"><img src="/assets/logo-header.webp" alt="LCS — Lautaro Colque Sosa" width="140" height="66" loading="lazy" decoding="async" /></a>
             <div class="site-footer__mobile-right">
               <div class="site-footer__social">
                 <a class="social-card" href="${SOCIAL.instagram}" target="_blank" rel="noopener" aria-label="Instagram"></a>
                 <a class="social-card social-card--whatsapp" href="${SOCIAL.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp"></a>
               </div>
-              <a href="terminos" class="site-footer__legal-mobile" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
+              <a href="/terminos" class="site-footer__legal-mobile" data-es="Términos y condiciones" data-en="Terms &amp; conditions">Términos y condiciones</a>
             </div>
           </div>
         </div>
@@ -487,7 +532,7 @@
       if (h.querySelector('.hero-mark')) return;
       const img = document.createElement('img');
       img.className = 'hero-mark';
-      img.src = 'assets/logo-isotipo-white.webp';
+      img.src = '/assets/logo-isotipo-white.webp';
       img.alt = '';
       img.setAttribute('aria-hidden', 'true');
       img.setAttribute('loading', 'lazy');

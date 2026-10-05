@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/proceso", "destination": "/servicios#proceso", "permanent": true },
-    { "source": "/sobre", "destination": "/#beneficios", "permanent": true }
+    { "source": "/sobre", "destination": "/diseno-web#beneficios", "permanent": true }
   ],
   "headers": [
     {
@@ -12,7 +12,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'sha256-HWjaUgSiBC5WiMoBDVy/1hJvYNsmBcXSsChgpeijyhM=' 'sha256-6AwHfdBZR71fGmHpDKAfBSMQqhYqlBb0C9mI6zkDsQw=' 'sha256-Wd7MxxpiggMPz9GdnearFcK1aWZFRU9wXPLmXRuHRjA=' 'sha256-IwS5gJlwH4fBWjL/5uypO1P3YS1xjXoNSWnD5LSGXos=' 'sha256-O4A71LDPk53owhh9FALuxAVpLXICl5usj2rgjZHeqAQ=' 'sha256-4vG0oKPJYUIyOP1a9QcBW2V/K5S37gk4x9tOxcV9+/s=' 'sha256-Aw7s8XHQOzSX9G9X+P5V0kbLsCTvApYqJxpTblzIQwA=' 'sha256-yeM2jY3lVuiCI6xIxl6JaB+ddAeXfxFkzopJb+qlASs='; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'sha256-HWjaUgSiBC5WiMoBDVy/1hJvYNsmBcXSsChgpeijyhM=' 'sha256-Q8FoPk0cjeQoGE3hS1tqi6uOUQISu/9caVoqqLiTfXs=' 'sha256-w4sfA4kCHOaUrEIdBpS/z0/A7zJ3k8KxPo8zjIoj3U8=' 'sha256-+B9XeB/HonbIGQgOU/uVjj9uXybU7yXdOhAHmaWOCwI=' 'sha256-+6OJTylULeiCpPXtwdc0y7RC/6TRxhDgW7oHLfg1PSU=' 'sha256-G6SE03wg8QML3GIUhkNV5jnFBdi5q8TOQe2mnj5lQiE=' 'sha256-VKgGz6o/7zEqA8lATs/yo1UjKkaV6BHDx+h5t1tvhVg=' 'sha256-Wd7MxxpiggMPz9GdnearFcK1aWZFRU9wXPLmXRuHRjA=' 'sha256-1i19+3gkFUQUbbUh1wPr6/5cCOTyQWmaHGY2AP787RY=' 'sha256-Xk0Dffn4sZ1b8usQA6s8fYZ1TLv4UgvStvb0dRSndR8=' 'sha256-7WqFzEpSscubT0mZ/d5ORHofCiMQZr0etZAQbQmgthM=' 'sha256-w1yfuYcNWH018+d2sCdfrlvSJxPtygfRyk7xsKwhj3g=' 'sha256-lheAe5Nx2OUDfG8YfRVknlNDzMpQw3ouKbA2UPknjvY='; style-src 'self'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests"
         },
         {
           "key": "Strict-Transport-Security",

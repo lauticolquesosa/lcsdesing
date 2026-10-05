@@ -18,7 +18,12 @@ const INLINE = /<script(?![^>]*\ssrc=)[^>]*>([\s\S]*?)<\/script>/g;
 const CONFIG = 'vercel.json';
 
 const hashes = new Set();
-for (const file of readdirSync('.').filter(f => f.endsWith('.html')).sort()) {
+// Las páginas viven en la raíz y en branding/ (el segundo camino del sitio).
+const files = [
+  ...readdirSync('.').filter(f => f.endsWith('.html')),
+  ...readdirSync('branding').filter(f => f.endsWith('.html')).map(f => 'branding/' + f),
+].sort();
+for (const file of files) {
   const html = readFileSync(file, 'utf8');
   for (const [, body] of html.matchAll(INLINE)) {
     hashes.add(`'sha256-${createHash('sha256').update(body, 'utf8').digest('base64')}'`);
