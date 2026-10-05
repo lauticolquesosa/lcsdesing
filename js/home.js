@@ -73,6 +73,17 @@
     attempt();
   }
 
+  /* ---------- 0b · Intro del logo ----------
+     La animación es toda CSS y termina sola; acá solo se saca la cortina
+     del DOM cuando ya subió, para no dejar una capa fija de pantalla
+     completa ocupando memoria de composición el resto de la visita.   */
+  function intro() {
+    const el = $('.intro');
+    if (!el) return;
+    if (!document.documentElement.classList.contains('intro-on')) { el.remove(); return; }
+    el.addEventListener('animationend', e => { if (e.animationName === 'introOut') el.remove(); });
+  }
+
   /* ---------- 1 · Carrusel de trabajo (finito, flechas + drag) ----------
      El scroll es nativo (scroll-snap): sin JS el carrusel se sigue
      pudiendo recorrer. Acá se suman las flechas, el arrastre con mouse,
@@ -328,6 +339,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
+    intro();
     heroVideo();
     workCarousel();
     magnetic();
