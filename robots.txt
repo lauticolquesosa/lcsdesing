@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lcsdesign.vercel.app/sitemap.xml
+Sitemap: https://lcsdesignstudio.com.ar/sitemap.xml
