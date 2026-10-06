@@ -4,9 +4,9 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/:path(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "lcsdesign.vercel.app" }],
-      "destination": "https://lcsdesignstudio.com.ar/:path",
+      "destination": "https://lcsdesignstudio.com.ar/:path*",
       "permanent": true
     },
     { "source": "/proceso", "destination": "/servicios#proceso", "permanent": true },
