@@ -6,6 +6,9 @@
    · precarga del destino apenas el puntero se acerca a una card
    · al tocar, el color de la card se expande a toda la pantalla
      y recién ahí se navega; el destino entra con un fundido nativo
+   · en el celular, las cards apiladas: --p achica la de abajo mientras
+     la otra la tapa, --e endereza las piezas al entrar y .is-live abre
+     el abanico del brandbook (ahí no hay hover que lo haga)
    ============================================================ */
 (function () {
   'use strict';
@@ -85,6 +88,46 @@
     leaving = false;
     document.querySelectorAll('.path-wipe').forEach(w => w.remove());
   });
+
+  /* ---------- Celular: apilado al scrollear ---------- */
+  const phone = window.matchMedia('(max-width: 640px)');
+  function stack() {
+    if (reduced) { cards.forEach(c => c.classList.add('is-live')); return; }
+    let raf = 0;
+    const clamp = v => Math.min(1, Math.max(0, v));
+    function paint() {
+      raf = 0;
+      if (!phone.matches) return;
+      const vh = innerHeight;
+      cards.forEach((card, i) => {
+        const r = card.getBoundingClientRect();
+        // Entrada: 0 cuando el borde superior asoma abajo, 1 a 45% de la pantalla
+        card.style.setProperty('--e', clamp((vh - r.top) / (vh * .55)).toFixed(3));
+        const next = cards[i + 1];
+        if (next) {
+          const n = next.getBoundingClientRect();
+          // Cuánto de la card de arriba ya quedó tapado por la siguiente
+          card.style.setProperty('--p', clamp((r.bottom - n.top) / r.height).toFixed(3));
+        }
+      });
+    }
+    const queue = () => { if (!raf) raf = requestAnimationFrame(paint); };
+    addEventListener('scroll', queue, { passive: true });
+    addEventListener('resize', queue);
+    phone.addEventListener('change', () => {
+      if (phone.matches) return queue();
+      cards.forEach(c => { c.style.removeProperty('--e'); c.style.removeProperty('--p'); });
+    });
+    paint();
+
+    // El abanico se abre cuando más de la mitad de la card está a la vista
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(en =>
+        en.target.classList.toggle('is-live', en.isIntersecting)), { threshold: .55 });
+      cards.forEach(c => io.observe(c));
+    }
+  }
+  stack();
 
   cards.forEach(card => {
     const warm = () => prefetch(card.getAttribute('href'));

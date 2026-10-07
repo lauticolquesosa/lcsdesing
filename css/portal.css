@@ -26,7 +26,7 @@
 }
 .portal__title .ln { display: block; overflow: hidden; padding-block: .03em; }
 .portal__title .ln > span { display: block; animation: heroReveal .9s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(var(--d) + .1s); }
-.portal__title em { font-style: normal; color: inherit; }
+.portal__title em { font-style: normal; color: var(--green); }
 .portal__lead {
   max-width: 62ch;
   font-size: clamp(15px, 1.25vw, 19px); font-weight: 300; line-height: 1.5;
@@ -212,6 +212,10 @@
   animation: portalUp .9s var(--ease) both; animation-delay: calc(var(--d) + .9s);
 }
 .portal__foot .link-arrow { color: var(--accent-text); }
+.portal__actions { display: flex; align-items: center; gap: 12px; }
+/* Las tres piezas que solo existen en el celular (ahí no hay botón
+   flotante de WhatsApp ni hover que muestre el rubro). */
+.portal__wa, .portal__eyebrow, .ticker { display: none; }
 
 /* ---------- Transición al entrar a un camino ----------
    portal.js clona el color de la card y lo expande a pantalla
@@ -232,11 +236,12 @@
   .path:hover .path__tags span:nth-child(4) { transition-delay: .15s; }
 }
 
-/* ---------- Tablet y celular: siguen una al lado de la otra ----------
-   Las dos cards comparten la pantalla también en el celular. Con el alto
+/* ---------- Tablet: siguen una al lado de la otra ----------
+   Entre 641 y 860px las dos cards comparten la pantalla. Con el alto
    fijo de .paths el recuadro visual sigue siendo flexible y las piezas se
    miden contra él (cq), así que entran sin pisar el texto. Lo que no
-   cabe en media pantalla —rótulo y etiquetas— se guarda en el celular. */
+   cabe en media pantalla —rótulo y etiquetas— se guarda. Debajo de
+   640px las cards se apilan: ver el bloque del celular. */
 @media (max-width: 860px) {
   .paths { height: clamp(420px, calc(100svh - 300px), 620px); gap: 12px; }
   .path { padding: clamp(14px, 3.2vw, 22px); --r: clamp(18px, 4vw, 24px); }
@@ -251,36 +256,147 @@
   .path__name { font-size: clamp(27px, 7.6vw, 58px); line-height: .92; }
   .path__desc { font-size: clamp(12px, 3.1vw, 15px); line-height: 1.42; }
 }
-@media (max-width: 560px) {
-  .portal { padding-top: 92px; }
-  .portal__title { font-size: clamp(30px, 9.2vw, 42px); }
-  .portal__inner { gap: 20px; }
-  .paths { gap: 10px; height: clamp(360px, calc(100svh - 290px), 480px); }
-  /* En media pantalla las piezas pueden crecer y asomarse por el borde:
-     la card las recorta. El navegador se para en vertical, como una
-     ventana alta, y recorre menos porque muestra más del sitio. */
-  .bb { width: min(86cqw, calc(70cqh * 1.414)); }
-  .browser { aspect-ratio: 10 / 13.5; width: min(90cqw, calc(96cqh * 10 / 13.5)); }
+/* ---------- Celular: las cards se apilan al scrollear ----------
+   En media pantalla las dos cards quedaban angostas y con el texto
+   cortado. Debajo de 640px cada camino ocupa casi toda la pantalla y es
+   sticky: al bajar, la segunda sube y tapa a la primera, que se achica
+   y se apaga (portal.js escribe --p). --e es cuánto entró la card en la
+   pantalla y endereza las piezas a medida que aparecen. Como en el
+   teléfono no hay hover, .is-live hace lo que en escritorio hace el
+   mouse: abre el abanico del brandbook cuando la card está a la vista. */
+@media (max-width: 640px) {
+  .portal { min-height: 0; padding-block: 100px 24px; }
+  .portal__inner { gap: 30px; }
+
+  .portal__head { gap: 16px; }
+  .portal__eyebrow {
+    display: inline-flex; align-items: center; gap: 9px; justify-self: start;
+    padding: 7px 13px 7px 11px; border-radius: 999px; border: 1px solid var(--line-d);
+    font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--ink) 74%, transparent);
+    animation: portalUp .9s var(--ease) both; animation-delay: var(--d);
+  }
+  .portal__eyebrow i {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    animation: dotPulse 2.4s ease-out infinite;
+  }
+  .portal__title { font-size: clamp(42px, 14.4vw, 64px); line-height: .9; letter-spacing: -.048em; text-wrap: wrap; }
+  .portal__lead { font-size: 16px; max-width: 32ch; }
+
+  .paths { --top: 80px; flex-direction: column; height: auto; gap: 18px; }
+  .path {
+    position: sticky; top: var(--top);
+    flex: none; height: clamp(480px, calc(100svh - var(--top) - 18px), 680px);
+    padding: 20px; --r: 28px;
+    transform-origin: 50% 0;
+    transform: scale(calc(1 - var(--p, 0) * .07));
+    transition: box-shadow .6s var(--ease), scale .35s var(--ease);
+  }
+  .path + .path { top: calc(var(--top) + 12px); }
+  .path:active { scale: .985; }
+  /* Velo que apaga la card de abajo mientras la otra la tapa */
+  .path::after {
+    content: ""; position: absolute; inset: 0; z-index: 6; pointer-events: none;
+    background: #000; opacity: calc(var(--p, 0) * .5);
+  }
+
+  .path__top { justify-content: flex-start; gap: 12px; }
+  .path__kicker { display: block; font-size: 10.5px; }
+  .path__no { font-size: 11px; padding: 5px 9px; }
+  .path__go { display: none; }
+
+  .path__visual { margin-block: 6px 10px; }
+  /* Las piezas entran torcidas y se enderezan al llegar (--e de 0 a 1) */
+  .bb, .browser {
+    --rx: calc((1 - var(--e, 1)) * 18deg);
+    --ry: calc((1 - var(--e, 1)) * -16deg);
+    transition: transform .6s cubic-bezier(.2, .7, .3, 1);
+  }
+  .bb { width: min(64cqw, calc(60cqh * 1.414)); animation: bbIn 1.1s cubic-bezier(.16, 1, .3, 1) both, floatY 6s ease-in-out infinite; animation-delay: calc(var(--d) + .7s), calc(var(--d) + 2s); }
+  .browser { aspect-ratio: 10 / 12.5; width: min(78cqw, calc(98cqh * 10 / 12.5)); animation: bbIn 1.1s cubic-bezier(.16, 1, .3, 1) both, floatY 7s ease-in-out infinite; animation-delay: calc(var(--d) + .8s), calc(var(--d) + 2.4s); }
   .browser__screen img { animation-name: shotScrollTall; }
-  /* El botón de WhatsApp taparía el texto de las cards; acá el contacto
-     ya está al pie de la portada. */
+  .bb__chips i { width: 24px; margin-left: -6px; }
+  .path.is-live .bb__page--1 { transform: translate(-27%, 2%) rotate(-13deg); }
+  .path.is-live .bb__page--2 { transform: translate(26%, -6%) rotate(11deg); }
+  .path.is-live .bb__page--3 { transform: translate(0, 4%) rotate(0deg) scale(1.04); }
+  .path.is-live .bb__chips i { margin-left: 3px; }
+
+  .path__body { gap: 10px; justify-items: stretch; }
+  .path__name { font-size: clamp(42px, 13.2vw, 60px); line-height: .9; justify-self: start; }
+  .path__desc { font-size: 14.5px; line-height: 1.45; max-width: 36ch; }
+  .path__tags { display: flex; flex-wrap: nowrap; gap: 5px; }
+  .path__tags span { font-size: 9.5px; padding: 5px 9px; white-space: nowrap; }
+  .path__tags span:nth-child(4) { display: none; }   /* tres entran en un renglón */
+  /* El botón "Entrar" pasa a estar a la vista: en el teléfono no hay
+     flecha que reaccione al mouse y hace falta decir que se toca. */
+  .path__cta {
+    position: static; width: auto; height: auto; overflow: visible; clip-path: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin-top: 6px; padding: 15px 18px 15px 22px; border-radius: 999px;
+    background: var(--fg); color: var(--ink);
+    font-family: var(--display); font-size: 15.5px; font-weight: 600; letter-spacing: -.01em;
+  }
+  .path__cta::after {
+    content: ""; flex: none; width: 20px; height: 20px; background: currentColor;
+    -webkit-mask: var(--ico-east) center / contain no-repeat;
+            mask: var(--ico-east) center / contain no-repeat;
+    animation: nudge 2.2s var(--ease) infinite;
+  }
+
+  /* Cinta de servicios, de borde a borde */
+  .ticker {
+    display: block; overflow: hidden;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-block: 18px; border-block: 1px solid var(--line-d);
+  }
+  .ticker__track { display: flex; align-items: center; width: max-content; animation: tick 26s linear infinite; }
+  .ticker__track > * { margin-right: 20px; flex: none; }
+  .ticker span {
+    font-family: var(--display); font-size: 34px; font-weight: 700; line-height: 1;
+    letter-spacing: -.035em; white-space: nowrap; color: var(--ink);
+  }
+  .ticker span:nth-of-type(even) { color: transparent; -webkit-text-stroke: 1.2px var(--ink); }
+  .ticker i {
+    width: 16px; height: 16px; background: var(--green);
+    clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  }
+
+  /* Cierre: frase grande y dos botones a todo el ancho */
+  .portal__foot { flex-direction: column; align-items: stretch; gap: 22px; padding-top: 6px; }
+  .portal__claim {
+    font-family: var(--display); font-weight: 700; color: var(--ink);
+    font-size: clamp(30px, 9vw, 40px); line-height: .98; letter-spacing: -.04em; text-wrap: balance;
+  }
+  .portal__actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .portal__foot .link-arrow, .portal__wa {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 19px 22px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  }
+  .portal__foot .link-arrow { background: var(--green); color: #fff; }
+  .portal__wa { border: 1.5px solid var(--ink); color: var(--ink); }
+  .portal__wa::after {
+    content: ""; width: 20px; height: 20px; background: currentColor;
+    -webkit-mask: var(--ico-whatsapp) center / contain no-repeat;
+            mask: var(--ico-whatsapp) center / contain no-repeat;
+  }
+  /* El botón flotante de WhatsApp taparía el botón de las cards; el
+     contacto ya está en el cierre de la portada. */
   .wa-fab { display: none; }
-  .path__kicker, .path__tags { display: none; }
-  .path__top { justify-content: space-between; }
-  .path__no { font-size: 11px; padding: 4px 8px; }
-  .path__body { gap: 8px; }
 }
 @media (max-width: 359px) {
-  .paths { height: clamp(316px, calc(100svh - 252px), 420px); }
-  .path { padding: 12px; }
-  .path__desc { font-size: 11.5px; }
-  .portal__foot { flex-direction: column; align-items: flex-start; }
+  .path { padding: 16px; }
+  .path__tags { display: none; }
 }
 
 /* ---------- Keyframes ---------- */
 @keyframes portalUp   { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
 @keyframes portalCard { from { opacity: 0; translate: 0 90px; } to { opacity: 1; translate: 0 0; } }
 @keyframes bbIn   { from { opacity: 0; scale: .86; translate: 0 36px; } to { opacity: 1; scale: 1; translate: 0 0; } }
+@keyframes floatY { 50% { translate: 0 -8px; } }
+@keyframes tick   { to { translate: -50% 0; } }
+@keyframes nudge  { 0%, 60%, 100% { translate: 0 0; } 30% { translate: 5px 0; } }
+@keyframes dotPulse { 0% { box-shadow: 0 0 0 0 rgba(1, 135, 81, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(1, 135, 81, 0); } }
 @keyframes bbDraw { to { stroke-dashoffset: 0; } }
 @keyframes bbSpin { to { rotate: 360deg; } }
 @keyframes shotScrollTall {
