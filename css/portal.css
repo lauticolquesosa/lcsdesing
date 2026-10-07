@@ -53,7 +53,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .path--brand { background: var(--ink); --glow: rgba(1, 135, 81, .38); animation-delay: calc(var(--d) + .34s); }
-.path--web   { background: var(--green); --glow: rgba(255, 255, 255, .2); animation-delay: calc(var(--d) + .46s); }
+.path--web   { background: var(--green); --fg: #fff; --glow: rgba(255, 255, 255, .2); animation-delay: calc(var(--d) + .46s); }
 .path:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 .path--web:focus-visible { outline-color: var(--ink); }
 
@@ -113,6 +113,7 @@
   max-width: 34ch; font-size: clamp(14px, 1.05vw, 16px); font-weight: 400; line-height: 1.5;
   color: color-mix(in srgb, var(--fg) 82%, transparent);
 }
+.path--web .path__desc, .path--web .path__kicker { color: var(--fg); }
 .path__tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .path__tags span {
   font-size: 10.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
@@ -194,7 +195,7 @@
 .browser__bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(10,10,10,.16); }
 .browser__url {
   margin-left: 10px; padding: 3px 12px; border-radius: 999px;
-  font-size: 10px; letter-spacing: .02em; color: rgba(10,10,10,.5); background: rgba(255,255,255,.75);
+  font-size: 10px; letter-spacing: .02em; color: rgba(10,10,10,.66); background: rgba(255,255,255,.75);
 }
 .browser__screen { position: relative; flex: 1; overflow: hidden; }
 .browser__screen img {

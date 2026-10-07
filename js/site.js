@@ -349,9 +349,14 @@
   function menu() {
     const burger = $('.burger');
     if (!burger) return;
+    // Cerrado, el menú no existe para el teclado ni para los lectores de
+    // pantalla: si no, el Tab recorre enlaces invisibles.
+    const panel = $('.menu');
+    if (panel) panel.inert = true;
     const setOpen = (open) => {
       document.body.classList.toggle('menu-open', open);
       burger.setAttribute('aria-expanded', String(open));
+      if (panel) { panel.inert = !open; panel.setAttribute('aria-hidden', String(!open)); }
       document.body.style.overflow = open ? 'hidden' : '';
     };
     burger.addEventListener('click', () => setOpen(!document.body.classList.contains('menu-open')));

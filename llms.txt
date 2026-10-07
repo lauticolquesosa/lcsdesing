@@ -1,6 +1,6 @@
-# LCS — Estudio de Branding y Diseño Web
+# LCS — Estudio de Branding, Diseño Gráfico y Diseño Web
 
-> LCS es un estudio de branding y diseño web en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Diseña identidades visuales completas —logo, color, tipografía y manual de marca— y sitios web a medida, con código propio, rápidos y listos para Google. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
+> LCS es un estudio de branding, diseño gráfico y diseño web en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Hace branding y diseño gráfico —logo, identidad visual, manual de marca, packaging, papelería y piezas para redes— y sitios web a medida, con código propio, rápidos y listos para Google. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
 
 El sitio tiene dos caminos que parten de la portada: Branding y Diseño web. Contacto y términos son comunes a los dos.
 
@@ -9,7 +9,7 @@ El sitio tiene dos caminos que parten de la portada: Branding y Diseño web. Con
 - Teléfono / WhatsApp: +54 387 483 4041
 - Instagram: https://instagram.com/lcswebstudio
 
-## Branding
+## Branding y diseño gráfico
 
 - [Branding e identidad visual](https://lcsdesignstudio.com.ar/branding): qué resuelve una identidad, qué incluye el sistema de marca y el proceso en cuatro etapas.
 - [Servicios de branding](https://lcsdesignstudio.com.ar/branding/servicios): identidad desde cero, rediseño de marca y aplicaciones (papelería, packaging, cartelería, redes).
