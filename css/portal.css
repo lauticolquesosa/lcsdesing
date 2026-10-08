@@ -199,6 +199,17 @@
   animation: portalUp .9s var(--ease) both; animation-delay: calc(var(--d) + .9s);
 }
 .portal__actions { display: flex; align-items: center; gap: 12px; }
+/* El único CTA del pie va en blanco, no en el verde sólido de .btn--solid:
+   sobre el crema de la portada un botón blanco con borde y sombra suaves
+   se despega mejor que el verde, que ya cubre las dos cards de arriba. */
+.portal__wa {
+  background: #fff; border-color: var(--line-d); color: var(--ink);
+  box-shadow: 0 14px 30px -18px rgba(10, 10, 10, .28);
+}
+.portal__wa:hover {
+  background: var(--green); border-color: var(--green); color: #fff;
+  box-shadow: 0 16px 34px -16px rgba(1, 135, 81, .4);
+}
 
 /* ---------- Transición al entrar a un camino ----------
    portal.js clona el color de la card y lo expande a pantalla
