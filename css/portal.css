@@ -213,9 +213,10 @@
 }
 .portal__foot .link-arrow { color: var(--accent-text); }
 .portal__actions { display: flex; align-items: center; gap: 12px; }
-/* Las tres piezas que solo existen en el celular (ahí no hay botón
-   flotante de WhatsApp ni hover que muestre el rubro). */
-.portal__wa, .portal__eyebrow, .ticker { display: none; }
+/* El eyebrow solo existe en el celular (en escritorio no hace falta,
+   el título ya tiene aire arriba). El botón de WhatsApp es el único CTA
+   del pie en los dos formatos. */
+.portal__eyebrow { display: none; }
 
 /* ---------- Transición al entrar a un camino ----------
    portal.js clona el color de la card y lo expande a pantalla
@@ -343,38 +344,15 @@
     animation: nudge 2.2s var(--ease) infinite;
   }
 
-  /* Cinta de servicios, de borde a borde */
-  .ticker {
-    display: block; overflow: hidden;
-    margin-inline: calc(-1 * var(--gutter));
-    padding-block: 18px; border-block: 1px solid var(--line-d);
-  }
-  .ticker__track { display: flex; align-items: center; width: max-content; animation: tick 26s linear infinite; }
-  .ticker__track > * { margin-right: 20px; flex: none; }
-  .ticker span {
-    font-family: var(--display); font-size: 34px; font-weight: 700; line-height: 1;
-    letter-spacing: -.035em; white-space: nowrap; color: var(--ink);
-  }
-  .ticker span:nth-of-type(even) { color: transparent; -webkit-text-stroke: 1.2px var(--ink); }
-  .ticker i {
-    width: 16px; height: 16px; background: var(--green);
-    clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
-  }
-
-  /* Cierre: frase grande y dos botones a todo el ancho */
-  .portal__foot { flex-direction: column; align-items: stretch; gap: 22px; padding-top: 6px; }
-  .portal__claim {
-    font-family: var(--display); font-weight: 700; color: var(--ink);
-    font-size: clamp(30px, 9vw, 40px); line-height: .98; letter-spacing: -.04em; text-wrap: balance;
-  }
+  /* Cierre: un solo botón de WhatsApp a todo el ancho, sin cinta ni frase */
+  .portal__foot { flex-direction: column; align-items: stretch; gap: 14px; padding-top: 6px; }
+  .portal__claim { display: none; }
   .portal__actions { flex-direction: column; align-items: stretch; gap: 10px; }
-  .portal__foot .link-arrow, .portal__wa {
+  .portal__foot .link-arrow.portal__wa {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 19px 22px; border-radius: 999px;
+    padding: 19px 22px; border-radius: 999px; background: var(--green); color: #fff;
     font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
   }
-  .portal__foot .link-arrow { background: var(--green); color: #fff; }
-  .portal__wa { border: 1.5px solid var(--ink); color: var(--ink); }
   .portal__wa::after {
     content: ""; width: 20px; height: 20px; background: currentColor;
     -webkit-mask: var(--ico-whatsapp) center / contain no-repeat;
@@ -394,7 +372,6 @@
 @keyframes portalCard { from { opacity: 0; translate: 0 90px; } to { opacity: 1; translate: 0 0; } }
 @keyframes bbIn   { from { opacity: 0; scale: .86; translate: 0 36px; } to { opacity: 1; scale: 1; translate: 0 0; } }
 @keyframes floatY { 50% { translate: 0 -8px; } }
-@keyframes tick   { to { translate: -50% 0; } }
 @keyframes nudge  { 0%, 60%, 100% { translate: 0 0; } 30% { translate: 5px 0; } }
 @keyframes dotPulse { 0% { box-shadow: 0 0 0 0 rgba(1, 135, 81, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(1, 135, 81, 0); } }
 @keyframes bbDraw { to { stroke-dashoffset: 0; } }
