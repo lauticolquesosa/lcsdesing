@@ -198,7 +198,6 @@
   font-size: 13px; color: color-mix(in srgb, var(--ink) 62%, transparent);
   animation: portalUp .9s var(--ease) both; animation-delay: calc(var(--d) + .9s);
 }
-.portal__foot .link-arrow { color: var(--accent-text); }
 .portal__actions { display: flex; align-items: center; gap: 12px; }
 
 /* ---------- Transición al entrar a un camino ----------
@@ -317,10 +316,9 @@
   .portal__foot { flex-direction: column; align-items: stretch; gap: 14px; padding-top: 6px; }
   .portal__claim { display: none; }
   .portal__actions { flex-direction: column; align-items: stretch; gap: 10px; }
-  .portal__foot .link-arrow.portal__wa {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 19px 22px; border-radius: 999px; background: var(--green); color: #fff;
-    font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  .portal__wa {
+    justify-content: space-between; padding: 19px 22px;
+    font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase;
   }
   .portal__wa::after {
     content: ""; width: 20px; height: 20px; background: currentColor;
