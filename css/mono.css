@@ -601,58 +601,112 @@ html.intro-on .strip--bleed { animation: hero-in 1s var(--ease) 2.4s both; }
 
 /* ============================================================
    MODAL DE CASOS (lo arma projects.js)
-   Panel negro a la derecha, captura del sitio que se scrollea,
-   datos en filas con línea fina.
+   Como en el diseño anterior: un panel centrado con aire alrededor y
+   bordes redondeados, que aparece desde abajo con un leve zoom. Adentro,
+   la captura completa del sitio en una ventana de navegador que se
+   scrollea, el título, los datos en recuadros, el texto en dos columnas,
+   el proceso en cuatro y las herramientas, entrando en cascada.
    ============================================================ */
 .modal { position: fixed; inset: 0; z-index: 300; visibility: hidden; pointer-events: none; }
 .modal.open { visibility: visible; pointer-events: auto; }
-.modal__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.72); opacity: 0; transition: opacity .45s var(--ease); }
+.modal__scrim {
+  position: absolute; inset: 0; background: rgba(0,0,0,.78);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  opacity: 0; transition: opacity .45s var(--ease);
+}
 .modal.open .modal__scrim { opacity: 1; }
 .modal__panel {
-  position: absolute; top: 0; right: 0; bottom: 0; width: min(1080px, 100%);
-  background: var(--bg); border-left: 1px solid var(--line-strong);
+  position: absolute; inset: clamp(16px, 5vh, 56px) clamp(16px, 7vw, 150px);
+  background: #0a0a0a; color: var(--fg);
+  border: 1px solid var(--line-strong); border-radius: 18px;
   overflow-y: auto; overscroll-behavior: contain;
-  transform: translateX(100%); transition: transform .6s var(--ease);
+  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.2) transparent;
+  opacity: 0; transform: translateY(5%) scale(.98);
+  transition: transform .65s var(--ease), opacity .5s var(--ease);
 }
-.modal.open .modal__panel { transform: none; }
+.modal.open .modal__panel { opacity: 1; transform: none; }
 .modal__close {
-  position: sticky; top: 16px; float: right; margin: 16px 16px 0 0; z-index: 2;
-  display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 100px;
-  background: var(--pill); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.03em;
+  position: sticky; top: 18px; float: right; margin: 18px 18px 0 0; z-index: 2;
+  display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 18px; border-radius: 100px;
+  background: rgba(28,28,28,.85); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  border: 1px solid var(--line-strong);
+  font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em;
+  transition: background .25s, color .25s, border-color .25s;
 }
-.modal__close:hover { background: var(--fg); color: var(--bg); }
-.cs-inner { padding: 72px clamp(20px, 4vw, 56px) 80px; clear: both; }
-.modal-preview { display: block; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: #0c0c0c; }
-.modal-preview__bar { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-bottom: 1px solid var(--line); }
-.modal-preview__dot { width: 9px; height: 9px; border-radius: 50%; background: #3a3a3a; }
-.modal-preview__url { margin-left: 12px; font-size: 13px; color: var(--muted); letter-spacing: -.01em; }
-.modal-preview__screen { max-height: 62vh; overflow-y: auto; background: #111; }
-.modal-preview__screen:empty::before { content: attr(data-empty); display: block; padding: 80px 20px; text-align: center; color: var(--dim); }
-.modal-preview__screen img { width: 100%; }
-.modal-preview__hint { padding: 12px 16px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
-.modal-preview:hover .modal-preview__url { color: var(--fg); }
-.cs-cat { margin-top: 48px; font-size: 15px; color: var(--muted); letter-spacing: -.02em; }
-.cs-title { margin-top: 10px; font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: .85; text-transform: uppercase; letter-spacing: -.075em; }
-.cs-meta { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 40px; border-top: 1px solid var(--line-strong); }
-.cs-meta__cell { padding: 16px 20px 18px 0; border-bottom: 1px solid var(--line-strong); }
-.cs-meta__cell .k { font-size: 13px; color: var(--muted); }
-.cs-meta__cell .v { margin-top: 6px; font-size: 15px; line-height: 1.4; }
-.cs-body { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 40px; margin-top: 16px; }
-.cs-block { margin-top: 40px; }
-.cs-block h4 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; color: var(--muted); margin: 0 0 14px; }
-.cs-block p { color: var(--soft); font-size: 16px; line-height: 1.6; letter-spacing: -.01em; }
-.cs-steps { border-top: 1px solid var(--line-strong); }
-.cs-step { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 8px 32px; padding: 16px 0; border-bottom: 1px solid var(--line-strong); }
-.cs-step b { font-weight: 500; }
-.cs-step span { color: var(--soft); line-height: 1.5; }
-/* las herramientas van como texto corrido, sin chips */
-.cs-stack { display: flex; flex-wrap: wrap; gap: 4px 0; color: var(--soft); }
+.modal__close:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.cs-inner { max-width: 1100px; margin: 0 auto; padding: clamp(40px, 7vh, 80px) clamp(20px, 4vw, 56px) clamp(64px, 10vh, 120px); clear: both; }
+
+/* Ventana de navegador con la captura completa, para scrollear */
+.modal-preview {
+  display: block; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--line-strong); background: #111;
+  box-shadow: 0 24px 70px rgba(0,0,0,.6);
+  transition: border-color .35s var(--ease);
+}
+.modal-preview:hover { border-color: rgba(255,255,255,.45); }
+.modal-preview__bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; background: #1a1a1a; border-bottom: 1px solid var(--line); }
+.modal-preview__dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; background: #3d3d3d; }
+.modal-preview__url {
+  flex: 1; margin-left: 8px; padding: 5px 12px; border-radius: 6px; background: #0f0f0f;
+  font-size: 12px; color: var(--muted); letter-spacing: 0;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.modal-preview__screen {
+  height: min(520px, 56vh); overflow-y: auto; overflow-x: hidden; background: #111;
+  scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.25) transparent;
+}
+.modal-preview__screen img { width: 100%; height: auto; pointer-events: none; user-select: none; }
+.modal-preview__screen:empty { display: grid; place-items: center; }
+.modal-preview__screen:empty::after { content: attr(data-empty); font-size: 13px; color: var(--dim); }
+.modal-preview__hint { padding: 11px; text-align: center; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); background: #1a1a1a; border-top: 1px solid var(--line); }
+.modal-preview:hover .modal-preview__hint { color: var(--fg); }
+
+.cs-cat { margin-top: clamp(32px, 5vh, 48px); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.cs-title { margin: 12px 0 clamp(32px, 5vh, 52px); font-size: clamp(40px, 6vw, 88px); font-weight: 500; line-height: .88; text-transform: uppercase; letter-spacing: -.07em; }
+/* datos en cuatro recuadros */
+.cs-meta { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; margin-bottom: clamp(40px, 6vh, 64px); }
+.cs-meta__cell { padding: 20px 22px; border-right: 1px solid var(--line-strong); }
+.cs-meta__cell:last-child { border-right: 0; }
+.cs-meta__cell .k { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 8px; }
+.cs-meta__cell .v { font-size: 15px; line-height: 1.4; }
+.cs-body { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(32px, 5vw, 72px); margin-bottom: clamp(40px, 6vh, 64px); }
+.cs-block { margin-bottom: 36px; }
+.cs-block:last-child { margin-bottom: 0; }
+.cs-block h4 { margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line-strong); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
+.cs-block p { color: var(--soft); font-size: 16px; line-height: 1.7; letter-spacing: -.01em; }
+/* proceso en cuatro columnas con línea arriba */
+.cs-steps { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: clamp(14px, 2vw, 28px); }
+.cs-step { padding-top: 16px; border-top: 2px solid var(--fg); }
+.cs-step b { display: block; margin-bottom: 8px; font-size: 15px; font-weight: 600; letter-spacing: -.02em; }
+.cs-step span { display: block; color: var(--muted); font-size: 14px; line-height: 1.5; }
+/* herramientas como texto corrido, sin chips */
+.cs-stack { display: flex; flex-wrap: wrap; gap: 4px 0; color: var(--soft); font-size: 16px; }
 .cs-tag:not(:last-child)::after { content: "·"; margin: 0 10px; color: var(--dim); }
-@media (max-width: 760px) {
+/* entrada en cascada */
+@keyframes csIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.modal.open .cs-inner > * { animation: csIn .55s var(--ease) both; }
+.modal.open .cs-inner > :nth-child(1) { animation-delay: .3s; }
+.modal.open .cs-inner > :nth-child(2) { animation-delay: .38s; }
+.modal.open .cs-inner > :nth-child(3) { animation-delay: .46s; }
+.modal.open .cs-inner > :nth-child(4) { animation-delay: .54s; }
+.modal.open .cs-inner > :nth-child(5) { animation-delay: .62s; }
+.modal.open .cs-inner > :nth-child(6) { animation-delay: .7s; }
+.modal.open .cs-inner > :nth-child(7) { animation-delay: .78s; }
+@media (max-width: 900px) {
   .cs-meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .cs-body, .cs-step { grid-template-columns: 1fr; }
+  .cs-meta__cell:nth-child(2) { border-right: 0; }
+  .cs-meta__cell:nth-child(-n+2) { border-bottom: 1px solid var(--line-strong); }
+  .cs-steps { grid-template-columns: repeat(2, minmax(0,1fr)); row-gap: 28px; }
 }
-@media (prefers-reduced-motion: reduce) { .modal__panel, .modal__scrim { transition: none; } }
+@media (max-width: 640px) {
+  .modal__panel { inset: 10px; border-radius: 14px; }
+  .cs-body, .cs-steps { grid-template-columns: 1fr; }
+  .modal-preview__screen { height: 360px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modal__panel, .modal__scrim { transition: none; }
+  .modal.open .cs-inner > * { animation: none; }
+}
 
 /* En pantallas chicas la fila de cierre se apila: el texto largo no queda apretado al lado del botón */
 @media (max-width: 600px) { .row { flex-direction: column; align-items: flex-start; } .row p { max-width: none; } }
@@ -687,3 +741,6 @@ body[data-page="portal"] .hero__lead { margin-top: 12px; }
 .strip__it a:hover .strip__name { color: var(--fg); }
 /* las flechas quedan centradas sobre la imagen, no sobre imagen + nombre */
 .strip--wide .strip__btn { top: calc(50% - 15px); }
+
+/* Las tiras que giran solas no usan encastre: el ciclo maneja el scroll */
+.strip[data-strip-auto] .strip__vp { scroll-snap-type: none; }
