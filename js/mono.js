@@ -64,6 +64,7 @@
   const CONTACT = { key: 'contacto', href: '/contacto', es: 'Contacto', en: 'Contact' };
 
   function header() {
+    // en la portada el logo ya está grande en el hero: el header va sin logo
     const links = NAV.map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
     const home = SECTION === 'portal' ? [] : [{ key: 'home', ...HOMES[SECTION] }];
     const menuLinks = [...home, ...NAV, CONTACT]
@@ -74,9 +75,9 @@
       <a class="skip" href="#main" ${t('Saltar al contenido', 'Skip to content')}>Saltar al contenido</a>
       <header class="hd">
         <div class="wrap hd__in">
-          <a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
+          ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
             <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
-          </a>
+          </a>`}
           <nav class="hd__nav" aria-label="Principal">
             <ul class="hd__links">${links}</ul>
             <a class="hd__cta" href="/contacto"${cur('contacto')} ${t('Contacto', 'Contact')}>Contacto</a>

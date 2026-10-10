@@ -657,3 +657,6 @@ html.intro-on .intro__logo { width: min(520px, 76vw); clip-path: inset(0 100% 0 
 body[data-page="portal"] .hero__logo { width: min(400px, 66vw); }
 body[data-page="portal"] .hero h1 { font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -.03em; text-wrap: balance; }
 body[data-page="portal"] .hero__lead { margin-top: 12px; }
+
+/* Sin logo (portada), el menú sigue pegado a la derecha */
+.hd__nav { margin-left: auto; }
