@@ -642,3 +642,7 @@ html.intro-on .strip--bleed { animation: hero-in 1s var(--ease) 2.4s both; }
 
 /* En pantallas chicas la fila de cierre se apila: el texto largo no queda apretado al lado del botón */
 @media (max-width: 600px) { .row { flex-direction: column; align-items: flex-start; } .row p { max-width: none; } }
+
+/* Logo nuevo (LCS con pantera, raster): más ancho que el anterior, así que se le da un poco más de ancho máximo */
+.hero__logo img { width: 100%; height: auto; }
+body[data-page="portal"] .hero__logo { width: min(660px, 84vw); }
