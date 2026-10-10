@@ -450,3 +450,42 @@ html.intro-on .intro__p--4 { animation-delay: .6s; }
 html.intro-on .hero { animation: hero-in 1s var(--ease) 2.25s both; }
 @keyframes hero-in { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 .txtlink--plain { text-transform: none; font-size: 15px; }
+
+/* ============================================================
+   PORTADA — los dos caminos
+   Hero compacto para que las cards asomen en la primera pantalla.
+   Las imágenes van en escala de grises y toman color al pasar.
+   ============================================================ */
+.hero__lead { margin: 14px auto 0; max-width: 460px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: var(--muted); }
+body[data-page="portal"] .hero { padding: clamp(40px, 5vw, 64px) 0 clamp(40px, 4.4vw, 60px); }
+body[data-page="portal"] .hero__logo { width: min(440px, 72vw); }
+
+.paths { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
+.path { display: flex; flex-direction: column; }
+.path__img { aspect-ratio: 676 / 460; border-radius: 8px; overflow: hidden; background: #0f0f0f; }
+.path__img img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: grayscale(1) contrast(1.05) brightness(.82);
+  transition: filter .8s var(--ease), transform 1.2s var(--ease);
+}
+.path:hover .path__img img, .path:focus-visible .path__img img { filter: none; transform: scale(1.03); }
+.path__head {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  padding: 20px 0 16px; border-bottom: 1px solid var(--line-strong);
+}
+.path__name { font-size: clamp(40px, 5.6vw, 80px); font-weight: 500; line-height: .82; text-transform: uppercase; letter-spacing: -.075em; }
+.path__n { font-family: var(--num); font-weight: 800; font-size: clamp(28px, 2.6vw, 40px); line-height: .8; color: var(--dim); transition: color .4s var(--ease); }
+.path:hover .path__n { color: var(--fg); }
+.path__foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 18px; }
+.path__foot p { max-width: 360px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: var(--soft); }
+.path__foot .txtlink { flex-shrink: 0; padding-top: 2px; }
+.path:hover .txtlink::after { opacity: 1; transform: translate(2px,-2px); }
+body[data-page="portal"] .row { margin-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); }
+@media (max-width: 760px) {
+  .paths { grid-template-columns: 1fr; gap: 48px; }
+  .path__foot { flex-direction: column; gap: 14px; }
+  .path__img img { filter: none; }
+  body[data-page="portal"] .row { flex-direction: column; align-items: flex-start; }
+}
+@media (hover: none) { .path__img img { filter: none; } }
+html.intro-on body[data-page="portal"] .paths { animation: hero-in 1s var(--ease) 2.4s both; }
