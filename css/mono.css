@@ -830,3 +830,7 @@ body[data-page="portal"] .hero__lead { margin-top: 12px; }
   .benefits__list li { grid-template-columns: 36px 1fr; }
   .benefits__list p { grid-column: 2; }
 }
+
+/* Homes de Branding y Diseño web: títulos de sección un poco más chicos
+   (el hero y el cierre conservan su tamaño) */
+body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
