@@ -672,3 +672,18 @@ body[data-page="portal"] .hero__logo { width: min(400px, 66vw); }
 body[data-page="portal"] .hero h1 { font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -.03em; text-wrap: balance; }
 body[data-page="portal"] .hero__lead { margin-top: 12px; }
 
+
+/* Tira horizontal de sitios (/diseno-web): proporción de las capturas
+   (1200×825) para que el hero de cada sitio entre completo; unas cuatro
+   tarjetas en pantalla y el nombre debajo. */
+.strip--wide .strip__it { flex-basis: max(280px, calc((100vw - 2 * var(--gut) - 30px) / 3.6)); }
+.strip--wide .strip__it figure { aspect-ratio: 1200 / 825; }
+.strip--wide .strip__it img { object-position: top center; }
+.strip__name {
+  display: block; padding: 14px 0 0;
+  font-size: 15px; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; line-height: 1.2;
+  color: var(--muted); transition: color .3s var(--ease);
+}
+.strip__it a:hover .strip__name { color: var(--fg); }
+/* las flechas quedan centradas sobre la imagen, no sobre imagen + nombre */
+.strip--wide .strip__btn { top: calc(50% - 15px); }
