@@ -838,3 +838,17 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 /* Texto al lado del proceso: todo en blanco y peso normal, sin destacados */
 .proc__aside p { color: var(--fg); font-weight: 400; }
 .proc__aside strong { color: inherit; font-weight: inherit; }
+
+/* Card de trato directo compacta: angosta, apoyada al pie de la lista */
+.benefits { grid-template-columns: minmax(0, 9fr) minmax(0, 3fr); }
+.benefits__card {
+  align-self: end; min-height: 0; padding: 22px 22px 24px; gap: 8px; border-radius: 10px;
+}
+.benefits__card .perk__go { position: absolute; top: 18px; right: 18px; width: 40px; height: 40px; margin: 0; }
+.benefits__card .perk__go::after { width: 11px; height: 11px; }
+.benefits__card h3 { font-size: clamp(20px, 1.6vw, 22px); padding-right: 48px; padding-top: 52px; }
+.benefits__card p { font-size: 14px; line-height: 1.4; }
+@media (max-width: 900px) {
+  .benefits { grid-template-columns: 1fr; }
+  .benefits__card { max-width: 360px; min-height: 0; }
+}
