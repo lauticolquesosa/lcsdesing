@@ -75,7 +75,7 @@
       <header class="hd">
         <div class="wrap hd__in">
           <a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
-            <img src="/assets/logo-isotipo-white.webp" alt="LCS" width="33" height="32">
+            <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
           </a>
           <nav class="hd__nav" aria-label="Principal">
             <ul class="hd__links">${links}</ul>
@@ -145,7 +145,7 @@
             </div>
           </div>
           <div class="ft__bottom">
-            <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-header.webp" alt="LCS" width="120" height="56" loading="lazy" decoding="async"></a>
+            <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372" loading="lazy" decoding="async"></a>
             <div class="ft__legal">
               <span ${t('© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina', '© 2026 LCS · Branding &amp; Web Design Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina</span>
               <a href="/terminos" ${t('Términos y condiciones', 'Terms &amp; conditions')}>Términos y condiciones</a>
