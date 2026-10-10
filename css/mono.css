@@ -516,3 +516,129 @@ body[data-page="portal"] .row { margin-top: clamp(48px, 6vw, 80px); border-top: 
 .paths { padding-top: clamp(56px, 6vw, 84px); }
 @media (max-width: 900px) { .intro-row .intro-row__label { display: block; } }
 html.intro-on .strip--bleed { animation: hero-in 1s var(--ease) 2.4s both; }
+
+/* ============================================================
+   CAMINO WEB — piezas propias
+   ============================================================ */
+/* Tarjeta de proyecto con rubro debajo del nombre */
+.card__sub { padding-top: 10px; font-size: 15px; color: var(--muted); letter-spacing: -.02em; }
+.work--all { gap: clamp(48px, 5vw, 72px) 8px; }
+.work--all .card { cursor: pointer; }
+.work .work__card--more { display: none; }
+.work.is-expanded .work__card--more { display: block; }
+
+/* Beneficios / condiciones numerados en grilla */
+.terms__n { font-family: var(--num); font-weight: 800; font-size: 28px; line-height: .8; color: var(--dim); margin-bottom: 28px; }
+.terms--grid > div:nth-child(n+4) { border-top: 1px solid var(--line); }
+.terms--grid > div:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+.terms--4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 1100px) { .terms--4 { grid-template-columns: repeat(2, minmax(0,1fr)); } .terms--4 > div:nth-child(3) { padding-left: 0; border-left: 0; } }
+@media (max-width: 860px) { .terms--4 { grid-template-columns: 1fr; } }
+.terms + .row { border-top: 0; }
+
+/* Precio del plan */
+.plan__price strong { color: var(--fg); font-weight: 600; font-size: 22px; letter-spacing: -.03em; }
+.plan--main .plan__price strong { color: var(--bg); }
+
+/* Extras: nombre, descripción y precio en una fila */
+.addons { border-top: 1px solid var(--line-strong); }
+.addons li {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) minmax(90px, 2fr); gap: 16px 40px; align-items: baseline;
+  padding: 22px 0; border-bottom: 1px solid var(--line-strong);
+}
+.addons__name { font-size: clamp(20px, 1.9vw, 26px); font-weight: 400; letter-spacing: -.03em; line-height: 1.2; }
+.addons__desc { color: var(--muted); font-size: 16px; line-height: 1.5; letter-spacing: -.01em; }
+.addons__price { justify-self: end; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; }
+@media (max-width: 760px) { .addons li { grid-template-columns: 1fr auto; } .addons__desc { grid-column: 1 / -1; grid-row: 2; } }
+
+/* Contacto: canales en filas grandes */
+.channels { border-top: 1px solid var(--line-strong); margin-bottom: 48px; }
+.channels li { display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--line-strong); }
+.channels__link {
+  flex: 1; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(0, 4fr) 52px; gap: 8px 32px; align-items: center;
+  padding: 26px 0;
+}
+.channels__k { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; color: var(--muted); }
+.channels__v { font-size: clamp(22px, 2.4vw, 34px); font-weight: 500; letter-spacing: -.04em; line-height: 1.1; overflow-wrap: anywhere; }
+.channels__h { color: var(--muted); font-size: 15px; line-height: 1.4; }
+.channels__go { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--line-strong); justify-self: end; position: relative; transition: background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease), transform .5s var(--ease); }
+.channels__go::after {
+  content: ""; position: absolute; inset: 0; margin: auto; width: 12px; height: 12px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.channels__link:hover .channels__go { background: var(--fg); border-color: var(--fg); color: var(--bg); transform: rotate(45deg); }
+.ch__copy { flex-shrink: 0; }
+.ch__copy.is-done { background: var(--fg); color: var(--bg); }
+@media (max-width: 860px) {
+  .channels li { flex-wrap: wrap; padding-bottom: 20px; }
+  .channels__link { grid-template-columns: 1fr 44px; padding: 22px 0 8px; }
+  .channels__k, .channels__v, .channels__h { grid-column: 1; }
+  .channels__go { grid-column: 2; grid-row: 1 / span 3; }
+}
+
+/* Términos */
+.legal { border-top: 1px solid var(--line-strong); max-width: 980px; margin-left: auto; }
+.legal__item { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 16px 40px; padding: 28px 0; border-bottom: 1px solid var(--line-strong); }
+.legal__item h2 { font-size: 22px; font-weight: 500; letter-spacing: -.04em; line-height: 1.2; }
+.legal__item p { color: var(--soft); font-size: 16px; line-height: 1.6; letter-spacing: -.01em; }
+.legal__item a { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 760px) { .legal__item { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   MODAL DE CASOS (lo arma projects.js)
+   Panel negro a la derecha, captura del sitio que se scrollea,
+   datos en filas con línea fina.
+   ============================================================ */
+.modal { position: fixed; inset: 0; z-index: 300; visibility: hidden; pointer-events: none; }
+.modal.open { visibility: visible; pointer-events: auto; }
+.modal__scrim { position: absolute; inset: 0; background: rgba(0,0,0,.72); opacity: 0; transition: opacity .45s var(--ease); }
+.modal.open .modal__scrim { opacity: 1; }
+.modal__panel {
+  position: absolute; top: 0; right: 0; bottom: 0; width: min(1080px, 100%);
+  background: var(--bg); border-left: 1px solid var(--line-strong);
+  overflow-y: auto; overscroll-behavior: contain;
+  transform: translateX(100%); transition: transform .6s var(--ease);
+}
+.modal.open .modal__panel { transform: none; }
+.modal__close {
+  position: sticky; top: 16px; float: right; margin: 16px 16px 0 0; z-index: 2;
+  display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 100px;
+  background: var(--pill); font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.03em;
+}
+.modal__close:hover { background: var(--fg); color: var(--bg); }
+.cs-inner { padding: 72px clamp(20px, 4vw, 56px) 80px; clear: both; }
+.modal-preview { display: block; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: #0c0c0c; }
+.modal-preview__bar { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-bottom: 1px solid var(--line); }
+.modal-preview__dot { width: 9px; height: 9px; border-radius: 50%; background: #3a3a3a; }
+.modal-preview__url { margin-left: 12px; font-size: 13px; color: var(--muted); letter-spacing: -.01em; }
+.modal-preview__screen { max-height: 62vh; overflow-y: auto; background: #111; }
+.modal-preview__screen:empty::before { content: attr(data-empty); display: block; padding: 80px 20px; text-align: center; color: var(--dim); }
+.modal-preview__screen img { width: 100%; }
+.modal-preview__hint { padding: 12px 16px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+.modal-preview:hover .modal-preview__url { color: var(--fg); }
+.cs-cat { margin-top: 48px; font-size: 15px; color: var(--muted); letter-spacing: -.02em; }
+.cs-title { margin-top: 10px; font-size: clamp(44px, 6vw, 88px); font-weight: 500; line-height: .85; text-transform: uppercase; letter-spacing: -.075em; }
+.cs-meta { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); margin-top: 40px; border-top: 1px solid var(--line-strong); }
+.cs-meta__cell { padding: 16px 20px 18px 0; border-bottom: 1px solid var(--line-strong); }
+.cs-meta__cell .k { font-size: 13px; color: var(--muted); }
+.cs-meta__cell .v { margin-top: 6px; font-size: 15px; line-height: 1.4; }
+.cs-body { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0 40px; margin-top: 16px; }
+.cs-block { margin-top: 40px; }
+.cs-block h4 { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: -.02em; color: var(--muted); margin: 0 0 14px; }
+.cs-block p { color: var(--soft); font-size: 16px; line-height: 1.6; letter-spacing: -.01em; }
+.cs-steps { border-top: 1px solid var(--line-strong); }
+.cs-step { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 8px 32px; padding: 16px 0; border-bottom: 1px solid var(--line-strong); }
+.cs-step b { font-weight: 500; }
+.cs-step span { color: var(--soft); line-height: 1.5; }
+/* las herramientas van como texto corrido, sin chips */
+.cs-stack { display: flex; flex-wrap: wrap; gap: 4px 0; color: var(--soft); }
+.cs-tag:not(:last-child)::after { content: "·"; margin: 0 10px; color: var(--dim); }
+@media (max-width: 760px) {
+  .cs-meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .cs-body, .cs-step { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .modal__panel, .modal__scrim { transition: none; } }
+
+/* En pantallas chicas la fila de cierre se apila: el texto largo no queda apretado al lado del botón */
+@media (max-width: 600px) { .row { flex-direction: column; align-items: flex-start; } .row p { max-width: none; } }

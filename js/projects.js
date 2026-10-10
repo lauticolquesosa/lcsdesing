@@ -495,8 +495,9 @@
         if (!expanded) {
           // al plegar, volver al arranque de la subseccion ("Todos los proyectos"),
           // descontando el alto del nav fijo para que el titulo no quede tapado
-          const head = grid.closest('.shell').querySelector('.kicker-row') || grid;
-          const nav = document.getElementById('site-header');
+          const box = grid.closest('.shell, .wrap');
+          const head = (box && box.querySelector('.kicker-row, .sh')) || grid;
+          const nav = document.getElementById('site-header') || document.querySelector('.hd');
           const offset = (nav ? nav.getBoundingClientRect().height : 0) + 24;
           const top = head.getBoundingClientRect().top + window.pageYOffset - offset;
           const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;

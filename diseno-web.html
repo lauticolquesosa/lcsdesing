@@ -7,14 +7,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<meta name="theme-color" content="#0A0A0A" />
+<meta name="theme-color" content="#000000" />
 <title>LCS — Diseño y desarrollo web en Salta · Sitios que venden</title>
 <meta name="description" content="Sitios web a medida en Salta para negocios que quieren más consultas y ventas. Sin plantillas: rápidos, impecables en el celular y listos para Google." />
-<link rel="preload" as="image" href="assets/logo-hero-poster.webp" fetchpriority="high" />
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/spacegrotesk-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="assets/fonts/montserrat-latin.woff2" crossorigin />
-<link rel="stylesheet" href="css/base.css" />
-<link rel="stylesheet" href="css/pages.css" />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesignstudio.com.ar/diseno-web" />
@@ -43,479 +41,178 @@
       data-title-en="LCS — Web Design &amp; Development in Salta · Sites that sell"
       data-desc-en="We design and build custom websites in Salta for businesses that want more enquiries and more sales. No templates: fast, flawless on mobile and ready for Google.">
 
-<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
-<main>
+<main id="main">
 
-  <!-- ============ HERO — la promesa en tres segundos ============ -->
-  <section class="home-hero" data-nav="light" data-parallax-host>
-    <!-- El mismo .shell que el resto de las secciones: así el texto
-         arranca en la misma línea que todo lo que viene abajo. -->
-    <div class="shell home-hero__inner">
-      <div class="home-hero__fill">
-        <h1 class="hero-title" aria-label="Tu web puede vender por vos todos los días.">
-          <span class="ln"><span data-es="Tu web puede" data-en="Your site can">Tu web puede</span></span>
-          <span class="ln"><span data-es="vender por vos" data-en="sell for you">vender por vos</span></span>
-          <span class="ln"><span data-es="<em>todos los<br class='hero-mbrk'> días.</em>" data-en="<em>every single<br class='hero-mbrk'> day.</em>"><em>todos los<br class="hero-mbrk"> días.</em></span></span>
-        </h1>
-        <div class="hero-sub-wrap">
-          <p class="lead hero-sub"
-             data-es="Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas."
-             data-en="We design and build custom sites for businesses that want more enquiries, more sales and an image that measures up. No templates.">Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.</p>
-        </div>
-        <div class="hero-actions">
-          <a class="btn btn--solid magnetic ico-arrow" data-magnetic href="contacto" data-es="Quiero mi web" data-en="I want my site">Quiero mi web</a>
-          <a class="btn btn--ghost magnetic ico-arrow" data-magnetic href="proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
-        </div>
-      </div>
-      <div class="home-hero__logo">
-        <video class="home-hero__video" data-hero-video autoplay muted loop playsinline preload="auto"
-               poster="assets/logo-hero-poster.webp" width="1080" height="1080" aria-label="LCS">
-          <source src="assets/logo-hero.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ POR QUÉ — el problema que resuelve una web ============ -->
-  <section class="section section--paper" id="por-que" data-nav="light">
-    <div class="shell">
-      <h2 class="manifesto__text" data-manifesto
-         data-es="Si no te <em>encuentran</em>, no te <em>compran</em>. Y hoy la primera visita a tu negocio pasa por una <em>pantalla</em>."
-         data-en="If they cannot <em>find</em> you, they do not <em>buy</em>. Today the first visit to your business happens on a <em>screen</em>.">Si no te <em>encuentran</em>, no te <em>compran</em>. Y hoy la primera visita a tu negocio pasa por una <em>pantalla</em>.</h2>
-
-      <div class="why" data-stagger>
-        <div class="why__col why__col--pain">
-          <h3 class="why__head" data-es="Sin web propia" data-en="Without your own site">Sin web propia</h3>
-          <ul class="why__list">
-            <li data-es="Te buscan en Google y aparece tu competencia." data-en="They google you and your competitor shows up.">Te buscan en Google y aparece tu competencia.</li>
-            <li data-es="Contestás las mismas preguntas diez veces por día." data-en="You answer the same questions ten times a day.">Contestás las mismas preguntas diez veces por día.</li>
-            <li data-es="Tu marca se ve improvisada al lado de la de al lado." data-en="Your brand looks improvised next to the one beside it.">Tu marca se ve improvisada al lado de la de al lado.</li>
-            <li data-es="Todo depende de que alguien te recomiende." data-en="Everything depends on someone recommending you.">Todo depende de que alguien te recomiende.</li>
-            <li data-es="Una red social decide quién te ve, y cuándo." data-en="A social network decides who sees you, and when.">Una red social decide quién te ve, y cuándo.</li>
-          </ul>
-        </div>
-        <div class="why__col why__col--gain">
-          <h3 class="why__head" data-es="Con tu web hecha por LCS" data-en="With your site built by LCS">Con tu web hecha por LCS</h3>
-          <ul class="why__list">
-            <li data-es="Te encuentran por lo que hacés, con tu nombre arriba." data-en="They find you for what you do, with your name on top.">Te encuentran por lo que hacés, con tu nombre arriba.</li>
-            <li data-es="El sitio responde esas preguntas por vos, a toda hora." data-en="The site answers those questions for you, around the clock.">El sitio responde esas preguntas por vos, a toda hora.</li>
-            <li data-es="Tu marca se ve profesional en la primera pantalla." data-en="Your brand looks professional on the very first screen.">Tu marca se ve profesional en la primera pantalla.</li>
-            <li data-es="Llegan consultas mientras dormís o atendés." data-en="Enquiries arrive while you sleep or serve customers.">Llegan consultas mientras dormís o atendés.</li>
-            <li data-es="El canal es tuyo: nadie te cambia el alcance." data-en="The channel is yours: nobody changes your reach.">El canal es tuyo: nadie te cambia el alcance.</li>
-          </ul>
+  <section class="phero">
+    <div class="wrap">
+      <h1 aria-label="Diseño web. Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.">
+        <span class="display display--xl" aria-hidden="true" data-es="Diseño web" data-en="Web design">Diseño web</span>
+      </h1>
+      <div class="phero__grid">
+        <div></div>
+        <div>
+          <p class="statement" data-es="Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas." data-en="Your website can sell for you every day. We design and build custom sites for businesses that want more enquiries, more sales and an image to match. No templates.">Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.</p>
+          <div class="btns">
+            <a class="pill pill--light" href="/contacto" data-es="Quiero mi web" data-en="I want my site">Quiero mi web</a>
+            <a class="txtlink arw" href="/proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ QUÉ TE LLEVÁS — por qué contratar al estudio ============ -->
-  <section class="section section--accent" id="beneficios" data-nav="accent">
-    <div class="shell">
-      <div class="studio">
-        <div class="studio__intro">
-          <h2 class="studio__title" data-reveal-text
-              data-es="No comprás una web. Comprás <em>un canal que trabaja.</em>"
-              data-en="You are not buying a site. You are buying <em>a channel that works.</em>">No comprás una web. Comprás <em>un canal que trabaja.</em></h2>
-          <p class="lead"
-             data-es="Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración."
-             data-en="Every design decision aims at the same thing: whoever lands understands what you do, trusts you and writes to you. The rest is decoration.">Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración.</p>
-          <a class="link-arrow magnetic" data-magnetic href="servicios" data-es="Ver los servicios" data-en="See the services">Ver los servicios</a>
-        </div>
-        <div class="studio__list" data-stagger>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Diseño a medida" data-en="Custom design">Diseño a medida</h3>
-              <span class="studio__n">01</span>
-            </div>
-            <p data-es="Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta." data-en="No templates: your site looks like your business, not like forty others.">Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta.</p>
-          </article>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Pensada para convertir" data-en="Built to convert">Pensada para convertir</h3>
-              <span class="studio__n">02</span>
-            </div>
-            <p data-es="Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar." data-en="Every screen leads to one clear action: message, call, book or buy.">Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar.</p>
-          </article>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Rápida de verdad" data-en="Genuinely fast">Rápida de verdad</h3>
-              <span class="studio__n">03</span>
-            </div>
-            <p data-es="Código propio y liviano. Una web lenta pierde la visita antes del primer scroll." data-en="Hand-written, lightweight code. A slow site loses the visit before the first scroll.">Código propio y liviano. Una web lenta pierde la visita antes del primer scroll.</p>
-          </article>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Impecable en el celular" data-en="Flawless on mobile">Impecable en el celular</h3>
-              <span class="studio__n">04</span>
-            </div>
-            <p data-es="Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla." data-en="That is where most visits happen, so it is designed for that screen first.">Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla.</p>
-          </article>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Lista para Google" data-en="Ready for Google">Lista para Google</h3>
-              <span class="studio__n">05</span>
-            </div>
-            <p data-es="Estructura, textos y datos en orden para que te encuentren por lo que hacés." data-en="Structure, copy and data in order so people find you for what you do.">Estructura, textos y datos en orden para que te encuentren por lo que hacés.</p>
-          </article>
-          <article class="studio__row card-hover">
-            <div class="studio__row-head">
-              <h3 data-es="Trato directo" data-en="Direct contact">Trato directo</h3>
-              <span class="studio__n">06</span>
-            </div>
-            <p data-es="Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento." data-en="You always talk to whoever does the work, and support continues after launch.">Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento.</p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="strip strip--bleed" data-strip data-strip-start="1">
+    <ul class="strip__vp" aria-label="Proyectos del estudio" data-label-es="Proyectos del estudio" data-label-en="Studio projects">
+      <li class="strip__it"><a href="/proyectos#p15"><figure><img src="/assets/strip/web-hierronort.webp" alt="Hierronort" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p1"><figure><img src="/assets/strip/web-lavaca.webp" alt="La Vaca" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p16"><figure><img src="/assets/strip/web-paravicini.webp" alt="Paravicini Arquitectura" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p22"><figure><img src="/assets/strip/web-premevet.webp" alt="PReMeVetNOA" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p26"><figure><img src="/assets/strip/web-messi.webp" alt="Leo Messi" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p4"><figure><img src="/assets/strip/web-zur.webp" alt="Espacio Zur" width="704" height="1026" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p9"><figure><img src="/assets/strip/web-danielvilla.webp" alt="Daniel Villa Real Estate" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p13"><figure><img src="/assets/strip/web-lacondesa.webp" alt="La Condesa" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p10"><figure><img src="/assets/strip/web-totalgym.webp" alt="Total Gym Salta" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p25"><figure><img src="/assets/strip/web-nostra.webp" alt="Nostra Construcción" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p7"><figure><img src="/assets/strip/web-forlani.webp" alt="Dra. Karina Forlani" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p18"><figure><img src="/assets/strip/web-jms.webp" alt="JMS Constructora" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p14"><figure><img src="/assets/strip/web-pielcanela.webp" alt="Piel Canela" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p21"><figure><img src="/assets/strip/web-vanstrate.webp" alt="Van Strate Cortese" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p3"><figure><img src="/assets/strip/web-donasalta.webp" alt="Doña Salta" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p24"><figure><img src="/assets/strip/web-odontointegral.webp" alt="Odontología Integral Salta" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p17"><figure><img src="/assets/strip/web-todoaridos.webp" alt="Todo Áridos Salta" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p19"><figure><img src="/assets/strip/web-petersen.webp" alt="Dr. Petersen Pfister" width="704" height="1026" loading="lazy" decoding="async"></figure></a></li>
+    </ul>
+    <button class="strip__btn strip__btn--prev" type="button" aria-label="Anterior" data-label-es="Anterior" data-label-en="Previous"><svg viewBox="0 0 14 14"><path d="M9 2 4 7l5 5"/></svg></button>
+    <button class="strip__btn strip__btn--next" type="button" aria-label="Siguiente" data-label-es="Siguiente" data-label-en="Next"><svg viewBox="0 0 14 14"><path d="m5 2 5 5-5 5"/></svg></button>
+  </div>
 
-  <!-- ============ TRABAJO — la prueba, en vivo ============ -->
-  <section class="section section--paper" data-nav="light">
-    <div class="shell">
-      <div class="home-line">
-        <p class="lead measure" data-es="No son promesas: son sitios en vivo. Entrá y miralos antes de decidir." data-en="These are not promises: they are live sites. Go in and look before deciding.">No son promesas: son sitios en vivo. Entrá y miralos antes de decidir.</p>
-        <a class="link-arrow magnetic" data-magnetic href="proyectos" data-es="Ver todos" data-en="See all">Ver todos</a>
+  <section class="wrap" id="por-que">
+    <div class="intro-row">
+      <p class="intro-row__label" data-es="Por qué una web" data-en="Why a website">Por qué una web</p>
+      <div data-rv>
+        <h2 class="statement" data-es="Si no te encuentran, no te compran. Y hoy la primera visita a tu negocio pasa por una pantalla." data-en="If they cannot find you, they do not buy. Today the first visit to your business happens on a screen.">Si no te encuentran, no te compran. Y hoy la primera visita a tu negocio pasa por una pantalla.</h2>
+          <div class="btns">
+            <a class="pill" href="/proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
+            <a class="txtlink arw" href="/servicios" data-es="Ver los servicios" data-en="See the services">Ver los servicios</a>
+          </div>
       </div>
+      <div></div>
     </div>
-<div class="wc" data-carousel>
-      <div class="wc__viewport" data-wc-viewport role="group" aria-roledescription="carousel"
-           aria-label="Proyectos del estudio" tabindex="0">
-        <ul class="wc__track">
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p15">
-              <span class="wc-card__shot">
-                <img src="assets/hierronort.webp" alt="Hierronort" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Hierronort</span>
-                <span class="wc-card__cat" data-es="Industria" data-en="Industry">Industria</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p1">
-              <span class="wc-card__shot">
-                <img src="assets/lavaca-v16.webp" alt="La Vaca" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">La Vaca</span>
-                <span class="wc-card__cat" data-es="Gastronomía" data-en="Hospitality">Gastronomía</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p16">
-              <span class="wc-card__shot">
-                <img src="assets/paravicini-v3.webp" alt="Paravicini Arquitectura" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Paravicini Arquitectura</span>
-                <span class="wc-card__cat" data-es="Arquitectura" data-en="Architecture">Arquitectura</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p22">
-              <span class="wc-card__shot">
-                <img src="assets/premevet.webp" alt="PReMeVetNOA" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">PReMeVetNOA</span>
-                <span class="wc-card__cat" data-es="Veterinaria" data-en="Veterinary">Veterinaria</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p23">
-              <span class="wc-card__shot">
-                <img src="assets/mundoverde.webp" alt="Mundo Verde" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Mundo Verde</span>
-                <span class="wc-card__cat" data-es="Paisajismo" data-en="Landscaping">Paisajismo</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p6">
-              <span class="wc-card__shot">
-                <img src="assets/ipv-v2.webp" alt="IPV" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">IPV</span>
-                <span class="wc-card__cat" data-es="Institucional" data-en="Institutional">Institucional</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p26">
-              <span class="wc-card__shot">
-                <img src="assets/messi.webp" alt="Leo Messi — sitio homenaje" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Leo Messi</span>
-                <span class="wc-card__cat" data-es="Homenaje" data-en="Tribute">Homenaje</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p9">
-              <span class="wc-card__shot">
-                <img src="assets/danielvilla-v3.webp" alt="Daniel Villa Real Estate" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Daniel Villa</span>
-                <span class="wc-card__cat" data-es="Inmobiliaria" data-en="Real estate">Inmobiliaria</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p20">
-              <span class="wc-card__shot">
-                <img src="assets/verosaguier-v2.webp" alt="Vero Saguier" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Vero Saguier</span>
-                <span class="wc-card__cat" data-es="Paisajismo" data-en="Landscaping">Paisajismo</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p18">
-              <span class="wc-card__shot">
-                <img src="assets/jms-v2.webp" alt="JMS Constructora" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">JMS Constructora</span>
-                <span class="wc-card__cat" data-es="Desarrolladora" data-en="Development">Desarrolladora</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p25">
-              <span class="wc-card__shot">
-                <img src="assets/nostra-v2.webp" alt="Nostra Construcción" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Nostra Construcción</span>
-                <span class="wc-card__cat" data-es="Construcción" data-en="Construction">Construcción</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p24">
-              <span class="wc-card__shot">
-                <img src="assets/odontointegral.webp" alt="Odontología Integral Salta" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Odontología Integral Salta</span>
-                <span class="wc-card__cat" data-es="Odontología" data-en="Dentistry">Odontología</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p7">
-              <span class="wc-card__shot">
-                <img src="assets/forlani-v3.webp" alt="Dra. Karina Forlani" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Dra. Karina Forlani</span>
-                <span class="wc-card__cat" data-es="Salud" data-en="Health">Salud</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p10">
-              <span class="wc-card__shot">
-                <img src="assets/totalgym-v3.webp" alt="Total Gym Salta" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Total Gym Salta</span>
-                <span class="wc-card__cat" data-es="Fitness" data-en="Fitness">Fitness</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p2">
-              <span class="wc-card__shot">
-                <img src="assets/brunetti-v5.webp" alt="Frigorífico Brunetti" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Frigorífico Brunetti</span>
-                <span class="wc-card__cat" data-es="Industria" data-en="Industry">Industria</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p8">
-              <span class="wc-card__shot">
-                <img src="assets/baltazar-v2.webp" alt="Baltazar Aguiar" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Baltazar Aguiar</span>
-                <span class="wc-card__cat" data-es="Marketing" data-en="Marketing">Marketing</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p3">
-              <span class="wc-card__shot">
-                <img src="assets/donasalta-v3.webp" alt="Doña Salta" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Doña Salta</span>
-                <span class="wc-card__cat" data-es="Gastronomía" data-en="Hospitality">Gastronomía</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p13">
-              <span class="wc-card__shot">
-                <img src="assets/lacondesa-v4.webp" alt="La Condesa" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">La Condesa</span>
-                <span class="wc-card__cat" data-es="Estética" data-en="Aesthetics">Estética</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p14">
-              <span class="wc-card__shot">
-                <img src="assets/pielcanela-v2.webp" alt="Piel Canela" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Piel Canela</span>
-                <span class="wc-card__cat" data-es="Spa" data-en="Spa">Spa</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p17">
-              <span class="wc-card__shot">
-                <img src="assets/todoaridos-v2.webp" alt="Todo Áridos Salta" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Todo Áridos Salta</span>
-                <span class="wc-card__cat" data-es="Construcción" data-en="Construction">Construcción</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p19">
-              <span class="wc-card__shot">
-                <img src="assets/petersen.webp" alt="Dr. Petersen Pfister" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Dr. Petersen Pfister</span>
-                <span class="wc-card__cat" data-es="Cirugía" data-en="Surgery">Cirugía</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p4">
-              <span class="wc-card__shot">
-                <img src="assets/zur-v2.webp" alt="Espacio Zur" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Espacio Zur</span>
-                <span class="wc-card__cat" data-es="Bienestar" data-en="Wellness">Bienestar</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p5">
-              <span class="wc-card__shot">
-                <img src="assets/jockey-v2.webp" alt="Jockey Club Salta" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Jockey Club Salta</span>
-                <span class="wc-card__cat" data-es="Institucional" data-en="Institutional">Institucional</span>
-              </span>
-            </a>
-          </li>
-          <li class="wc__item">
-            <a class="wc-card" href="proyectos#p21">
-              <span class="wc-card__shot">
-                <img src="assets/vanstrate.webp" alt="Van Strate Cortese" width="1200" height="825" loading="lazy" decoding="async">
-                <span class="wc-card__tag" data-es="Ver caso" data-en="View case">Ver caso</span>
-              </span>
-              <span class="wc-card__meta">
-                <span class="wc-card__name">Van Strate Cortese</span>
-                <span class="wc-card__cat" data-es="Arquitectura" data-en="Architecture">Arquitectura</span>
-              </span>
-            </a>
-          </li>
+    <div class="duo sec">
+      <div class="duo__col--off" data-rv>
+        <h3 data-es="Sin web propia" data-en="Without your own site">Sin web propia</h3>
+        <ul>
+            <li><span>01</span><span data-es="Te buscan en Google y aparece tu competencia." data-en="They google you and your competitor shows up.">Te buscan en Google y aparece tu competencia.</span></li>
+            <li><span>02</span><span data-es="Contestás las mismas preguntas diez veces por día." data-en="You answer the same questions ten times a day.">Contestás las mismas preguntas diez veces por día.</span></li>
+            <li><span>03</span><span data-es="Tu marca se ve improvisada al lado de la de al lado." data-en="Your brand looks improvised next to the one beside it.">Tu marca se ve improvisada al lado de la de al lado.</span></li>
+            <li><span>04</span><span data-es="Todo depende de que alguien te recomiende." data-en="Everything depends on someone recommending you.">Todo depende de que alguien te recomiende.</span></li>
+            <li><span>05</span><span data-es="Una red social decide quién te ve, y cuándo." data-en="A social network decides who sees you, and when.">Una red social decide quién te ve, y cuándo.</span></li>
         </ul>
       </div>
-
-      <button class="wc__arrow wc__arrow--prev" type="button" data-wc-prev
-              aria-label="Proyectos anteriores"
-              data-label-es="Proyectos anteriores" data-label-en="Previous projects"></button>
-      <button class="wc__arrow wc__arrow--next" type="button" data-wc-next
-              aria-label="Proyectos siguientes"
-              data-label-es="Proyectos siguientes" data-label-en="Next projects"></button>
+      <div data-rv>
+        <h3 data-es="Con tu web hecha por LCS" data-en="With your site built by LCS">Con tu web hecha por LCS</h3>
+        <ul>
+            <li><span>01</span><span data-es="Te encuentran por lo que hacés, con tu nombre arriba." data-en="They find you for what you do, with your name on top.">Te encuentran por lo que hacés, con tu nombre arriba.</span></li>
+            <li><span>02</span><span data-es="El sitio responde esas preguntas por vos, a toda hora." data-en="The site answers those questions for you, around the clock.">El sitio responde esas preguntas por vos, a toda hora.</span></li>
+            <li><span>03</span><span data-es="Tu marca se ve profesional en la primera pantalla." data-en="Your brand looks professional on the very first screen.">Tu marca se ve profesional en la primera pantalla.</span></li>
+            <li><span>04</span><span data-es="Llegan consultas mientras dormís o atendés." data-en="Enquiries arrive while you sleep or serve customers.">Llegan consultas mientras dormís o atendés.</span></li>
+            <li><span>05</span><span data-es="El canal es tuyo: nadie te cambia el alcance." data-en="The channel is yours: nobody changes your reach.">El canal es tuyo: nadie te cambia el alcance.</span></li>
+        </ul>
+      </div>
     </div>
+    <hr class="rule">
+  </section>
 
-    <div class="shell">
-      <div class="wc__foot">
-        <div class="wc__rail" aria-hidden="true"><span class="wc__bar" data-wc-bar></span></div>
+  <section class="sec" id="proyectos">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Proyectos" data-en="Work">Proyectos</h2>
+        <p data-es="No son promesas: son sitios en vivo. Entrá y miralos antes de decidir." data-en="These are not promises: they are live sites. Go in and look before deciding.">No son promesas: son sitios en vivo. Entrá y miralos antes de decidir.</p>
+      </header>
+      <div class="work">
+        <a class="card" data-rv href="/proyectos#p15">
+          <div class="card__img"><img src="/assets/hierronort.webp" alt="Hierronort" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">Hierronort</p>
+          <p class="card__sub" data-es="Distribuidora de hierro · Salta" data-en="Steel distributor · Salta">Distribuidora de hierro · Salta</p>
+        </a>
+        <a class="card" data-rv href="/proyectos#p1">
+          <div class="card__img"><img src="/assets/lavaca-v16.webp" alt="La Vaca" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">La Vaca</p>
+          <p class="card__sub" data-es="Bar de barrio · Grand Bourg, Salta" data-en="Neighbourhood bar · Grand Bourg, Salta">Bar de barrio · Grand Bourg, Salta</p>
+        </a>
+        <a class="card" data-rv href="/proyectos#p16">
+          <div class="card__img"><img src="/assets/paravicini-v3.webp" alt="Paravicini Arquitectura" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">Paravicini Arquitectura</p>
+          <p class="card__sub" data-es="Estudio de arquitectura · Salta" data-en="Architecture studio · Salta">Estudio de arquitectura · Salta</p>
+        </a>
+        <a class="card" data-rv href="/proyectos#p22">
+          <div class="card__img"><img src="/assets/premevet.webp" alt="PReMeVetNOA" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">PReMeVetNOA</p>
+          <p class="card__sub" data-es="Policlínico veterinario · Salta" data-en="Veterinary hospital · Salta">Policlínico veterinario · Salta</p>
+        </a>
+      </div>
+      <div class="row">
+        <p data-es="Todos los casos, con su problema, proceso y resultado." data-en="Every case, with its problem, process and result.">Todos los casos, con su problema, proceso y resultado.</p>
+        <a class="pill arw" href="/proyectos" data-es="Ver todos" data-en="See all">Ver todos</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ CÓMO SE HACE — el proceso, sin sorpresas ============ -->
-  <section class="section section--ink" id="proceso" data-nav="dark">
-    <div class="shell">
-      <div class="home-line">
-        <p class="lead measure" data-es="Cuatro pasos, plazos cerrados y una sola persona respondiendo. Sabés siempre en qué etapa está tu web." data-en="Four steps, closed deadlines and one person answering. You always know which stage your site is in.">Cuatro pasos, plazos cerrados y una sola persona respondiendo. Sabés siempre en qué etapa está tu web.</p>
-        <a class="link-arrow magnetic" data-magnetic href="servicios" data-es="Ver el proceso completo" data-en="See the full process">Ver el proceso completo</a>
+  <section class="sec" id="beneficios">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Servicios" data-en="Services">Servicios</h2>
+        <p data-es="No comprás una web. Comprás un canal que trabaja." data-en="You are not buying a site. You are buying a channel that works.">No comprás una web. Comprás un canal que trabaja.</p>
+      </header>
+      <div class="terms terms--num terms--grid" data-rv>
+        <div><p class="terms__n" aria-hidden="true">01</p><h3 data-es="Diseño a medida" data-en="Custom design">Diseño a medida</h3><p data-es="Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta." data-en="No templates: your site looks like your business, not like forty others.">Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta.</p></div>
+        <div><p class="terms__n" aria-hidden="true">02</p><h3 data-es="Pensada para convertir" data-en="Built to convert">Pensada para convertir</h3><p data-es="Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar." data-en="Every screen leads to one clear action: message, call, book or buy.">Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar.</p></div>
+        <div><p class="terms__n" aria-hidden="true">03</p><h3 data-es="Rápida de verdad" data-en="Genuinely fast">Rápida de verdad</h3><p data-es="Código propio y liviano. Una web lenta pierde la visita antes del primer scroll." data-en="Hand-written, lightweight code. A slow site loses the visit before the first scroll.">Código propio y liviano. Una web lenta pierde la visita antes del primer scroll.</p></div>
+        <div><p class="terms__n" aria-hidden="true">04</p><h3 data-es="Impecable en el celular" data-en="Flawless on mobile">Impecable en el celular</h3><p data-es="Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla." data-en="That is where most visits happen, so it is designed for that screen first.">Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla.</p></div>
+        <div><p class="terms__n" aria-hidden="true">05</p><h3 data-es="Lista para Google" data-en="Ready for Google">Lista para Google</h3><p data-es="Estructura, textos y datos en orden para que te encuentren por lo que hacés." data-en="Structure, copy and data in order so people find you for what you do.">Estructura, textos y datos en orden para que te encuentren por lo que hacés.</p></div>
+        <div><p class="terms__n" aria-hidden="true">06</p><h3 data-es="Trato directo" data-en="Direct contact">Trato directo</h3><p data-es="Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento." data-en="You always talk to whoever does the work, and support continues after launch.">Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento.</p></div>
       </div>
-      <div class="flow">
-        <div class="flow__rail"><span class="flow__progress" data-flow-progress></span></div>
-        <div class="flow__steps" data-stagger>
-          <div class="flow__step">
-            <span class="n">01</span>
+      <div class="row">
+        <p data-es="Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración." data-en="Every design decision aims at the same thing: whoever lands understands what you do, trusts you and writes to you. The rest is decoration.">Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y te escriba. Todo lo demás es decoración.</p>
+        <a class="pill arw" href="/servicios" data-es="Ver los servicios" data-en="See the services">Ver los servicios</a>
+      </div>
+      <div class="row">
+        <p data-es="Recibí atención personalizada" data-en="Get one-to-one attention">Recibí atención personalizada</p>
+        <a class="pill arw" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20consultar%20por%20un%20proyecto%20web." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="proceso">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Proceso" data-en="Process">Proceso</h2>
+        <p data-es="Cuatro pasos, plazos cerrados y una sola persona respondiendo." data-en="Four steps, fixed deadlines and one person answering.">Cuatro pasos, plazos cerrados y una sola persona respondiendo.</p>
+      </header>
+      <div class="proc">
+        <div class="proc__aside">
+          <p data-es="Cuatro pasos, <strong>plazos cerrados</strong> y <strong>una sola persona respondiendo</strong>. Sabés siempre en qué etapa está <strong>tu web</strong>." data-en="Four steps, <strong>fixed deadlines</strong> and <strong>one person answering</strong>. You always know what stage <strong>your website</strong> is at.">Cuatro pasos, <strong>plazos cerrados</strong> y <strong>una sola persona respondiendo</strong>. Sabés siempre en qué etapa está <strong>tu web</strong>.</p>
+        </div>
+        <div>
+          <div class="step" data-rv>
+            <p class="step__n">01</p>
             <h3 data-es="Entender tu negocio" data-en="Understand your business">Entender tu negocio</h3>
             <p data-es="Charlamos qué vendés, a quién y qué te está frenando hoy." data-en="We talk about what you sell, to whom, and what is holding you back today.">Charlamos qué vendés, a quién y qué te está frenando hoy.</p>
           </div>
-          <div class="flow__step">
-            <span class="n">02</span>
+          <div class="step" data-rv>
+            <p class="step__n">02</p>
             <h3 data-es="Definir el plan" data-en="Define the plan">Definir el plan</h3>
             <p data-es="Secciones, textos y objetivo de cada pantalla. Presupuesto y plazo cerrados." data-en="Sections, copy and the goal of each screen. Closed budget and deadline.">Secciones, textos y objetivo de cada pantalla. Presupuesto y plazo cerrados.</p>
           </div>
-          <div class="flow__step">
-            <span class="n">03</span>
+          <div class="step" data-rv>
+            <p class="step__n">03</p>
             <h3 data-es="Diseñar y mostrar" data-en="Design and show">Diseñar y mostrar</h3>
             <p data-es="Ves el diseño antes de que exista una sola línea de código, y opinás." data-en="You see the design before a single line of code exists, and you weigh in.">Ves el diseño antes de que exista una sola línea de código, y opinás.</p>
           </div>
-          <div class="flow__step">
-            <span class="n">04</span>
+          <div class="step" data-rv>
+            <p class="step__n">04</p>
             <h3 data-es="Publicar y acompañar" data-en="Launch and support">Publicar y acompañar</h3>
             <p data-es="Sale en vivo, medimos qué pasa y seguimos disponibles después." data-en="It goes live, we measure what happens and stay available afterwards.">Sale en vivo, medimos qué pasa y seguimos disponibles después.</p>
           </div>
@@ -524,72 +221,59 @@
     </div>
   </section>
 
-  <!-- ============ DUDAS — las objeciones, resueltas antes de escribir ============ -->
-  <section class="section section--paper" data-nav="light">
-    <div class="shell">
-      <div class="sec-head">
-        <h2 class="title" data-es="Lo que todos preguntan" data-en="What everyone asks">Lo que todos preguntan</h2>
-        <p class="lead" data-es="Las cuatro dudas que aparecen antes de decidir." data-en="The four doubts that show up before deciding.">Las cuatro dudas que aparecen antes de decidir.</p>
+  <section class="sec sec--line">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Preguntas" data-en="Questions">Preguntas</h2>
+        <p data-es="Las cuatro dudas que aparecen antes de decidir." data-en="The four doubts that show up before deciding.">Las cuatro dudas que aparecen antes de decidir.</p>
+      </header>
+      <div class="faq-wrap">
+        <div></div>
+        <div class="faq" data-rv>
+          <details>
+            <summary data-es="¿Cuánto sale una web?" data-en="How much does a site cost?">¿Cuánto sale una web?</summary>
+            <p class="faq__a" data-es="Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir." data-en="It depends on how many sections you need and whether there is a store, bookings or a catalogue. The ranges are published on the investment page, so you know the ballpark before writing.">Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir.</p>
+          </details>
+          <details>
+            <summary data-es="¿Cuánto tarda?" data-en="How long does it take?">¿Cuánto tarda?</summary>
+            <p class="faq__a" data-es="Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha." data-en="A brochure site is usually live in two to four weeks once the content is ready. The deadline is fixed in the quote and does not stretch along the way.">Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha.</p>
+          </details>
+          <details>
+            <summary data-es="Ya tengo una web, ¿sirve rehacerla?" data-en="I already have a site, is a rebuild worth it?">Ya tengo una web, ¿sirve rehacerla?</summary>
+            <p class="faq__a" data-es="Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado." data-en="If it loads slowly, looks bad on mobile or nobody writes to you from it, yes. It can be rebuilt keeping what already works: domain, content and the ranking you earned.">Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado.</p>
+          </details>
+          <details>
+            <summary data-es="¿Después la puedo actualizar yo?" data-en="Can I update it myself afterwards?">¿Después la puedo actualizar yo?</summary>
+            <p class="faq__a" data-es="Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga." data-en="Yes. If the project calls for it, the site ships with a panel to change copy, photos and prices without touching code. And if you would rather not deal with it, the studio handles it.">Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga.</p>
+          </details>
+        </div>
       </div>
-      <div class="faq">
-        <details class="faq__item">
-          <summary><span data-es="¿Cuánto sale una web?" data-en="How much does a site cost?">¿Cuánto sale una web?</span><span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__answer"><p data-es="Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir." data-en="It depends on how many sections you need and whether there is a store, bookings or a catalogue. The ranges are published on the investment page, so you know the ballpark before writing.">Depende de cuántas secciones necesites y de si hay tienda, reservas o catálogo. Los rangos están publicados en la página de inversión, así que sabés en qué orden te movés antes de escribir.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary><span data-es="¿Cuánto tarda?" data-en="How long does it take?">¿Cuánto tarda?</span><span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__answer"><p data-es="Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha." data-en="A brochure site is usually live in two to four weeks once the content is ready. The deadline is fixed in the quote and does not stretch along the way.">Un sitio institucional suele estar en vivo entre dos y cuatro semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se estira sobre la marcha.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary><span data-es="Ya tengo una web, ¿sirve rehacerla?" data-en="I already have a site, is a rebuild worth it?">Ya tengo una web, ¿sirve rehacerla?</span><span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__answer"><p data-es="Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado." data-en="If it loads slowly, looks bad on mobile or nobody writes to you from it, yes. It can be rebuilt keeping what already works: domain, content and the ranking you earned.">Si tarda en cargar, se ve mal en el celular o nadie te escribe desde ahí, sí. Se puede rehacer conservando lo que ya funciona: dominio, contenidos y posicionamiento ganado.</p></div>
-        </details>
-        <details class="faq__item">
-          <summary><span data-es="¿Después la puedo actualizar yo?" data-en="Can I update it myself afterwards?">¿Después la puedo actualizar yo?</span><span class="ic" aria-hidden="true"></span></summary>
-          <div class="faq__answer"><p data-es="Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga." data-en="Yes. If the project calls for it, the site ships with a panel to change copy, photos and prices without touching code. And if you would rather not deal with it, the studio handles it.">Sí. Si el proyecto lo pide, se entrega con un panel para cambiar textos, fotos y precios sin tocar código. Y si preferís no ocuparte, el estudio se encarga.</p></div>
-        </details>
-      </div>
-      <div class="home-line faq-foot">
-        <span></span>
-        <a class="link-arrow magnetic" data-magnetic href="inversion" data-es="Ver rangos de inversión" data-en="See investment ranges">Ver rangos de inversión</a>
+      <div class="row">
+        <p data-es="Planes, condiciones y extras." data-en="Plans, terms and extras.">Planes, condiciones y extras.</p>
+        <a class="pill arw" href="/inversion" data-es="Ver rangos de inversión" data-en="See investment ranges">Ver rangos de inversión</a>
       </div>
     </div>
   </section>
 
-  <!-- ============ CTA ============ -->
-  <section class="section section--paper cta" data-nav="light">
-    <div class="shell">
-      <div class="cta-grid">
-        <div class="cta-head">
-          <a class="big big--link cta-title" href="contacto" data-reveal-title aria-label="Contame tu proyecto.">
-            <span class="ln"><span data-es="Contame tu" data-en="Tell me about">Contame tu</span></span>
-            <span class="ln"><span data-es="<em>proyecto.</em>" data-en="<em>your project.</em>"><em>proyecto.</em></span></span>
-          </a>
-          <p class="lead measure"
-             data-es="En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso."
-             data-en="Within 24–48 h you get a concrete answer: what it would take, what it costs and how soon it goes live. No strings attached.">En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso.</p>
-          <div class="cta-actions">
-            <a class="btn btn--solid magnetic ico-arrow" data-magnetic href="contacto" data-es="Empecemos" data-en="Let us start">Empecemos</a>
-            <a class="btn btn--ghost magnetic" data-magnetic href="https://wa.me/543874834041" target="_blank" rel="noopener">WhatsApp</a>
+  <section class="close">
+    <div class="wrap">
+      <a class="close__title display display--xl" href="/contacto" data-rv data-es="Contame tu proyecto." data-en="Tell me about your project.">Contame tu proyecto.</a>
+      <div class="close__grid">
+        <div></div>
+        <div data-rv>
+          <p class="statement" data-es="En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso." data-en="Within 24–48 h you get a concrete answer: what it would take, what it costs and how soon it goes live. No strings attached.">En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto tiempo está en vivo. Sin compromiso.</p>
+          <div class="btns">
+            <a class="pill pill--light" href="/contacto" data-es="Empecemos" data-en="Let us start">Empecemos</a>
+            <a class="txtlink arw" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20consultar%20por%20un%20proyecto%20web." target="_blank" rel="noopener">WhatsApp</a>
           </div>
         </div>
-        <div class="cta-links">
-          <a class="cta-link card-hover" href="mailto:lcsdesignstudio1@gmail.com"><span class="k">Email</span><span class="v">lcsdesignstudio1@gmail.com</span><span class="ar" aria-hidden="true"></span></a>
-          <a class="cta-link card-hover" href="https://wa.me/543874834041" target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">+54 387 483 4041</span><span class="ar" aria-hidden="true"></span></a>
-          <a class="cta-link card-hover" href="https://instagram.com/lcswebstudio" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@lcswebstudio</span><span class="ar" aria-hidden="true"></span></a>
-          <a class="cta-link card-hover" href="tel:+543874834041"><span class="k" data-es="Teléfono" data-en="Phone">Teléfono</span><span class="v">+54 387 483 4041</span><span class="ar" aria-hidden="true"></span></a>
-        </div>
       </div>
     </div>
   </section>
-
 </main>
 
 <div id="site-footer"></div>
 
-<script src="js/vendor/gsap.min.js" defer></script>
-<script src="js/vendor/ScrollTrigger.min.js" defer></script>
-<script src="js/home.js" defer></script>
-<script src="js/site.js" defer></script>
+<script src="/js/mono.js" defer></script>
 </body>
 </html>

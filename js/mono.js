@@ -1,8 +1,9 @@
 /* ============================================================
    LCS — mono.js
-   Motor de las páginas en blanco y negro (portada y Branding):
+   Motor de las páginas en blanco y negro (todo el sitio):
    header · menú móvil · footer · idioma ES|EN · tira de imágenes
-   con flechas · reveals al entrar en pantalla.
+   con flechas · reveals al entrar en pantalla · enganche con el
+   modal de proyectos (projects.js) y con contacto.js.
    Sin dependencias.
    ============================================================ */
 (function () {
@@ -14,8 +15,21 @@
   root.dataset.anim = '1'; // el <head> no necesita la red de seguridad: los reveals los maneja este archivo
 
   const PAGE = document.body.dataset.page || '';
-  const SECTION = document.body.dataset.section || 'portal';
-  try { if (SECTION === 'branding') sessionStorage.setItem('lcs-path', 'branding'); } catch (e) {}
+
+  /* ---------- Los dos caminos ----------
+     Cada página declara el suyo en <body data-section>: portal (la
+     portada), branding o web. Las compartidas (contacto, términos)
+     heredan el último camino recorrido en la visita, para que el menú
+     no cambie de golpe al entrar a Contacto. */
+  const PATH_KEY = 'lcs-path';
+  let SECTION = document.body.dataset.section || 'portal';
+  if (SECTION === 'shared') {
+    let last = null;
+    try { last = sessionStorage.getItem(PATH_KEY); } catch (e) {}
+    SECTION = last === 'branding' || last === 'web' ? last : 'portal';
+  } else if (SECTION !== 'portal') {
+    try { sessionStorage.setItem(PATH_KEY, SECTION); } catch (e) {}
+  }
 
   const NAVS = {
     portal: [
@@ -27,7 +41,19 @@
       { key: 'proyectos', href: '/branding/proyectos', es: 'Proyectos', en: 'Work' },
       { key: 'inversion', href: '/branding/inversion', es: 'Inversión', en: 'Investment' },
     ],
+    web: [
+      { key: 'servicios', href: '/servicios', es: 'Servicios', en: 'Services' },
+      { key: 'proyectos', href: '/proyectos', es: 'Proyectos', en: 'Work' },
+      { key: 'inversion', href: '/inversion', es: 'Inversión', en: 'Investment' },
+    ],
   };
+  const HOMES = {
+    portal:   { href: '/',           es: 'Inicio',     en: 'Home' },
+    branding: { href: '/branding',   es: 'Branding',   en: 'Branding' },
+    web:      { href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
+  };
+  // el otro camino, para poder cruzar sin volver a la portada
+  const OTHER = { branding: HOMES.web, web: HOMES.branding };
   const NAV = NAVS[SECTION] || NAVS.portal;
   const WA = 'https://wa.me/543874834041';
   const IG = 'https://instagram.com/lcswebstudio';
@@ -35,19 +61,20 @@
 
   const t = (es, en) => `data-es="${es}" data-en="${en}"`;
   const cur = (k) => (k === PAGE ? ' aria-current="page"' : '');
+  const CONTACT = { key: 'contacto', href: '/contacto', es: 'Contacto', en: 'Contact' };
 
   function header() {
     const links = NAV.map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
-    const menuLinks = (SECTION === 'branding'
-      ? [{ key: 'home', href: '/branding', es: 'Branding', en: 'Branding' }, ...NAV, { key: 'contacto', href: '/contacto', es: 'Contacto', en: 'Contact' }]
-      : [...NAV, { key: 'contacto', href: '/contacto', es: 'Contacto', en: 'Contact' }])
+    const home = SECTION === 'portal' ? [] : [{ key: 'home', ...HOMES[SECTION] }];
+    const menuLinks = [...home, ...NAV, CONTACT]
       .map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
+    const other = OTHER[SECTION];
 
     const html = `
       <a class="skip" href="#main" ${t('Saltar al contenido', 'Skip to content')}>Saltar al contenido</a>
       <header class="hd">
         <div class="wrap hd__in">
-          <a class="hd__logo" href="${SECTION === 'branding' ? '/branding' : '/'}" aria-label="LCS">
+          <a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
             <img src="/assets/logo-isotipo-white.webp" alt="LCS" width="33" height="32">
           </a>
           <nav class="hd__nav" aria-label="Principal">
@@ -66,7 +93,7 @@
           <a href="${IG}" target="_blank" rel="noopener">Instagram</a>
           <a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>
           <a href="mailto:${MAIL}">Email</a>
-          ${SECTION === 'branding' ? `<a href="/diseno-web" ${t('Diseño web', 'Web design')}>Diseño web</a>` : ''}
+          ${other ? `<a href="${other.href}" ${t(other.es, other.en)}>${other.es}</a>` : ''}
         </div>
       </nav>`;
     const mount = $('#chrome');
@@ -87,11 +114,12 @@
     const mount = $('#site-footer');
     if (!mount) return;
     const nav = [
-      { href: '/', es: 'Inicio', en: 'Home' },
-      { href: '/branding', es: 'Branding', en: 'Branding' },
+      HOMES.portal,
+      HOMES.branding,
       ...(SECTION === 'branding' ? NAVS.branding : []),
-      { href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
-      { href: '/contacto', es: 'Contacto', en: 'Contact' },
+      HOMES.web,
+      ...(SECTION === 'web' ? NAVS.web : []),
+      CONTACT,
     ].map(n => `<li><a href="${n.href}" ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
 
     mount.outerHTML = `
@@ -138,6 +166,7 @@
     try { lang = localStorage.getItem(KEY) === 'en' ? 'en' : 'es'; } catch (e) {}
     function apply(next) {
       lang = next === 'en' ? 'en' : 'es';
+      window.__lcsLang = lang; // lo leen projects.js (modal) y contacto.js (botón copiar)
       try { localStorage.setItem(KEY, lang); } catch (e) {}
       root.lang = lang;
       $$('[data-es]').forEach(el => {
@@ -151,13 +180,16 @@
       $$('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
       if (META[lang].title) document.title = META[lang].title;
       if (md && META[lang].desc) md.setAttribute('content', META[lang].desc);
+      if (window.__lcsOnLang) window.__lcsOnLang(lang);
+      if (window.__modalRerender) window.__modalRerender();
     }
+    window.setLang = apply;
     $$('.lang button').forEach(b => b.addEventListener('click', () => apply(b.dataset.lang)));
     apply(lang);
   }
 
-  /* Tira de imágenes: scroll nativo con snap; las flechas avanzan de a
-     una tarjeta y se apagan en los extremos (no hay vuelta infinita). */
+  /* Tira de imágenes: scroll nativo; las flechas avanzan de a una
+     tarjeta y se apagan en los extremos (no hay vuelta infinita). */
   function strips() {
     $$('[data-strip]').forEach(s => {
       const vp = $('.strip__vp', s);
@@ -212,6 +244,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     header();
     footer();
+    // el modal de casos se arma antes del idioma, así su primer render ya sale traducido
+    if (window.__lcsProjects) window.__lcsProjects({ $, $$ });
     i18n();
     strips();
     reveals();
