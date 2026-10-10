@@ -888,3 +888,19 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .phero__grid { grid-template-columns: minmax(0, 1fr); }
 .phero__grid > :first-child { font-size: inherit; color: inherit; letter-spacing: inherit; }
 .phero__grid .statement { max-width: 720px; }
+
+/* Selector de camino (Branding / Web), al lado de Contacto */
+.pswitch { display: inline-flex; padding: 3px; border: 1px solid var(--line-strong); border-radius: 100px; }
+.pswitch a {
+  padding: 8px 14px; border-radius: 100px; line-height: 1;
+  font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: var(--muted);
+  transition: color .25s var(--ease), background .25s var(--ease);
+}
+.pswitch a:hover { color: var(--fg); }
+.pswitch a[aria-current] { background: var(--fg); color: var(--bg); }
+/* en el menú móvil va arriba de los links */
+.mm .pswitch { align-self: flex-start; margin-bottom: 24px; }
+.mm .pswitch a { font-size: 14px; padding: 10px 18px; }
+.mm { justify-content: flex-start; }
+.mm__foot { margin-top: auto; }
+@media (max-width: 900px) { .hd__end .pswitch { display: none; } }

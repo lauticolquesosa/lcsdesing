@@ -52,8 +52,6 @@
     branding: { href: '/branding',   es: 'Branding',   en: 'Branding' },
     web:      { href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
   };
-  // el otro camino, para poder cruzar sin volver a la portada
-  const OTHER = { branding: HOMES.web, web: HOMES.branding };
   const NAV = NAVS[SECTION] || NAVS.portal;
   const WA = 'https://wa.me/543874834041';
   const IG = 'https://instagram.com/lcswebstudio';
@@ -65,18 +63,22 @@
 
   function header() {
     // en la portada el logo ya está grande en el hero: el header va sin logo
-    const links = NAV.map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
     const home = SECTION === 'portal' ? [] : [{ key: 'home', ...HOMES[SECTION] }];
+    // dentro de un camino, el primer link lleva a su home (Branding / Diseño web)
+    const links = [...home, ...NAV].map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
+    // selector para pasar al otro camino sin volver a la portada
+    const sw = SECTION === 'portal' ? '' : `<nav class="pswitch" aria-label="Área del estudio">${
+      [['branding', '/branding', 'Branding', 'Branding'], ['web', '/diseno-web', 'Web', 'Web']].map(([k, h, es, en]) =>
+        `<a href="${h}"${k === SECTION ? ' aria-current="true"' : ''} ${t(es, en)}>${es}</a>`).join('')}</nav>`;
     const menuLinks = [...home, ...NAV, CONTACT]
       .map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
-    const other = OTHER[SECTION];
 
     const html = `
       <a class="skip" href="#main" ${t('Saltar al contenido', 'Skip to content')}>Saltar al contenido</a>
       <header class="hd">
         <div class="wrap hd__in">
           <div class="hd__start">
-            ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
+            ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="/" aria-label="LCS — Inicio">
               <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
             </a>`}
           </div>
@@ -84,6 +86,7 @@
             <ul class="hd__links">${links}</ul>
           </nav>
           <div class="hd__end">
+            ${sw}
             <a class="hd__cta" href="/contacto"${cur('contacto')} ${t('Contacto', 'Contact')}>Contacto</a>
             <div class="lang" role="group" aria-label="Idioma / Language">
               <button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
@@ -93,12 +96,12 @@
         </div>
       </header>
       <nav class="mm" id="mm" aria-label="Menú">
+        ${sw}
         <ul class="mm__links">${menuLinks}</ul>
         <div class="mm__foot">
           <a href="${IG}" target="_blank" rel="noopener">Instagram</a>
           <a href="${WA}" target="_blank" rel="noopener">WhatsApp</a>
           <a href="mailto:${MAIL}">Email</a>
-          ${other ? `<a href="${other.href}" ${t(other.es, other.en)}>${other.es}</a>` : ''}
         </div>
       </nav>`;
     const mount = $('#chrome');
