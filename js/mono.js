@@ -87,9 +87,6 @@
           </nav>
           <div class="hd__end">
             ${sw}
-            <div class="lang" role="group" aria-label="Idioma / Language">
-              <button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
-            </div>
             <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mm"><span></span><span></span></button>
           </div>
         </div>
@@ -170,7 +167,9 @@
       en: { title: document.body.dataset.titleEn || document.title, desc: document.body.dataset.descEn || '' },
     };
     let lang = 'es';
-    try { lang = localStorage.getItem(KEY) === 'en' ? 'en' : 'es'; } catch (e) {}
+    // sin selector de idioma: el sitio se muestra siempre en español (se ignora
+    // un 'en' que haya quedado guardado de antes)
+    try { localStorage.removeItem(KEY); } catch (e) {}
     function apply(next) {
       lang = next === 'en' ? 'en' : 'es';
       window.__lcsLang = lang; // lo leen projects.js (modal) y contacto.js (botón copiar)
