@@ -33,7 +33,7 @@
   --num: 'Manrope', 'Inter', system-ui, sans-serif;
   --gut: clamp(20px, 2.8vw, 40px);
   --max: 1520px;
-  --head-h: 64px;
+  --head-h: 72px;
   --ease: cubic-bezier(.22,1,.36,1);
 }
 
@@ -70,26 +70,37 @@ main { padding-top: var(--head-h); }
   position: fixed; inset: 0 0 auto; z-index: 200; height: var(--head-h);
   background: var(--bg); border-bottom: 1px solid var(--line);
 }
-.hd__in { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.hd__logo { display: block; line-height: 0; }
+/* Tres columnas: logo · secciones · contacto e idioma. Las de los costados
+   miden lo mismo (1fr), así las secciones quedan en el centro exacto de la
+   pantalla aunque el logo no esté (portada) o el bloque derecho sea más ancho. */
+.hd__in { height: 100%; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.hd__start { justify-self: start; display: flex; align-items: center; }
+.hd__end { justify-self: end; display: flex; align-items: center; gap: 22px; }
+.hd__logo { display: block; line-height: 0; transition: opacity .25s var(--ease); }
+.hd__logo:hover { opacity: .75; }
 .hd__logo img { height: 24px; width: auto; }
-.hd__nav { display: flex; align-items: center; gap: 22px; }
-.hd__links { display: flex; align-items: center; gap: 20px; }
+.hd__links { display: flex; align-items: center; gap: clamp(28px, 3.2vw, 48px); }
 .hd__links a {
-  font-size: 17px; font-weight: 500; text-transform: uppercase; letter-spacing: -.01em;
-  color: var(--fg); opacity: .92; transition: opacity .25s var(--ease);
+  position: relative; display: block; padding: 8px 0;
+  font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; line-height: 1;
+  color: var(--muted); transition: color .3s var(--ease);
 }
-.hd__links a:hover { opacity: .6; }
-.hd__links a[aria-current="page"] { opacity: 1; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+/* línea fina que crece desde el centro */
+.hd__links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: currentColor;
+  transform: scaleX(0); transition: transform .45s var(--ease);
+}
+.hd__links a:hover, .hd__links a[aria-current="page"] { color: var(--fg); }
+.hd__links a:hover::after, .hd__links a[aria-current="page"]::after { transform: scaleX(1); }
 .hd__cta {
-  display: inline-flex; align-items: center; height: 46px; padding: 0 22px;
-  border: 2px solid var(--fg); border-radius: 100px;
-  font-size: 17px; font-weight: 500; text-transform: uppercase; letter-spacing: -.01em;
+  display: inline-flex; align-items: center; height: 40px; padding: 0 20px;
+  border: 1.5px solid var(--fg); border-radius: 100px;
+  font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .05em; line-height: 1;
   transition: background .3s var(--ease), color .3s var(--ease);
 }
 .hd__cta:hover, .hd__cta[aria-current="page"] { background: var(--fg); color: var(--bg); }
-.lang { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; }
-.lang button { color: var(--dim); padding: 6px 2px; transition: color .2s; }
+.lang { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; letter-spacing: .05em; }
+.lang button { color: var(--dim); padding: 6px 0; transition: color .2s; }
 .lang button.on, .lang button:hover { color: var(--fg); }
 .lang span { color: var(--dim); }
 
@@ -116,7 +127,9 @@ body.menu-open { overflow: hidden; }
 .mm__foot a { color: var(--fg); }
 
 @media (max-width: 900px) {
-  .hd__links, .hd__cta { display: none; }
+  .hd__in { grid-template-columns: 1fr auto; }
+  .hd__nav, .hd__cta { display: none; }
+  .hd__end { gap: 18px; }
   .burger { display: block; }
 }
 
@@ -658,5 +671,3 @@ body[data-page="portal"] .hero__logo { width: min(400px, 66vw); }
 body[data-page="portal"] .hero h1 { font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -.03em; text-wrap: balance; }
 body[data-page="portal"] .hero__lead { margin-top: 12px; }
 
-/* Sin logo (portada), el menú sigue pegado a la derecha */
-.hd__nav { margin-left: auto; }

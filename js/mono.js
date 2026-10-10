@@ -75,17 +75,21 @@
       <a class="skip" href="#main" ${t('Saltar al contenido', 'Skip to content')}>Saltar al contenido</a>
       <header class="hd">
         <div class="wrap hd__in">
-          ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
-            <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
-          </a>`}
+          <div class="hd__start">
+            ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="${HOMES[SECTION].href}" aria-label="LCS">
+              <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
+            </a>`}
+          </div>
           <nav class="hd__nav" aria-label="Principal">
             <ul class="hd__links">${links}</ul>
+          </nav>
+          <div class="hd__end">
             <a class="hd__cta" href="/contacto"${cur('contacto')} ${t('Contacto', 'Contact')}>Contacto</a>
             <div class="lang" role="group" aria-label="Idioma / Language">
               <button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
             </div>
             <button class="burger" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mm"><span></span><span></span></button>
-          </nav>
+          </div>
         </div>
       </header>
       <nav class="mm" id="mm" aria-label="Menú">
