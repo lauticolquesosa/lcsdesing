@@ -572,3 +572,14 @@ h2.title em { font-style: normal; color: inherit; }
   .js [data-fade-scale] { transform: none !important; opacity: 1 !important; }
   .js [data-reveal-text] { clip-path: none !important; }
 }
+
+/* Logo siempre en blanco (rediseño en blanco y negro, 2026-10): el header
+   va sobre barra negra en todas las páginas, también sobre secciones claras,
+   así el isotipo nunca se invierte. */
+.site-header, .site-header.scrolled { background: #000; border-bottom-color: rgba(255,255,255,.12); }
+body.nav-light .site-header:not(.scrolled) .site-header__logo img { filter: none; }
+body.nav-light .site-header:not(.scrolled) .site-header__nav a { color: var(--cream); }
+body.nav-light .site-header:not(.scrolled) .burger { --c: var(--cream); }
+body.nav-light .site-header:not(.scrolled) .lang-toggle { --c: var(--cream); }
+body.nav-light .site-header:not(.scrolled) .path-switch { --c: var(--cream); }
+.site-header .path-switch a[aria-current] { color: #000; background: #fff; }

@@ -7,14 +7,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png" />
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-<meta name="theme-color" content="#F7F6F3" />
+<meta name="theme-color" content="#000000" />
 <title>LCS — Branding, diseño gráfico y diseño web en Salta</title>
 <meta name="description" content="Estudio de branding, diseño gráfico y diseño web en Salta, Argentina: identidad visual, logo, manual de marca y sitios web a medida que venden." />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/spacegrotesk-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/montserrat-latin.woff2" crossorigin />
-<link rel="stylesheet" href="/css/base.css" />
-<link rel="stylesheet" href="/css/pages.css" />
-<link rel="stylesheet" href="/css/portal.css" />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s nadie confirmó que las animaciones corren (GSAP caído, error de red), se quita la marca y todo el texto queda visible igual. Intro del logo (html.intro-on): al recargar o al llegar desde afuera; no al volver a la home desde otra página del sitio, ni con el botón atrás, ni con movimiento reducido. */(function(d){var r=d.documentElement;r.classList.add('js');try{var n=performance.getEntriesByType('navigation')[0],t=n?n.type:'navigate',own=false;try{own=!!d.referrer&&new URL(d.referrer).origin===location.origin;}catch(e){}if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&t!=='back_forward'&&(t==='reload'||!own))r.classList.add('intro-on');}catch(e){}setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
 <link rel="canonical" href="https://lcsdesignstudio.com.ar/" />
@@ -43,141 +41,177 @@
       data-title-en="LCS — Branding, graphic &amp; web design in Salta"
       data-desc-en="Branding, graphic and web design studio in Salta, Argentina: visual identity, logo, brand guidelines and custom websites that sell.">
 
-<!-- Intro de la home: motion graphics corto sobre papel blanco —resplandor
-       radial, el logo completo de LCS entrando de izquierda a derecha con
-       una leve frenada elástica, cada trazo apareciendo en cascada y un
-       filete verde que se dibuja debajo— y la cortina sube. Es el logo de
-       LCS solo (sin la bajada "diseño web": esto es la portada del estudio
-       entero, no solo la pata web). El trazo del isotipo no cambia, solo
-       cómo entra. Solo decorativo (aria-hidden): el contenido indexable
-       está debajo, intacto. Se muestra solo si el <head> marcó
-       html.intro-on; sin JS no aparece nunca. -->
-  <div class="intro" aria-hidden="true">
-    <span class="intro__glow"></span>
-    <div class="intro__mark">
-      <svg class="intro__logo" viewBox="290 324 580 255" width="580" height="255" focusable="false">
-        <g fill="currentColor">
-          <!-- Cada trazo va en su propio <g> sin transform propio: la
-               animación CSS de cascada anima el <g>, nunca el <path>,
-               porque un transform por CSS en el <path> pisaría por
-               completo la matrix() del atributo (no se combinan) y
-               rompería la posición y el espejado del trazo. -->
-          <g class="intro__p intro__p--1"><path transform="matrix(1,0,0,-1,323.3818,349.57069)" d="M0 0V-176.598H119.197L120.657-178.843V-215.509H-28.218V0Z"/></g>
-          <g class="intro__p intro__p--2"><path transform="matrix(1,0,0,-1,609.2086,366.25868)" d="M0 0-6.534-36.459C-14.662-32.431-23.068-28.912-31.496-26.703-68.358-17.042-138.794-9.361-137.889-94.128-137.381-141.736-114.403-160.6-87.069-163.356-59.459-166.14-31.667-160.959-5.234-148.868L.988-184.51C-14.566-193.854-31.363-199.089-47.973-201.285-94.079-207.38-155.534-200.27-163.799-111.412-171.617-27.367-133.872 12.099-85.254 16.124-57.093 18.455-26.754 13.657 0 0"/></g>
-          <g class="intro__p intro__p--3"><path transform="matrix(1,0,0,-1,709.7248,352.78266)" d="M0 0-28.371-16.496C-48.713-32.775-80.924-63.46-48.878-85.208-27.237-99.893 32.467-116.555 40.221-142.886 48.721-171.75 12.624-192.18-9.589-200.579-28.075-207.568-48.604-211.737-68.387-212.297L-39.458-197.785C-22.114-186.272 9.888-165.08-12.919-143.3-37.727-119.609-104.935-106.742-87.955-58.087-76.851-26.272-32.106-2.517 0 0"/></g>
-          <g class="intro__p intro__p--4"><path transform="matrix(1,0,0,-1,821.9199,380.24555)" d="M0 0C-4.236 3.498-19.424 3.755-25.261 6.089-16.787-2.773-8.717-10.62 4.662-8.133 5.039-7.855 .458-.378 0 0M20.338-30.962 31.511-47.08C24.739-61.98 17.296-67.362 .394-66.565 1.65-59.905 3.025-57.838-1.715-52.284-12.547-39.593-44.709-45.208-54.968-57.53-65.735-70.463-52.252-81.123-48.765-95.063-48.164-97.465-44.67-116.442-47.35-116.463-51.812-91.264-70.919-74.662-92.208-62.98-102.868-57.13-151.786-37.95-155.57-32.288-161.993-22.675-145.57-7.106-138.509-1.065-125.117 10.393-107.685 19.381-90.925 24.752-92.195 33.368-93.384 40.511-89.195 48.653-85.863 50.799-73.219 45.751-69.377 43.927-61.942 40.396-53.097 31.019-47.467 28.786-33.968 23.43 3.701 22.016 11.094 6.121 12.697 2.673 12.6-1.313 14.594-4.628 17.936-10.183 40.783-28.217 41.493-31.866 41.684-34.557 36.515-41.374 34.031-40.856 29.515-36.825 27.829-30.278 20.338-30.962"/></g>
-        </g>
-      </svg>
-      <span class="intro__rule" aria-hidden="true"></span>
-    </div>
-  </div>
+<!-- Intro: el logo de LCS en blanco sobre negro, trazo por trazo, y la
+     cortina sube. Solo decorativa; aparece si el <head> marcó html.intro-on. -->
+<div class="intro" aria-hidden="true">
+  <svg class="intro__logo" viewBox="290 324 580 255" width="580" height="255" focusable="false">
+    <g fill="currentColor">
+      <g class="intro__p intro__p--1"><path transform="matrix(1,0,0,-1,323.3818,349.57069)" d="M0 0V-176.598H119.197L120.657-178.843V-215.509H-28.218V0Z"/></g>
+      <g class="intro__p intro__p--2"><path transform="matrix(1,0,0,-1,609.2086,366.25868)" d="M0 0-6.534-36.459C-14.662-32.431-23.068-28.912-31.496-26.703-68.358-17.042-138.794-9.361-137.889-94.128-137.381-141.736-114.403-160.6-87.069-163.356-59.459-166.14-31.667-160.959-5.234-148.868L.988-184.51C-14.566-193.854-31.363-199.089-47.973-201.285-94.079-207.38-155.534-200.27-163.799-111.412-171.617-27.367-133.872 12.099-85.254 16.124-57.093 18.455-26.754 13.657 0 0"/></g>
+      <g class="intro__p intro__p--3"><path transform="matrix(1,0,0,-1,709.7248,352.78266)" d="M0 0-28.371-16.496C-48.713-32.775-80.924-63.46-48.878-85.208-27.237-99.893 32.467-116.555 40.221-142.886 48.721-171.75 12.624-192.18-9.589-200.579-28.075-207.568-48.604-211.737-68.387-212.297L-39.458-197.785C-22.114-186.272 9.888-165.08-12.919-143.3-37.727-119.609-104.935-106.742-87.955-58.087-76.851-26.272-32.106-2.517 0 0"/></g>
+      <g class="intro__p intro__p--4"><path transform="matrix(1,0,0,-1,821.9199,380.24555)" d="M0 0C-4.236 3.498-19.424 3.755-25.261 6.089-16.787-2.773-8.717-10.62 4.662-8.133 5.039-7.855 .458-.378 0 0M20.338-30.962 31.511-47.08C24.739-61.98 17.296-67.362 .394-66.565 1.65-59.905 3.025-57.838-1.715-52.284-12.547-39.593-44.709-45.208-54.968-57.53-65.735-70.463-52.252-81.123-48.765-95.063-48.164-97.465-44.67-116.442-47.35-116.463-51.812-91.264-70.919-74.662-92.208-62.98-102.868-57.13-151.786-37.95-155.57-32.288-161.993-22.675-145.57-7.106-138.509-1.065-125.117 10.393-107.685 19.381-90.925 24.752-92.195 33.368-93.384 40.511-89.195 48.653-85.863 50.799-73.219 45.751-69.377 43.927-61.942 40.396-53.097 31.019-47.467 28.786-33.968 23.43 3.701 22.016 11.094 6.121 12.697 2.673 12.6-1.313 14.594-4.628 17.936-10.183 40.783-28.217 41.493-31.866 41.684-34.557 36.515-41.374 34.031-40.856 29.515-36.825 27.829-30.278 20.338-30.962"/></g>
+    </g>
+  </svg>
+</div>
 
-<span id="top" aria-hidden="true"></span>
 <div id="chrome"></div>
 
-<main class="portal" data-nav="light">
-  <div class="shell portal__inner">
+<main id="main">
 
-    <header class="portal__head">
-      <h1 class="portal__title" aria-label="Diseñamos marcas y sitios web.">
-        <span class="ln"><span data-es="Diseñamos marcas <em>y sitios web.</em>" data-en="We design brands <em>and websites.</em>">Diseñamos marcas <em>y sitios web.</em></span></span>
-      </h1>
-      <p class="portal__lead"
-         data-es="Branding, diseño gráfico y sitios a medida, desde Salta. Elegí por dónde empezar."
-         data-en="Branding, graphic design and custom websites, from Salta. Choose where to start.">Branding, diseño gráfico y sitios a medida, desde Salta. Elegí por dónde empezar.</p>
-    </header>
+  <!-- ============ HERO — el logo, grande ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__logo">
+        <svg viewBox="290 324 580 255" width="580" height="255" role="img" aria-label="LCS" focusable="false">
+          <g fill="currentColor">
+            <path transform="matrix(1,0,0,-1,323.3818,349.57069)" d="M0 0V-176.598H119.197L120.657-178.843V-215.509H-28.218V0Z"/>
+            <path transform="matrix(1,0,0,-1,609.2086,366.25868)" d="M0 0-6.534-36.459C-14.662-32.431-23.068-28.912-31.496-26.703-68.358-17.042-138.794-9.361-137.889-94.128-137.381-141.736-114.403-160.6-87.069-163.356-59.459-166.14-31.667-160.959-5.234-148.868L.988-184.51C-14.566-193.854-31.363-199.089-47.973-201.285-94.079-207.38-155.534-200.27-163.799-111.412-171.617-27.367-133.872 12.099-85.254 16.124-57.093 18.455-26.754 13.657 0 0"/>
+            <path transform="matrix(1,0,0,-1,709.7248,352.78266)" d="M0 0-28.371-16.496C-48.713-32.775-80.924-63.46-48.878-85.208-27.237-99.893 32.467-116.555 40.221-142.886 48.721-171.75 12.624-192.18-9.589-200.579-28.075-207.568-48.604-211.737-68.387-212.297L-39.458-197.785C-22.114-186.272 9.888-165.08-12.919-143.3-37.727-119.609-104.935-106.742-87.955-58.087-76.851-26.272-32.106-2.517 0 0"/>
+            <path transform="matrix(1,0,0,-1,821.9199,380.24555)" d="M0 0C-4.236 3.498-19.424 3.755-25.261 6.089-16.787-2.773-8.717-10.62 4.662-8.133 5.039-7.855 .458-.378 0 0M20.338-30.962 31.511-47.08C24.739-61.98 17.296-67.362 .394-66.565 1.65-59.905 3.025-57.838-1.715-52.284-12.547-39.593-44.709-45.208-54.968-57.53-65.735-70.463-52.252-81.123-48.765-95.063-48.164-97.465-44.67-116.442-47.35-116.463-51.812-91.264-70.919-74.662-92.208-62.98-102.868-57.13-151.786-37.95-155.57-32.288-161.993-22.675-145.57-7.106-138.509-1.065-125.117 10.393-107.685 19.381-90.925 24.752-92.195 33.368-93.384 40.511-89.195 48.653-85.863 50.799-73.219 45.751-69.377 43.927-61.942 40.396-53.097 31.019-47.467 28.786-33.968 23.43 3.701 22.016 11.094 6.121 12.697 2.673 12.6-1.313 14.594-4.628 17.936-10.183 40.783-28.217 41.493-31.866 41.684-34.557 36.515-41.374 34.031-40.856 29.515-36.825 27.829-30.278 20.338-30.962"/>
+          </g>
+        </svg>
+      </div>
+      <h1 data-es="Diseñamos marcas y sitios web." data-en="We design brands and websites.">Diseñamos marcas y sitios web.</h1>
+      <a class="pill pill--light" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20contarte%20mi%20proyecto." target="_blank" rel="noopener" data-es="Hablanos por tu proyecto" data-en="Tell us about your project">Hablanos por tu proyecto</a>
+    </div>
+  </section>
 
-    <nav class="paths" aria-label="Servicios del estudio">
+  <!-- ============ TIRA — trabajo real ============ -->
+  <div class="strip" data-strip>
+    <ul class="strip__vp" aria-label="Trabajo reciente" data-label-es="Trabajo reciente" data-label-en="Recent work">
+      <li class="strip__it"><a href="/branding/proyectos#portada"><figure><img src="/assets/branding/lavaca-strip-00.webp" alt="La Vaca — Portada del brandbook" width="704" height="824" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#vasos"><figure><img src="/assets/branding/lavaca-strip-19.webp" alt="La Vaca — Vasos" width="704" height="824" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/proyectos#p1"><figure><img src="/assets/branding/lavaca-strip-27.webp" alt="La Vaca — Sitio web" width="704" height="824" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#bolsa"><figure><img src="/assets/branding/lavaca-strip-23.webp" alt="La Vaca — Bolsa" width="704" height="824" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#papas"><figure><img src="/assets/branding/lavaca-strip-24.webp" alt="La Vaca — Envase de papas" width="704" height="824" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#individuales"><figure><img src="/assets/branding/lavaca-strip-22.webp" alt="La Vaca — Individuales" width="704" height="824" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#menu"><figure><img src="/assets/branding/lavaca-strip-25.webp" alt="La Vaca — Menú" width="704" height="824" loading="lazy" decoding="async"></figure></a></li>
+      <li class="strip__it"><a href="/branding/proyectos#productos"><figure><img src="/assets/branding/lavaca-strip-20.webp" alt="La Vaca — Productos" width="704" height="824" loading="lazy" decoding="async"></figure></a></li>
+    </ul>
+    <button class="strip__btn strip__btn--prev" type="button" aria-label="Anterior" data-label-es="Anterior" data-label-en="Previous"><svg viewBox="0 0 14 14"><path d="M9 2 4 7l5 5"/></svg></button>
+    <button class="strip__btn strip__btn--next" type="button" aria-label="Siguiente" data-label-es="Siguiente" data-label-en="Next"><svg viewBox="0 0 14 14"><path d="m5 2 5 5-5 5"/></svg></button>
+  </div>
 
-      <!-- ===== Camino 1 · Branding ===== -->
-      <a class="path path--brand" href="/branding" data-path>
-        <span class="path__glow" aria-hidden="true"></span>
-        <span class="path__top">
-          <span class="path__no">01</span>
-          <span class="path__kicker" data-es="Identidad visual" data-en="Visual identity">Identidad visual</span>
-          <span class="path__go" aria-hidden="true"></span>
-        </span>
+  <!-- ============ PRESENTACIÓN ============ -->
+  <section class="wrap">
+    <div class="intro-row">
+      <div></div>
+      <div data-rv>
+        <p class="statement" data-es="Estudio de branding y diseño web en Salta. Hacemos identidades visuales completas y sitios a medida: de la marca al sitio en vivo, todo en un mismo estudio." data-en="Branding and web design studio in Salta. We build complete visual identities and custom websites: from brand to live site, all in one studio.">Estudio de branding y diseño web en Salta. Hacemos identidades visuales completas y sitios a medida: de la marca al sitio en vivo, todo en un mismo estudio.</p>
+        <div class="btns">
+          <a class="pill" href="#servicios" data-es="Elegí por dónde empezar" data-en="Choose where to start">Elegí por dónde empezar</a>
+          <a class="txtlink arw" href="/contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+        </div>
+      </div>
+      <div></div>
+    </div>
+    <hr class="rule">
+  </section>
 
-        <span class="path__visual" aria-hidden="true">
-          <span class="bb" data-tilt>
-            <svg class="bb__grid" viewBox="0 0 400 400" focusable="false">
-              <circle cx="200" cy="200" r="168" />
-              <circle cx="200" cy="200" r="112" />
-              <line x1="200" y1="8" x2="200" y2="392" />
-              <line x1="8" y1="200" x2="392" y2="200" />
-              <line x1="64" y1="64" x2="336" y2="336" />
-            </svg>
-            <span class="bb__page bb__page--1"><img src="/assets/branding/lavaca-bb-14-800.webp" alt="" width="800" height="566" decoding="async" fetchpriority="low"></span>
-            <span class="bb__page bb__page--2"><img src="/assets/branding/lavaca-bb-09-800.webp" alt="" width="800" height="566" decoding="async" fetchpriority="low"></span>
-            <span class="bb__page bb__page--3"><img src="/assets/branding/lavaca-bb-00-800.webp" alt="" width="800" height="566" decoding="async" fetchpriority="low"></span>
-          </span>
-        </span>
-
-        <span class="path__body">
-          <span class="path__name">Branding</span>
-          <span class="path__desc"
-                data-es="Logo, identidad y manual de marca para que te reconozcan antes de leerte."
-                data-en="Logo, identity and brand guidelines so people recognise you before they read you.">Logo, identidad y manual de marca para que te reconozcan antes de leerte.</span>
-          <span class="path__tags">
-            <span>Logo</span>
-            <span data-es="Identidad" data-en="Identity">Identidad</span>
-            <span>Brandbook</span>
-            <span>Packaging</span>
-          </span>
-          <span class="path__cta" data-es="Entrar a Branding" data-en="Enter Branding">Entrar a Branding</span>
-        </span>
-      </a>
-
-      <!-- ===== Camino 2 · Diseño web ===== -->
-      <a class="path path--web" href="/diseno-web" data-path>
-        <span class="path__glow" aria-hidden="true"></span>
-        <span class="path__top">
-          <span class="path__no">02</span>
-          <span class="path__kicker" data-es="Sitios a medida" data-en="Custom websites">Sitios a medida</span>
-          <span class="path__go" aria-hidden="true"></span>
-        </span>
-
-        <span class="path__visual" aria-hidden="true">
-          <span class="browser" data-tilt>
-            <span class="browser__bar">
-              <i></i><i></i><i></i>
-              <span class="browser__url">hierronort.com.ar</span>
-            </span>
-            <span class="browser__screen">
-              <img src="/assets/portal-web.webp" alt="" width="600" height="1740" decoding="async" fetchpriority="low">
-            </span>
-          </span>
-        </span>
-
-        <span class="path__body">
-          <span class="path__name" data-es="Diseño web" data-en="Web design">Diseño web</span>
-          <span class="path__desc"
-                data-es="Sitios a medida, rápidos y listos para Google, pensados para traer consultas."
-                data-en="Custom sites, fast and ready for Google, built to bring in enquiries.">Sitios a medida, rápidos y listos para Google, pensados para traer consultas.</span>
-          <span class="path__tags">
-            <span>UX/UI</span>
-            <span data-es="Desarrollo" data-en="Development">Desarrollo</span>
-            <span>SEO</span>
-            <span data-es="Mobile first" data-en="Mobile first">Mobile first</span>
-          </span>
-          <span class="path__cta" data-es="Entrar a Diseño web" data-en="Enter Web design">Entrar a Diseño web</span>
-        </span>
-      </a>
-
-    </nav>
-
-    <div class="portal__foot">
-      <p class="portal__claim" data-es="De la marca al sitio en vivo, todo en un mismo estudio." data-en="From brand to live site, all in one studio.">De la marca al sitio en vivo, todo en un mismo estudio.</p>
-      <div class="portal__actions">
-        <a class="btn btn--solid ico-arrow portal__wa" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20contarte%20mi%20proyecto." target="_blank" rel="noopener" data-es="Hablanos por tu proyecto" data-en="Tell us about your project">Hablanos por tu proyecto</a>
+  <!-- ============ PROYECTOS ============ -->
+  <section class="sec" id="proyectos">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Proyectos" data-en="Work">Proyectos</h2>
+        <p data-es="Casos reales, en vivo: marcas y sitios que ya están trabajando." data-en="Real, live cases: brands and sites already at work.">Casos reales, en vivo: marcas y sitios que ya están trabajando.</p>
+      </header>
+      <div class="work">
+        <a class="card" href="/branding/proyectos" data-rv>
+          <div class="card__img"><img src="/assets/branding/lavaca-bb-00-1600.webp" srcset="/assets/branding/lavaca-bb-00-800.webp 800w, /assets/branding/lavaca-bb-00-1600.webp 1600w" sizes="(max-width: 700px) 100vw, 50vw" alt="La Vaca — Brandbook" width="1600" height="1131" loading="lazy" decoding="async"></div>
+          <p class="card__name">La Vaca</p>
+        </a>
+        <a class="card" href="/proyectos#p15" data-rv>
+          <div class="card__img"><img src="/assets/hierronort.webp" alt="Hierronort — Sitio web" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">Hierronort</p>
+        </a>
+        <a class="card" href="/proyectos#p1" data-rv>
+          <div class="card__img"><img src="/assets/lavaca-v16.webp" alt="La Vaca — Sitio web" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">La Vaca</p>
+        </a>
+        <a class="card" href="/proyectos#p16" data-rv>
+          <div class="card__img"><img src="/assets/paravicini-v3.webp" alt="Paravicini Arquitectura — Sitio web" width="1200" height="825" loading="lazy" decoding="async"></div>
+          <p class="card__name">Paravicini</p>
+        </a>
+      </div>
+      <div class="row" data-rv>
+        <p data-es="Mirá el portfolio completo de sitios y marcas." data-en="See the full portfolio of sites and brands.">Mirá el portfolio completo de sitios y marcas.</p>
+        <a class="pill arw" href="/proyectos" data-es="Ver más proyectos" data-en="See more work">Ver más proyectos</a>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- ============ SERVICIOS — los dos caminos ============ -->
+  <section id="servicios">
+    <div class="wrap">
+      <header class="sh" data-rv>
+        <h2 class="display" data-es="Servicios" data-en="Services">Servicios</h2>
+        <p data-es="Branding, diseño gráfico y sitios a medida, desde Salta. Elegí por dónde empezar." data-en="Branding, graphic design and custom websites, from Salta. Choose where to start.">Branding, diseño gráfico y sitios a medida, desde Salta. Elegí por dónde empezar.</p>
+      </header>
+
+      <article class="svc">
+        <div class="svc__n" aria-hidden="true">01</div>
+        <div class="svc__body" data-rv>
+          <h3>Branding</h3>
+          <div class="svc__cols">
+            <p data-es="Logo, identidad y manual de marca para que te reconozcan antes de leerte." data-en="Logo, identity and brand guidelines so people recognise you before they read you.">Logo, identidad y manual de marca para que te reconozcan antes de leerte.</p>
+            <p data-es="Un sistema completo: estrategia, color, tipografía y aplicaciones, listo para imprenta y para pantalla." data-en="A complete system: strategy, colour, type and applications, ready for print and screen.">Un sistema completo: estrategia, color, tipografía y aplicaciones, listo para imprenta y para pantalla.</p>
+          </div>
+          <ol class="svc__list">
+            <li><span>01</span><span data-es="Estrategia de marca" data-en="Brand strategy">Estrategia de marca</span></li>
+            <li><span>02</span><span>Logo</span></li>
+            <li><span>03</span><span data-es="Identidad visual" data-en="Visual identity">Identidad visual</span></li>
+            <li><span>04</span><span data-es="Brandbook y packaging" data-en="Brandbook and packaging">Brandbook y packaging</span></li>
+          </ol>
+          <a class="pill arw svc__more" href="/branding" data-es="Entrar a Branding" data-en="Enter Branding">Entrar a Branding</a>
+        </div>
+      </article>
+
+      <article class="svc">
+        <div class="svc__n" aria-hidden="true">02</div>
+        <div class="svc__body" data-rv>
+          <h3 data-es="Diseño web" data-en="Web design">Diseño web</h3>
+          <div class="svc__cols">
+            <p data-es="Sitios a medida, rápidos y listos para Google, pensados para traer consultas." data-en="Custom sites, fast and ready for Google, built to bring in enquiries.">Sitios a medida, rápidos y listos para Google, pensados para traer consultas.</p>
+            <p data-es="Diseño UX/UI, desarrollo con código propio, SEO y optimización de carga." data-en="UX/UI design, hand-written code, SEO and load optimisation.">Diseño UX/UI, desarrollo con código propio, SEO y optimización de carga.</p>
+          </div>
+          <ol class="svc__list">
+            <li><span>01</span><span>UX/UI</span></li>
+            <li><span>02</span><span data-es="Desarrollo" data-en="Development">Desarrollo</span></li>
+            <li><span>03</span><span>SEO</span></li>
+            <li><span>04</span><span>Mobile first</span></li>
+          </ol>
+          <a class="pill arw svc__more" href="/diseno-web" data-es="Entrar a Diseño web" data-en="Enter Web design">Entrar a Diseño web</a>
+        </div>
+      </article>
+
+      <div class="row row--top">
+        <p data-es="Recibí atención personalizada" data-en="Get one-to-one attention">Recibí atención personalizada</p>
+        <a class="pill arw" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20contarte%20mi%20proyecto." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CIERRE ============ -->
+  <section class="close">
+    <div class="wrap">
+      <a class="close__title display display--xl" href="/contacto" data-rv data-es="Hablemos." data-en="Let's talk.">Hablemos.</a>
+      <div class="close__grid">
+        <div></div>
+        <div data-rv>
+          <p class="statement" data-es="De la marca al sitio en vivo, todo en un mismo estudio. Contanos tu proyecto y en 24–48 h tenés una respuesta concreta." data-en="From brand to live site, all in one studio. Tell us about your project and get a concrete answer within 24–48 h.">De la marca al sitio en vivo, todo en un mismo estudio. Contanos tu proyecto y en 24–48 h tenés una respuesta concreta.</p>
+          <div class="btns">
+            <a class="pill pill--light" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20contarte%20mi%20proyecto." target="_blank" rel="noopener" data-es="Hablanos por tu proyecto" data-en="Tell us about your project">Hablanos por tu proyecto</a>
+            <a class="txtlink txtlink--plain arw" href="mailto:lcsdesignstudio1@gmail.com">lcsdesignstudio1@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <div id="site-footer"></div>
 
-<script src="/js/portal.js" defer></script>
-<script src="/js/site.js" defer></script>
+<script src="/js/mono.js" defer></script>
 </body>
 </html>
