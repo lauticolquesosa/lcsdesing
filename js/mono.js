@@ -147,7 +147,7 @@
           <div class="ft__bottom">
             <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372" loading="lazy" decoding="async"></a>
             <div class="ft__legal">
-              <span ${t('© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina', '© 2026 LCS · Branding &amp; Web Design Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina</span>
+              <span ${t('© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina', '© 2026 LCS · Web Design &amp; Branding Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina</span>
               <a href="/terminos" ${t('Términos y condiciones', 'Terms &amp; conditions')}>Términos y condiciones</a>
             </div>
           </div>
