@@ -882,29 +882,3 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 }
 .benefits__bar-body { display: flex; align-items: baseline; gap: 12px; }
 @media (max-width: 640px) { .benefits__bar-body { display: block; line-height: 1.35; } }
-
-/* ============================================================
-   MARGEN ÚNICO
-   Todo arranca en el mismo margen izquierdo (el de la tira de
-   proyectos), a cualquier ancho: sin ancho máximo centrado. Los
-   bloques de texto y botones van pegados a ese margen, sin la columna
-   vacía que los corría hacia el centro.
-   ============================================================ */
-.wrap { max-width: none; }
-.phero__grid, .close__grid { grid-template-columns: minmax(0, 1fr); }
-.phero__grid .statement, .close__grid .statement { max-width: 720px; }
-.intro-row { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-.intro-row .statement { max-width: 720px; }
-.intro-row__label { padding-top: 0; }
-.faq-wrap { grid-template-columns: minmax(0, 1fr); }
-.faq { max-width: 1100px; }
-.legal { margin-left: 0; }
-/* Las reglas viejas apuntaban a la columna vacía (primera o última); sin
-   ella, el contenido real no debe heredar el gris ni ocultarse en celular */
-.phero__grid > :first-child { font-size: inherit; color: inherit; letter-spacing: inherit; }
-@media (max-width: 900px) {
-  .intro-row > :first-child, .intro-row > :last-child { display: block; }
-}
-@media (max-width: 760px) {
-  .close__grid > :first-child, .phero__grid > :first-child:empty { display: block; }
-}
