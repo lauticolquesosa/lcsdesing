@@ -911,3 +911,17 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 /* Tira del brandbook: proporción de las páginas (1600x1131), enteras */
 .strip--bb .strip__it figure { aspect-ratio: 1600 / 1131; }
 .strip--bb .strip__it img { object-position: center; }
+
+/* ============================================================
+   FOTOS 4:5 (La Vaca, Yerba Mix)
+   ============================================================ */
+/* tira de la portada y del home de Branding en el formato de las fotos */
+.strip--photo .strip__it figure { aspect-ratio: 4 / 5; }
+.strip__it video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.strip--photo .strip__it--site img { object-position: top center; }
+/* galería de tres columnas para fotos verticales (branding/proyectos) */
+.gallery--tall { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.gallery--tall .shot { aspect-ratio: 4 / 5; }
+.gallery--tall .shot img, .gallery--tall .shot video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 900px) { .gallery--tall { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 520px) { .gallery--tall { grid-template-columns: 1fr; } }

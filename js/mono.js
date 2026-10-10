@@ -243,6 +243,8 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let busy = false, timer = null, visible = true;
 
+    // mover un nodo con <video> lo pausa: se vuelve a reproducir (mudo, en loop)
+    const replay = el => el.querySelectorAll('video').forEach(v => { const r = v.play(); if (r) r.catch(() => {}); });
     const ease = t => 1 - Math.pow(1 - t, 3);
     const slide = (to, dur) => new Promise(done => {
       if (!dur) { vp.scrollLeft = to; return done(); }
@@ -259,14 +261,18 @@
       if (busy) return; busy = true;
       const st = step();
       await slide(vp.scrollLeft + st, reduced ? 0 : DUR);
-      vp.appendChild(vp.firstElementChild);   // la que salió va al final
+      const moved = vp.firstElementChild;
+      vp.appendChild(moved);                    // la que salió va al final
+      replay(moved);
       vp.scrollLeft -= st;                      // y el scroll se corrige sin que se vea
       busy = false;
     }
     async function backward() {
       if (busy) return; busy = true;
       const st = step();
-      vp.insertBefore(vp.lastElementChild, vp.firstElementChild);
+      const moved = vp.lastElementChild;
+      vp.insertBefore(moved, vp.firstElementChild);
+      replay(moved);
       vp.scrollLeft += st;
       await slide(vp.scrollLeft - st, reduced ? 0 : DUR);
       busy = false;
