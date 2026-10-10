@@ -904,3 +904,6 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .mm { justify-content: flex-start; }
 .mm__foot { margin-top: auto; }
 @media (max-width: 900px) { .hd__end .pswitch { display: none; } }
+
+/* Título grande del hero de cada página, un poco más chico */
+.phero .display--xl { font-size: clamp(56px, 11vw, 168px); }
