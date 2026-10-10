@@ -172,6 +172,14 @@
         prev.disabled = vp.scrollLeft < 4;
         next.disabled = vp.scrollLeft + vp.clientWidth > vp.scrollWidth - 4;
       };
+      // data-strip-start: arranca con tarjetas enteras centradas y una
+      // cortada en cada borde, como en la referencia
+      const start = +s.dataset.stripStart || 0;
+      if (start) {
+        const st = step();
+        const n = Math.max(1, Math.floor(vp.clientWidth / st));
+        vp.scrollLeft = Math.max(0, start * st - (vp.clientWidth - n * st + 10) / 2);
+      }
       prev.addEventListener('click', () => vp.scrollBy({ left: -step(), behavior: 'smooth' }));
       next.addEventListener('click', () => vp.scrollBy({ left: step(), behavior: 'smooth' }));
       vp.addEventListener('scroll', sync, { passive: true });

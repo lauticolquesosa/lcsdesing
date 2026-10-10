@@ -457,8 +457,6 @@ html.intro-on .hero { animation: hero-in 1s var(--ease) 2.25s both; }
    Las imágenes van en escala de grises y toman color al pasar.
    ============================================================ */
 .hero__lead { margin: 14px auto 0; max-width: 460px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: var(--muted); }
-body[data-page="portal"] .hero { padding: clamp(40px, 5vw, 64px) 0 clamp(40px, 4.4vw, 60px); }
-body[data-page="portal"] .hero__logo { width: min(440px, 72vw); }
 
 .paths { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
 .path { display: flex; flex-direction: column; }
@@ -488,4 +486,17 @@ body[data-page="portal"] .row { margin-top: clamp(48px, 6vw, 80px); border-top: 
   body[data-page="portal"] .row { flex-direction: column; align-items: flex-start; }
 }
 @media (hover: none) { .path__img img { filter: none; } }
-html.intro-on body[data-page="portal"] .paths { animation: hero-in 1s var(--ease) 2.4s both; }
+
+/* ============================================================
+   PORTADA — tira de borde a borde y "quiénes somos" (como la referencia)
+   Las tarjetas miden 24,4% del ancho en proporción 352×513, sin margen
+   lateral: asoman cortadas en los dos bordes. Sin bucle: las flechas
+   avanzan de a una tarjeta y se apagan en los extremos.
+   ============================================================ */
+.strip--bleed .strip__vp { padding: 0; scroll-padding: 0; scroll-snap-type: none; }
+.strip--bleed .strip__it { flex-basis: max(250px, 24.44vw); }
+.strip--bleed .strip__it figure { aspect-ratio: 352 / 513; }
+.intro-row__label { font-size: 14px; font-weight: 500; line-height: 1; text-transform: uppercase; letter-spacing: -.03em; color: var(--dim); padding-top: 8px; }
+.paths { padding-top: clamp(56px, 6vw, 84px); }
+@media (max-width: 900px) { .intro-row .intro-row__label { display: block; } }
+html.intro-on .strip--bleed { animation: hero-in 1s var(--ease) 2.4s both; }
