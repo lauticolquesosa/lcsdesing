@@ -222,7 +222,42 @@
       vp.addEventListener('scroll', sync, { passive: true });
       window.addEventListener('resize', sync);
       sync();
+      if (s.hasAttribute('data-strip-auto')) autoplay(s, vp, step);
     });
+  }
+
+  /* data-strip-auto: la tira avanza sola de a un proyecto, con una pausa
+     entre uno y otro (no es un desplazamiento continuo). Al llegar al final
+     vuelve al principio. Se detiene con el mouse encima, con el foco
+     adentro, fuera de pantalla o con la pestaña oculta; si la persona usa
+     las flechas o desliza, espera un ciclo antes de seguir. Con movimiento
+     reducido no arranca. */
+  function autoplay(s, vp, step) {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const DELAY = 3200;
+    let timer = null, hover = false, focus = false, visible = true, held = false;
+    const canRun = () => !hover && !focus && visible && !document.hidden;
+    const tick = () => {
+      timer = null;
+      if (!canRun()) return;
+      if (held) { held = false; return schedule(); }
+      const atEnd = vp.scrollLeft + vp.clientWidth > vp.scrollWidth - 4;
+      vp.scrollTo({ left: atEnd ? 0 : vp.scrollLeft + step(), behavior: 'smooth' });
+      schedule();
+    };
+    const schedule = () => { clearTimeout(timer); timer = canRun() ? setTimeout(tick, DELAY) : null; };
+    s.addEventListener('mouseenter', () => { hover = true; schedule(); });
+    s.addEventListener('mouseleave', () => { hover = false; schedule(); });
+    s.addEventListener('focusin', () => { focus = true; schedule(); });
+    s.addEventListener('focusout', () => { focus = false; schedule(); });
+    // un toque o un clic en las flechas cuenta como uso: se saltea el próximo paso
+    ['pointerdown', 'touchstart', 'wheel'].forEach(ev => vp.addEventListener(ev, () => { held = true; }, { passive: true }));
+    s.querySelectorAll('.strip__btn').forEach(b => b.addEventListener('click', () => { held = true; schedule(); }));
+    document.addEventListener('visibilitychange', schedule);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.25 }).observe(s);
+    }
+    schedule();
   }
 
   function reveals() {
