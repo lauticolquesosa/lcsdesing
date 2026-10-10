@@ -834,3 +834,7 @@ body[data-page="portal"] .hero__lead { margin-top: 12px; }
 /* Homes de Branding y Diseño web: títulos de sección un poco más chicos
    (el hero y el cierre conservan su tamaño) */
 body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
+
+/* Texto al lado del proceso: todo en blanco y peso normal, sin destacados */
+.proc__aside p { color: var(--fg); font-weight: 400; }
+.proc__aside strong { color: inherit; font-weight: inherit; }
