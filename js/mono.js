@@ -87,7 +87,6 @@
           </nav>
           <div class="hd__end">
             ${sw}
-            <a class="hd__cta" href="/contacto"${cur('contacto')} ${t('Contacto', 'Contact')}>Contacto</a>
             <div class="lang" role="group" aria-label="Idioma / Language">
               <button type="button" data-lang="es">ES</button><span aria-hidden="true">/</span><button type="button" data-lang="en">EN</button>
             </div>
