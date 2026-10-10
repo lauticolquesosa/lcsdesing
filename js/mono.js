@@ -239,8 +239,8 @@
      batería). Con movimiento reducido no avanza sola, pero las flechas
      siguen funcionando. */
   function loop(s, vp, step, prev, next) {
-    const DELAY = 2200;   // pausa entre paso y paso
-    const DUR = 650;      // duración del deslizamiento de una tarjeta
+    const DELAY = 1500;   // pausa entre paso y paso
+    const DUR = 550;      // duración del deslizamiento de una tarjeta
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let busy = false, timer = null, visible = true;
 
