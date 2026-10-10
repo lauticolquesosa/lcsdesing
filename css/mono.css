@@ -459,33 +459,49 @@ html.intro-on .hero { animation: hero-in 1s var(--ease) 2.25s both; }
 .hero__lead { margin: 14px auto 0; max-width: 460px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: var(--muted); }
 
 .paths { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
-.path { display: flex; flex-direction: column; }
-.path__img { aspect-ratio: 676 / 460; border-radius: 8px; overflow: hidden; background: #0f0f0f; }
-.path__img img {
-  width: 100%; height: 100%; object-fit: cover;
-  filter: grayscale(1) contrast(1.05) brightness(.82);
-  transition: filter .8s var(--ease), transform 1.2s var(--ease);
+.path {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; min-height: clamp(380px, 34vw, 500px);
+  padding: clamp(24px, 2.4vw, 36px); border: 1px solid var(--line-strong); border-radius: 8px;
+  transition: color .5s var(--ease), border-color .5s var(--ease);
 }
-.path:hover .path__img img, .path:focus-visible .path__img img { filter: none; transform: scale(1.03); }
-.path__head {
-  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
-  padding: 20px 0 16px; border-bottom: 1px solid var(--line-strong);
+/* relleno blanco que sube desde abajo */
+.path::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; background: var(--fg);
+  transform: scaleY(0); transform-origin: bottom; transition: transform .6s var(--ease);
 }
-.path__name { font-size: clamp(40px, 5.6vw, 80px); font-weight: 500; line-height: .82; text-transform: uppercase; letter-spacing: -.075em; }
-.path__n { font-family: var(--num); font-weight: 800; font-size: clamp(28px, 2.6vw, 40px); line-height: .8; color: var(--dim); transition: color .4s var(--ease); }
-.path:hover .path__n { color: var(--fg); }
+.path:hover, .path:focus-visible { color: var(--bg); border-color: var(--fg); }
+.path:hover::before, .path:focus-visible::before { transform: scaleY(1); }
+.path__top { display: flex; justify-content: space-between; align-items: flex-start; }
+.path__n { font-family: var(--num); font-weight: 800; font-size: clamp(28px, 2.6vw, 40px); line-height: .8; color: var(--dim); transition: color .5s var(--ease); }
+.path:hover .path__n, .path:focus-visible .path__n { color: var(--bg); }
+.path__go {
+  width: 52px; height: 52px; border-radius: 50%; border: 1.5px solid currentColor; position: relative;
+  transition: transform .6s var(--ease);
+}
+.path__go::after {
+  content: ''; position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.path:hover .path__go, .path:focus-visible .path__go { transform: rotate(45deg); }
+.path__name {
+  margin-top: auto; padding: 40px 0 20px; border-bottom: 1px solid var(--line-strong);
+  font-size: clamp(52px, 7.6vw, 120px); font-weight: 500; line-height: .8; text-transform: uppercase; letter-spacing: -.075em;
+  transition: border-color .5s var(--ease), transform .6s var(--ease);
+}
+.path:hover .path__name, .path:focus-visible .path__name { border-color: rgba(0,0,0,.2); }
 .path__foot { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding-top: 18px; }
-.path__foot p { max-width: 360px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: var(--soft); }
+.path__foot p { max-width: 360px; font-size: 16px; line-height: 1.4; letter-spacing: -.03em; color: inherit; opacity: .82; }
 .path__foot .txtlink { flex-shrink: 0; padding-top: 2px; }
-.path:hover .txtlink::after { opacity: 1; transform: translate(2px,-2px); }
 body[data-page="portal"] .row { margin-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); }
 @media (max-width: 760px) {
-  .paths { grid-template-columns: 1fr; gap: 48px; }
+  .paths { grid-template-columns: 1fr; }
+  .path { min-height: 320px; }
   .path__foot { flex-direction: column; gap: 14px; }
-  .path__img img { filter: none; }
   body[data-page="portal"] .row { flex-direction: column; align-items: flex-start; }
 }
-@media (hover: none) { .path__img img { filter: none; } }
+@media (prefers-reduced-motion: reduce) { .path::before, .path__go { transition: none; } }
 
 /* ============================================================
    PORTADA — tira de borde a borde y "quiénes somos" (como la referencia)
