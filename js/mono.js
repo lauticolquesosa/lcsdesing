@@ -265,6 +265,7 @@
       vp.appendChild(moved);                    // la que salió va al final
       replay(moved);
       vp.scrollLeft -= st;                      // y el scroll se corrige sin que se vea
+      replay(vp);                               // y todos los videos de la tira siguen andando
       busy = false;
     }
     async function backward() {
@@ -286,6 +287,7 @@
     next.addEventListener('click', async () => { await forward(); schedule(); });
     prev.addEventListener('click', async () => { await backward(); schedule(); });
     prev.disabled = next.disabled = false;
+    replay(vp);
     document.addEventListener('visibilitychange', schedule);
     if ('IntersectionObserver' in window) {
       new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.1 }).observe(s);
