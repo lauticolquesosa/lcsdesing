@@ -807,3 +807,26 @@ body[data-page="portal"] .hero__lead { margin-top: 12px; }
 @media (prefers-reduced-motion: reduce) { .perk__screen img { transition: none; } }
 .perk__num { white-space: nowrap; }
 .perk__num span { margin-left: .12em; font-size: .36em; font-weight: 600; letter-spacing: -.02em; color: var(--muted); }
+
+/* Por qué LCS: beneficios en texto a la izquierda, card blanca a la derecha */
+.benefits { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 8px clamp(32px, 5vw, 80px); align-items: stretch; }
+.benefits__text .statement { max-width: 640px; margin-bottom: clamp(32px, 4vw, 48px); }
+.benefits__list { border-top: 1px solid var(--line-strong); }
+.benefits__list li {
+  display: grid; grid-template-columns: 48px minmax(0, 5fr) minmax(0, 6fr); gap: 6px 24px; align-items: baseline;
+  padding: 20px 0; border-bottom: 1px solid var(--line-strong);
+}
+.benefits__n { font-size: 14px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.benefits__list h3 { font-size: clamp(20px, 1.8vw, 24px); font-weight: 500; letter-spacing: -.04em; line-height: 1.15; }
+.benefits__list p { color: var(--muted); font-size: 15px; line-height: 1.45; letter-spacing: -.01em; }
+.benefits__card { grid-column: auto; min-height: 320px; }
+.benefits__card h3 { font-size: clamp(26px, 2.4vw, 34px); }
+.benefits__card p { font-size: 16px; }
+@media (max-width: 900px) {
+  .benefits { grid-template-columns: 1fr; }
+  .benefits__card { min-height: 240px; }
+}
+@media (max-width: 560px) {
+  .benefits__list li { grid-template-columns: 36px 1fr; }
+  .benefits__list p { grid-column: 2; }
+}
