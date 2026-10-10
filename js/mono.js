@@ -217,45 +217,71 @@
         const n = Math.max(1, Math.floor(vp.clientWidth / st));
         vp.scrollLeft = Math.max(0, start * st - (vp.clientWidth - n * st + 10) / 2);
       }
+      // data-strip-auto: ciclo infinito que avanza solo (ver loop())
+      if (s.hasAttribute('data-strip-auto')) return loop(s, vp, step, prev, next);
       prev.addEventListener('click', () => vp.scrollBy({ left: -step(), behavior: 'smooth' }));
       next.addEventListener('click', () => vp.scrollBy({ left: step(), behavior: 'smooth' }));
       vp.addEventListener('scroll', sync, { passive: true });
       window.addEventListener('resize', sync);
       sync();
-      if (s.hasAttribute('data-strip-auto')) autoplay(s, vp, step);
     });
   }
 
-  /* data-strip-auto: la tira avanza sola de a un proyecto, con una pausa
-     entre uno y otro (no es un desplazamiento continuo). Al llegar al final
-     vuelve al principio. Se detiene con el mouse encima, con el foco
-     adentro, fuera de pantalla o con la pestaña oculta; si la persona usa
-     las flechas o desliza, espera un ciclo antes de seguir. Con movimiento
-     reducido no arranca. */
-  function autoplay(s, vp, step) {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const DELAY = 3200;
-    let timer = null, hover = false, focus = false, visible = true, held = false;
-    const canRun = () => !hover && !focus && visible && !document.hidden;
-    const tick = () => {
-      timer = null;
-      if (!canRun()) return;
-      if (held) { held = false; return schedule(); }
-      const atEnd = vp.scrollLeft + vp.clientWidth > vp.scrollWidth - 4;
-      vp.scrollTo({ left: atEnd ? 0 : vp.scrollLeft + step(), behavior: 'smooth' });
-      schedule();
+  /* Tira infinita (portada): avanza sola de a una tarjeta, siempre, con una
+     pausa corta entre paso y paso; no es un desplazamiento continuo.
+     Nunca vuelve al principio: cuando una tarjeta termina de salir por la
+     izquierda se pasa al final de la fila y se corrige el scroll en el mismo
+     cuadro, así el corrimiento no se ve y la fila no se termina nunca. Las
+     flechas usan el mismo ciclo y no se apagan. Solo descansa cuando la tira
+     no está en pantalla o la pestaña está oculta (no se nota y ahorra
+     batería). Con movimiento reducido no avanza sola, pero las flechas
+     siguen funcionando. */
+  function loop(s, vp, step, prev, next) {
+    const DELAY = 2200;   // pausa entre paso y paso
+    const DUR = 650;      // duración del deslizamiento de una tarjeta
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let busy = false, timer = null, visible = true;
+
+    const ease = t => 1 - Math.pow(1 - t, 3);
+    const slide = (to, dur) => new Promise(done => {
+      if (!dur) { vp.scrollLeft = to; return done(); }
+      const from = vp.scrollLeft, t0 = performance.now();
+      const f = now => {
+        const k = Math.min(1, (now - t0) / dur);
+        vp.scrollLeft = from + (to - from) * ease(k);
+        k < 1 ? requestAnimationFrame(f) : done();
+      };
+      requestAnimationFrame(f);
+    });
+
+    async function forward() {
+      if (busy) return; busy = true;
+      const st = step();
+      await slide(vp.scrollLeft + st, reduced ? 0 : DUR);
+      vp.appendChild(vp.firstElementChild);   // la que salió va al final
+      vp.scrollLeft -= st;                      // y el scroll se corrige sin que se vea
+      busy = false;
+    }
+    async function backward() {
+      if (busy) return; busy = true;
+      const st = step();
+      vp.insertBefore(vp.lastElementChild, vp.firstElementChild);
+      vp.scrollLeft += st;
+      await slide(vp.scrollLeft - st, reduced ? 0 : DUR);
+      busy = false;
+    }
+
+    const running = () => !reduced && visible && !document.hidden;
+    const schedule = () => {
+      clearTimeout(timer);
+      timer = running() ? setTimeout(async () => { await forward(); schedule(); }, DELAY) : null;
     };
-    const schedule = () => { clearTimeout(timer); timer = canRun() ? setTimeout(tick, DELAY) : null; };
-    s.addEventListener('mouseenter', () => { hover = true; schedule(); });
-    s.addEventListener('mouseleave', () => { hover = false; schedule(); });
-    s.addEventListener('focusin', () => { focus = true; schedule(); });
-    s.addEventListener('focusout', () => { focus = false; schedule(); });
-    // un toque o un clic en las flechas cuenta como uso: se saltea el próximo paso
-    ['pointerdown', 'touchstart', 'wheel'].forEach(ev => vp.addEventListener(ev, () => { held = true; }, { passive: true }));
-    s.querySelectorAll('.strip__btn').forEach(b => b.addEventListener('click', () => { held = true; schedule(); }));
+    next.addEventListener('click', async () => { await forward(); schedule(); });
+    prev.addEventListener('click', async () => { await backward(); schedule(); });
+    prev.disabled = next.disabled = false;
     document.addEventListener('visibilitychange', schedule);
     if ('IntersectionObserver' in window) {
-      new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.25 }).observe(s);
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; schedule(); }, { threshold: 0.1 }).observe(s);
     }
     schedule();
   }
