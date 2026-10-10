@@ -882,3 +882,9 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 }
 .benefits__bar-body { display: flex; align-items: baseline; gap: 12px; }
 @media (max-width: 640px) { .benefits__bar-body { display: block; line-height: 1.35; } }
+
+/* Hero de las páginas: el texto y los botones van alineados con el título,
+   en el mismo margen izquierdo (sin la columna vacía que los corría) */
+.phero__grid { grid-template-columns: minmax(0, 1fr); }
+.phero__grid > :first-child { font-size: inherit; color: inherit; letter-spacing: inherit; }
+.phero__grid .statement { max-width: 720px; }
