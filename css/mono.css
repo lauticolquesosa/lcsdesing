@@ -907,3 +907,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 
 /* Título grande del hero de cada página, un poco más chico */
 .phero .display--xl { font-size: clamp(56px, 11vw, 168px); }
+
+/* Tira del brandbook: proporción de las páginas (1600x1131), enteras */
+.strip--bb .strip__it figure { aspect-ratio: 1600 / 1131; }
+.strip--bb .strip__it img { object-position: center; }
