@@ -948,3 +948,16 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .card__img--45 { aspect-ratio: 4 / 5; }
 @media (max-width: 900px) { .work--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) { .work--3 { grid-template-columns: 1fr; } }
+
+/* índice de casos: filas con nombre, rubro, año y flecha */
+.cidx { border-top: 1px solid var(--line-strong); }
+.cidx__row { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 4fr) 80px 48px; gap: 16px; align-items: center; padding: clamp(18px, 2.2vw, 28px) 0; border-bottom: 1px solid var(--line-strong); transition: padding .4s var(--ease); }
+.cidx__name { font-size: clamp(30px, 4vw, 60px); font-weight: 500; text-transform: uppercase; letter-spacing: -.06em; line-height: .9; }
+.cidx__cat, .cidx__year { color: var(--muted); font-size: 15px; letter-spacing: -.01em; }
+.cidx__go { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--line-strong); position: relative; justify-self: end; transition: background .3s var(--ease), border-color .3s var(--ease), color .3s var(--ease), transform .5s var(--ease); }
+.cidx__go::after { content: ""; position: absolute; inset: 0; margin: auto; width: 12px; height: 12px; background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 10 10 2M3.5 2H10v6.5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat; }
+.cidx__row:hover { padding-left: 12px; }
+.cidx__row:hover .cidx__go { background: var(--fg); border-color: var(--fg); color: var(--bg); transform: rotate(45deg); }
+@media (max-width: 700px) { .cidx__row { grid-template-columns: 1fr 44px; } .cidx__cat { grid-row: 2; } .cidx__year { display: none; } .cidx__go { grid-row: 1 / span 2; grid-column: 2; } }
