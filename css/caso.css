@@ -334,3 +334,75 @@
 .picts--lv .picts__it { width: 100%; max-width: 150px; justify-self: center; }
 .case--lv .ig-story__btn { align-self: flex-start; padding: 3.5cqw 7cqw; border-radius: 99px; font-family: var(--brand); font-size: 6cqw; font-weight: 600; }
 @media (max-width: 420px) { .vals__t { font-size: 8.4vw; } }
+
+/* ============================================================
+   YERBA MIX
+   ============================================================ */
+.case--ym { --bosque: #094121; --crema: #f1e4c8; --salvia: #7c8e5c; --oliva: #3d533b; --tierra: #85502a; --papel: #f6f1e6; }
+.bg-bosque { background: var(--bosque); } .fg-bosque { color: var(--bosque); }
+.bg-crema { background: var(--crema); } .fg-crema { color: var(--crema); }
+.bg-salvia { background: var(--salvia); } .fg-salvia { color: var(--salvia); }
+.bg-oliva { background: var(--oliva); } .fg-oliva { color: var(--oliva); }
+.bg-tierra { background: var(--tierra); } .fg-tierra { color: var(--tierra); }
+.bg-papel { background: var(--papel); }
+.ym-serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: -.01em; }
+
+.ym-logo { display: inline-flex; flex-direction: column; align-items: center; gap: .4em; }
+.ym-logo__svg, .ym-mark, .ym-word, .ym-ic { display: block; width: 100%; height: auto; overflow: visible; }
+.ym-bajada { font-family: var(--brand); font-weight: 500; font-size: 1em; letter-spacing: .14em; white-space: nowrap; }
+.ym-ic { --bgc: var(--bosque); }
+
+.case--ym .cover__lock { width: min(40%, 480px); font-size: clamp(11px, 1.25vw, 18px); }
+.case--ym .lgrid__logo { width: 46%; font-size: clamp(6px, .7vw, 10px); }
+.case--ym .lgrid__word { width: 62%; }
+.case--ym .lgrid__mark { width: 26%; }
+.lgrid__t.bg-bosque .ym-ic, .lgrid__t.bg-bosque { --bgc: var(--bosque); }
+.ym-k { font-family: Georgia, serif; font-weight: 700; font-size: clamp(28px, 2.8vw, 40px); }
+.case--ym .anat__lock { width: min(40%, 480px); font-size: clamp(10px, 1.1vw, 16px); }
+.case--ym .vals__t { font-size: clamp(26px, 2.6vw, 40px); line-height: 1.05; }
+.case--ym .vals__n { font-family: var(--brand); font-weight: 700; font-size: 14px; opacity: .6; }
+
+/* paleta: ocho tonos en franja */
+.ympal { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; padding: clamp(28px, 4vw, 56px) clamp(20px, 2.6vw, 36px) 0; }
+.ympal__c { aspect-ratio: 1 / 2.2; border-radius: 8px; background: var(--c); display: flex; align-items: flex-end; padding: 12px; font-family: var(--brand); font-size: clamp(9px, .8vw, 12px); font-weight: 600; color: var(--bosque); }
+.ympal__c:nth-child(n+5) { color: var(--crema); }
+.ympal--f1e4c8 { --c: #f1e4c8; box-shadow: inset 0 0 0 1px rgba(9,65,33,.15); } .ympal--d3ccaa { --c: #d3ccaa; } .ympal--b5b68e { --c: #b5b68e; } .ympal--7c8e5c { --c: #7c8e5c; }
+.ympal--5f7c47 { --c: #5f7c47; } .ympal--3d533b { --c: #3d533b; } .ympal--094121 { --c: #094121; } .ympal--0e2719 { --c: #0e2719; }
+@media (max-width: 760px) { .ympal { grid-template-columns: repeat(4, minmax(0, 1fr)); } .ympal__c { aspect-ratio: 1 / 1.5; } }
+
+/* tipografías */
+.type--ym { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; gap: 32px 64px; }
+.type__word { width: min(100%, 460px); }
+.case--ym .type__fam { margin-top: 14px; font-size: clamp(22px, 2vw, 30px); }
+@media (max-width: 760px) { .type--ym { grid-template-columns: 1fr; } }
+
+/* íconos */
+.picts--ym { grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: center; padding: clamp(48px, 6vw, 96px) clamp(40px, 9vw, 160px) 0; }
+.picts--ym .picts__it { max-width: 120px; justify-self: center; width: 100%; }
+@media (max-width: 760px) { .picts--ym { grid-template-columns: repeat(3, minmax(0, 1fr)); padding-inline: 12%; } }
+.pat__field--ym { background: url('/assets/branding/yerba-mix/patron-iconos.svg') 0 0 / clamp(150px, 15vw, 230px) auto repeat; }
+
+/* redes e historias */
+.hl__c--ym { background-image: url('/assets/branding/yerba-mix/patron-iconos.svg'); background-size: 150% auto; }
+.post--pattern-ym { background-image: url('/assets/branding/yerba-mix/patron-iconos.svg'); background-size: 80% auto; justify-content: flex-end; }
+.post__chip--ym { align-self: flex-start; padding: 3cqw 6cqw; border-radius: 99px; background: var(--crema); color: var(--bosque); font-size: 6cqw; font-weight: 600; }
+.case--ym .post__big { font-size: 11cqw; line-height: 1.05; }
+.case--ym .post__logo { width: 70%; font-size: 2.6cqw; }
+.ym-ind { font-family: var(--brand); font-size: 7cqw !important; font-weight: 600; letter-spacing: .08em; text-align: center; }
+.ym-ind span { display: block; font-family: Georgia, serif; font-style: italic; font-weight: 400; font-size: 14cqw; letter-spacing: 0; text-transform: none; }
+.case--ym .social__lock { width: min(56%, 280px); font-size: clamp(8px, .8vw, 12px); }
+.case--ym .ig-story__big { font-size: 11cqw; line-height: 1.1; }
+.ig-story__logo { width: 76%; margin-top: auto; align-self: center; font-size: 2.4cqw; }
+.case--ym .ig-story__iso { width: 44%; align-self: center; }
+.case--ym .ig-story__btn { align-self: flex-start; padding: 3.5cqw 7cqw; border-radius: 99px; font-family: var(--brand); font-size: 6cqw; font-weight: 600; }
+.case--ym .end__lock { width: min(34%, 420px); font-size: clamp(10px, 1.1vw, 16px); }
+@media (max-width: 760px) {
+  .case--ym .cover__lock, .case--ym .anat__lock, .case--ym .end__lock { width: 68%; }
+  .case--ym .lgrid__logo { width: 60%; font-size: 6px; }
+}
+.case--ym .post__mark { width: 30%; align-self: flex-end; }
+.case--ym .hl__iso { width: 56%; }
+.case--ym .ig-story:nth-child(3) .ig-story__big { font-size: 9.5cqw; }
+.case--ym .ig-story:nth-child(3) .ig-story__iso { width: 34%; }
+.case--ym .ig-story:nth-child(3) { justify-content: center; gap: 7cqw; }
+@media (max-width: 420px) { .case--ym .vals__t { font-size: 7.6vw; } }
