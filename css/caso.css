@@ -1,0 +1,214 @@
+/* ============================================================
+   LCS — caso.css
+   Páginas de caso de branding (estructura de presentación tipo
+   Estudio Veka): encabezado con ficha, paneles a todo el ancho con
+   la paleta de la marca, grilla de versiones del logo, aplicaciones,
+   recursos, patrón y piezas para redes. Las piezas gráficas se arman
+   en vivo con el logo vectorial, no son imágenes.
+   ============================================================ */
+
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url('/assets/fonts/montserrat-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Montserrat'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url('/assets/fonts/montserrat-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+/* ---------- paleta de la marca ---------- */
+.case { --petroleo: #1e3d59; --beige: #ccba9c; --pizarra: #36454f; --ceniza: #564e43; --hueso: #f3f0ea; --brand: 'Montserrat', 'Inter', sans-serif; }
+.bg-petroleo { background: var(--petroleo); } .fg-petroleo { color: var(--petroleo); }
+.bg-beige    { background: var(--beige); }    .fg-beige    { color: var(--beige); }
+.bg-pizarra  { background: var(--pizarra); }  .fg-pizarra  { color: var(--pizarra); }
+.bg-ceniza   { background: var(--ceniza); }   .fg-ceniza   { color: var(--ceniza); }
+.bg-hueso    { background: var(--hueso); }    .fg-hueso    { color: var(--hueso); }
+
+/* ---------- logo ---------- */
+.mm-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.mm-iso, .mm-lock { display: block; overflow: visible; }
+.mm-lock text { fill: currentColor; font-family: var(--brand); }
+.mm-t1 { font-size: 60px; font-weight: 600; }
+.mm-t2 { font-size: 34px; font-weight: 500; }
+.mm-t1--h { font-size: 96px; }
+.mm-t2--h { font-size: 56px; }
+
+/* ============================================================
+   ENCABEZADO: nombre, texto y ficha
+   ============================================================ */
+.chd { padding: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 56px); }
+.chd__in { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 32px 64px; align-items: end; }
+.chd__title { font-size: clamp(48px, 6.2vw, 96px); }
+.chd__text { margin-top: clamp(20px, 2vw, 28px); max-width: 560px; font-size: 15px; line-height: 1.5; letter-spacing: -.01em; color: var(--soft); }
+.chd__facts { border-top: 1px solid var(--line-strong); }
+.chd__facts div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line-strong); }
+.chd__facts dt { font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.chd__facts dd { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; text-align: right; }
+@media (max-width: 860px) { .chd__in { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   PANELES
+   ============================================================ */
+.cpanels { display: grid; gap: 8px; }
+.cp { position: relative; overflow: hidden; border-radius: 8px; }
+.cp__img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.cp__hd {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start;
+  padding: clamp(18px, 2vw, 28px) clamp(20px, 2.6vw, 36px) 0;
+  font-family: var(--brand); font-size: 12px; font-weight: 600; letter-spacing: .02em;
+}
+.cp__hd > :last-child { justify-self: end; font-weight: 500; }
+.cp__hd-mid { max-width: 340px; text-align: center; font-weight: 400 !important; font-size: 11px; line-height: 1.4; opacity: .8; }
+@media (max-width: 760px) { .cp__hd { grid-template-columns: 1fr auto; } .cp__hd-mid { display: none; } }
+
+/* portada */
+.cp--cover { aspect-ratio: 16 / 9; display: grid; place-items: center; }
+.cover__lock { width: min(44%, 560px); }
+.cover__q { position: absolute; max-width: 260px; font-family: var(--brand); font-size: clamp(11px, 1.05vw, 15px); line-height: 1.45; }
+.cover__q b { font-weight: 700; }
+.cover__q--a { top: 12%; left: 9%; text-align: right; }
+.cover__q--b { bottom: 12%; right: 9%; }
+@media (max-width: 760px) { .cp--cover { aspect-ratio: 4 / 5; } .cover__lock { width: 68%; } .cover__q { max-width: 60%; } .cover__q--a { top: 8%; left: 7%; } .cover__q--b { bottom: 8%; right: 7%; } }
+
+/* versiones del logo */
+.lgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.lgrid__t { aspect-ratio: 1.4; border-radius: 8px; display: grid; place-items: center; }
+.lgrid__t .mm-lock { width: 52%; }
+.lgrid__t .mm-lock--h { width: 74%; }
+.mm-iso--tile { width: 40%; }
+@media (max-width: 760px) { .lgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* dos aplicaciones lado a lado */
+.cp--duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2.4vw, 32px); padding: clamp(20px, 3.6vw, 56px); }
+.cp--duo .cp__img { aspect-ratio: 1.414; border-radius: 4px; }
+.cp--duo-tall { grid-template-columns: minmax(0, 4fr) minmax(0, 5fr); align-items: center; }
+.cp--duo-tall .cp__img:first-child { aspect-ratio: 4 / 5; }
+.cp--duo-tall .cp__img:last-child { aspect-ratio: 1; }
+@media (max-width: 760px) { .cp--duo, .cp--duo-tall { grid-template-columns: 1fr; } }
+
+/* texto + imagen */
+.cp--split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: clamp(360px, 42vw, 620px); }
+.cp__text { align-self: center; padding: clamp(28px, 4vw, 64px); }
+.cp__k { font-family: var(--brand); font-size: clamp(22px, 2.2vw, 32px); font-weight: 700; letter-spacing: -.02em; padding-left: 14px; border-left: 2px solid currentColor; }
+.cp__p { margin-top: 22px; max-width: 460px; font-family: var(--brand); font-size: clamp(14px, 1.1vw, 16px); line-height: 1.6; opacity: .85; }
+@media (max-width: 760px) { .cp--split { grid-template-columns: 1fr; } .cp--split .cp__img { aspect-ratio: 1.414; } }
+
+/* anatomía */
+.cp--anat { aspect-ratio: 16 / 9; display: grid; grid-template-rows: auto 1fr; }
+.anat { position: relative; display: grid; place-items: center; }
+.anat__lock { width: min(42%, 520px); }
+.anat__call { position: absolute; display: flex; align-items: center; gap: 10px; font-family: var(--brand); font-size: clamp(10px, .95vw, 13px); }
+.anat__call i { display: block; height: 1px; width: clamp(40px, 7vw, 110px); background: currentColor; opacity: .7; }
+.anat__call--a { top: 14%; right: 9%; flex-direction: row-reverse; }
+.anat__call--b { bottom: 30%; right: 9%; flex-direction: row-reverse; }
+.anat__call--c { bottom: 18%; left: 9%; }
+@media (max-width: 760px) { .cp--anat { aspect-ratio: 4 / 5; } .anat__lock { width: 70%; } .anat__call i { width: 28px; } .anat__call--a { top: 6%; right: 6%; } .anat__call--b { bottom: 14%; right: 6%; } .anat__call--c { bottom: 6%; left: 6%; } }
+
+/* paleta */
+.cp--pal { padding-bottom: clamp(20px, 2.6vw, 36px); }
+.pal { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: clamp(28px, 4vw, 56px) clamp(20px, 2.6vw, 36px) 0; }
+.pal__c { aspect-ratio: 3 / 4; border-radius: 10px; padding: clamp(16px, 1.8vw, 24px); display: flex; flex-direction: column; justify-content: space-between; color: var(--hueso); font-family: var(--brand); }
+.pal__c.bg-beige { color: var(--petroleo); }
+.pal__name { font-size: clamp(16px, 1.5vw, 20px); font-weight: 700; letter-spacing: -.01em; }
+.pal__c dl div { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent); font-size: clamp(10px, .85vw, 12px); }
+.pal__c dt { font-weight: 600; } .pal__c dd { opacity: .85; }
+@media (max-width: 760px) { .pal { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* tipografía */
+.cp--type { padding-bottom: clamp(24px, 3vw, 44px); }
+.type { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 24px 48px; align-items: center; padding: clamp(24px, 3vw, 44px) clamp(20px, 2.6vw, 36px) 0; font-family: var(--brand); }
+.type__aa { font-size: clamp(120px, 17vw, 260px); font-weight: 800; line-height: .9; letter-spacing: -.04em; }
+.type__rows { display: grid; gap: 4px; }
+.type__w { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent); font-size: clamp(14px, 1.35vw, 20px); overflow-wrap: anywhere; }
+.type__w span { font-size: 12px; font-weight: 500; opacity: .7; }
+.type__w--300 { font-weight: 300; } .type__w--500 { font-weight: 500; } .type__w--700 { font-weight: 700; } .type__w--800 { font-weight: 800; }
+@media (max-width: 760px) { .type { grid-template-columns: 1fr; } .type__w { grid-template-columns: 1fr; gap: 4px; } }
+
+/* pictogramas */
+.cp--res { padding-bottom: clamp(40px, 6vw, 96px); }
+.picts { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(16px, 3vw, 48px); padding: clamp(48px, 7vw, 110px) clamp(28px, 6vw, 96px) 0; }
+.picts__it svg { width: 100%; height: auto; aspect-ratio: 1; }
+@media (max-width: 760px) { .picts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* patrón */
+.cp--pat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: clamp(380px, 44vw, 640px); }
+.pat__field { background: url('/assets/branding/maria-martin/patron-oscuro.svg') 0 0 / clamp(180px, 20vw, 300px) auto repeat; }
+.pat__apply { position: relative; margin: clamp(20px, 3vw, 44px); border-radius: 4px; background: #e6dccb; overflow: hidden; }
+.pat__sheet, .pat__card { position: absolute; border-radius: 3px; box-shadow: 0 18px 40px rgba(30, 30, 30, .22), 0 2px 6px rgba(30, 30, 30, .12); }
+.pat__sheet { width: 62%; aspect-ratio: 1 / 1.414; background: var(--hueso) url('/assets/branding/maria-martin/patron-oscuro.svg') 0 0 / 34% auto repeat; }
+.pat__sheet--1 { left: 6%; top: 8%; transform: rotate(-9deg); }
+.pat__sheet--2 { left: 30%; top: 22%; transform: rotate(6deg); background-image: url('/assets/branding/maria-martin/patron-claro.svg'); background-color: var(--petroleo); }
+.pat__card { width: 42%; aspect-ratio: 1.75; display: grid; place-items: center; }
+.pat__card--back { right: 8%; bottom: 14%; transform: rotate(-4deg); background: var(--beige) url('/assets/branding/maria-martin/patron-blanco.svg') 0 0 / 30% auto repeat; }
+.pat__card--front { right: 14%; bottom: 7%; transform: rotate(8deg); background: var(--hueso); color: var(--petroleo); }
+.pat__lock { width: 46%; }
+@media (max-width: 760px) { .cp--pat { grid-template-columns: 1fr; } .pat__apply { aspect-ratio: 1; } .pat__field { aspect-ratio: 1; } }
+
+/* una aplicación sola */
+.cp--one { display: grid; place-items: center; padding: clamp(24px, 5vw, 80px); }
+.cp--one .cp__img { width: min(100%, 980px); height: auto; border-radius: 4px; box-shadow: 0 24px 60px rgba(0, 0, 0, .35); }
+
+/* redes: destacadas + seis posteos */
+.cp--social { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.social__l { padding: clamp(24px, 3.4vw, 52px); }
+.hl { display: flex; gap: clamp(8px, 1vw, 14px); margin-bottom: clamp(16px, 2vw, 26px); }
+.hl__c {
+  flex: 0 0 auto; width: clamp(44px, 5.2vw, 72px); aspect-ratio: 1; border-radius: 50%;
+  display: grid; place-items: center; font-family: var(--brand); font-size: clamp(7px, .7vw, 10px); font-weight: 600;
+  box-shadow: 0 0 0 2px var(--hueso), 0 0 0 3px rgba(30, 61, 89, .35);
+}
+.hl__iso { width: 56%; }
+.hl__c--pattern { background-image: url('/assets/branding/maria-martin/patron-claro.svg'); background-size: 120% auto; }
+.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(6px, .8vw, 10px); }
+.post {
+  container-type: inline-size; position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 3px;
+  display: flex; flex-direction: column; justify-content: space-between; padding: 9%;
+  box-shadow: 0 10px 26px rgba(30, 30, 30, .18); font-family: var(--brand);
+}
+.post__big { font-size: 10.5cqw; font-weight: 600; line-height: 1.08; letter-spacing: -.01em; }
+.post__big b { font-weight: 800; }
+.post__mid { font-size: 8cqw; font-weight: 500; line-height: 1.25; }
+.post__mark { width: 26%; align-self: flex-end; }
+.post__lock { width: 82%; }
+.post--center { justify-content: center; align-items: center; }
+.post__iso { width: 58%; }
+.post--pattern { background-image: url('/assets/branding/maria-martin/patron-claro.svg'); background-size: 70% auto; justify-content: flex-end; }
+.post__chip { align-self: flex-start; padding: 3cqw 6cqw; border-radius: 99px; background: var(--petroleo); font-size: 6.4cqw; font-weight: 600; }
+.post--photo { padding: 0; }
+.post__img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) { .cp--social { grid-template-columns: 1fr; } .social__r { display: none; } }
+
+/* historias */
+.cp--ig-stories { padding: clamp(28px, 5vw, 80px) clamp(16px, 4vw, 64px); }
+.ig-stories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2.4vw, 36px); max-width: 980px; margin: 0 auto; }
+.ig-story {
+  container-type: inline-size; position: relative; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center; gap: 8cqw; padding: 18% 10% 12%;
+  box-shadow: 0 22px 50px rgba(30, 30, 30, .22); font-family: var(--brand);
+}
+.story__bar { position: absolute; top: 5%; left: 6cqw; right: 6cqw; height: 1.2cqw; border-radius: 9px; background: currentColor; opacity: .35; }
+.story__big { font-size: 10cqw; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+.story__lock { width: 70%; margin-top: auto; align-self: center; }
+.story__label { font-size: 7cqw; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; }
+.story__huge { font-size: 19cqw; font-weight: 800; line-height: .9; letter-spacing: -.03em; }
+.ig-story--pattern { background-image: url('/assets/branding/maria-martin/patron-oscuro.svg'); background-size: 90% auto; justify-content: flex-end; }
+.ig-story--pattern .story__label, .ig-story--pattern .story__huge { background: var(--beige); align-self: flex-start; padding: 0 2cqw; }
+.story__iso { width: 46%; }
+.story__btn { align-self: flex-start; padding: 4cqw 8cqw; border-radius: 99px; font-size: 6.4cqw; font-weight: 600; }
+
+/* cierre de la presentación */
+.cp--end { aspect-ratio: 16 / 9; display: grid; place-items: center; }
+.end__lock { width: min(36%, 460px); }
+@media (max-width: 760px) { .cp--end { aspect-ratio: 4 / 3; } .end__lock { width: 62%; } }
+
+/* "Más proyectos": el botón va a la derecha del título */
+.case ~ * .sh .pill, .case .sh .pill { justify-self: end; align-self: end; }
+
+/* los textos de las piezas toman el color de su pieza (sin heredar el blanco del sitio) */
+.case .cp b, .case .cp strong { color: inherit; }
+.ig-story__iso { align-self: center; }
+.social__r { display: grid; place-items: center; align-content: center; gap: 18px; padding: 8%; }
+.social__lock { width: min(62%, 300px); }
+.social__handle { font-family: var(--brand); font-size: clamp(12px, 1.1vw, 15px); font-weight: 500; letter-spacing: .08em; opacity: .9; }
+@media (max-width: 760px) {
+  .pal__c dl div { font-size: 11px; }
+  .cover__q { font-size: 12px; }
+}

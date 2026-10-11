@@ -942,3 +942,9 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
   /* nombre del camino en las cards de la portada */
   .path__name { font-size: 13vw; }
 }
+
+/* índice de casos de branding: tres columnas, imagen 4:5 */
+.work--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card__img--45 { aspect-ratio: 4 / 5; }
+@media (max-width: 900px) { .work--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .work--3 { grid-template-columns: 1fr; } }
