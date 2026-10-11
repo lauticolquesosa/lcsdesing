@@ -217,3 +217,120 @@
 .cover__q--a { top: 13%; left: 17%; }
 .cover__q--b { bottom: 13%; right: 17%; }
 @media (max-width: 760px) { .cover__q--a { top: 12%; left: 10%; } .cover__q--b { bottom: 12%; right: 10%; } }
+
+/* ============================================================
+   LA VACA
+   ============================================================ */
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/bebasneue-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Bebas Neue'; font-style: normal; font-weight: 400; font-display: swap;
+  src: url('/assets/fonts/bebasneue-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+.case--lv { --rojo: #cf1417; --negro: #1d1d1b; --blanco: #ffffff; --beigeclaro: #f7eae5; --disp: 'Bebas Neue', 'Inter', sans-serif; }
+.bg-rojo { background: var(--rojo); } .fg-rojo { color: var(--rojo); }
+.bg-negro { background: var(--negro); } .fg-negro { color: var(--negro); }
+.bg-blanco { background: var(--blanco); } .fg-blanco { color: var(--blanco); }
+.bg-beigeclaro { background: var(--beigeclaro); } .fg-beigeclaro { color: var(--beigeclaro); }
+.lv-display { font-family: var(--disp); font-weight: 400; letter-spacing: .01em; }
+.case--lv .cp__hd { font-family: var(--disp); font-size: 15px; font-weight: 400; letter-spacing: .04em; }
+.case--lv .cp__hd-mid { font-family: var(--brand); }
+
+/* logo armado: isologo + bajada */
+.lv-logo { display: inline-flex; flex-direction: column; align-items: center; gap: .55em; }
+.lv-logo__svg { display: block; width: 100%; height: auto; overflow: visible; }
+.lv-bajada { font-family: var(--disp); font-size: .9em; letter-spacing: .18em; white-space: nowrap; }
+.lv-iso, .lv-word, .lv-ic { display: block; height: auto; overflow: visible; }
+.lv-ic { --ic: var(--beigeclaro); --ib: var(--rojo); width: 100%; }
+
+/* portada: la vaca grande del brandbook */
+.lv-cover { --c1: var(--negro); --c2: var(--blanco); }
+.lv-cover__art { width: min(52%, 640px); height: auto; overflow: visible; }
+
+/* grilla de versiones */
+.lgrid__logo { width: 38%; font-size: clamp(7px, .75vw, 11px); }
+.lgrid__word { width: 54%; }
+.lgrid__iso { width: 30%; }
+
+/* duo de fotos 4:5 */
+.cp--duo-45 .cp__img { aspect-ratio: 4 / 5; }
+
+/* ¿quiénes somos? */
+.lv-k { font-family: var(--disp); font-weight: 400; font-size: clamp(30px, 3vw, 44px); letter-spacing: .02em; border-left-width: 4px; }
+
+/* anatomía */
+.case--lv .anat__lock { width: min(30%, 380px); font-size: clamp(10px, 1.1vw, 16px); }
+
+/* valores */
+.cp--vals { padding-bottom: clamp(28px, 3.4vw, 52px); }
+.vals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; padding: clamp(36px, 5vw, 72px) clamp(20px, 2.6vw, 36px) 0; }
+.vals__c { border-top: 2px solid currentColor; padding-top: 18px; }
+.vals__n { font-size: clamp(28px, 2.6vw, 40px); opacity: .55; }
+.vals__t { margin-top: 8px; font-size: clamp(30px, 3.2vw, 52px); line-height: .95; }
+.vals__p { margin-top: 14px; font-family: var(--brand); font-size: clamp(13px, 1vw, 15px); line-height: 1.5; max-width: 30ch; }
+@media (max-width: 860px) { .vals { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 28px; } }
+
+/* paleta: dos datos por color */
+.pal__c--lv.bg-blanco, .pal__c--lv.bg-beigeclaro { color: var(--negro); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.pal__c--lv { font-family: var(--brand); }
+
+/* tipografías */
+.type--lv { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; }
+.type--lv .type__aa { font-size: clamp(110px, 13vw, 210px); line-height: .85; }
+.type__aa--m { font-family: var(--brand); font-weight: 800; }
+.type__fam { margin-top: 10px; font-size: clamp(28px, 2.6vw, 40px); }
+.type__fam--m { font-family: var(--brand); font-weight: 700; font-size: clamp(22px, 2vw, 30px); }
+.type__use { margin-top: 10px; max-width: 36ch; font-family: var(--brand); font-size: 14px; line-height: 1.5; opacity: .75; }
+.type__sample { grid-column: 1 / -1; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.18); }
+.type__sample .lv-display { font-size: clamp(36px, 5vw, 80px); line-height: .95; }
+.type__line { margin-top: 10px; font-family: var(--brand); font-size: clamp(13px, 1.2vw, 18px); overflow-wrap: anywhere; }
+@media (max-width: 760px) { .type--lv { grid-template-columns: 1fr; } }
+
+/* íconos + barra */
+.picts--lv { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: clamp(40px, 6vw, 96px) clamp(40px, 10vw, 180px) 0; gap: clamp(20px, 5vw, 80px); }
+.lv-band { margin: clamp(40px, 5vw, 72px) clamp(20px, 2.6vw, 36px) 0; height: clamp(40px, 4vw, 60px); border-radius: 4px;
+  background: var(--beigeclaro) url('/assets/branding/la-vaca/patron-iconos.svg') 0 50% / auto 180% repeat-x; filter: none; }
+.cp--res.bg-rojo .lv-band { background-color: var(--negro); }
+@media (max-width: 760px) { .picts--lv { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-inline: 20%; } }
+
+/* patrón */
+.cp--pat-lv .cp__img { aspect-ratio: auto; height: 100%; }
+.pat__field--lv { background: url('/assets/branding/la-vaca/patron-iconos.svg') 0 0 / clamp(160px, 16vw, 240px) auto repeat; }
+
+/* redes */
+.hl__c--lv { background-image: url('/assets/branding/la-vaca/patron-iconos.svg'); background-size: 160% auto; }
+.post__logo { width: 64%; font-size: 1.7cqw; }
+.post--pattern-lv { background-image: url('/assets/branding/la-vaca/patron-iconos.svg'); background-size: 80% auto; justify-content: flex-end; }
+.post__chip--lv { align-self: flex-start; padding: 3cqw 6cqw; border-radius: 99px; background: var(--negro); color: var(--blanco); font-size: 6.4cqw; font-weight: 600; }
+.case--lv .post__big { font-size: 15cqw; line-height: .92; }
+.case--lv .social__lock { width: min(46%, 240px); font-size: clamp(9px, .9vw, 13px); }
+.case--lv .social__handle { color: var(--blanco); }
+
+/* historias */
+.ig-story__huge.lv-display { font-size: 26cqw; line-height: .88; }
+.ig-story__word { width: 70%; align-self: center; margin-top: auto; }
+.ig-story--photo { padding: 0; }
+.ig-story__img { width: 100%; height: 100%; object-fit: cover; }
+.ig-story--photo .ig-story__bar { z-index: 1; }
+.case--lv .ig-story__big { font-family: var(--disp); font-weight: 400; font-size: 17cqw; line-height: .95; }
+
+/* web */
+.cp--web { display: grid; place-items: center; gap: 28px; padding: clamp(28px, 5vw, 80px); }
+.cp--web .cp__img { width: min(100%, 900px); height: auto; }
+.cp__cta { justify-self: center; }
+
+/* cierre */
+.case--lv .end__lock { width: min(26%, 320px); font-size: clamp(10px, 1.1vw, 16px); }
+@media (max-width: 760px) {
+  .lv-cover__art { width: 80%; }
+  .lgrid__logo { width: 50%; font-size: 7px; }
+  .case--lv .anat__lock, .case--lv .end__lock { width: 54%; }
+}
+.ig-story--photo { display: block; }
+.ig-story--photo .ig-story__img { position: absolute; inset: 0; }
+.case--lv .ig-story__iso { width: 52%; align-self: center; }
+.case--lv .cp--duo.bg-blanco .cp__img { object-fit: contain; }
+.picts--lv { align-items: center; }
+.picts--lv .picts__it { width: 100%; max-width: 150px; justify-self: center; }
+.case--lv .ig-story__btn { align-self: flex-start; padding: 3.5cqw 7cqw; border-radius: 99px; font-family: var(--brand); font-size: 6cqw; font-weight: 600; }
+@media (max-width: 420px) { .vals__t { font-size: 8.4vw; } }
