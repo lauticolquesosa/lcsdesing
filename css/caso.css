@@ -212,3 +212,8 @@
   .pal__c dl div { font-size: 11px; }
   .cover__q { font-size: 12px; }
 }
+
+/* portada: frases más cerca de la marca, diagonal más suave */
+.cover__q--a { top: 13%; left: 17%; }
+.cover__q--b { bottom: 13%; right: 17%; }
+@media (max-width: 760px) { .cover__q--a { top: 12%; left: 10%; } .cover__q--b { bottom: 12%; right: 10%; } }
