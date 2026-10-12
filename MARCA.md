@@ -129,9 +129,9 @@ Numerados 01–04 en `/diseno-web`:
 
 ### El camino de branding
 
-**La promesa:** *Una marca que se reconoce antes de leerse.* Diseñamos identidades
-visuales completas —logo, color, tipografía y manual de marca— para negocios que quieren
-verse serios desde el primer vistazo y sostenerlo en cada pieza.
+**La promesa:** *Una marca que se reconoce antes de leerse.* Creamos identidades visuales
+completas, con logo, paleta, tipografía y manual de marca, para que tu negocio transmita
+confianza desde el primer vistazo y la sostenga en cada pieza.
 
 **El reencuadre:** «No es un logo. Es un sistema que te hace reconocible en cada pieza,
 del vaso al sitio web.»
