@@ -7,7 +7,7 @@ página del sitio. Todos los datos salen del código de `lcsdesignstudio.com.ar`
 interpretación: los hex son los tokens de `css/mono.css`, las frases son las que están
 publicadas y los precios son los que hoy figuran en `inversion.html` y `branding/inversion.html`.
 
-Última revisión: **12 de octubre de 2026** (secciones 2, 6, 7, 8, 11 y 12, después del rediseño en blanco y negro)
+Última revisión: **12 de octubre de 2026**, completo, después del rediseño en blanco y negro.
 
 ---
 
@@ -27,7 +27,7 @@ publicadas y los precios son los que hoy figuran en `inversion.html` y `branding
 | **Email** | lcsdesignstudio1@gmail.com — único email del estudio, no se usa otro en ningún lado |
 | **Teléfono / WhatsApp** | +54 387 483 4041 |
 | **Instagram** | [@lcswebstudio](https://instagram.com/lcswebstudio) |
-| **Copyright del pie** | © 2026 LCS · Estudio de Branding y Diseño Web · Salta, Argentina |
+| **Copyright del pie** | © 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina |
 
 ### Qué hace
 
@@ -47,10 +47,10 @@ En branding, los tres paquetes publicados son una guía que se combina y ajusta 
 - Marcas que necesitan convertir visitas.
 - Quien busca código propio, no plantillas.
 
-### Descripción corta (la del pie del sitio)
+### Descripción corta (la de la portada)
 
-> LCS es un estudio de branding y diseño web con identidad propia. De la marca al sitio en
-> vivo, desde Salta para todos lados.
+> Estudio de branding y diseño web en Salta. Hacemos identidades visuales completas y
+> sitios a medida: de la marca al sitio en vivo, todo en un mismo estudio.
 
 ### Rubros donde ya trabajó
 
@@ -70,11 +70,12 @@ el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 | N.º | Ruta | Qué es |
 |---|---|---|
 | — | `/` | **Portal.** El logo grande con el nombre del estudio, una tira de trabajos que gira sola y las dos cards de camino, Branding y Diseño web. No es la home de ninguno de los dos caminos. |
-| 01 | `/branding` | Home del camino de branding: hero, por qué, qué te llevás, el caso La Vaca y proceso. |
-| 02 | `/branding/servicios` | Qué incluye el servicio de identidad visual. |
-| 03 | `/branding/proyectos` | El brandbook de La Vaca, página por página. |
+| 01 | `/branding` | Home del camino de branding: hero, tira de los tres casos, beneficios, proceso y preguntas. |
+| 02 | `/branding/servicios` | Formas de arrancar, qué incluye el servicio de identidad visual, proceso y preguntas. |
+| 03 | `/branding/proyectos` | Índice de los tres casos de branding. |
+| — | `/branding/la-vaca` · `/branding/yerba-mix` · `/branding/maria-martin` | Cada caso de branding, completo. |
 | 04 | `/branding/inversion` | Los tres paquetes de branding. |
-| 01 | `/diseno-web` | Home del camino de diseño web: hero, manifiesto, los seis argumentos, el carrusel de 24 casos, el proceso y las dudas. Es, en estructura, la antigua home del sitio. |
+| 01 | `/diseno-web` | Home del camino de diseño web: hero, tira de los 24 sitios, beneficios, proceso y preguntas. |
 | 02 | `/servicios` | Qué incluye el servicio de diseño web. |
 | 03 | `/proyectos` | Grilla de los 24 casos de diseño web. |
 | 04 | `/inversion` | Los tres planes de diseño web, con precio. |
@@ -95,56 +96,67 @@ prioridad 1.0 para `/`, 0.9 para las dos homes de camino, 0.8 para servicios y p
 
 ### La portada (el portal)
 
-El portal no vende un servicio: deja elegir. Titular **"Diseñamos marcas y sitios web."**,
-bajada **"Branding, diseño gráfico y sitios a medida, desde Salta. Elegí por dónde
-empezar."** y cierre **"De la marca al sitio en vivo, todo en un mismo estudio."** — el
-argumento de que separar las dos patas no significa perder cohesión.
+La portada no vende un servicio: presenta al estudio y deja elegir. El H1 es el nombre de
+lo que es, **«Estudio de Diseño Web y Branding»**, debajo del logo grande, con un solo
+botón: **«Hablanos por tu proyecto»** (WhatsApp). Después viene una tira de trabajos que
+gira sola, la frase **«Estudio de branding y diseño web en Salta. Hacemos identidades
+visuales completas y sitios a medida: de la marca al sitio en vivo, todo en un mismo
+estudio.»** y las dos cards de camino:
+
+- **Branding** — «Logo, identidad y manual de marca para que te reconozcan antes de leerte.»
+- **Diseño web** — «Sitios a medida, rápidos y listos para Google, pensados para traer
+  consultas.»
 
 ### El camino de diseño web
 
-**La promesa:** *Tu web puede vender por vos todos los días.*
+**La promesa:** *Tu web puede vender por vos todos los días.* Diseñamos y programamos
+sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la
+altura. Sin plantillas.
 
-Todo el camino está construido sobre un solo argumento, repetido en tres alturas distintas:
+**El reencuadre:** «Una web hecha a medida, pensada para traer consultas y trabajar por
+vos todos los días.»
 
-1. **El problema** — «Si no te encuentran, no te compran. Y hoy la primera visita a tu
-   negocio pasa por una pantalla.»
-2. **El reencuadre** — «No comprás una web. Comprás un canal que trabaja.»
-3. **La prueba** — «No son promesas: son sitios en vivo. Entrá y miralos antes de decidir.»
+#### Los cuatro beneficios
 
-#### Los seis argumentos del estudio
+Numerados 01–04 en `/diseno-web`:
 
-Numerados 01–06 en `/diseno-web`, sobre banda verde:
-
-| N.º | Argumento | Cómo se dice |
+| N.º | Beneficio | Cómo se dice |
 |---|---|---|
-| 01 | Diseño a medida | Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta. |
-| 02 | Pensada para convertir | Cada pantalla lleva a una acción clara: escribir, llamar, reservar o comprar. |
-| 03 | Rápida de verdad | Código propio y liviano. Una web lenta pierde la visita antes del primer scroll. |
-| 04 | Impecable en el celular | Ahí ocurre la mayoría de las visitas, así que se diseña primero para esa pantalla. |
-| 05 | Lista para Google | Estructura, textos y datos en orden para que te encuentren por lo que hacés. |
-| 06 | Trato directo | Hablás siempre con quien hace el trabajo, y el soporte sigue después del lanzamiento. |
+| 01 | Diseño a medida | Nada de plantillas: se parece a tu negocio. |
+| 02 | Pensada para convertir | Cada pantalla lleva a escribir, llamar o comprar. |
+| 03 | Rápida de verdad | Código propio y liviano, impecable en el celular. |
+| 04 | Lista para Google | Te encuentran por lo que hacés. |
 
 ### El camino de branding
 
-**La promesa:** *Una marca que se reconoce antes de leerse.*
+**La promesa:** *Una marca que se reconoce antes de leerse.* Diseñamos identidades
+visuales completas —logo, color, tipografía y manual de marca— para negocios que quieren
+verse serios desde el primer vistazo y sostenerlo en cada pieza.
 
-Diseña identidades visuales completas —logo, color, tipografía y manual de marca— para
-negocios que quieren verse serios desde el primer vistazo y sostenerlo en cada pieza. El
-caso que lo sostiene hoy es uno solo, La Vaca, mostrado como brandbook completo: portada,
-isologo, isotipo, retícula, áreas de reserva, versiones, tipografías, paleta, recursos
-gráficos y siete aplicaciones (servilletas, vasos, productos, individuales, bolsa, envase de
-papas, menú e interfaz web).
+**El reencuadre:** «No es un logo. Es un sistema que te hace reconocible en cada pieza,
+del vaso al sitio web.»
+
+| N.º | Beneficio | Cómo se dice |
+|---|---|---|
+| 01 | Estrategia primero | A quién le hablás, qué te diferencia y cómo querés que te recuerden. |
+| 02 | Logo con versiones | Para cada tamaño y cada fondo, en positivo y negativo. |
+| 03 | Color y tipografía | Una paleta con sus códigos y jerarquías claras. |
+| 04 | Manual de marca | Reglas que cualquiera puede seguir sin preguntarte. |
+
+Lo sostienen tres casos completos: **María Martin**, **La Vaca** y **Yerba Mix**.
 
 ### Los cuatro diferenciales operativos
 
-*Cómo se siente trabajar con LCS — «Pocas promesas, muchos detalles.»* Comunes a los dos
-caminos:
+*«Cómo se siente trabajar con LCS: pocas promesas, muchos detalles.»* Publicados en
+`/servicios`:
 
 1. **Comunicación directa** — hablás directo con el estudio, no con un intermediario.
-2. **Código propio** — sin builders pesados ni plantillas.
-3. **Bilingüe por defecto** — el sitio se puede entregar en español e inglés.
-4. **Pensado para crecer** — estructura escalable: sumar secciones después no es empezar
-   de cero.
+   Updates claros en cada etapa.
+2. **Código propio** — sin builders pesados ni plantillas: cada sitio se escribe a medida
+   y carga rápido.
+3. **Bilingüe por defecto** — LCS puede entregar tu sitio en español e inglés.
+4. **Pensado para crecer** — estructura limpia y escalable: sumar secciones después no es
+   empezar de cero.
 
 ---
 
@@ -160,108 +172,108 @@ por un dato, va el dato.
 
 1. **Voseo argentino, siempre.** *Contame, escribinos, entrá, mirá, sabés, tenés, hacés.*
    Nunca «tú» ni «usted».
-2. **Segunda persona al cliente, tercera al estudio.** El lector es «vos»; el estudio es
-   «LCS» o «el estudio». Se admite «nosotros» en la promesa de apertura («Diseñamos marcas y
-   sitios web»). Nunca «yo».
-3. **El problema antes que la solución.** Cada sección arranca por lo que le duele al
+2. **Segunda persona al cliente; «nosotros» o «LCS» para el estudio.** El lector es «vos».
+   El estudio habla en plural en las promesas («Diseñamos identidades visuales
+   completas», «Hablanos por tu proyecto») y en tercera persona en los datos («LCS
+   responde a todos los mensajes»). El «contame» de los cierres es la única primera
+   persona del singular, y es deliberada: contesta la misma persona que hace el trabajo.
+3. **El problema antes que la solución.** Cada sección arranca por lo que le importa al
    lector, no por lo que ofrece el estudio.
 4. **Números en lugar de adjetivos.** «24–48 h», «2 a 4 semanas», «24 casos», «USD 500»,
    «treinta mil cabezas por año». Nada de «rápido», «excelente», «de calidad».
 5. **Frases cortas, verbo concreto.** Escribir, llamar, reservar, comprar, publicar, medir.
 6. **Cero jerga de agencia.** No aparecen —y no deben aparecer— *solución integral,
-   sinergia, transformación digital, innovador, líder, pasión, excelencia*. Está
-   verificado: cero ocurrencias en todo el sitio.
+   sinergia, transformación digital, innovador, líder, pasión, excelencia*. Verificado el
+   12 de octubre de 2026: cero ocurrencias en todo el sitio y en los 24 casos.
 7. **Admitir límites vende.** «A medida» en los paquetes de branding en vez de un precio
-   inventado. «Versión de muestra» cuando el caso no está aprobado. «Todavía no hicieron una
-   obra de ese tamaño» cuando es cierto. «Proyecto propio» cuando no hay cliente real detrás.
-8. **La raya (—) para el inciso.** Es el signo de puntuación de la marca: abre una
-   aclaración sin cortar la frase. Se usa mucho; los paréntesis casi nunca.
-9. **Los dos puntos como bisagra.** «El riesgo era el opuesto al habitual: una web
-   demasiado prolija…». Enuncia y después explica.
-10. **Todo cierra en una acción.** Ninguna sección termina en una reflexión: termina en
-    un enlace, un teléfono o un botón.
+   inventado. «Versión de muestra» cuando el caso no está aprobado. «Estimado» en los
+   precios de diseño web. «Proyecto propio» cuando no hay cliente real detrás.
+8. **La raya (—) para el inciso.** Abre una aclaración sin cortar la frase. Los
+   paréntesis casi nunca.
+9. **Los dos puntos como bisagra.** «Cada marca, a medida. Tres paquetes para orientarte»;
+   «Identidad visual: diseño de marca de punta a punta». Enuncia y después explica.
+10. **Todo cierra en una acción.** Ninguna página termina en una reflexión: termina en
+    «Contame tu marca.» o «Contame tu proyecto.», con «Empecemos» y WhatsApp.
 
-### Cómo suena en cada idioma
+### Idioma
 
-Los dos caminos son bilingües ES/EN con selector en el encabezado y persistencia en
-`localStorage`. El inglés no es una traducción literal: es el mismo tono en registro
-neutro («enquiries», «brochure site», «no strings attached»). El voseo se convierte en un
-«you» directo, nunca en pasiva corporativa.
+El sitio se muestra **solo en español**. Cada texto conserva su versión en inglés en
+`data-en` (y los 24 casos la suya en `js/projects.js`), lista por si se vuelve a activar
+el selector de idioma. El inglés no es una traducción literal: es el mismo tono en
+registro neutro («enquiries», «no strings attached»); el voseo se vuelve un «you»
+directo, nunca una pasiva corporativa.
 
 ---
 
 ## 5 · Frases de marca
 
-### Titulares (los que llevan `<em>` como remate)
+### Titulares
 
-> **Diseñamos marcas <em>y sitios web.</em>** *(portal, `/`)*
-> **Una marca que se reconoce <em>antes de leerse.</em>** *(branding, `/branding`)*
-> **Tu web puede vender por vos todos los días.** *(diseño web, `/diseno-web`)*
-> **Identidad <em>visual.</em>** *(branding servicios)*
-> **Diseño <em>Web.</em>** *(diseño web servicios)*
-> **Marcas con <em>sistema.</em>** *(branding proyectos)*
-> **Trabajo <em>seleccionado.</em>** *(diseño web proyectos)*
-> **Cada marca, <em>a medida.</em>** *(branding inversión)*
-> **Precios <em>claros.</em>** *(diseño web inversión)*
-> **Trabajemos <em>juntos.</em>** *(contacto)*
-> **Contame tu <em>marca.</em>** / **Contame tu <em>proyecto.</em>** *(CTA de cierre, por camino)*
+Cada página interna abre con una palabra enorme en mayúsculas y una frase que la remata:
 
-### Manifiestos
+> **Branding.** Una marca que se reconoce antes de leerse. *(`/branding`)*
+> **Diseño web.** Tu web puede vender por vos todos los días. *(`/diseno-web`)*
+> **Servicios.** Identidad visual. *(branding)* · Diseño web. *(diseño web)*
+> **Proyectos.** Marcas con sistema. Cada caso, completo. *(branding)* · Trabajo
+> seleccionado. *(diseño web)*
+> **Inversión.** Cada marca, a medida. *(branding)* · Precios claros. Sin sorpresas ni
+> letra chica. *(diseño web)*
+> **Contacto.** Trabajemos juntos.
+> **Contame tu marca.** / **Contame tu proyecto.** *(cierre de cada página, por camino)*
 
-> Si no te **encuentran**, no te **compran**. Y hoy la primera visita a tu negocio pasa
-> por una **pantalla**. *(diseño web)*
+### Frases que sostienen el discurso
 
-> No comprás una web. Comprás **un canal que trabaja**. *(diseño web)*
+> De la marca al sitio en vivo, todo en un mismo estudio. *(portada)*
 
-> Cada decisión de diseño apunta a lo mismo: que quien entra entienda qué hacés, confíe y
-> te escriba. Todo lo demás es decoración.
+> No es un logo. Es un sistema que te hace reconocible en cada pieza, del vaso al sitio
+> web. *(branding)*
 
-> No son promesas: son sitios en vivo. Entrá y miralos antes de decidir.
+> Una marca no es un logo suelto: es un sistema que se sostiene en cada pieza.
+> *(branding, proyectos)*
+
+> Una web hecha a medida, pensada para traer consultas y trabajar por vos todos los días.
+> *(diseño web)*
 
 > Cuatro pasos, plazos cerrados y una sola persona respondiendo. Sabés siempre en qué
-> etapa está tu web.
+> etapa está tu web. *(diseño web · en branding: «Cuatro etapas… en qué punto está tu
+> marca.»)*
 
 > Pocas promesas, muchos detalles.
 
 > Condiciones claras, sin letra chica.
 
-> De la marca al sitio en vivo, todo en un mismo estudio. *(portal)*
-
 ### Frases de apoyo
 
 - «Sin plantillas.»
-- «Una web lenta pierde la visita antes del primer scroll.»
-- «Nada de plantillas: tu sitio se parece a tu negocio y no al de otros cuarenta.»
-- «Hablás siempre con quien hace el trabajo.»
-- «Contesta la misma persona que va a diseñar y programar tu sitio.»
+- «Ves el diseño antes de que exista una sola línea de código, y opinás.»
+- «Contesta la misma persona que va a diseñar tu marca o tu sitio.»
 - «En 24–48 h tenés una respuesta concreta: qué haría falta, cuánto sale y en cuánto
   tiempo está en vivo (o lista tu marca). Sin compromiso.»
-- «Ves el diseño antes de que exista una sola línea de código, y opinás.»
-- «Escribinos y te pasamos el precio de la tuya.»
-- «Elegí por dónde empezar.» *(portal)*
+- «Escribinos y te pasamos el precio de la tuya.» / «…de tu marca, cerrado y por escrito.»
+- «Recibí atención personalizada.»
 
 ### Llamados a la acción (literal, no reescribir)
 
 | ES | EN | Dónde |
 |---|---|---|
-| Quiero mi web | I want my site | Hero de diseño web, servicios |
-| Quiero mi marca | I want my brand | Hero de branding, servicios |
-| Ver proyectos | View work | Hero de diseño web |
-| Ver el brandbook | See the brandbook | Hero de branding |
-| Empecemos | Let us start | CTA de cierre |
-| Contame tu proyecto / tu marca | Tell me about your project / brand | CTA, FAQ |
-| Ver caso | View case | Tarjetas de proyecto |
-| Ver todos los proyectos | View all projects | Grilla de diseño web |
-| Pedir presupuesto | Request a quote | Tarjetas de paquete de branding |
-| Consultar | Inquire | Tarjetas de precio de diseño web |
-| Ver rangos de inversión | See investment ranges | Pie de las dudas |
-| Ver el proceso completo | See the full process | Sección de proceso |
-| Escribile a LCS | Write to LCS | Contacto |
+| Hablanos por tu proyecto | Tell us about your project | Portada, contacto |
+| Elegí por dónde empezar | Choose where to start | Portada, hacia las cards de camino |
+| Entrar a Branding / Entrar a Diseño web | Enter Branding / Enter Web design | Cards de camino |
+| Quiero mi marca / Quiero mi web | I want my brand / I want my site | Hero de cada camino y de servicios |
+| Ver el brandbook / Ver proyectos | See the brandbook / View work | Hero de cada camino |
+| Cómo trabajamos | How we work | Servicios |
+| Ver el caso completo | See the full case | Branding servicios |
+| Ver todos los proyectos | View all projects | Diseño web servicios y grilla de proyectos |
+| Ver los paquetes / Ver rangos de inversión | See the packages / See investment ranges | Pie de las dudas |
+| Ver los servicios | See the services | Branding proyectos |
+| Pedir presupuesto | Request a quote | Paquetes de branding |
+| Consultar | Inquire | Planes de diseño web |
+| Empecemos | Let's start | Cierre de cada página |
 
 ### La voz en los case studies
 
-Cada caso de diseño web cierra con un **aprendizaje** en primera persona del oficio. Es el
-lugar donde la marca se permite una tesis. Ejemplos publicados:
+Cada caso de diseño web cierra con un **aprendizaje** que es la tesis del oficio.
+Ejemplos publicados:
 
 > «El diseño tiene que sonar como habla el cliente.» *(La Vaca)*
 
@@ -452,16 +464,22 @@ librería de íconos.**
 
 ## 9 · Página por página
 
+Todas las páginas internas siguen el mismo esqueleto: **una palabra enorme + frase**
+(el `<h1>` lleva la frase completa en `aria-label`), las secciones con título en
+mayúsculas a la izquierda y una bajada corta a la derecha, las dudas en `<details>` (también
+como `FAQPage` en datos estructurados) y el cierre **«Contame tu marca.» / «Contame tu
+proyecto.»** con la promesa de respuesta en 24–48 h, «Empecemos» y WhatsApp.
+
 ### El portal — `/`
 
-**Título SEO:** LCS — Branding, diseño gráfico y diseño web en Salta
-**Descripción:** Estudio de branding, diseño gráfico y diseño web en Salta, Argentina:
-identidad visual, logo, manual de marca y sitios web a medida que venden.
+**Título SEO:** Estudio de Diseño Web y Branding en Salta | LCS
+**Descripción:** LCS es un estudio de diseño web y branding en Salta, Argentina: sitios
+web a medida, identidad visual, logo y manual de marca para negocios de todo el país.
 
-Encabezado («Diseñamos marcas *y sitios web.*» + bajada), las dos cards de camino
-(Branding / Diseño web, cada una con su visual, sus tags y su CTA propio), una cinta
-decorativa de servicios solo en celular, y el pie con el claim «De la marca al sitio en
-vivo, todo en un mismo estudio.» más WhatsApp y «Contame tu proyecto».
+Intro del logo → hero con el logo grande, el H1 «Estudio de Diseño Web y Branding» y
+«Hablanos por tu proyecto» → tira de trabajos que gira sola (fotos de La Vaca, Yerba Mix y
+María Martin) → «Quiénes somos» con la frase del estudio y «Elegí por dónde empezar» →
+las dos cards de camino → pie.
 
 ---
 
@@ -470,38 +488,61 @@ vivo, todo en un mismo estudio.» más WhatsApp y «Contame tu proyecto».
 #### `/branding` — home del camino
 
 **Título SEO:** Branding y diseño gráfico en Salta — LCS
-Hero oscuro («Una marca que se reconoce *antes de leerse.*») con la construcción
-geométrica del isotipo en vivo y los tres swatches de marca. Sigue con el problema que
-resuelve una identidad, qué te llevás (el sistema, no un logo suelto), el caso La Vaca
-mostrado página por página dentro de la misma home, el proceso y las dudas.
+
+Hero «Branding. Una marca que se reconoce antes de leerse.» con «Quiero mi marca» y «Ver
+el brandbook» → tira de los tres casos → **Beneficios** (los cuatro de la sección 3) →
+**Proceso** en cuatro etapas (Entender el negocio · Definir la estrategia · Diseñar el
+sistema · Entregar el manual) → **Preguntas** (cuánto sale, cuánto tarda, si sirve rehacer
+el logo, qué recibo, si puedo sumar la web después) → «Ver los paquetes» → cierre.
 
 #### `/branding/servicios`
 
-**Título SEO:** Identidad *visual.* Diseño de marca de punta a punta: estrategia, logo,
-color, tipografía, manual y aplicaciones.
+**Título SEO:** Branding y diseño gráfico: servicios — LCS · Salta
+**Frase:** Identidad visual. Diseño de marca de punta a punta: estrategia, logo, color,
+tipografía, manual y aplicaciones.
 
-**Qué incluye:** logo (isologo, isotipo y versiones) · paleta de color · sistema
-tipográfico · manual de marca · aplicaciones. Banda de trabajo (La Vaca) y la oferta de
-diseño gráfico y piezas sueltas para marcas que ya tienen identidad.
+**Formas de arrancar:** Identidad desde cero · Rediseño de marca · Diseño gráfico y piezas.
+**Qué incluye** (seis puntos, de la investigación a los archivos finales) e **Ideal para**
+(negocios que arrancan, marcas a las que el logo les quedó chico, locales que necesitan
+packaging coherente, quien va a hacer su web). **Trabajo reciente** con páginas del
+brandbook de La Vaca, el proceso y cuatro preguntas (solo el logo, clientes fuera de Salta,
+cuántas propuestas, de quién son los archivos).
 
 #### `/branding/proyectos`
 
-**Título SEO:** Proyectos de branding — Brandbook La Vaca · LCS
-**Un solo caso publicado**, mostrado como brandbook completo en vez de grilla: La Vaca,
-bar de Grand Bourg, Salta. Punto de partida, estrategia (cuatro valores y la bajada «Comé ·
-Quedate · Compartí»), el sistema (isologo con cabeza de vaca geométrica, tres tipografías,
-paleta de rojo/negro/blanco/beige), nueve piezas de «La marca» y siete de «Aplicaciones»,
-y el enlace cruzado al caso web del mismo cliente en `/proyectos#p1`.
+**Título SEO:** Proyectos de branding — María Martin, La Vaca y Yerba Mix · LCS
+**Frase:** Marcas con sistema. Cada caso, completo.
+
+Tira e índice de los **tres casos**, y «En cada caso»: Estrategia · Identidad ·
+Aplicaciones · Manual.
+
+#### Casos — `/branding/la-vaca`, `/branding/yerba-mix`, `/branding/maria-martin`
+
+Cada caso es una presentación completa armada con `css/caso.css`, con la paleta y las
+tipografías de la marca cliente: ficha del proyecto, anatomía del logo, valores o
+propuesta, paleta, tipografías, íconos o pictogramas, patrón, aplicaciones y piezas para
+redes (armadas en vivo con el logo vectorial, no como imágenes), y «Más proyectos» al pie.
+La Vaca enlaza además a su caso web en `/proyectos#p1`.
+
+| Caso | Cliente | Lo central |
+|---|---|---|
+| **La Vaca** | Bar de comidas rápidas de Grand Bourg, Salta | Isologo con cabeza de vaca geométrica, Bebas Neue, rojo, negro, blanco y beige. |
+| **Yerba Mix** | Yerba mate funcional con Melena de León y Cordyceps | Isotipo de dos hojas entre dos arcos, paleta de campo (bosque, crema, salvia, tierra). |
+| **María Martin** | Licenciada en Comercialización, marketing digital | Isotipo M&M de polígonos con ampersand fino, Montserrat, pictogramas y patrón. |
 
 #### `/branding/inversion`
 
 **Título SEO:** Precios de branding e identidad visual — LCS · Salta
-**Titular:** Cada marca, *a medida.*
+**Frase:** Cada marca, a medida. Tres paquetes para orientarte; el precio se cierra después
+de una primera charla y no se mueve sobre la marcha.
 
-Tres paquetes, **todos sin precio fijo publicado** (`A medida` / `Tailored`, pendiente de
-definir precios): Logo esencial, Identidad visual (*Más elegido*) y Marca completa.
-Condiciones: 50% para arrancar, 1 ronda de ajustes, y el puente «Marca + web» —si después
-se hace el sitio con LCS, la identidad ya queda lista para pantalla.
+| | Paquete | Precio | Qué suma |
+|---|---|---|---|
+| 01 | **Logo esencial** | A medida | Logo y versiones, paleta, tipografías, guía resumida y archivos finales |
+| 02 | **Identidad visual** *(destacado)* | A medida | Estrategia, isologo e isotipo, recursos gráficos, brandbook completo, papelería y redes |
+| 03 | **Marca completa** | A medida | Todo lo anterior + packaging, cartelería, menú o señalética y base visual para la web |
+
+Condiciones: 50% para arrancar · 1 ronda de ajustes · Marca + web.
 
 ---
 
@@ -510,22 +551,11 @@ se hace el sitio con LCS, la identidad ya queda lista para pantalla.
 #### `/diseno-web` — home del camino
 
 **Título SEO:** LCS — Diseño y desarrollo web en Salta · Sitios que venden
-Es, en estructura, la antigua home del sitio completo (antes en `/`): hero en tres líneas
-con el logo animado, el manifiesto y las columnas «Sin web propia» / «Con tu web hecha por
-LCS», la banda verde con los seis argumentos, el carrusel de los 24 casos, el proceso en
-cuatro pasos, las cuatro dudas (también `FAQPage`) y el CTA de cierre.
 
-**Sin web propia / Con tu web hecha por LCS**
-
-| Sin web propia | Con tu web hecha por LCS |
-|---|---|
-| Te buscan en Google y aparece tu competencia. | Te encuentran por lo que hacés, con tu nombre arriba. |
-| Contestás las mismas preguntas diez veces por día. | El sitio responde esas preguntas por vos, a toda hora. |
-| Tu marca se ve improvisada al lado de la de al lado. | Tu marca se ve profesional en la primera pantalla. |
-| Todo depende de que alguien te recomiende. | Llegan consultas mientras dormís o atendés. |
-| Una red social decide quién te ve, y cuándo. | El canal es tuyo: nadie te cambia el alcance. |
-
-**El proceso (4 pasos)**
+Hero «Diseño web. Tu web puede vender por vos todos los días.» con «Quiero mi web» y «Ver
+proyectos» → tira de los **24 sitios** que gira sola → **Beneficios** (los cuatro de la
+sección 3) y la barra de trato directo → **Proceso** en cuatro pasos → **Preguntas** →
+«Ver rangos de inversión» → cierre.
 
 | | Paso | Qué pasa |
 |---|---|---|
@@ -534,75 +564,76 @@ cuatro pasos, las cuatro dudas (también `FAQPage`) y el CTA de cierre.
 | 03 | Diseñar y mostrar | Ves el diseño antes de que exista una sola línea de código, y opinás. |
 | 04 | Publicar y acompañar | Sale en vivo, medimos qué pasa y seguimos disponibles después. |
 
-**Las cuatro dudas** (también publicadas como `FAQPage` en datos estructurados):
-
-- **¿Cuánto sale una web?** — Depende de cuántas secciones necesites y de si hay tienda,
-  reservas o catálogo. Los rangos están publicados en la página de inversión.
-- **¿Cuánto tarda?** — Un sitio institucional suele estar en vivo entre dos y cuatro
-  semanas desde que están los contenidos. El plazo se cierra en el presupuesto y no se
-  estira sobre la marcha.
-- **Ya tengo una web, ¿sirve rehacerla?** — Si tarda en cargar, se ve mal en el celular o
-  nadie te escribe desde ahí, sí. Se puede rehacer conservando dominio, contenidos y
-  posicionamiento ganado.
-- **¿Después la puedo actualizar yo?** — Sí. Si el proyecto lo pide, se entrega con un
-  panel para cambiar textos, fotos y precios sin tocar código.
+**Las cuatro dudas:** ¿Cuánto sale una web? · ¿Cuánto tarda? (dos a cuatro semanas para
+un institucional) · Ya tengo una web, ¿sirve rehacerla? · ¿Después la puedo actualizar yo?
 
 #### `/servicios`
 
-**Titular:** Diseño *Web.*
+**Título SEO:** Servicios de diseño web y UX/UI — LCS · Salta
+
 **Qué incluye:** diseño a medida en Figma · maquetado HTML/CSS/JS · 100% responsive
 (mobile-first) · animaciones y microinteracciones · listo para Google · publicación y
-dominio. **Plazos:** landing 1–2 semanas · web institucional 3–4 · proyecto complejo 6–8.
+dominio. **Ideal para** negocios locales, profesionales y portfolios, marcas que necesitan
+convertir y quien busca código propio. Siguen el trabajo reciente, los cuatro diferenciales
+y cuatro preguntas. **Plazos:** landing 1–2 semanas · web institucional 3–4 · proyecto
+complejo 6–8.
 
 #### `/proyectos`
 
-**Titular:** Trabajo *seleccionado.*
-**24 casos.** La grilla muestra seis y el resto aparece al tocar «Ver todos los
-proyectos». Cada tarjeta abre un modal a pantalla completa con la estructura fija:
-**Problema → Objetivo → Proceso (4 pasos) → Resultado → Aprendizaje**, más el año, la URL
-en vivo, las herramientas y la captura de página completa. Los cuatro pasos del proceso se
-nombran siempre igual: **01 Descubrir · 02 Definir · 03 Diseñar · 04 Entregar**
-(*Discover · Define · Design · Deliver*).
+**Título SEO:** Proyectos de diseño web y UX/UI — LCS · Salta
+**Frase:** Trabajo seleccionado.
+
+**24 casos.** La grilla muestra seis y el resto aparece con «Ver todos los proyectos».
+Cada tarjeta abre un modal a pantalla completa (también por enlace directo, por ejemplo
+`/proyectos#p1`) con la estructura fija **Problema → Objetivo → Proceso (4 pasos) →
+Resultado → Aprendizaje**, más el año, la URL en vivo, las herramientas y la captura de
+página completa. Los pasos se nombran siempre igual: **01 Descubrir · 02 Definir · 03
+Diseñar · 04 Entregar**.
 
 #### `/inversion`
 
-**Titular:** Precios *claros.*
+**Título SEO:** Precios de diseño web — LCS · Salta
+**Frase:** Precios claros. Sin sorpresas ni letra chica.
 
 | | Plan | Precio estimado | Entrega |
 |---|---|---|---|
 | 01 | **Landing Page** | USD 250 | 1–2 semanas |
-| 02 | **Web Institucional** *(Más elegido)* | USD 500 | 3–4 semanas |
+| 02 | **Web Institucional** *(destacado)* | USD 500 | 3–4 semanas |
 | 03 | **Web Compleja** | USD 900 | 6–8 semanas |
 
-Condiciones: 50% para arrancar, 1 ronda de ajustes, precios en USD (pagable en pesos al
-cambio del día). Extras gratis: bilingüe ES/EN, copywriting y blog/noticias; mantenimiento
-mensual a cotizar.
+Condiciones: 50% para arrancar · 1 ronda de ajustes · precios en USD (pagable en pesos al
+cambio del día). **Qué mueve el precio:** alcance, funcionalidad, investigación y
+contenido. **Extras:** bilingüe ES/EN, copywriting y blog sin costo; mantenimiento mensual
+a cotizar.
 
 ---
 
 ### Contacto — `/contacto`
 
-**Titular:** Trabajemos *juntos.* Común a los dos caminos.
+**Título SEO:** Contacto — LCS · Estudio de Diseño Web y Branding en Salta
+**Frase:** Trabajemos juntos. Común a los dos caminos.
 
 | Canal | Dato | Para qué |
 |---|---|---|
-| **WhatsApp** | +54 387 483 4041 | El canal más rápido — se responde el mismo día |
+| **WhatsApp** | +54 387 483 4041 | El canal más rápido: se responde el mismo día |
 | **Instagram** | @lcswebstudio | Mirá el trabajo del estudio y escribí por DM |
 | **Email** | lcsdesignstudio1@gmail.com | Para briefs largos, referencias y archivos *(con botón de copiar)* |
-| **Teléfono** | +54 387 483 4041 | — |
-| **Ubicación** | Salta, Argentina · Remoto | — |
 
-Antes de escribir: tipo de proyecto, identidad existente, cantidad de secciones, plazo
-ideal y rango de presupuesto; videollamada después del primer contacto; respuesta dentro
-de las 24–48 horas hábiles.
+Ficha: Salta, Argentina · Remoto · respuesta en 24–48 h hábiles. Tres preguntas: qué
+información ayuda a cotizar, si hay videollamada y en cuánto tiempo se responde.
 
 ### Términos y condiciones — `/terminos`
 
-El sitio pertenece a LCS, estudio operado por Lautaro Colque Sosa con base en Salta.
-Alcances, plazos y precios se acuerdan de forma particular con cada cliente y quedan
-reflejados en la propuesta enviada por email. El contenido del sitio es propiedad de LCS,
-salvo el material de clientes usado con su autorización. Los datos del formulario se usan
-únicamente para responder la consulta y no se comparten con terceros.
+`noindex`. El sitio pertenece a LCS, estudio de branding y diseño web operado por Lautaro
+Colque Sosa con base en Salta. Alcances, plazos y precios se acuerdan con cada cliente y
+quedan en la propuesta enviada por email. El contenido es de LCS, salvo el material de
+clientes usado con su autorización. Los datos que llegan por email o WhatsApp se usan solo
+para responder la consulta y no se comparten con terceros.
+
+### Página no encontrada — `/404`
+
+`noindex`. «404» enorme, «Esta página no existe o cambió de dirección» y salida a Inicio,
+Branding, Diseño web y Contacto.
 
 ---
 
@@ -653,14 +684,15 @@ son de Wikimedia Commons con licencia Creative Commons, acreditadas en un diálo
 del sitio, y el pie lleva la aclaración legal fija: «Sitio homenaje no oficial. No afiliado
 a Lionel Messi ni a sus representantes.»
 
-### El caso de branding
+### Los casos de branding
 
-| Proyecto | Año | Rubro / cliente | Entregables | Página |
-|---|---|---|---|---|
-| **La Vaca** | — | Bar de barrio · Grand Bourg, Salta | Estrategia, isologo, paleta, tipografías, brandbook, aplicaciones y web | `/branding/proyectos` |
+| Proyecto | Rubro / cliente | Entregables | Página |
+|---|---|---|---|
+| **María Martin** | Marketing digital | Isotipo M&M, paleta, Montserrat, pictogramas, patrón y aplicaciones | `/branding/maria-martin` |
+| **La Vaca** | Bar de barrio · Grand Bourg, Salta | Estrategia, isologo, paleta, tipografías, íconos, patrón, aplicaciones y web | `/branding/la-vaca` |
+| **Yerba Mix** | Yerba mate funcional | Logo, paleta, tipografías, íconos, packaging y aplicaciones | `/branding/yerba-mix` |
 
-Es el único caso de branding publicado hasta ahora, y el mismo cliente del caso web p1: el
-sitio lo señala con el enlace cruzado «Ver el caso web de La Vaca».
+La Vaca es además el caso web p1, y su página de branding enlaza a `/proyectos#p1`.
 
 ---
 
