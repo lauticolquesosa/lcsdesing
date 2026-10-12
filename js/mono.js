@@ -308,6 +308,42 @@
     els.forEach(el => io.observe(el));
   }
 
+  /* Cards de precios: se inclinan hacia el cursor (máx. ~5°) y el brillo
+     lo sigue. El cálculo va en un rAF para no recalcular más de una vez por
+     cuadro. Mismas condiciones que el CSS: mouse y sin movimiento reducido. */
+  function tilt() {
+    const cards = $$('.plans > .plan');
+    if (!cards.length || !matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
+    const MAX = 5;
+    cards.forEach(card => {
+      let raf = 0, idle = 0;
+      const move = e => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          const r = card.getBoundingClientRect();
+          const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((x - .5) * MAX * 2).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((.5 - y) * MAX * 2).toFixed(2) + 'deg');
+          card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+          card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+        });
+      };
+      card.addEventListener('pointerenter', e => {
+        card.classList.add('is-tilt');
+        clearTimeout(idle);
+        idle = setTimeout(() => card.classList.add('is-move'), 300); // primero entra suave, después sigue al cursor
+        move(e);
+      });
+      card.addEventListener('pointermove', move);
+      card.addEventListener('pointerleave', () => {
+        cancelAnimationFrame(raf); clearTimeout(idle);
+        card.classList.remove('is-tilt', 'is-move');
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+      });
+    });
+  }
+
   /* La intro de la portada se saca del árbol cuando terminó de subir */
   function intro() {
     const el = $('.intro');
@@ -324,6 +360,7 @@
     i18n();
     strips();
     reveals();
+    tilt();
     intro();
   });
 })();
