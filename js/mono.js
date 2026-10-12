@@ -6,30 +6,16 @@
    modal de proyectos (projects.js) y con contacto.js.
    Sin dependencias.
    ============================================================ */
-(function () {
+
+/* ---------- Encabezado y pie: una sola fuente de verdad ----------
+   Funciones puras que devuelven el marcado según el camino (portal,
+   branding, web) y la página activa. Las usa este archivo en el
+   navegador y también chrome.mjs, que las escribe en cada HTML para
+   que el menú y el pie existan sin JavaScript (buscadores y
+   asistentes de IA que no lo ejecutan). Si cambia algo acá, correr
+   node chrome.mjs. */
+const LCS_CHROME = (function () {
   'use strict';
-
-  const $  = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const root = document.documentElement;
-  root.dataset.anim = '1'; // el <head> no necesita la red de seguridad: los reveals los maneja este archivo
-
-  const PAGE = document.body.dataset.page || '';
-
-  /* ---------- Los dos caminos ----------
-     Cada página declara el suyo en <body data-section>: portal (la
-     portada), branding o web. Las compartidas (contacto, términos)
-     heredan el último camino recorrido en la visita, para que el menú
-     no cambie de golpe al entrar a Contacto. */
-  const PATH_KEY = 'lcs-path';
-  let SECTION = document.body.dataset.section || 'portal';
-  if (SECTION === 'shared') {
-    let last = null;
-    try { last = sessionStorage.getItem(PATH_KEY); } catch (e) {}
-    SECTION = last === 'branding' || last === 'web' ? last : 'portal';
-  } else if (SECTION !== 'portal') {
-    try { sessionStorage.setItem(PATH_KEY, SECTION); } catch (e) {}
-  }
 
   const NAVS = {
     portal: [
@@ -52,33 +38,33 @@
     branding: { href: '/branding',   es: 'Branding',   en: 'Branding' },
     web:      { href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
   };
-  const NAV = NAVS[SECTION] || NAVS.portal;
   const WA = 'https://wa.me/543874834041';
   const IG = 'https://instagram.com/lcswebstudio';
   const MAIL = 'lcsdesignstudio1@gmail.com';
-
-  const t = (es, en) => `data-es="${es}" data-en="${en}"`;
-  const cur = (k) => (k === PAGE ? ' aria-current="page"' : '');
   const CONTACT = { key: 'contacto', href: '/contacto', es: 'Contacto', en: 'Contact' };
 
-  function header() {
+  const t = (es, en) => `data-es="${es}" data-en="${en}"`;
+
+  function header(section, page) {
+    const NAV = NAVS[section] || NAVS.portal;
+    const cur = (k) => (k === page ? ' aria-current="page"' : '');
     // en la portada el logo ya está grande en el hero: el header va sin logo
-    const home = SECTION === 'portal' ? [] : [{ key: 'home', ...HOMES[SECTION] }];
+    const home = section === 'portal' ? [] : [{ key: 'home', ...HOMES[section] }];
     // dentro de un camino, el primer link lleva a su home (Branding / Diseño web)
     const links = [...home, ...NAV].map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
     // selector para pasar al otro camino sin volver a la portada
-    const sw = SECTION === 'portal' ? '' : `<nav class="pswitch" aria-label="Área del estudio">${
+    const sw = section === 'portal' ? '' : `<nav class="pswitch" aria-label="Área del estudio">${
       [['branding', '/branding', 'Branding', 'Branding'], ['web', '/diseno-web', 'Web', 'Web']].map(([k, h, es, en]) =>
-        `<a href="${h}"${k === SECTION ? ' aria-current="true"' : ''} ${t(es, en)}>${es}</a>`).join('')}</nav>`;
+        `<a href="${h}"${k === section ? ' aria-current="true"' : ''} ${t(es, en)}>${es}</a>`).join('')}</nav>`;
     const menuLinks = [...home, ...NAV, CONTACT]
       .map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
 
-    const html = `
+    return `
       <a class="skip" href="#main" ${t('Saltar al contenido', 'Skip to content')}>Saltar al contenido</a>
-      <header class="hd">
+      <header class="hd" data-nav="${section}">
         <div class="wrap hd__in">
           <div class="hd__start">
-            ${PAGE === 'portal' ? '' : `<a class="hd__logo" href="/" aria-label="LCS — Inicio">
+            ${page === 'portal' ? '' : `<a class="hd__logo" href="/" aria-label="LCS — Inicio">
               <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
             </a>`}
           </div>
@@ -100,34 +86,20 @@
           <a href="mailto:${MAIL}">Email</a>
         </div>
       </nav>`;
-    const mount = $('#chrome');
-    if (mount) mount.outerHTML = html; else document.body.insertAdjacentHTML('afterbegin', html);
-
-    const burger = $('.burger');
-    const setOpen = (open) => {
-      document.body.classList.toggle('menu-open', open);
-      burger.setAttribute('aria-expanded', String(open));
-    };
-    burger.addEventListener('click', () => setOpen(!document.body.classList.contains('menu-open')));
-    $$('.mm a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-    matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
   }
 
-  function footer() {
-    const mount = $('#site-footer');
-    if (!mount) return;
+  function footer(section) {
     const nav = [
       HOMES.portal,
       HOMES.branding,
-      ...(SECTION === 'branding' ? NAVS.branding : []),
+      ...(section === 'branding' ? NAVS.branding : []),
       HOMES.web,
-      ...(SECTION === 'web' ? NAVS.web : []),
+      ...(section === 'web' ? NAVS.web : []),
       CONTACT,
     ].map(n => `<li><a href="${n.href}" ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
 
-    mount.outerHTML = `
-      <footer class="ft">
+    return `
+      <footer class="ft" data-nav="${section}">
         <div class="wrap">
           <div class="ft__in">
             <div>
@@ -157,6 +129,71 @@
           </div>
         </div>
       </footer>`;
+  }
+
+  return { header, footer };
+})();
+if (typeof module === 'object' && module.exports) module.exports = LCS_CHROME;
+
+(function () {
+  'use strict';
+  if (typeof document === 'undefined') return; // cargado desde Node (chrome.mjs)
+
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const root = document.documentElement;
+  root.dataset.anim = '1'; // el <head> no necesita la red de seguridad: los reveals los maneja este archivo
+
+  const PAGE = document.body.dataset.page || '';
+
+  /* ---------- Los dos caminos ----------
+     Cada página declara el suyo en <body data-section>: portal (la
+     portada), branding o web. Las compartidas (contacto, términos)
+     heredan el último camino recorrido en la visita, para que el menú
+     no cambie de golpe al entrar a Contacto. */
+  const PATH_KEY = 'lcs-path';
+  let SECTION = document.body.dataset.section || 'portal';
+  if (SECTION === 'shared') {
+    let last = null;
+    try { last = sessionStorage.getItem(PATH_KEY); } catch (e) {}
+    SECTION = last === 'branding' || last === 'web' ? last : 'portal';
+  } else if (SECTION !== 'portal') {
+    try { sessionStorage.setItem(PATH_KEY, SECTION); } catch (e) {}
+  }
+
+  /* El HTML ya trae el encabezado escrito por chrome.mjs. Solo se rehace
+     si el camino de la visita no coincide (páginas compartidas) o si la
+     página todavía tiene el hueco #chrome. */
+  function header() {
+    const hd = $('.hd');
+    if (!hd || hd.dataset.nav !== SECTION) {
+      const html = LCS_CHROME.header(SECTION, PAGE);
+      const mount = $('#chrome');
+      if (mount) mount.outerHTML = html;
+      else if (hd) {
+        // los nodos viejos se toman antes de insertar los nuevos
+        const old = [$('.skip'), hd, $('#mm')].filter(Boolean);
+        old[0].insertAdjacentHTML('beforebegin', html);
+        old.forEach(n => n.remove());
+      } else document.body.insertAdjacentHTML('afterbegin', html);
+    }
+
+    const burger = $('.burger');
+    const setOpen = (open) => {
+      document.body.classList.toggle('menu-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+    };
+    burger.addEventListener('click', () => setOpen(!document.body.classList.contains('menu-open')));
+    $$('.mm a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    matchMedia('(min-width: 901px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
+  }
+
+  function footer() {
+    const ft = $('.ft');
+    const mount = $('#site-footer');
+    if (mount) mount.outerHTML = LCS_CHROME.footer(SECTION);
+    else if (ft && ft.dataset.nav !== SECTION) ft.outerHTML = LCS_CHROME.footer(SECTION);
   }
 
   function i18n() {

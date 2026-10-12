@@ -4,3 +4,4 @@ csp-hashes.mjs
 .claude
 .gitignore
 .vercelignore
+chrome.mjs
