@@ -308,13 +308,13 @@
     els.forEach(el => io.observe(el));
   }
 
-  /* Cards de precios: se inclinan hacia el cursor (máx. ~5°) y el brillo
+  /* Cards de precios: se inclinan hacia el cursor (máx. ~12°) y el brillo
      lo sigue. El cálculo va en un rAF para no recalcular más de una vez por
      cuadro. Mismas condiciones que el CSS: mouse y sin movimiento reducido. */
   function tilt() {
     const cards = $$('.plans > .plan');
     if (!cards.length || !matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
-    const MAX = 5;
+    const MAX = 12;
     cards.forEach(card => {
       let raf = 0, idle = 0;
       const move = e => {
