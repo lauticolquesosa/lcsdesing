@@ -316,6 +316,16 @@
     if (!cards.length || !matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
     const MAX = 12;
     cards.forEach(card => {
+      // el cuerpo de la card: 8 capas de 3px detrás (24px de espesor) y el velo que la apaga
+      for (let i = 8; i >= 1; i--) {
+        const slab = document.createElement('span');
+        slab.className = 'plan__slab'; slab.setAttribute('aria-hidden', 'true');
+        slab.style.setProperty('--i', i);
+        card.prepend(slab);
+      }
+      const dim = document.createElement('span');
+      dim.className = 'plan__dim'; dim.setAttribute('aria-hidden', 'true');
+      card.append(dim);
       let raf = 0, idle = 0;
       const move = e => {
         cancelAnimationFrame(raf);

@@ -377,6 +377,22 @@ a.card:hover .card__img img { transform: scale(1.03); }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .plans { perspective: 1000px; }
   .plan { position: relative; transform-style: preserve-3d; }
+  /* Cuerpo: mono.js apila capas finas detrás de cada card (cada una un
+     poco más atrás en Z) y con la perspectiva se ve el canto, como una
+     placa con espesor. La card tiene fondo propio para tapar las capas. */
+  .plan { background: var(--bg); }
+  .plan--main { background: var(--fg); }
+  .plan__slab {
+    position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+    transform: translateZ(calc(var(--i) * -3px));
+    background: color-mix(in srgb, #2e2e2e, #0a0a0a calc(var(--i) * 10%));
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .plan--main .plan__slab { background: color-mix(in srgb, #cfcfcf, #6e6e6e calc(var(--i) * 10%)); border-color: rgba(0,0,0,.08); }
+  .plan__dim {
+    position: absolute; inset: -1px; border-radius: inherit; pointer-events: none;
+    transform: translateZ(1px); background: #000; opacity: 0; transition: opacity .6s var(--ease);
+  }
   .plan::before {
     content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
     background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.18), transparent 50%);
@@ -394,12 +410,14 @@ a.card:hover .card__img img { transform: scale(1.03); }
   .plans > .plan--main.is-tilt { border-color: var(--fg); box-shadow: 0 50px 110px -30px rgba(255,255,255,.45); }
   .plans > .plan.is-tilt::before { opacity: 1; }
   .plan h3, .plan__price { transition: transform .7s var(--ease); }
-  .plans > .plan.is-tilt .plan__n { transform: translateZ(50px); }
-  .plans > .plan.is-tilt h3 { transform: translateZ(38px); }
-  .plans > .plan.is-tilt .plan__price { transform: translateZ(28px); }
-  .plans > .plan.is-tilt .pill { transform: translateZ(45px); }
-  /* las otras dos se corren atrás para que la elegida destaque */
-  .plans:has(> .plan.is-tilt) > .plan.in:not(.is-tilt) { --sc: .96; opacity: .45; }
+  .plans > .plan.is-tilt .plan__n { transform: translateZ(30px); }
+  .plans > .plan.is-tilt h3 { transform: translateZ(22px); }
+  .plans > .plan.is-tilt .plan__price { transform: translateZ(16px); }
+  .plans > .plan.is-tilt .pill { transform: translateZ(26px); }
+  /* las otras dos se corren atrás y se apagan con un velo (no con opacity,
+     que aplanaría el 3D y les quitaría el cuerpo) */
+  .plans:has(> .plan.is-tilt) > .plan.in:not(.is-tilt) { --sc: .96; }
+  .plans:has(> .plan.is-tilt) > .plan.in:not(.is-tilt) .plan__dim { opacity: .55; }
   .plans > .plan.is-move { transition: opacity 1s var(--ease), transform .25s ease-out, border-color .5s var(--ease), box-shadow .8s var(--ease); }
 }
 
