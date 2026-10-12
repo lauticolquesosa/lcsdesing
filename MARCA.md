@@ -4,10 +4,10 @@
 
 Documento de referencia del estudio: quién es, cómo habla, cómo se ve y qué dice cada
 página del sitio. Todos los datos salen del código de `lcsdesignstudio.com.ar`, no de una
-interpretación: los hex son los tokens de `css/base.css`, las frases son las que están
+interpretación: los hex son los tokens de `css/mono.css`, las frases son las que están
 publicadas y los precios son los que hoy figuran en `inversion.html` y `branding/inversion.html`.
 
-Última revisión: **7 de octubre de 2026**
+Última revisión: **12 de octubre de 2026** (secciones 2, 6, 7, 8, 11 y 12, después del rediseño en blanco y negro)
 
 ---
 
@@ -64,12 +64,12 @@ institucional · clubes · marketing · deporte (proyecto propio, sin cliente).
 
 Desde el 5 de octubre de 2026 la portada (`/`) dejó de ser la home de "diseño web" y pasó a
 ser un **portal con dos caminos**: Branding y Diseño web. Cada camino tiene su propia home,
-sus propios servicios, proyectos e inversión, y comparte el mismo `site.js`, el mismo pie y
+sus propios servicios, proyectos e inversión, y comparte el mismo `mono.js`, el mismo pie y
 el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 
 | N.º | Ruta | Qué es |
 |---|---|---|
-| — | `/` | **Portal.** Dos cards —Branding y Diseño web— con su propio hero, sin servir de home de ninguno de los dos caminos. |
+| — | `/` | **Portal.** El logo grande con el nombre del estudio, una tira de trabajos que gira sola y las dos cards de camino, Branding y Diseño web. No es la home de ninguno de los dos caminos. |
 | 01 | `/branding` | Home del camino de branding: hero, por qué, qué te llevás, el caso La Vaca y proceso. |
 | 02 | `/branding/servicios` | Qué incluye el servicio de identidad visual. |
 | 03 | `/branding/proyectos` | El brandbook de La Vaca, página por página. |
@@ -79,13 +79,15 @@ el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 | 03 | `/proyectos` | Grilla de los 24 casos de diseño web. |
 | 04 | `/inversion` | Los tres planes de diseño web, con precio. |
 | 05 | `/contacto` | Canales de contacto, común a los dos caminos. |
-| — | `/terminos` | Términos y condiciones. No está en el sitemap. |
+| — | `/terminos` | Términos y condiciones. `noindex`, no está en el sitemap. |
+| — | `/404` | Página propia de «no encontrada». `noindex`. |
 
 **Redirecciones permanentes:** `/proceso` → `/servicios#proceso` · `/sobre` → `/diseno-web#beneficios`
 · cualquier ruta de `lcsdesign.vercel.app` → la misma ruta en `lcsdesignstudio.com.ar`.
 
-**Sitemap:** diez URLs (`sitemap.xml`), con prioridad 1.0 para `/`, 0.9 para las dos homes de
-camino, 0.8 para servicios/proyectos de cada uno y 0.7 para las dos inversiones y contacto.
+**Sitemap:** trece URLs (`sitemap.xml`) con la fecha real del último cambio de cada página:
+prioridad 1.0 para `/`, 0.9 para las dos homes de camino, 0.8 para servicios y proyectos,
+0.7 para inversión y los tres casos de branding, 0.6 para contacto.
 
 ---
 
@@ -288,113 +290,75 @@ lugar donde la marca se permite una tesis. Ejemplos publicados:
 
 ## 6 · Color
 
-Todos los valores viven como custom properties en `:root` (`css/base.css`). Sin cambios
-frente a la revisión anterior: el verde de marca sigue intacto.
+Desde el 9 de octubre de 2026 el sitio es **blanco y negro**. El verde `#018751` de la
+etapa anterior quedó retirado: no aparece en ningún lado. Todos los valores viven como
+custom properties en `:root` de `css/mono.css`.
 
-### Paleta base
+### Paleta
 
-| Token | Hex | Nombre | Uso |
-|---|---|---|---|
-| `--green` | `#018751` | Verde de marca | Acento único. Fondos de banda, bordes, botones sólidos, subrayados, caret del typewriter, barra de progreso. **No se toca.** |
-| `--green-d` | `#0c6e4d` | Verde profundo | Reserva para estados presionados. |
-| `--green-l` | `#6df3b8` | Verde claro | Texto de acento sobre fondo oscuro: subtítulos, encabezados del pie, enlaces con flecha en banda `ink`. |
-| `--cream` | `#F7F6F3` | Crema | Fondo de las bandas claras y color de texto sobre fondo oscuro. |
-| `--ink` | `#0A0A0A` | Tinta | Fondo de las bandas oscuras, del `<body>` y del `theme-color` del navegador. |
-| `--paper` | `#111111` | Papel | Color de texto sobre fondo claro. |
-| `--gray` | `#6b6a66` | Gris | Texto secundario. Elegido por contraste: da 5:1 sobre papel; el anterior, `#8b8a86`, daba 3.2 y no pasaba. |
-| `--amber` | `#e0a93e` | Ámbar | Señalización puntual. |
-
-### Acentos derivados
-
-| Token | Hex / valor | Por qué existe |
+| Token | Hex / valor | Uso |
 |---|---|---|
-| `--accent` | = `--green` | Alias semántico. Todo el CSS pide `--accent`, nunca `--green` directo. |
-| `--accent-text` | `#017245` | **Solo para texto chico sobre fondo claro.** El verde de marca sobre papel da 4.24:1 y no llega al mínimo legal; este tono de la misma familia llega a 5.6:1. Los fondos y bordes siguen con el verde de marca, donde el contraste no se mide. |
-| `--line` | `rgba(247,246,243,.16)` | Filete sobre fondo oscuro. |
-| `--line-d` | `rgba(17,17,17,.14)` | Filete sobre fondo claro. |
-
-### Colores fuera del sistema (deliberados)
-
-| Hex | Dónde | Por qué |
-|---|---|---|
-| `#F03E7C` | Punto del cursor propio | Rosa magenta: el único color ajeno a la paleta. Existe para que el cursor se lea sobre las tres bandas y para dar un guiño de personalidad. Al pasar sobre un interactivo se convierte en un anillo verde de 36 px. |
-| `#25D366` | Botón flotante de WhatsApp | Verde oficial de WhatsApp. Se respeta porque el reconocimiento del ícono es el punto. |
-| `#fff` | Blanco puro | Solo en `::selection`, en el `<em>` sobre banda verde, en el papel del intro de la home y en los rótulos sobre fotografía. El blanco de la marca es el crema. |
-
-### Las tres bandas
-
-El sitio no tiene un fondo: tiene **tres bandas de color que alternan** y le dan ritmo al
-scroll, en los dos caminos. La clase de la sección define el par fondo/texto, y el
-encabezado cambia de tema automáticamente al entrar en cada una.
-
-| Clase | Fondo | Texto | Filete |
-|---|---|---|---|
-| `.section--paper` | `--cream` `#F7F6F3` | `--paper` `#111111` | `--line-d` |
-| `.section--accent` | `--green` `#018751` | `--cream` `#F7F6F3` | — |
-| `.section--ink` | `--ink` `#0A0A0A` | `--cream` `#F7F6F3` | `--line` |
+| `--bg` | `#000` | Fondo de todo el sitio, del `<body>` y del `theme-color` del navegador. |
+| `--fg` | `#fff` | Texto principal, botón claro, card destacada invertida, foco visible. |
+| `--soft` | `#e6e4e2` | Blanco apagado: números grandes, títulos de servicio, cuerpos de lista. |
+| `--muted` | `#a3a3a3` | Texto secundario: bajadas, respuestas de FAQ, metadatos. |
+| `--dim` | `#767676` | Rótulos y texto legal del pie. Es el gris más oscuro que llega a 4.6:1 sobre negro; el anterior (`#6b6b6b`) daba 3.9 y no pasaba. |
+| `--line` | `rgba(255,255,255,.12)` | Filete suave. |
+| `--line-strong` | `rgba(255,255,255,.22)` | Filete de listas, FAQ y bordes de card. |
+| `--pill` / `--pill-hover` | `#1c1c1c` / `#2a2a2a` | Fondo del botón oscuro. |
 
 ### Reglas de color
 
-- **Un solo acento.** El verde es el único color de marca. Nada de paletas secundarias.
-- **El verde no se toca.** Ni el hex ni su rol.
-- **Texto chico y verde sobre claro → `--accent-text`.** Nunca `--green`.
-- **Verde sobre oscuro → `--green-l`.** Ahí el verde de marca sí contrasta, pero el claro
-  es más legible en cuerpos chicos.
-- **Bordes en vez de sombras.** Las sombras solo aparecen en el hover de las tarjetas de
-  precio y en el botón flotante.
+- **Sin acento.** El contraste lo da el blanco sobre negro; el énfasis, el tamaño y el peso.
+- **Invertir en vez de colorear.** Lo destacado (el plan recomendado, el botón principal,
+  la barra de trato directo, el hover de las cards de camino) se resuelve pasando a blanco
+  con texto negro.
+- **Texto chico nunca por debajo de `--dim`.** Todo par de texto y fondo pasa 4.5:1.
+- **Los casos de branding llevan la paleta de su marca.** `css/caso.css` define los
+  colores de La Vaca, Yerba Mix y María Martin solo dentro de su página (`.case--lv`,
+  `.case--ym`, …): son el trabajo mostrado, no la marca del estudio.
 
 ---
 
 ## 7 · Tipografía
 
-Dos familias, ambas variables y **servidas desde el propio dominio** en `.woff2`, en dos
-cortes (`latin` y `latin-ext`) con `font-display: swap`. Nada sale a un servidor de
-terceros: la página carga antes y ningún externo ve a quién la visita. Las dos caras
-`latin` van con `<link rel="preload">`.
+Dos familias variables, **servidas desde el propio dominio** en `.woff2`, en dos cortes
+(`latin` y `latin-ext`) con `font-display: swap`. Nada sale a un servidor de terceros. Los
+dos cortes `latin` van con `<link rel="preload">` en todas las páginas.
 
-| Rol | Familia | Pesos | Token | Fallback |
-|---|---|---|---|---|
-| **Display** | Space Grotesk | 400–700 | `--display` | "Helvetica Neue", sans-serif |
-| **Texto** | Montserrat | 300–700 | `--body` | "Helvetica Neue", sans-serif |
+| Rol | Familia | Pesos | Token |
+|---|---|---|---|
+| **Texto y titulares** | Inter | 100–900 | `--sans` |
+| **Números** | Manrope | 200–800 | `--num` |
 
-**Space Grotesk** lleva todos los titulares, los números de sección, los botones, los
-nombres de plan y los rótulos. **Montserrat** lleva el cuerpo, los leads y las listas.
+**Inter** lleva todo: titulares gigantes, navegación, botones y cuerpo. **Manrope** solo
+los números grandes (`01`, `02`, `03` de planes, servicios y caminos), en 800.
+
+Las páginas de caso de branding cargan además las fuentes de cada marca cliente
+(Montserrat para María Martin, Bebas Neue para La Vaca) desde `css/caso.css`.
 
 ### Escala tipográfica
 
-Todo es fluido con `clamp()`: no hay breakpoints tipográficos.
+Fluida con `clamp()`:
 
 | Clase | Tamaño | Peso | Interlínea | Tracking |
 |---|---|---|---|---|
-| `.big` (titular gigante) | `clamp(48px, 9.5vw, 168px)` | 700 | .9 | −.035em |
-| `.page-hero__title` | `clamp(38px, 6.6vw, 100px)` | 700 | .92 | −.035em |
-| `.hero-title` (homes de camino) | `clamp(40px, 5.6vw, 88px)` | 700 | .9 | −.035em |
-| `.portal__title` (portal) | `clamp(34px, 4.6vw, 72px)` | 700 | .95 | −.035em |
-| `.manifesto__text` | `clamp(28px, 4.6vw, 66px)` | 600 | 1.12 | −.025em |
-| `h2.title` | `clamp(34px, 5.2vw, 76px)` | 700 | .96 | −.03em |
-| `h2.title--md` | `clamp(19px, 3.4vw, 42px)` | 700 | .96 | −.03em |
-| `h2.title--sm` | `clamp(24px, 2.8vw, 38px)` | 700 | .96 | −.03em |
-| `.lead` | `clamp(17px, 1.7vw, 23px)` | 300 | 1.42 | −.005em |
-| Cuerpo de tarjeta | `clamp(14px, 1.3vw, 16px)` | 300 | 1.55 | — |
-| Nav del encabezado | 14px | 600 | — | .1em, mayúsculas |
-| `.page-hero__kicker` | 12px | 600 | — | .2em, mayúsculas |
-| `.link-arrow` | 12px | 700 | — | .14em, mayúsculas |
-| Numeración `01`–`06` | 12–13px | 600–700 | — | .12–.14em |
+| `.display--xl` (palabra del hero de página) | `clamp(56px, 11vw, 168px)` · 14vw en celular | 500 | .78 | −.08em, mayúsculas |
+| `.display` (título de sección) | `clamp(46px, 5.6vw, 80px)` | 500 | .82 | −.075em, mayúsculas |
+| H1 de la portada | `clamp(24px, 2.6vw, 36px)` | 600 | 1.2 | −.03em |
+| `.statement` (frase de apoyo) | `clamp(21px, 1.85vw, 26px)` | 400 | 1.2 | −.03em |
+| Nav del encabezado | 17px | 500 | 1 | mayúsculas |
+| Botón (`.pill`) y enlace (`.txtlink`) | 14px | 500 | — | mayúsculas |
+| Cuerpo | 16px | 400 | 1.4–1.6 | −.02em |
 
 ### Reglas tipográficas
 
-- **Titulares apretados.** Tracking negativo e interlínea por debajo de 1. Cuanto más
-  grande el texto, más apretado.
-- **Cuerpo liviano.** Montserrat 300 para leads y párrafos; 600 solo en rótulos.
-- **Mayúsculas solo en etiquetas.** Nav, kickers, enlaces con flecha y números. Jamás en
-  un titular ni en un párrafo.
-- **`<em>` no es itálica.** En toda la marca `em { font-style: normal }`: marca el remate
-  de la frase, no un énfasis tipográfico.
-- **Los titulares de página van enteros en negro.** El `<em>` del `.page-hero__title`
-  hereda el color del titular.
-- **Medida de lectura acotada.** `.measure` = 60ch, leads de hero = 60ch, hero de cada
-  camino = 38ch, bajadas de tarjeta = 46–52ch.
-- **`text-wrap: balance`** en titulares de página, para que no quede una palabra colgando.
+- **Titulares en mayúsculas, apretados.** Tracking muy negativo e interlínea por debajo de 1.
+- **Una palabra por hero.** Cada página interna abre con una sola palabra enorme
+  (`SERVICIOS`, `PROYECTOS`, `INVERSIÓN`) y una frase debajo; el `<h1>` lleva la frase
+  completa en `aria-label` para lectores de pantalla y buscadores.
+- **`<em>` no es itálica** (`em { font-style: normal }`).
+- **`text-wrap: balance`** en los titulares de varias líneas.
 
 ---
 
@@ -402,109 +366,87 @@ Todo es fluido con `clamp()`: no hay breakpoints tipográficos.
 
 ### Carácter
 
-Editorial, de alto contraste y con mucho aire. Bordes finos en lugar de sombras,
-tipografía grande y apretada, numeración visible y fotografía real a sangre. La página se
-lee como una publicación impresa que se mueve, no como una landing de plantilla.
+Negro, blanco y mucho aire, en la línea de Estudio Veka: tipografía enorme en mayúsculas,
+filetes finos en lugar de sombras, fotografía real a sangre y numeración visible. El
+trabajo es lo único que pone color en la pantalla.
 
 ### Grilla y ritmo
 
 | Token | Valor |
 |---|---|
-| `--maxw` (ancho útil) | `1500px` |
-| `--gutter` (margen lateral) | `clamp(20px, 4.5vw, 64px)` |
-| `--section-pad` (aire vertical) | `clamp(72px, 11vh, 150px)` |
-| `--ease` (curva de toda la marca) | `cubic-bezier(0.16, 1, 0.3, 1)` |
+| `--max` (ancho útil) | `1520px` |
+| `--gut` (margen lateral) | `clamp(20px, 2.8vw, 40px)` |
+| `.sec` (aire vertical) | `clamp(64px, 8vw, 110px)` arriba y abajo |
+| `--head-h` (alto del encabezado) | `72px` |
+| `--ease` (curva de toda la marca) | `cubic-bezier(.22, 1, .36, 1)` |
 
-Todo el contenido vive dentro de `.shell`, que centra a `--maxw` y aplica el gutter.
+Todo el contenido vive dentro de `.wrap`, que centra a `--max` y aplica el margen.
 
 ### Geometría
 
-- **Esquinas rectas por defecto.** No hay radios generales.
-- **`999px`** en píldoras: botones, etiqueta «Más elegido», chips.
-- **`50%`** en círculos: cursor, botón flotante, avatares.
-- **`10–18px`** solo en miniaturas de proyecto y tarjetas sociales.
+- **`8px`** de radio en imágenes, cards y planes.
+- **`100px`** en píldoras: botones, selector de camino, barra de trato directo.
+- **`50%`** en círculos: flechas de las tiras y de las cards.
+- **`8px`** de separación entre cards de una misma grilla.
 
 ### Componentes
 
 | Componente | Cómo se ve |
 |---|---|
-| **Botón** | Píldora, borde `1.5px currentColor`, padding `15px 26px`, Space Grotesk 600 de 14px. `--solid` va en verde; `--ghost` es transparente. Al hover sube 2px e invierte fondo y texto. |
-| **Enlace con flecha** | Mayúsculas de 12px con tracking .14em y flecha diagonal SVG que se desplaza 3px al hover. |
-| **Tarjeta genérica** | Borde de 1px, fondo con 3% de mezcla, sube 5px al hover y el borde vira a verde. |
-| **Tarjeta de precio** | Borde `1.5px`, sube 8px al hover, sombra profunda, el precio escala 1.06 y vira a verde. La destacada lleva borde verde y la etiqueta «Más elegido». |
-| **Card del portal** (`.path`) | Las dos cards de camino (Branding / Diseño web), con un visual propio por camino —brandbook en abanico para Branding, navegador con captura real para Diseño web— e inclinación 3D al mouse (`data-tilt`). |
-| **Columnas problema/solución** | Dos listas enfrentadas: la del dolor en gris con una cruz, la de la ganancia en verde con un tilde. Se entiende de un vistazo sin leer las dos. |
-| **Fila del índice** | Filete arriba, título grande, número al costado, barra verde de 2px que crece desde arriba al hover y desplaza la fila 20px. |
-| **FAQ** | `<details>` nativo con filete y un ícono que rota. Sin JavaScript. |
-| **Tarjeta de proyecto** | Captura del sitio real a 1200×825 con la etiqueta «Ver caso» y la meta debajo. |
+| **Botón** (`.pill`) | Píldora de 44px, fondo `#1c1c1c`, mayúsculas de 14px. `.pill--light` es blanca con texto negro, de 47px y sin mayúsculas: el CTA principal. |
+| **Enlace con flecha** (`.txtlink.arw`) | Mayúsculas de 14px con una flecha diagonal que se corre 2px al hover. |
+| **Tira** (`.strip`) | Fila horizontal de imágenes de borde a borde con flechas circulares. En la portada y en las homes de camino avanza sola, de a una tarjeta, en un ciclo que no termina nunca. |
+| **Card de camino** (`.path`) | Las dos cards de la portada (Branding / Diseño web): borde fino y número en Manrope; al hover un relleno blanco sube desde abajo y la flecha gira 45°. |
+| **Card de proyecto** (`.card`) | Captura del sitio real a 1200×825 con nombre y rubro debajo; la imagen escala 1.03 al hover. En `/proyectos` abre el caso completo en un modal. |
+| **Plan** (`.plan`) | Tres cards de precio. La recomendada va invertida (blanca). Tienen cuerpo en 3D: se inclinan hacia el cursor y, en celular, según su lugar en la pantalla. |
+| **Lista numerada** (`.duo`, `.benefits__list`) | Filetes entre filas y numeración en gris. |
+| **FAQ** | `<details>` nativo con filete y un `+` que rota a `×`. Sin JavaScript. |
+| **Índice de casos** (`.cidx`) | Filas con nombre gigante, rubro, año y una flecha circular que se invierte al hover. |
 
 ### Movimiento
 
-Con **GSAP + ScrollTrigger** sobre el scroll nativo del navegador —sin secuestro— para
-que vaya 1:1 con el gesto.
+CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 
-- **Intro del logo (solo portal, `/`).** Al recargar o llegar desde afuera (nunca al volver
-  desde otra página ni con el botón atrás, ni con movimiento reducido), papel blanco y el
-  logo completo de LCS —sin la bajada "DISEÑO WEB": el portal es del estudio entero— entra
-  de izquierda a derecha de un solo golpe, como un auto de carrera: `translateX(-150%)` con
-  un leve `skewX` que simula el estirón de la velocidad, frena con
-  `cubic-bezier(.22,1,.36,1)` en .7 s y la cortina sube. Todo en CSS puro (`introSlide`,
-  `introMarkOut`, `introOut` en `css/pages.css`): arranca en el primer cuadro sin esperar a
-  ningún script y termina sola aunque falle el JS.
-- **Typewriter.** Los titulares de página y **todos** los `h2.title` se tipean al entrar
-  en pantalla, con un caret verde que parpadea. 26 ms por carácter en los heroes, 20 ms en
-  los títulos de sección.
-- **Revelado por líneas.** Los titulares gigantes suben desde `yPercent: 110` con stagger
-  de .12–.13 s.
-- **Revelado por clip-path.** Los leads se descubren de arriba hacia abajo.
-- **Stagger.** Las grillas entran escalonadas cada .1 s.
-- **Manifiesto palabra por palabra.** El texto del manifiesto se rellena de color a medida
-  que se scrollea.
-- **Botones magnéticos.** Los CTA marcados con `data-magnetic` siguen levemente al cursor.
-- **Parallax.** Imágenes de hero con desplazamiento suave.
-- **Carrusel arrastrable.** Los 24 casos de diseño web en un track finito —sin loop, sin
-  degradés— recorrible con flechas, arrastre o teclado, con barra de avance.
+- **Intro del logo (solo `/`).** Al recargar o llegar desde afuera, el logo de LCS en
+  blanco se descubre de izquierda a derecha sobre negro y la cortina sube. Nunca al volver
+  desde otra página del sitio, con el botón atrás ni con movimiento reducido.
+- **Revelado al entrar en pantalla.** Los bloques con `data-rv` suben 24px y aparecen en
+  1s, con un escalonado opcional (`--rv-d`). Lo maneja un `IntersectionObserver`.
+- **Tiras automáticas.** Avanzan de a una tarjeta con una pausa corta; descansan cuando
+  no están en pantalla o la pestaña está oculta.
+- **Cards de precio en 3D**, descriptas arriba.
 
 **Reglas de movimiento:**
 
-- Todo usa `--ease`, la misma curva.
-- `prefers-reduced-motion` desactiva absolutamente todo.
-- Red de seguridad: si a los 4 segundos nadie confirmó que las animaciones corren (GSAP
-  caído, error de red), se quita la marca `.js` y **todo el texto queda visible igual**. El
-  sitio nunca se queda en blanco.
+- Todo usa `--ease`.
+- `prefers-reduced-motion` apaga la intro, los revelados, las tiras automáticas y el 3D.
+- Red de seguridad: si a los 4 segundos `mono.js` no confirmó que corre, se quita la
+  marca `.js` y **todo el contenido queda visible igual**.
 
-### Chrome fijo
+### Chrome
 
-- **Barra de progreso** de 2px en verde, arriba de todo.
-- **Encabezado fijo** transparente que al pasar los 60px de scroll se vuelve
-  `rgba(10,10,10,.9)` con `blur(16px)`. El logo y el nav invierten a tinta sobre las bandas
-  claras.
-- **Selector ES/EN** siempre visible, junto a la hamburguesa.
-- **Menú a pantalla completa** que entra con `clip-path` desde la derecha en .7 s.
-- **Cursor propio** rosa `#F03E7C` de 10px que se abre a un anillo verde de 36px sobre
-  cualquier interactivo. Desactivado en pantallas táctiles.
-- **Botón flotante de WhatsApp** verde `#25D366` de 56px abajo a la derecha, inyectado por
-  JS en todas las páginas (oculto en celular en el portal). Desaparece con el menú abierto.
-- **Marca de agua** del isotipo en los heroes, al 5% de opacidad, invertida.
+- **Encabezado fijo** negro con filete inferior, en tres columnas: logo · secciones del
+  camino · selector **Branding / Web**. En la portada va sin logo (el logo ya está grande
+  en el hero).
+- **Menú de celular** a pantalla completa debajo de 900px, con el selector de camino
+  arriba y los links a Instagram, WhatsApp y email abajo.
+- **Pie** con correo, WhatsApp, navegación del camino actual, redes, logo y términos.
+- Encabezado y pie se generan desde `mono.js`: la navegación tiene una sola fuente de
+  verdad (`NAVS`) y no se repite en ningún HTML.
 
 ### Iconografía
 
-Ocho íconos SVG en línea, guardados como custom properties y aplicados con `-webkit-mask`
-/ `mask` para que se tiñan solos con `currentColor`: flecha diagonal, flecha arriba, flecha
-este, Instagram, WhatsApp, tilde, cruz y sobre. Trazo de 1.8–2.6, extremos redondeados.
-**No hay librería de íconos.**
+Flechas SVG en línea aplicadas con `mask` para que se tiñan con `currentColor`. **No hay
+librería de íconos.**
 
 ### Fotografía
 
-- Capturas **reales** de los sitios en producción, siempre a 1200×825, en `.webp`.
-- Cuando un caso usa imágenes generadas con IA, **se declara en el pie del sitio**.
-- El caso Leo Messi usa fotos de Wikimedia Commons bajo licencia Creative Commons, con
-  créditos declarados en un diálogo propio del sitio — mismo principio que las imágenes de
-  IA: la fuente nunca se esconde.
-- Regla heredada de los casos: nada de bancos de imágenes en sitios de cliente, y cuando
-  una foto es de referencia, se dice.
-- Los assets se versionan en el nombre (`-v2`, `-v3`) al reemplazarlos, para no pelear con
-  el caché inmutable de un año.
+- Capturas **reales** de los sitios en producción, a 1200×825 en `.webp`, con versiones
+  de 600 y 900 px para que cada pantalla baje el tamaño justo (`srcset`).
+- Fotos de aplicaciones de marca en 4:5, a 640 y 1024 px.
+- Cuando un caso usa imágenes generadas con IA o de Wikimedia Commons, se declara.
+- Los assets se versionan en el nombre (`-v2`, `-v3`) al reemplazarlos, para no pelear
+  con el caché inmutable de un año.
 
 ---
 
@@ -727,58 +669,59 @@ sitio lo señala con el enlace cruzado «Ver el caso web de La Vaca».
 | Capa | Qué se usa |
 |---|---|
 | **Diseño** | Figma |
-| **Sitio propio** | HTML + CSS + JavaScript escritos a mano. Sin framework, sin build. |
-| **Animación del sitio propio** | GSAP + ScrollTrigger, vendorizados localmente |
+| **Sitio propio** | HTML + CSS + JavaScript escritos a mano. Sin framework, sin build, sin librerías. |
+| **Archivos** | `css/mono.css` (todo el sitio) + `css/caso.css` (casos de branding) · `js/mono.js` (todo el sitio) + `js/projects.js` (modal de `/proyectos`) + `js/contacto.js` (copiar el email) |
 | **Proyectos de cliente** | HTML/CSS/JS a mano o Next.js + React según el caso; Supabase cuando hace falta panel; Three.js + Lenis en el proyecto propio de Leo Messi |
 | **Hosting** | Vercel, con dominio propio en NIC.ar (`lcsdesignstudio.com.ar`) y DNS de Vercel |
 | **Fuentes** | Self-hosted `.woff2`, dos cortes, con preload |
 
 ### Decisiones que definen el sitio
 
-- **Portal + dos caminos, un solo motor.** `site.js` inyecta el encabezado, el menú, el
-  cursor, la barra de progreso, el botón de WhatsApp y el pie en **todas** las páginas de
-  los dos caminos: el marcado no se repite en ningún HTML. La navegación tiene una única
-  fuente de verdad (el array `NAV`) y los datos de contacto otra (`SOCIAL`). `portal.js`
-  es exclusivo de `/` y solo maneja las dos cards y la transición al entrar a un camino.
-- **Bilingüe sin duplicar páginas.** Cada nodo traducible lleva `data-es` y `data-en`; el
-  selector recorre el DOM y cambia también el `<title>` y la meta description. La elección
-  persiste en `localStorage` bajo `lcs-lang`.
-- **Accesibilidad de serie.** `prefers-reduced-motion` respetado en todo, foco visible con
-  anillo verde de 2px, textos solo para lectores de pantalla (`.sr-only`), `aria-current` en
-  la página activa y contrastes verificados uno por uno.
-- **Sin JavaScript, se lee igual.** Los reveals arrancan ocultos solo si hay JS, y una red
-  de seguridad de 4 segundos los muestra si las animaciones no llegaron a correr.
+- **Portal + dos caminos, un solo motor.** `mono.js` arma el encabezado, el menú y el pie
+  de **todas** las páginas según el camino (`<body data-section>`): `portal`, `branding`,
+  `web` o `shared`. Las compartidas (contacto, términos, 404) heredan el último camino
+  recorrido en la visita.
+- **Solo en español.** Los textos conservan sus atributos `data-es` / `data-en` y el
+  modal de proyectos su versión en inglés, pero el selector de idioma está apagado y el
+  sitio se muestra siempre en español.
+- **Accesibilidad de serie.** `prefers-reduced-motion` respetado, foco visible blanco de
+  2px, enlace «Saltar al contenido», `aria-current` en la página activa, botón de menú de
+  44px y contrastes de 4.5:1 o más en todo el texto. Lighthouse: 100 en accesibilidad.
 - **Seguridad por cabeceras.** CSP estricta sin `unsafe-inline` —los scripts en línea de
   cada página van por hash SHA-256—, HSTS con preload, `X-Frame-Options: DENY`,
-  `Referrer-Policy`, `Permissions-Policy` con todo apagado y `frame-ancestors: none`. La
-  lista de hashes se regenera con `node csp-hashes.mjs` cada vez que se toca un script en
-  línea; `node csp-hashes.mjs --check` la valida antes de publicar.
+  `Referrer-Policy`, `Permissions-Policy` con todo apagado, `Cross-Origin-Opener-Policy` y
+  `frame-ancestors: none`. La lista de hashes se regenera con `node csp-hashes.mjs` cada
+  vez que se toca un script en línea; `node csp-hashes.mjs --check` la valida.
+- **Lo interno no se publica.** `.vercelignore` deja afuera del deploy este manual y
+  `csp-hashes.mjs`.
 - **Caché en dos velocidades.** `/assets/*` inmutable por un año; HTML, CSS y JS siempre
   revalidados. Por eso los assets se renombran con sufijo de versión al reemplazarlos.
-- **SEO estructurado.** `ProfessionalService` + `Organization` + `WebSite` + `FAQPage` +
-  `BreadcrumbList` en JSON-LD por página, canónicas, Open Graph y Twitter Card completos,
-  sitemap de diez URLs y geolocalización declarada (`AR-A`, Salta).
+- **SEO y buscadores con IA.** JSON-LD por página (`ProfessionalService` + `Organization`,
+  `Person`, `WebSite`, `Service`, `FAQPage`, `BreadcrumbList`, `CreativeWork` en los casos
+  y una `CollectionPage` con los 24 proyectos web), canónicas, Open Graph y Twitter Card,
+  sitemap de trece URLs con fecha real de cambio, `llms.txt` para asistentes de IA, clave
+  de IndexNow y geolocalización declarada (`AR-A`, Salta).
+- **404 propia** (`404.html`), con el mismo encabezado y pie y salida a los dos caminos.
 - **Redirección de dominio.** Todo lo que llega a `lcsdesign.vercel.app` redirige 301 a la
-  misma ruta en `lcsdesignstudio.com.ar`, para no perder el posicionamiento ganado con el
-  dominio viejo.
+  misma ruta en `lcsdesignstudio.com.ar`.
 
 ---
 
 ## 12 · Reglas que no se negocian
 
-1. **El verde `#018751` no se toca** — ni el hex ni su rol de acento único.
-2. **Texto verde chico sobre fondo claro va en `#017245`** — el de marca no pasa contraste.
+1. **Blanco y negro.** Sin color de acento en la marca del estudio; el color lo ponen los
+   trabajos.
+2. **Ningún texto por debajo de 4.5:1 de contraste**: el gris mínimo es `#767676`.
 3. **Un solo email del estudio:** `lcsdesignstudio1@gmail.com`.
-4. **Nada de plantillas** — es el argumento de venta y la práctica real, en los dos caminos.
-5. **`<em>` nunca es itálica** — es el remate de color o de peso de una frase.
-6. **Los titulares de página van enteros en negro.**
-7. **Mayúsculas solo en etiquetas**, jamás en titulares ni párrafos.
-8. **Toda la animación usa `--ease`** y muere con `prefers-reduced-motion`.
-9. **Cero jerga de agencia** — la lista de la regla 4.6 se mantiene en cero.
-10. **Los assets se renombran `-v2`, `-v3`… al reemplazarlos**, por el caché inmutable.
-11. **Después de tocar un script en línea, se regenera la CSP** con `csp-hashes.mjs`.
-12. **Si un dato no está confirmado, se escribe «a confirmar» o «a medida»** — no se inventa.
-13. **El portal (`/`) no es la home de ningún camino** — es el selector entre Branding y
+4. **Nada de plantillas**: es el argumento de venta y la práctica real, en los dos caminos.
+5. **`<em>` nunca es itálica.**
+6. **Titulares en mayúsculas; el resto en caja baja.**
+7. **Toda la animación usa `--ease`** y se apaga con `prefers-reduced-motion`.
+8. **Cero jerga de agencia**: la lista de la regla 4.6 se mantiene en cero.
+9. **Los assets se renombran `-v2`, `-v3`… al reemplazarlos**, por el caché inmutable.
+10. **Después de tocar un script en línea, se regenera la CSP** con `csp-hashes.mjs`.
+11. **Si un dato no está confirmado, se escribe «a confirmar» o «a medida»**: no se inventa.
+12. **El portal (`/`) no es la home de ningún camino**: es el selector entre Branding y
     Diseño web, y cada camino tiene su propia home, servicios, proyectos e inversión.
-14. **Un caso sin cliente real se marca como tal** — «proyecto propio», sin inventar un
+13. **Un caso sin cliente real se marca como tal**: «proyecto propio», sin inventar un
     brief ni una marca que no existió.

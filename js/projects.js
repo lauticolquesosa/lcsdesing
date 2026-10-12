@@ -1,7 +1,7 @@
 /* ============================================================
    LCS — projects.js
    Case-study data + full-screen modal.
-   Loaded only on the Proyectos page; site.js calls
+   Loaded only on the Proyectos page; mono.js calls
    window.__lcsProjects(ctx) during boot.
    ============================================================ */
 (function () {

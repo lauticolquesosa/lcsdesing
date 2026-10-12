@@ -1,7 +1,7 @@
 /* ============================================================
    LCS — contacto.js
    Único gesto propio de la página: copiar el email al portapapeles.
-   Se carga después de site.js (ambos con defer), así que el hook de
+   Se carga antes que mono.js (ambos con defer), así que el hook de
    idioma queda registrado antes de que corra el i18n inicial.
    ============================================================ */
 /* Copiar el email al portapapeles, con vuelta atrás si el navegador
@@ -35,7 +35,7 @@
       btn.textContent = label('copy');
     }, 1900);
   }
-  /* site.js dispara este hook en cada cambio de idioma (y en el inicial):
+  /* mono.js dispara este hook en cada cambio de idioma (y en el inicial):
      así el botón y su etiqueta accesible siguen al idioma vigente. */
   function syncLang() {
     if (!btn.classList.contains('is-done')) btn.textContent = label('copy');
