@@ -370,11 +370,13 @@ a.card:hover .card__img img { transform: scale(1.03); }
 .plan--main .pill:hover { background: #222; }
 @media (max-width: 960px) { .plans { grid-template-columns: 1fr; } }
 
-/* Hover en 3D: la card se levanta y se inclina hacia el cursor; número y
-   botón flotan un poco por delante y un brillo sigue al puntero. mono.js
-   escribe --rx/--ry (grados) y --mx/--my (posición del brillo). Solo con
-   mouse y sin movimiento reducido; en táctil quedan quietas. */
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+/* Cards en 3D: con mouse, la card se levanta y se inclina hacia el cursor;
+   número y botón flotan un poco por delante y un brillo sigue al puntero.
+   En táctil (.plans.is-scroll) se inclinan solas según dónde están en la
+   pantalla y, al tocarlas, se levantan hacia el dedo. mono.js escribe
+   --rx/--ry (grados) y --mx/--my (posición del brillo). Con movimiento
+   reducido quedan planas. */
+@media (prefers-reduced-motion: no-preference) {
   .plans { perspective: 1000px; }
   .plan { position: relative; transform-style: preserve-3d; }
   /* Cuerpo: mono.js apila capas finas detrás de cada card (cada una un
@@ -419,6 +421,15 @@ a.card:hover .card__img img { transform: scale(1.03); }
   .plans:has(> .plan.is-tilt) > .plan.in:not(.is-tilt) { --sc: .96; }
   .plans:has(> .plan.is-tilt) > .plan.in:not(.is-tilt) .plan__dim { opacity: .55; }
   .plans > .plan.is-move { transition: opacity 1s var(--ease), transform .25s ease-out, border-color .5s var(--ease), box-shadow .8s var(--ease); }
+  /* táctil: una columna alta, así que cada card lleva su propia perspectiva
+     (la del contenedor deformaría las que quedan lejos del centro) y el
+     transform sigue al scroll con poco retardo */
+  .plans.is-scroll { perspective: none; }
+  html.js .plans.is-scroll > .plan.in, .plans.is-scroll > .plan {
+    transform: perspective(900px) translateY(var(--lift, 0px)) scale(var(--sc, 1)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: opacity 1s var(--ease), transform .35s ease-out, border-color .5s var(--ease), box-shadow .8s var(--ease);
+  }
+  .plans.is-scroll > .plan.is-tilt { --lift: -12px; --sc: 1.02; }
 }
 
 .terms { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); border-top: 1px solid var(--line-strong); }

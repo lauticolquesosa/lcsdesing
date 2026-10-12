@@ -308,15 +308,33 @@
     els.forEach(el => io.observe(el));
   }
 
-  /* Cards de precios: se inclinan hacia el cursor (máx. ~12°) y el brillo
-     lo sigue. El cálculo va en un rAF para no recalcular más de una vez por
-     cuadro. Mismas condiciones que el CSS: mouse y sin movimiento reducido. */
+  /* Cards de precios en 3D. Todas llevan cuerpo: 8 capas de 3px detrás
+     (24px de espesor) y un velo que apaga a las no elegidas.
+     · Con mouse: se inclinan hacia el cursor (máx. ~12°) y el brillo lo sigue.
+     · En táctil: se inclinan solas según su lugar en la pantalla (quedan
+       derechas al pasar por el centro) y al tocarlas se levantan hacia el dedo.
+     Todo el cálculo va en un rAF. Con movimiento reducido quedan planas. */
   function tilt() {
+    const wrap = $('.plans');
     const cards = $$('.plans > .plan');
-    if (!cards.length || !matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)').matches) return;
+    if (!cards.length || !matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
     const MAX = 12;
+    const set = (card, rx, ry) => {
+      card.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+      card.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+    };
+    // inclina la card hacia un punto (cursor o dedo) y lleva el brillo ahí
+    const aim = (card, cx, cy) => {
+      const r = card.getBoundingClientRect();
+      const x = Math.min(1, Math.max(0, (cx - r.left) / r.width));
+      const y = Math.min(1, Math.max(0, (cy - r.top) / r.height));
+      set(card, (.5 - y) * MAX * 2, (x - .5) * MAX * 2);
+      card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+      card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    };
+
     cards.forEach(card => {
-      // el cuerpo de la card: 8 capas de 3px detrás (24px de espesor) y el velo que la apaga
       for (let i = 8; i >= 1; i--) {
         const slab = document.createElement('span');
         slab.className = 'plan__slab'; slab.setAttribute('aria-hidden', 'true');
@@ -326,31 +344,60 @@
       const dim = document.createElement('span');
       dim.className = 'plan__dim'; dim.setAttribute('aria-hidden', 'true');
       card.append(dim);
-      let raf = 0, idle = 0;
-      const move = e => {
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          const r = card.getBoundingClientRect();
-          const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-          card.style.setProperty('--ry', ((x - .5) * MAX * 2).toFixed(2) + 'deg');
-          card.style.setProperty('--rx', ((.5 - y) * MAX * 2).toFixed(2) + 'deg');
-          card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
-          card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    });
+
+    if (fine) {
+      cards.forEach(card => {
+        let raf = 0, idle = 0;
+        const move = e => {
+          cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => aim(card, e.clientX, e.clientY));
+        };
+        card.addEventListener('pointerenter', e => {
+          card.classList.add('is-tilt');
+          clearTimeout(idle);
+          idle = setTimeout(() => card.classList.add('is-move'), 300); // primero entra suave, después sigue al cursor
+          move(e);
         });
-      };
-      card.addEventListener('pointerenter', e => {
-        card.classList.add('is-tilt');
-        clearTimeout(idle);
-        idle = setTimeout(() => card.classList.add('is-move'), 300); // primero entra suave, después sigue al cursor
-        move(e);
+        card.addEventListener('pointermove', move);
+        card.addEventListener('pointerleave', () => {
+          cancelAnimationFrame(raf); clearTimeout(idle);
+          card.classList.remove('is-tilt', 'is-move');
+          set(card, 0, 0);
+        });
       });
-      card.addEventListener('pointermove', move);
-      card.addEventListener('pointerleave', () => {
-        cancelAnimationFrame(raf); clearTimeout(idle);
-        card.classList.remove('is-tilt', 'is-move');
-        card.style.setProperty('--rx', '0deg');
-        card.style.setProperty('--ry', '0deg');
+      return;
+    }
+
+    // táctil
+    wrap.classList.add('is-scroll');
+    let raf = 0, visible = true;
+    const scroll = () => {
+      raf = 0;
+      if (!visible) return;
+      const vh = innerHeight;
+      cards.forEach((card, i) => {
+        if (card.classList.contains('is-tilt')) return; // el dedo manda
+        const r = card.getBoundingClientRect();
+        const p = Math.min(1, Math.max(-1, (r.top + r.height / 2 - vh / 2) / vh));
+        set(card, p * 16, p * 7 * (i % 2 ? -1 : 1));
       });
+    };
+    const queue = () => { if (!raf) raf = requestAnimationFrame(scroll); };
+    addEventListener('scroll', queue, { passive: true });
+    addEventListener('resize', queue, { passive: true });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; queue(); }).observe(wrap);
+    }
+    scroll();
+
+    cards.forEach(card => {
+      const touch = e => { const t = e.touches[0]; if (t) aim(card, t.clientX, t.clientY); };
+      const release = () => { card.classList.remove('is-tilt'); queue(); };
+      card.addEventListener('touchstart', e => { card.classList.add('is-tilt'); touch(e); }, { passive: true });
+      card.addEventListener('touchmove', touch, { passive: true });
+      card.addEventListener('touchend', release);
+      card.addEventListener('touchcancel', release);
     });
   }
 
