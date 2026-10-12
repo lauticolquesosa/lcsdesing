@@ -9,7 +9,7 @@
 
   const PROJECTS = {
     p1: {
-      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v5.webp'], tools: ['Figma', 'HTML / CSS', 'JavaScript'],
+      year: '2025', url: 'la-vaca-web.vercel.app', full: ['lavaca-fullpage-v5.webp'], branding: '/branding/la-vaca', tools: ['Figma', 'HTML / CSS', 'JavaScript'],
       es: { cat: 'Diseño Web + UX/UI', title: 'La Vaca — Bar de barrio', role: 'LCS · Diseño & Desarrollo Web', client: 'La Vaca · Grand Bourg, Salta',
         problem: 'La Vaca es una sanguchería de barrio en Álvarez Thomas 714, Grand Bourg, que abre solo de noche: de 20:30 a 00:30 entre semana y hasta la 01:30 los fines de semana. Su público llegaba por Instagram y por las apps de delivery, sin un lugar propio donde ver qué se pide, hasta qué hora está abierto ni por dónde encargar. El riesgo era el opuesto al habitual: una web demasiado prolija hubiera traicionado a un local que se define por no tener pretensiones.',
         goal: 'Darle una web con el tono real del local —barrial, nocturno, sin pose— que resuelva las tres preguntas que importan a la una de la mañana: qué hay, hasta qué hora y cómo lo pido.',
@@ -371,8 +371,8 @@
   };
 
   const L = {
-    es: { role: 'Rol', year: 'Año', client: 'Cliente', tools: 'Herramientas', problem: 'Problema / Desafío', goal: 'Objetivo', process: 'Proceso', result: 'Resultado', learn: 'Aprendizajes clave', stack: 'Stack' },
-    en: { role: 'Role', year: 'Year', client: 'Client', tools: 'Tools', problem: 'Problem / Challenge', goal: 'Goal', process: 'Process', result: 'Result', learn: 'Key takeaways', stack: 'Stack' }
+    es: { role: 'Rol', year: 'Año', client: 'Cliente', tools: 'Herramientas', problem: 'Problema / Desafío', goal: 'Objetivo', process: 'Proceso', result: 'Resultado', learn: 'Aprendizajes clave', stack: 'Stack', brand: 'Identidad visual', brandCta: 'Ver el caso de branding' },
+    en: { role: 'Role', year: 'Year', client: 'Client', tools: 'Tools', problem: 'Problem / Challenge', goal: 'Goal', process: 'Process', result: 'Result', learn: 'Key takeaways', stack: 'Stack', brand: 'Visual identity', brandCta: 'See the branding case' }
   };
 
   function buildModalShell() {
@@ -449,6 +449,9 @@
           <div class="cs-block"><h4>${T.stack}</h4>
             <div class="cs-stack">${base.tools.map(t => `<span class="cs-tag">${t}</span>`).join('')}</div>
           </div>
+          ${base.branding ? `<div class="cs-block cs-brand"><h4>${T.brand}</h4>
+            <a class="pill arw" href="${base.branding}">${T.brandCta}</a>
+          </div>` : ''}
         </div>`;
       /* Una captura que no está todavía no debe dejar un hueco roto:
          se quita cuando el navegador avisa que no pudo cargarla. (Antes

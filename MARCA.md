@@ -522,7 +522,7 @@ Cada caso es una presentación completa armada con `css/caso.css`, con la paleta
 tipografías de la marca cliente: ficha del proyecto, anatomía del logo, valores o
 propuesta, paleta, tipografías, íconos o pictogramas, patrón, aplicaciones y piezas para
 redes (armadas en vivo con el logo vectorial, no como imágenes), y «Más proyectos» al pie.
-La Vaca enlaza además a su caso web en `/proyectos#p1`.
+La Vaca enlaza además a su caso web en `/proyectos#p1`, y ese caso enlaza de vuelta.
 
 | Caso | Cliente | Lo central |
 |---|---|---|
@@ -692,7 +692,7 @@ a Lionel Messi ni a sus representantes.»
 | **La Vaca** | Bar de barrio · Grand Bourg, Salta | Estrategia, isologo, paleta, tipografías, íconos, patrón, aplicaciones y web | `/branding/la-vaca` |
 | **Yerba Mix** | Yerba mate funcional | Logo, paleta, tipografías, íconos, packaging y aplicaciones | `/branding/yerba-mix` |
 
-La Vaca es además el caso web p1, y su página de branding enlaza a `/proyectos#p1`.
+La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de branding con «Ver el caso web» y el modal del caso web con «Ver el caso de branding» (campo `branding` del caso en `js/projects.js`).
 
 ---
 
