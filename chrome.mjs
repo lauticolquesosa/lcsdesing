@@ -21,7 +21,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
 
-const { header, footer } = createRequire(import.meta.url)('./js/mono.js');
+const { header, footer, whatsapp } = createRequire(import.meta.url)('./js/mono.js');
 
 const files = [
   ...readdirSync('.').filter(f => f.endsWith('.html')),
@@ -40,7 +40,7 @@ for (const file of files) {
   const section = sec === 'shared' ? 'portal' : sec;
 
   const hd = `<!--chrome-->${header(section, page)}\n<!--/chrome-->`;
-  const ft = `<!--footer-->${footer(section)}\n<!--/footer-->`;
+  const ft = `<!--footer-->${footer(section)}${whatsapp()}\n<!--/footer-->`;
   const out = html
     .replace(/<!--chrome-->[\s\S]*?<!--\/chrome-->|<div id="chrome"><\/div>/, () => hd)
     .replace(/<!--footer-->[\s\S]*?<!--\/footer-->|<div id="site-footer"><\/div>/, () => ft);

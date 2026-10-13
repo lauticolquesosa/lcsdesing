@@ -430,7 +430,7 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
 - **Heros con partículas** (`js/hero-fx.js`, un solo motor) en la portada y en las homes,
-  servicios, proyectos e inversión de los dos caminos. En las páginas internas la pieza es la
+  servicios, proyectos e inversión de los dos caminos, y en contacto. En las páginas internas la pieza es la
   palabra (Branding, Diseño web, Servicios, Proyectos, Inversión) arriba a la izquierda, con
   tres etiquetas propias de cada página; en la portada es el logo, que no se toca: las
   partículas salen de su silueta y aparecen recién al separarse, sin erosión; un polvo cubre
@@ -460,6 +460,9 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 - **Menú de celular** a pantalla completa debajo de 900px, con el selector de camino
   arriba y los links a Instagram, WhatsApp y email abajo.
 - **Pie** con correo, WhatsApp, navegación del camino actual, redes, logo y términos.
+- **Botón flotante de WhatsApp** abajo a la derecha en todas las páginas: verde oficial
+  `#25d366` con el ícono, un anillo que late cada tanto y un mensaje ya escrito. Se esconde
+  con el menú abierto. Es la otra excepción al blanco y negro, porque se reconoce de un vistazo.
 - Encabezado y pie se generan desde `mono.js`: la navegación tiene una sola fuente de
   verdad (`NAVS`) y no se repite en ningún HTML.
 
