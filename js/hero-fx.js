@@ -1,6 +1,7 @@
 /* ============================================================
-   LCS — brand-hero.js
-   Hero de /branding, en dos canvas 2D y sin librerías:
+   LCS — hero-fx.js
+   Heros de la portada, /branding y /diseno-web, en dos canvas 2D y sin
+   librerías. La forma es una palabra (Branding, Diseño web) o el logo:
 
    · Partículas en toda la palabra. Se lee la forma real de las letras
      (la palabra se dibuja en un canvas oculto con la misma fuente) y de
@@ -25,11 +26,19 @@
   if (!stage) return;
   const back = stage.querySelector('.bhero__fx--back');
   const front = stage.querySelector('.bhero__fx--front');
-  const word = stage.querySelector('.bhero__word');
+  // La forma puede ser una palabra (<h1 data-bhero-shape>, con la letra de la
+  // esfera marcada con data-bhero-sphere) o una imagen (el logo de la portada,
+  // que no se toca: sin erosión y con la esfera en data-sphere-x/y/r).
+  const shape = stage.querySelector('[data-bhero-shape]');
+  const isImg = !!shape && shape.tagName === 'IMG';
+  const word = isImg ? null : shape;
   const text = word && word.firstElementChild;
-  const aEl = stage.querySelector('.bhero__a');
+  const anchor = stage.querySelector('[data-bhero-sphere]');
   const baseEl = stage.querySelector('.bhero__base');
-  if (!back || !front || !text || !aEl || !baseEl || !back.getContext) return;
+  if (!back || !front || !shape || !back.getContext) return;
+  if (!isImg && (!text || !anchor || !baseEl)) return;
+  const ds = stage.dataset;
+  const SPH = { x: +ds.sphereX || .5, y: +ds.sphereY || 1.2, r: +ds.sphereR || .26 };
 
   const bx = back.getContext('2d');
   const fx = front.getContext('2d');
@@ -57,6 +66,25 @@
 
   // La palabra se dibuja en un canvas chico, a una resolución de un píxel por
   // punto de muestra, y se guarda cada píxel lleno: es la forma de las letras.
+  function sampleImage(r) {
+    const ir = shape.getBoundingClientRect();
+    if (!ir.width || !shape.complete) return [];
+    const q = Math.min(1, 80 / ir.height);
+    const w = Math.ceil(ir.width * q), h = Math.ceil(ir.height * q);
+    const off = document.createElement('canvas');
+    off.width = w; off.height = h;
+    const o = off.getContext('2d', { willReadFrequently: true });
+    o.drawImage(shape, 0, 0, w, h);
+    const data = o.getImageData(0, 0, w, h).data;
+    const pts = [];
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        if (data[(y * w + x) * 4 + 3] > 140) pts.push([(ir.left - r.left + x / q - G.cx) / fs, (ir.top - r.top + y / q - G.cy) / fs]);
+      }
+    }
+    return pts;
+  }
+
   function sampleGlyphs(r, base) {
     const tr = text.getBoundingClientRect();
     const cs = getComputedStyle(word);
@@ -71,7 +99,7 @@
     if ('letterSpacing' in o) o.letterSpacing = cs.letterSpacing;
     o.textBaseline = 'alphabetic';
     o.fillStyle = '#fff';
-    o.fillText('Branding', 0, fs * 1.05);
+    o.fillText(text.textContent, 0, fs * 1.05);
     const data = o.getImageData(0, 0, w, h).data;
     const pts = [];
     for (let y = 0; y < h; y++) {
@@ -91,21 +119,34 @@
     bx.setTransform(dpr, 0, 0, dpr, 0, 0);
     fx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    fs = parseFloat(getComputedStyle(word).fontSize) || 100;
+    if (isImg) {
+      // la unidad es el alto del logo: así todo escala con él
+      const ir = shape.getBoundingClientRect();
+      fs = ir.height * 1.15 || 100;
+      G.word = { l: ir.left - r.left, r: ir.right - r.left, t: ir.top - r.top, b: ir.bottom - r.top };
+      G.cx = (G.word.l + G.word.r) / 2;
+      G.cy = (G.word.t + G.word.b) / 2;
+      G.sr = ir.height * SPH.r;
+      G.sx = G.word.l + ir.width * SPH.x;
+      G.sy = G.word.t + ir.height * SPH.y;
+      G.half = ir.width / 2 / fs;
+      glyph = sampleImage(r);
+    } else {
+      fs = parseFloat(getComputedStyle(word).fontSize) || 100;
+      const base = baseEl.getBoundingClientRect().top - r.top;
+      const tr = text.getBoundingClientRect();
+      const a = anchor.getBoundingClientRect();
+      G.word = { l: tr.left - r.left, r: tr.right - r.left, t: base - fs * .76, b: base + fs * .26 };
+      G.cx = (G.word.l + G.word.r) / 2;
+      G.cy = base - fs * .34;
+      G.half = (G.word.r - G.word.l) / 2 / fs;
+      G.sr = fs * SPH.r;
+      G.sx = a.left - r.left + a.width * .5;
+      G.sy = base + fs * .1;
+      glyph = sampleGlyphs(r, base);
+      if (glyph.length) for (const p of erode) placeErode(p);
+    }
     scale = clamp(fs / 260, .42, 1.15);
-    const base = baseEl.getBoundingClientRect().top - r.top;
-    const tr = text.getBoundingClientRect();
-    const a = aEl.getBoundingClientRect();
-    G.word = { l: tr.left - r.left, r: tr.right - r.left, t: base - fs * .76, b: base + fs * .26 };
-    G.cx = (G.word.l + G.word.r) / 2;
-    G.cy = base - fs * .34;
-    G.half = (G.word.r - G.word.l) / 2 / fs;
-    G.sr = fs * .26;
-    G.sx = a.left - r.left + a.width * .5;
-    G.sy = base + fs * .1;
-
-    glyph = sampleGlyphs(r, base);
-    if (glyph.length) for (const p of erode) placeErode(p);
 
     sdpr = Math.min(dpr, 1.25);
     const size = Math.ceil(G.sr * 1.25 * 2.6 * sdpr); // lugar para crecer al pasar el mouse
@@ -146,7 +187,7 @@
   const float = [];
   for (let i = 0; i < N_FLOAT; i++) {
     float.push({
-      x: gauss() * 1.05, y: gauss() * .55 - .05, z: gauss() * .6,
+      x: gauss() * .78, y: gauss() * .55 - .05, z: gauss() * .6, // x en mitades del ancho de la forma
       size: .7 + rnd() * 1.6, tone: 140 + ((rnd() * 115) | 0), alpha: .25 + rnd() * .55,
       ph: rnd() * 6.283, sp: .15 + rnd() * .35, amp: .02 + rnd() * .05,
       sx: (rnd() - .5) * 5, sy: (rnd() - .5) * 3, ox: 0, oy: 0,
@@ -377,7 +418,7 @@
 
     // ---- polvo flotante
     for (const p of float) {
-      const x = p.sx + (p.x + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * p.amp) - p.sx) * k;
+      const x = p.sx + (p.x * Math.max(1, G.half) + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * p.amp) - p.sx) * k;
       const y = p.sy + (p.y + (reduced ? 0 : Math.cos(t * p.sp * .8 + p.ph) * p.amp) - p.sy) * k;
       const [sx, sy, Z, sc] = proj(x, y, p.z);
       repel(p, sx, sy, R2, F0);
@@ -400,7 +441,7 @@
       const z = p.az + p.dz * e * p.dist;
       const [sx, sy, Z, sc] = proj(x, y, z);
       repel(p, sx, sy, R2, F0);
-      const life = reduced ? .8 : smooth(0, .12, age) * (1 - smooth(.55, 1, age));
+      const life = (reduced ? .8 : smooth(0, .12, age) * (1 - smooth(.55, 1, age))) * (isImg ? smooth(.1, .3, age) : 1);
       const a = p.alpha * life * k;
       if (a < .02) continue;
       const ctx = Z > 0 ? bx : fx;
@@ -414,7 +455,7 @@
 
     // ---- erosión negra en toda la palabra
     const wd = G.word, keep = .35 + scale * .65;
-    for (const p of erode) {
+    if (!isImg) for (const p of erode) {
       if (p.keep > keep) continue;
       let sx = G.cx + (p.x + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * .008)) * fs;
       let sy = G.cy + (p.y + (reduced ? 0 : Math.cos(t * p.sp + p.ph) * .006)) * fs;
@@ -511,7 +552,11 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }).observe(stage);
   }
   document.addEventListener('visibilitychange', sync);
-  if (!ready) addEventListener('load', () => setTimeout(() => { ready = true; t0 = performance.now(); sync(); }, 120), { once: true });
+  const introWait = document.documentElement.classList.contains('intro-on') ? 2300 : 120;
+  const start = () => setTimeout(() => { ready = true; t0 = performance.now(); sync(); }, introWait);
+  if (!ready) addEventListener('load', start, { once: true });
+  else if (introWait > 120) { ready = false; start(); }
+  if (isImg && !shape.complete) shape.addEventListener('load', relayout, { once: true });
   sync();
   if (reduced) draw(performance.now());
 })();

@@ -429,7 +429,10 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 - **Tiras automáticas.** Avanzan de a una tarjeta con una pausa corta; descansan cuando
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
-- **Hero de Branding** (`js/brand-hero.js`). «Branding» en serif con textura de piedra y la g
+- **Heros de la portada, Branding y Diseño web** (`js/hero-fx.js`, un solo motor). En `/branding`
+  y `/diseno-web` la pieza es la palabra; en la portada es el logo, que no se toca: las
+  partículas salen de su silueta y aparecen recién al separarse, sin erosión, con la esfera
+  a la izquierda de la L y el arranque después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra y la g
   cruzada como una ø; la palabra es una pieza gráfica: no se selecciona y el cursor queda
   normal (el `<h1>` conserva la frase para buscadores). Se lee la forma real de las letras y
   de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante y motas

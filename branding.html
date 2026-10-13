@@ -72,14 +72,14 @@
 <main id="main">
 
   <!-- ============ HERO — la palabra como pieza ============
-       La esfera y la nube de partículas las dibuja js/brand-hero.js en los
+       La esfera y la nube de partículas las dibuja js/hero-fx.js en los
        dos canvas; sin JS queda la palabra con su textura y las etiquetas. -->
   <section class="bhero">
     <div class="wrap">
       <div class="bhero__stage" data-bhero>
         <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
         <div class="bhero__lockup">
-          <h1 class="bhero__word" aria-label="Branding. Una marca que se reconoce antes de leerse."><span aria-hidden="true">Br<span class="bhero__a">a</span>n<span class="bhero__d">d</span>in<span class="bhero__g">g</span><i class="bhero__base"></i></span></h1>
+          <h1 class="bhero__word" data-bhero-shape aria-label="Branding. Una marca que se reconoce antes de leerse."><span aria-hidden="true">Br<span class="bhero__a" data-bhero-sphere>a</span>n<span class="bhero__d">d</span>in<span class="bhero__g">g</span><i class="bhero__base"></i></span></h1>
           <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Identidad visual" data-en="Visual identity">Identidad visual</span><i class="bhero__shine"></i></span></p>
           <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Dirección creativa" data-en="Creative direction">Dirección creativa</span><i class="bhero__shine"></i></span></p>
           <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span>Branding</span><i class="bhero__shine"></i></span></p>
@@ -300,7 +300,7 @@
       </footer>
 <!--/footer-->
 
-<script src="/js/brand-hero.js" defer></script>
+<script src="/js/hero-fx.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>

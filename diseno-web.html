@@ -11,7 +11,7 @@
 <title>LCS — Diseño y desarrollo web en Salta · Sitios que venden</title>
 <meta name="description" content="Sitios web a medida en Salta para negocios que quieren más consultas y ventas. Sin plantillas: rápidos, impecables en el celular y listos para Google." />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/dmserifdisplay-latin.woff2" crossorigin />
 <link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s mono.js no confirmó que corre (error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
@@ -71,19 +71,28 @@
 
 <main id="main">
 
-  <section class="phero">
+  <!-- ============ HERO — la palabra como pieza ============
+       Misma pieza que /branding (js/hero-fx.js): partículas que se
+       desprenden de toda la palabra, la esfera debajo de la o y tres
+       etiquetas en 3D que se pueden arrastrar. -->
+  <section class="bhero bhero--web">
     <div class="wrap">
-      <h1 aria-label="Diseño web. Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.">
-        <span class="display display--xl" aria-hidden="true" data-es="Diseño web" data-en="Web design">Diseño web</span>
-      </h1>
-      <div class="phero__grid">
-        <div>
+      <div class="bhero__stage" data-bhero>
+        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+        <div class="bhero__lockup">
+          <h1 class="bhero__word" data-bhero-shape aria-label="Diseño web. Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas."><span aria-hidden="true">Diseñ<span data-bhero-sphere>o</span> web<i class="bhero__base"></i></span></h1>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Experiencia UX/UI" data-en="UX/UI experience">Experiencia UX/UI</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Desarrollo a medida" data-en="Custom development">Desarrollo a medida</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Diseño web" data-en="Web design">Diseño web</span><i class="bhero__shine"></i></span></p>
+        </div>
+        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
+      </div>
+      <div class="bhero__copy">
           <p class="statement" data-es="Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas." data-en="Your website can sell for you every day. We design and build custom sites for businesses that want more enquiries, more sales and an image to match. No templates.">Tu web puede vender por vos todos los días. Diseñamos y programamos sitios a medida para negocios que quieren más consultas, más ventas y una imagen a la altura. Sin plantillas.</p>
           <div class="btns">
             <a class="pill pill--light" href="/contacto" data-es="Quiero mi web" data-en="I want my site">Quiero mi web</a>
             <a class="txtlink arw" href="/proyectos" data-es="Ver proyectos" data-en="View work">Ver proyectos</a>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -270,6 +279,7 @@
       </footer>
 <!--/footer-->
 
+<script src="/js/hero-fx.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>

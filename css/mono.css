@@ -899,7 +899,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
    «Branding» en serif de alto contraste con textura de piedra, la g
    cruzada, una esfera de partículas apoyada debajo de la a y una
    nube que desarma «and». Las partículas viven en dos canvas (uno
-   detrás y otro delante de las letras) que dibuja js/brand-hero.js;
+   detrás y otro delante de las letras) que dibuja js/hero-fx.js;
    las etiquetas flotan y siguen al puntero con la misma profundidad.
    ============================================================ */
 @font-face { font-family: 'DM Serif Display'; font-style: normal; font-weight: 400; font-display: swap;
@@ -951,7 +951,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 
 /* etiquetas: chapas en 3D con canto, orbe negro y punto violeta. Se inclinan
    hacia el puntero, un destello diagonal las cruza y se pueden arrastrar:
-   al soltarlas vuelven a su lugar con un rebote (js/brand-hero.js). */
+   al soltarlas vuelven a su lugar con un rebote (js/hero-fx.js). */
 .bhero__tag {
   position: absolute; z-index: 4; font-size: 1rem; perspective: 700px;
   translate: calc(var(--px) * var(--depth, 10) * 1px) calc(var(--py) * var(--depth, 10) * .7px);
@@ -1031,6 +1031,47 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
   .bhero__tag--1 { left: 0; top: -58%; }
   .bhero__tag--2 { left: 48%; top: -78%; }
   .bhero__tag--3 { left: 54%; top: 116%; }
+}
+/* Diseño web: la palabra es más larga, va un poco más chica */
+.bhero--web .bhero__lockup { font-size: clamp(56px, 10.4vw, 164px); }
+.bhero--web .bhero__tag--1 { left: 1%; top: -36%; }
+.bhero--web .bhero__tag--2 { left: 56%; top: -42%; }
+.bhero--web .bhero__tag--3 { left: 76%; top: 98%; }
+
+/* Portada: el escenario rodea al logo, que queda intacto y centrado */
+.bhero--home { overflow: hidden; }
+.bhero__stage--home { justify-content: center; padding: clamp(64px, 6vw, 96px) 0 clamp(28px, 3vw, 44px); }
+.bhero__lockup--logo { font-size: 1rem; }
+.bhero__lockup--logo .hero__logo { position: relative; z-index: 2; }
+.bhero__stage img { -webkit-user-drag: none; }
+.bhero--home .bhero__tag--1 { left: -26%; top: -46%; }
+.bhero--home .bhero__tag--2 { left: 74%; top: -62%; }
+.bhero--home .bhero__tag--3 { left: 82%; top: 96%; }
+.bhero--home h1 { position: relative; z-index: 5; }
+.bhero--home .pill { position: relative; z-index: 5; }
+
+/* con la intro del logo, las etiquetas de la portada entran cuando sube la cortina */
+html.js.intro-on .bhero--home .bhero__tag--1 .bhero__card { animation-delay: 3.1s, calc(var(--delay, 0s) + 4s); }
+html.js.intro-on .bhero--home .bhero__tag--2 .bhero__card { animation-delay: 3.25s, calc(var(--delay, 0s) + 4.15s); }
+html.js.intro-on .bhero--home .bhero__tag--3 .bhero__card { animation-delay: 3.4s, calc(var(--delay, 0s) + 4.3s); }
+
+@media (max-width: 900px) {
+  .bhero--web .bhero__tag--1 { left: 0; top: -44%; }
+  .bhero--web .bhero__tag--2 { left: 50%; top: -56%; }
+  .bhero--web .bhero__tag--3 { left: 60%; top: 104%; }
+  .bhero--home .bhero__tag--1 { left: -14%; top: -64%; }
+  .bhero--home .bhero__tag--2 { left: 52%; top: -80%; }
+  .bhero--home .bhero__tag--3 { left: 58%; top: 104%; }
+}
+@media (max-width: 560px) {
+  .bhero--web .bhero__lockup { font-size: 18.4vw; }
+  .bhero--web .bhero__tag--1 { left: 0; top: -66%; }
+  .bhero--web .bhero__tag--2 { left: 46%; top: -86%; }
+  .bhero--web .bhero__tag--3 { left: 60%; top: 114%; }
+  .bhero__stage--home { padding: 84px 0 40px; }
+  .bhero--home .bhero__tag--1 { left: -10%; top: -78%; }
+  .bhero--home .bhero__tag--2 { left: 44%; top: -98%; }
+  .bhero--home .bhero__tag--3 { left: 44%; top: 108%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .bhero__word, html.js .bhero__copy, html.js .bhero__card, .bhero__card, .bhero__shine::before { animation: none; }
