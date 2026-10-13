@@ -322,6 +322,7 @@ custom properties en `:root` de `css/mono.css`.
 ### Reglas de color
 
 - **Sin acento.** El contraste lo da el blanco sobre negro; el énfasis, el tamaño y el peso.
+  Única excepción: el punto violeta `#9333ff` de las etiquetas del hero de Branding.
 - **Invertir en vez de colorear.** Lo destacado (el plan recomendado, el botón principal,
   la barra de trato directo, el hover de las cards de camino) se resuelve pasando a blanco
   con texto negro.
@@ -346,6 +347,7 @@ dos cortes `latin` van con `<link rel="preload">` en todas las páginas.
 **Inter** lleva todo: titulares gigantes, navegación, botones y cuerpo. **Manrope** solo
 los números grandes (`01`, `02`, `03` de planes, servicios y caminos), en 800.
 
+El hero de `/branding` usa **DM Serif Display** (serif de alto contraste, solo la palabra «Branding»).
 Las páginas de caso de branding cargan además las fuentes de cada marca cliente
 (Montserrat para María Martin, Bebas Neue para La Vaca) desde `css/caso.css`.
 
@@ -427,6 +429,13 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 - **Tiras automáticas.** Avanzan de a una tarjeta con una pausa corta; descansan cuando
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
+- **Hero de Branding** (`js/brand-hero.js`). «Branding» en serif con textura de piedra y la g
+  cruzada como una ø; una esfera de manchas tipo luna apoyada debajo de la a, pintada píxel
+  por píxel con luz real; una nube 3D de partículas y esquirlas que desarma «and» (una capa
+  detrás y otra delante de las letras) y motas negras que erosionan las letras. Gira hacia
+  el cursor, las partículas se apartan a su paso y vuelven; tres etiquetas flotan con
+  profundidad. Se mide sobre el texto real, así acompaña a la tipografía en cualquier
+  ancho, y se detiene fuera de pantalla.
 
 **Reglas de movimiento:**
 
@@ -489,8 +498,8 @@ las dos cards de camino → pie.
 
 **Título SEO:** Branding y diseño gráfico en Salta — LCS
 
-Hero «Branding. Una marca que se reconoce antes de leerse.» con «Quiero mi marca» y «Ver
-el brandbook» → tira de los tres casos → **Beneficios** (los cuatro de la sección 3) →
+Hero de la palabra como pieza (ver «Movimiento», sección 8) con la frase «Una marca que se
+reconoce antes de leerse…», «Quiero mi marca» y «Ver el brandbook» → tira de los tres casos → **Beneficios** (los cuatro de la sección 3) →
 **Proceso** en cuatro etapas (Entender el negocio · Definir la estrategia · Diseñar el
 sistema · Entregar el manual) → **Preguntas** (cuánto sale, cuánto tarda, si sirve rehacer
 el logo, qué recibo, si puedo sumar la web después) → «Ver los paquetes» → cierre.

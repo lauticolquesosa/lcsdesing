@@ -12,6 +12,7 @@
 <meta name="description" content="Branding y diseño gráfico en Salta: logo, identidad visual, manual de marca, packaging y piezas para redes, para que te reconozcan a primera vista." />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/dmserifdisplay-latin.woff2" crossorigin />
 <link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s mono.js no confirmó que corre (error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
@@ -71,20 +72,27 @@
 
 <main id="main">
 
-  <!-- ============ HERO ============ -->
-  <section class="phero">
+  <!-- ============ HERO — la palabra como pieza ============
+       La esfera y la nube de partículas las dibuja js/brand-hero.js en los
+       dos canvas; sin JS queda la palabra con su textura y las etiquetas. -->
+  <section class="bhero">
     <div class="wrap">
-      <h1 aria-label="Branding. Una marca que se reconoce antes de leerse.">
-        <span class="display display--xl" aria-hidden="true">Branding</span>
-      </h1>
-      <div class="phero__grid">
-        <div>
+      <div class="bhero__stage" data-bhero>
+        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+        <div class="bhero__lockup">
+          <h1 class="bhero__word" aria-label="Branding. Una marca que se reconoce antes de leerse."><span aria-hidden="true">Br<span class="bhero__a">a</span>n<span class="bhero__d">d</span>in<span class="bhero__g">g</span><i class="bhero__base"></i></span></h1>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span data-es="Identidad visual" data-en="Visual identity">Identidad visual</span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span data-es="Dirección creativa" data-en="Creative direction">Dirección creativa</span></p>
+          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span>Branding</span></p>
+        </div>
+        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
+      </div>
+      <div class="bhero__copy">
           <p class="statement" data-es="Una marca que se reconoce antes de leerse. Creamos identidades visuales completas, con logo, paleta, tipografía y manual de marca, para que tu negocio transmita confianza desde el primer vistazo y la sostenga en cada pieza." data-en="A brand people recognise before they read it. We create complete visual identities, with logo, palette, typography and brand guidelines, so your business earns trust at first glance and keeps it in every piece.">Una marca que se reconoce antes de leerse. Creamos identidades visuales completas, con logo, paleta, tipografía y manual de marca, para que tu negocio transmita confianza desde el primer vistazo y la sostenga en cada pieza.</p>
           <div class="btns">
             <a class="pill pill--light" href="/contacto" data-es="Quiero mi marca" data-en="I want my brand">Quiero mi marca</a>
             <a class="txtlink arw" href="/branding/proyectos" data-es="Ver el brandbook" data-en="See the brandbook">Ver el brandbook</a>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -293,6 +301,7 @@
       </footer>
 <!--/footer-->
 
+<script src="/js/brand-hero.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>
