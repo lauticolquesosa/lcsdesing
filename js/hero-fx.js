@@ -38,6 +38,7 @@
   if (!back || !front || !shape || !back.getContext) return;
   if (!isImg && (!text || !anchor || !baseEl)) return;
   const ds = stage.dataset;
+  const hasSphere = ds.sphere !== 'off';
   const SPH = { x: +ds.sphereX || .5, y: +ds.sphereY || 1.2, r: +ds.sphereR || .26 };
 
   const bx = back.getContext('2d');
@@ -477,62 +478,65 @@
       fx.fillRect(sx - s / 2, sy - s / 2, s, s);
     }
 
-    // ---- esfera: crece, gira y se inclina hacia el cursor cuando está encima
-    const R0 = G.sr;
-    const over = P.on && Math.hypot(P.x - G.sx, P.y - G.sy) < R0 * 1.25;
-    hov += ((over ? 1 : 0) - hov) * (reduced ? 1 : .08);
-    spin += dt * (.18 + hov * 1.4);
-    const tx = over ? clamp((P.x - G.sx) / R0, -1, 1) : 0, ty = over ? clamp((P.y - G.sy) / R0, -1, 1) : 0;
-    sxo += (tx * R0 * .12 - sxo) * .08; syo += (ty * R0 * .12 - syo) * .08;
-    const R = R0 * (1 + hov * .14 + (reduced ? 0 : Math.sin(t * 1.6) * .006));
-    const syaw = (reduced ? .6 : spin) + yaw + tx * .7 * hov, spitch = pitch + .18 - ty * .5 * hov;
-    const ox = G.sx + sxo, oy = G.sy + syo;
+    // ---- esfera (la portada la apaga con data-sphere="off")
+    if (hasSphere) {
+      // ---- esfera: crece, gira y se inclina hacia el cursor cuando está encima
+      const R0 = G.sr;
+      const over = P.on && Math.hypot(P.x - G.sx, P.y - G.sy) < R0 * 1.25;
+      hov += ((over ? 1 : 0) - hov) * (reduced ? 1 : .08);
+      spin += dt * (.18 + hov * 1.4);
+      const tx = over ? clamp((P.x - G.sx) / R0, -1, 1) : 0, ty = over ? clamp((P.y - G.sy) / R0, -1, 1) : 0;
+      sxo += (tx * R0 * .12 - sxo) * .08; syo += (ty * R0 * .12 - syo) * .08;
+      const R = R0 * (1 + hov * .14 + (reduced ? 0 : Math.sin(t * 1.6) * .006));
+      const syaw = (reduced ? .6 : spin) + yaw + tx * .7 * hov, spitch = pitch + .18 - ty * .5 * hov;
+      const ox = G.sx + sxo, oy = G.sy + syo;
 
-    // anillo de atrás (lo tapa la esfera)
-    const ringA = ((scale > .6 ? .12 : 0) + hov * .7) * k; // con letra chica, solo al tocarla
-    const ring = [];
-    for (let i = 0; i < N_RING; i++) ring.push(ringPoint(i, reduced ? 0 : t, R, hov, yaw));
-    fx.fillStyle = '#e8e7e3';
-    for (const [x, y, z] of ring) if (z > 0) { fx.globalAlpha = ringA * .55; fx.fillRect(ox + x - .7, oy + y - .7, 1.4, 1.4); }
+      // anillo de atrás (lo tapa la esfera)
+      const ringA = ((scale > .6 ? .12 : 0) + hov * .7) * k; // con letra chica, solo al tocarla
+      const ring = [];
+      for (let i = 0; i < N_RING; i++) ring.push(ringPoint(i, reduced ? 0 : t, R, hov, yaw));
+      fx.fillStyle = '#e8e7e3';
+      for (const [x, y, z] of ring) if (z > 0) { fx.globalAlpha = ringA * .55; fx.fillRect(ox + x - .7, oy + y - .7, 1.4, 1.4); }
 
-    // sombra de contacto, detrás de las letras para no ensuciarlas
-    bx.globalAlpha = .55 * k;
-    const sh = bx.createRadialGradient(ox, oy + R * .95, 0, ox, oy + R * .95, R * 1.1);
-    sh.addColorStop(0, 'rgba(0,0,0,.9)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
-    bx.fillStyle = sh; bx.fillRect(ox - R * 1.2, oy + R * .4, R * 2.4, R * 1.2);
-    // resplandor al pasar el mouse
-    if (hov > .02) {
-      fx.globalAlpha = hov * .5 * k;
-      const gl = fx.createRadialGradient(ox, oy, R * .8, ox, oy, R * 1.6);
-      gl.addColorStop(0, 'rgba(255,255,255,.35)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
-      fx.fillStyle = gl; fx.fillRect(ox - R * 1.7, oy - R * 1.7, R * 3.4, R * 3.4);
-    }
-    fx.globalAlpha = 1;
-    paintSphere(R, syaw, spitch, k, hov);
-    const c = sphereCanvas.width / sdpr / 2;
-    fx.drawImage(sphereCanvas, ox - c, oy - c, c * 2, c * 2);
-
-    // anillo de adelante
-    fx.fillStyle = '#f4f3ef';
-    for (const [x, y, z] of ring) if (z <= 0) { fx.globalAlpha = ringA; const s = 1.2 + hov * .8; fx.fillRect(ox + x - s / 2, oy + y - s / 2, s, s); }
-
-    // partículas que suelta la esfera
-    if (!reduced && hov > .4) {
-      for (let n = 0; n < 3; n++) {
-        const u = rnd() * 2 - 1, a = rnd() * 6.2832, q = Math.sqrt(1 - u * u);
-        const nx = q * Math.cos(a), ny = u, nz = q * Math.sin(a);
-        if (nz > .2) continue;
-        const sp = .8 + rnd() * 1.4;
-        burst.push({ x: nx, y: ny, vx: nx * sp, vy: ny * sp - .3, life: 0, dur: .9 + rnd() * .9, s: .8 + rnd() * 2 });
+      // sombra de contacto, detrás de las letras para no ensuciarlas
+      bx.globalAlpha = .55 * k;
+      const sh = bx.createRadialGradient(ox, oy + R * .95, 0, ox, oy + R * .95, R * 1.1);
+      sh.addColorStop(0, 'rgba(0,0,0,.9)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+      bx.fillStyle = sh; bx.fillRect(ox - R * 1.2, oy + R * .4, R * 2.4, R * 1.2);
+      // resplandor al pasar el mouse
+      if (hov > .02) {
+        fx.globalAlpha = hov * .5 * k;
+        const gl = fx.createRadialGradient(ox, oy, R * .8, ox, oy, R * 1.6);
+        gl.addColorStop(0, 'rgba(255,255,255,.35)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
+        fx.fillStyle = gl; fx.fillRect(ox - R * 1.7, oy - R * 1.7, R * 3.4, R * 3.4);
       }
-    }
-    fx.fillStyle = '#f2f1ed';
-    for (let i = burst.length - 1; i >= 0; i--) {
-      const b = burst[i];
-      b.life += dt; if (b.life > b.dur) { burst.splice(i, 1); continue; }
-      b.x += b.vx * dt; b.y += b.vy * dt; b.vy -= .25 * dt;
-      fx.globalAlpha = (1 - b.life / b.dur) * .9;
-      dot(fx, ox + b.x * R, oy + b.y * R, b.s);
+      fx.globalAlpha = 1;
+      paintSphere(R, syaw, spitch, k, hov);
+      const c = sphereCanvas.width / sdpr / 2;
+      fx.drawImage(sphereCanvas, ox - c, oy - c, c * 2, c * 2);
+
+      // anillo de adelante
+      fx.fillStyle = '#f4f3ef';
+      for (const [x, y, z] of ring) if (z <= 0) { fx.globalAlpha = ringA; const s = 1.2 + hov * .8; fx.fillRect(ox + x - s / 2, oy + y - s / 2, s, s); }
+
+      // partículas que suelta la esfera
+      if (!reduced && hov > .4) {
+        for (let n = 0; n < 3; n++) {
+          const u = rnd() * 2 - 1, a = rnd() * 6.2832, q = Math.sqrt(1 - u * u);
+          const nx = q * Math.cos(a), ny = u, nz = q * Math.sin(a);
+          if (nz > .2) continue;
+          const sp = .8 + rnd() * 1.4;
+          burst.push({ x: nx, y: ny, vx: nx * sp, vy: ny * sp - .3, life: 0, dur: .9 + rnd() * .9, s: .8 + rnd() * 2 });
+        }
+      }
+      fx.fillStyle = '#f2f1ed';
+      for (let i = burst.length - 1; i >= 0; i--) {
+        const b = burst[i];
+        b.life += dt; if (b.life > b.dur) { burst.splice(i, 1); continue; }
+        b.x += b.vx * dt; b.y += b.vy * dt; b.vy -= .25 * dt;
+        fx.globalAlpha = (1 - b.life / b.dur) * .9;
+        dot(fx, ox + b.x * R, oy + b.y * R, b.s);
+      }
     }
 
     bx.globalAlpha = fx.globalAlpha = 1;
