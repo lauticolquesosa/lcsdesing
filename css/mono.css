@@ -906,17 +906,18 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
   src: url('/assets/fonts/dmserifdisplay-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
-.bhero { padding: clamp(24px, 3vw, 40px) 0 clamp(56px, 6vw, 88px); overflow: hidden; }
+.bhero { padding: clamp(8px, 1.5vw, 24px) 0 clamp(48px, 5vw, 72px); overflow: hidden; }
 .bhero__stage {
   --px: 0; --py: 0;
-  position: relative; display: flex; justify-content: center;
-  padding: clamp(84px, 9vw, 150px) 0 clamp(96px, 10vw, 170px);
+  position: relative; display: flex; justify-content: flex-start;
+  padding: clamp(72px, 7vw, 116px) 0 clamp(64px, 6.5vw, 104px);
 }
-.bhero__fx { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+/* los lienzos llegan hasta el borde de la pantalla: las partículas no se cortan en el margen */
+.bhero__fx { position: absolute; top: 0; left: calc(var(--gut) * -1); width: calc(100% + var(--gut) * 2); height: 100%; pointer-events: none; }
 .bhero__fx--back { z-index: 1; }
 .bhero__fx--front { z-index: 3; }
 
-.bhero__lockup { position: relative; font-size: clamp(64px, 19vw, 292px); }
+.bhero__lockup { position: relative; font-size: clamp(64px, 12.5vw, 196px); }
 .bhero__word {
   position: relative; z-index: 2;
   font-family: 'DM Serif Display', 'Times New Roman', Georgia, serif; font-weight: 400;
@@ -998,14 +999,14 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .bhero__tag:hover .bhero__shine::before { animation: bh-slash-now .75s var(--ease) both; }
 @keyframes bh-slash { 0% { left: -70%; } 18%, 100% { left: 140%; } }
 @keyframes bh-slash-now { from { left: -70%; } to { left: 140%; } }
-.bhero__tag--1 { left: -13%; top: 22%; --rot: -4deg; --depth: 18; --dur: 6.5s; --sdelay: 2.4s; }
-.bhero__tag--2 { left: 69%; top: -14%; --rot: 3deg; --depth: 12; --dur: 7.5s; --delay: -2s; --sdelay: 4.4s; }
-.bhero__tag--3 { left: 74%; top: 93%; --rot: 3.5deg; --depth: 22; --dur: 5.8s; --delay: -4s; --sdelay: 6.4s; }
+.bhero__tag--1 { left: 1%; top: -36%; --rot: -4deg; --depth: 18; --dur: 6.5s; --sdelay: 2.4s; }
+.bhero__tag--2 { left: 60%; top: -42%; --rot: 3deg; --depth: 12; --dur: 7.5s; --delay: -2s; --sdelay: 4.4s; }
+.bhero__tag--3 { left: 75%; top: 98%; --rot: 3.5deg; --depth: 22; --dur: 5.8s; --delay: -4s; --sdelay: 6.4s; }
 @keyframes bh-float { from { translate: 0 -5px; } to { translate: 0 6px; } }
 
-/* texto y botones debajo, centrados como en un hero */
-.bhero__copy { position: relative; z-index: 5; max-width: 760px; margin: 0 auto; text-align: center; }
-.bhero__copy .btns { justify-content: center; margin-top: 32px; }
+/* texto y botones debajo, alineados a la izquierda como el resto de las páginas */
+.bhero__copy { position: relative; z-index: 5; max-width: 720px; }
+.bhero__copy .btns { margin-top: 36px; }
 
 /* entrada: la palabra aparece desde el desenfoque, las etiquetas caen en su lugar */
 html.js .bhero__word { animation: bh-word 1.6s var(--ease) .15s both; }
@@ -1019,16 +1020,16 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 @keyframes bh-copy { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
-  .bhero__tag--1 { left: -4%; top: -30%; }
-  .bhero__tag--2 { left: 58%; top: -48%; }
-  .bhero__tag--3 { left: 52%; top: 104%; }
+  .bhero__tag--1 { left: 0; top: -44%; }
+  .bhero__tag--2 { left: 54%; top: -56%; }
+  .bhero__tag--3 { left: 62%; top: 104%; }
 }
 @media (max-width: 560px) {
-  .bhero__stage { padding: 96px 0 104px; }
+  .bhero__stage { padding: 92px 0 100px; }
   .bhero__lockup { font-size: 22.6vw; }
   .bhero__card { padding: 6px 11px 6px 7px; gap: 7px; }
-  .bhero__tag--1 { left: -2%; top: -58%; }
-  .bhero__tag--2 { left: 46%; top: -78%; }
+  .bhero__tag--1 { left: 0; top: -58%; }
+  .bhero__tag--2 { left: 48%; top: -78%; }
   .bhero__tag--3 { left: 54%; top: 116%; }
 }
 @media (prefers-reduced-motion: reduce) {

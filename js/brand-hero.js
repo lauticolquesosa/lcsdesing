@@ -83,7 +83,7 @@
   }
 
   function layout() {
-    const r = stage.getBoundingClientRect();
+    const r = back.getBoundingClientRect(); // los lienzos, no el escenario: llegan al borde
     if (!r.width) return;
     W = r.width; H = r.height;
     dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -172,7 +172,7 @@
   /* ---------- Puntero ---------- */
   const P = { x: -1e4, y: -1e4, nx: 0, ny: 0, tx: 0, ty: 0, on: false };
   function point(e) {
-    const r = stage.getBoundingClientRect();
+    const r = back.getBoundingClientRect(); // los lienzos, no el escenario: llegan al borde
     P.x = e.clientX - r.left; P.y = e.clientY - r.top;
     P.tx = clamp((P.x / W) * 2 - 1, -1, 1);
     P.ty = clamp((P.y / H) * 2 - 1, -1, 1);
@@ -243,7 +243,7 @@
   // tapados por la esfera y los de adelante pasan por encima
   function ringPoint(i, t, R, hov, yaw) {
     const th = (i / N_RING) * 6.2832 + t * (.35 + hov * .9);
-    const rr = R * (1.5 + hov * .25) * (1 + Math.sin(i * 7.3) * .04);
+    const rr = R * (1.5 + hov * .25);
     const x = Math.cos(th) * rr, z = Math.sin(th) * rr;
     const tilt = 1.15 - hov * .25;               // inclinación del plano
     const y2 = -z * Math.sin(tilt), z2 = z * Math.cos(tilt);
@@ -445,11 +445,11 @@
     fx.fillStyle = '#e8e7e3';
     for (const [x, y, z] of ring) if (z > 0) { fx.globalAlpha = ringA * .55; fx.fillRect(ox + x - .7, oy + y - .7, 1.4, 1.4); }
 
-    // sombra de contacto
-    fx.globalAlpha = .55 * k;
-    const sh = fx.createRadialGradient(ox, oy + R * .95, 0, ox, oy + R * .95, R * 1.1);
+    // sombra de contacto, detrás de las letras para no ensuciarlas
+    bx.globalAlpha = .55 * k;
+    const sh = bx.createRadialGradient(ox, oy + R * .95, 0, ox, oy + R * .95, R * 1.1);
     sh.addColorStop(0, 'rgba(0,0,0,.9)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
-    fx.fillStyle = sh; fx.fillRect(ox - R * 1.2, oy + R * .4, R * 2.4, R * 1.2);
+    bx.fillStyle = sh; bx.fillRect(ox - R * 1.2, oy + R * .4, R * 2.4, R * 1.2);
     // resplandor al pasar el mouse
     if (hov > .02) {
       fx.globalAlpha = hov * .5 * k;
