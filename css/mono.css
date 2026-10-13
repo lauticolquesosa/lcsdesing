@@ -1042,21 +1042,13 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 .bhero__lockup--logo { font-size: 1rem; }
 .bhero__lockup--logo .hero__logo { position: relative; z-index: 2; }
 .bhero__stage img { -webkit-user-drag: none; }
-.bhero--home .bhero__tag--1 { left: -22%; top: -44%; }
-.bhero--home .bhero__tag--2 { left: 80%; top: 92%; }
 .bhero--home h1 { position: relative; z-index: 5; }
 .bhero--home .pill { position: relative; z-index: 5; }
-
-/* con la intro del logo, las etiquetas de la portada entran cuando sube la cortina */
-html.js.intro-on .bhero--home .bhero__tag--1 .bhero__card { animation-delay: 3.1s, calc(var(--delay, 0s) + 4s); }
-html.js.intro-on .bhero--home .bhero__tag--2 .bhero__card { animation-delay: 3.25s, calc(var(--delay, 0s) + 4.15s); }
 
 @media (max-width: 900px) {
   .bhero--long .bhero__tag--1 { left: 0; top: -44%; }
   .bhero--long .bhero__tag--2 { left: 50%; top: -56%; }
   .bhero--long .bhero__tag--3 { left: 60%; top: 104%; }
-  .bhero--home .bhero__tag--1 { left: -10%; top: -60%; }
-  .bhero--home .bhero__tag--2 { left: 64%; top: 100%; }
 }
 @media (max-width: 560px) {
   .bhero--long .bhero__lockup { font-size: 18.4vw; }
@@ -1064,8 +1056,6 @@ html.js.intro-on .bhero--home .bhero__tag--2 .bhero__card { animation-delay: 3.2
   .bhero--long .bhero__tag--2 { left: 46%; top: -86%; }
   .bhero--long .bhero__tag--3 { left: 60%; top: 114%; }
   .bhero__stage--home { padding: 84px 0 40px; }
-  .bhero--home .bhero__tag--1 { left: -6%; top: -74%; }
-  .bhero--home .bhero__tag--2 { left: 54%; top: 106%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .bhero__word, html.js .bhero__copy, html.js .bhero__card, .bhero__card, .bhero__shine::before { animation: none; }
