@@ -430,12 +430,14 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
 - **Hero de Branding** (`js/brand-hero.js`). «Branding» en serif con textura de piedra y la g
-  cruzada como una ø; una esfera de manchas tipo luna apoyada debajo de la a, pintada píxel
-  por píxel con luz real; una nube 3D de partículas y esquirlas que desarma «and» (una capa
-  detrás y otra delante de las letras) y motas negras que erosionan las letras. Gira hacia
-  el cursor, las partículas se apartan a su paso y vuelven; tres etiquetas flotan con
-  profundidad. Se mide sobre el texto real, así acompaña a la tipografía en cualquier
-  ancho, y se detiene fuera de pantalla.
+  cruzada como una ø; la palabra es una pieza gráfica: no se selecciona y el cursor queda
+  normal (el `<h1>` conserva la frase para buscadores). Se lee la forma real de las letras y
+  de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante y motas
+  negras que erosionan las letras. La esfera de manchas tipo luna, debajo de la a, tiene
+  luz, brillo y un anillo en órbita: con el mouse encima crece, gira más rápido, se inclina
+  hacia el cursor y suelta partículas. Las tres etiquetas son chapas en 3D con canto: se
+  inclinan hacia el puntero, un destello diagonal las cruza y se pueden arrastrar; al
+  soltarlas vuelven con un rebote. El motor arranca cuando la página terminó de cargar.
 
 **Reglas de movimiento:**
 

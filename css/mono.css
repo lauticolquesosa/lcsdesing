@@ -916,8 +916,9 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .bhero__fx--back { z-index: 1; }
 .bhero__fx--front { z-index: 3; }
 
-.bhero__lockup { position: relative; z-index: 2; font-size: clamp(64px, 19vw, 292px); }
+.bhero__lockup { position: relative; font-size: clamp(64px, 19vw, 292px); }
 .bhero__word {
+  position: relative; z-index: 2;
   font-family: 'DM Serif Display', 'Times New Roman', Georgia, serif; font-weight: 400;
   font-size: 1em; line-height: .92; letter-spacing: -.028em; white-space: nowrap;
   /* aire alrededor para que la textura llegue a la cola de la g */
@@ -943,34 +944,64 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
   transform: translate(-50%, -50%) translate(.05em, .08em) rotate(33deg);
 }
 
-/* etiquetas: chapas grises con un orbe negro y un punto violeta en la esquina */
+/* la palabra es una pieza gráfica: no se selecciona y el cursor queda normal
+   (el <h1> conserva la frase completa para buscadores y lectores de pantalla) */
+.bhero__stage { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: default; }
+
+/* etiquetas: chapas en 3D con canto, orbe negro y punto violeta. Se inclinan
+   hacia el puntero, un destello diagonal las cruza y se pueden arrastrar:
+   al soltarlas vuelven a su lugar con un rebote (js/brand-hero.js). */
 .bhero__tag {
-  position: absolute; z-index: 4; font-size: 1rem;
+  position: absolute; z-index: 4; font-size: 1rem; perspective: 700px;
   translate: calc(var(--px) * var(--depth, 10) * 1px) calc(var(--py) * var(--depth, 10) * .7px);
   transition: translate .9s var(--ease);
+  cursor: grab; touch-action: none;
 }
-.bhero__tag span {
+.bhero__tag.is-drag { cursor: grabbing; z-index: 6; }
+.bhero__card {
   position: relative; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
   padding: 8px 15px 8px 9px; border-radius: 6px;
-  background: linear-gradient(180deg, #d7d7d5 0%, #b9b9b6 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 10px 26px -8px rgba(0,0,0,.8);
+  background: linear-gradient(180deg, #dcdcda 0%, #bcbcb9 100%);
   color: #121212; font-size: clamp(11px, .95vw, 14px); font-weight: 500; letter-spacing: -.01em; line-height: 1;
-  rotate: var(--rot, -3deg);
+  transform-style: preserve-3d;
+  transform: rotateZ(var(--rot, -3deg)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--lift, 0px));
+  /* canto: cinco capas de 1px que oscurecen hacia abajo + la sombra que proyecta */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.75),
+    0 1px 0 #a3a3a0, 0 2px 0 #959592, 0 3px 0 #878784, 0 4px 0 #777774, 0 5px 0 #5e5e5b,
+    0 calc(16px + var(--lift, 0px) * .6) 30px -8px rgba(0,0,0,.85);
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
   animation: bh-float var(--dur, 6s) ease-in-out var(--delay, 0s) infinite alternate;
 }
-.bhero__tag span::before {
-  content: ""; flex: 0 0 auto; width: 1.55em; height: 1.55em; border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #6b6b6b 0%, #1d1d1d 42%, #000 70%);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5);
+.bhero__tag:hover .bhero__card { --lift: 22px; }
+.bhero__tag.is-tilt .bhero__card { transition: transform .15s linear, box-shadow .6s var(--ease); }
+.bhero__tag.is-drag .bhero__card { --lift: 34px; transition: transform .08s linear, box-shadow .3s var(--ease); }
+.bhero__orb {
+  flex: 0 0 auto; width: 1.55em; height: 1.55em; border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, #7a7a7a 0%, #1d1d1d 42%, #000 70%);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5), 0 2px 4px rgba(0,0,0,.35);
+  transform: translateZ(10px);
 }
-.bhero__tag span::after {
+.bhero__card::after {
   content: ""; position: absolute; top: -4px; right: -4px; width: 9px; height: 9px; border-radius: 50%;
   background: #9333ff; box-shadow: 0 0 0 2px rgba(147,51,255,.18), 0 0 10px rgba(147,51,255,.7);
+  transform: translateZ(14px);
 }
-.bhero__tag--1 { left: -13%; top: 22%; --rot: -4deg; --depth: 18; --dur: 6.5s; }
-.bhero__tag--2 { left: 69%; top: -14%; --rot: 3deg; --depth: 12; --dur: 7.5s; --delay: -2s; }
-.bhero__tag--3 { left: 74%; top: 93%; --rot: 3.5deg; --depth: 22; --dur: 5.8s; --delay: -4s; }
-@keyframes bh-float { from { transform: translateY(-5px); } to { transform: translateY(6px); } }
+/* destello: un corte de luz en diagonal que cruza la chapa cada tanto y al pasar el mouse */
+.bhero__shine { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
+.bhero__shine::before {
+  content: ""; position: absolute; top: -60%; bottom: -60%; left: -70%; width: 42%;
+  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-24deg);
+  animation: bh-slash 6s var(--ease) var(--sdelay, 2.4s) infinite;
+}
+.bhero__tag:hover .bhero__shine::before { animation: bh-slash-now .75s var(--ease) both; }
+@keyframes bh-slash { 0% { left: -70%; } 18%, 100% { left: 140%; } }
+@keyframes bh-slash-now { from { left: -70%; } to { left: 140%; } }
+.bhero__tag--1 { left: -13%; top: 22%; --rot: -4deg; --depth: 18; --dur: 6.5s; --sdelay: 2.4s; }
+.bhero__tag--2 { left: 69%; top: -14%; --rot: 3deg; --depth: 12; --dur: 7.5s; --delay: -2s; --sdelay: 4.4s; }
+.bhero__tag--3 { left: 74%; top: 93%; --rot: 3.5deg; --depth: 22; --dur: 5.8s; --delay: -4s; --sdelay: 6.4s; }
+@keyframes bh-float { from { translate: 0 -5px; } to { translate: 0 6px; } }
 
 /* texto y botones debajo, centrados como en un hero */
 .bhero__copy { position: relative; z-index: 5; max-width: 760px; margin: 0 auto; text-align: center; }
@@ -978,13 +1009,13 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 
 /* entrada: la palabra aparece desde el desenfoque, las etiquetas caen en su lugar */
 html.js .bhero__word { animation: bh-word 1.6s var(--ease) .15s both; }
-html.js .bhero__tag span { animation: bh-tag .9s var(--ease) both, bh-float var(--dur, 6s) ease-in-out calc(var(--delay, 0s) + 2s) infinite alternate; }
-html.js .bhero__tag--1 span { animation-delay: 1s, calc(var(--delay, 0s) + 1.9s); }
-html.js .bhero__tag--2 span { animation-delay: 1.15s, calc(var(--delay, 0s) + 2.05s); }
-html.js .bhero__tag--3 span { animation-delay: 1.3s, calc(var(--delay, 0s) + 2.2s); }
+html.js .bhero__card { animation: bh-tag .9s var(--ease) both, bh-float var(--dur, 6s) ease-in-out calc(var(--delay, 0s) + 2s) infinite alternate; }
+html.js .bhero__tag--1 .bhero__card { animation-delay: 1s, calc(var(--delay, 0s) + 1.9s); }
+html.js .bhero__tag--2 .bhero__card { animation-delay: 1.15s, calc(var(--delay, 0s) + 2.05s); }
+html.js .bhero__tag--3 .bhero__card { animation-delay: 1.3s, calc(var(--delay, 0s) + 2.2s); }
 html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
-@keyframes bh-word { from { opacity: 0; filter: blur(14px) drop-shadow(0 .02em .05em rgba(0,0,0,.6)); transform: scale(1.04); } to { opacity: 1; filter: blur(0) drop-shadow(0 .02em .05em rgba(0,0,0,.6)); transform: none; } }
-@keyframes bh-tag { from { opacity: 0; transform: translateY(-14px) scale(.92); } to { opacity: 1; transform: translateY(-5px); } }
+@keyframes bh-word { from { filter: blur(18px) brightness(.35) drop-shadow(0 .02em .05em rgba(0,0,0,.6)); transform: scale(1.04); } to { filter: blur(0) brightness(1) drop-shadow(0 .02em .05em rgba(0,0,0,.6)); transform: none; } }
+@keyframes bh-tag { from { opacity: 0; scale: .8; } to { opacity: 1; scale: 1; } }
 @keyframes bh-copy { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
 @media (max-width: 900px) {
@@ -995,12 +1026,12 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 @media (max-width: 560px) {
   .bhero__stage { padding: 96px 0 104px; }
   .bhero__lockup { font-size: 22.6vw; }
-  .bhero__tag span { padding: 6px 11px 6px 7px; gap: 7px; }
+  .bhero__card { padding: 6px 11px 6px 7px; gap: 7px; }
   .bhero__tag--1 { left: -2%; top: -58%; }
   .bhero__tag--2 { left: 46%; top: -78%; }
   .bhero__tag--3 { left: 54%; top: 116%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.js .bhero__word, html.js .bhero__copy, html.js .bhero__tag span { animation: none; }
+  html.js .bhero__word, html.js .bhero__copy, html.js .bhero__card, .bhero__card, .bhero__shine::before { animation: none; }
   .bhero__tag { transition: none; }
 }
