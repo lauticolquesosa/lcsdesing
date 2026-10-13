@@ -940,7 +940,9 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 /* la g cruzada: un trazo fino en diagonal, como una ø */
 .bhero__g { position: relative; }
 .bhero__g::after {
-  content: ""; position: absolute; left: 50%; top: 50%; width: .03em; height: .8em;
+  content: ""; position: absolute; left: 50%; top: 50%; width: max(3px, .032em); height: .8em;
+  /* filo negro a los costados: el trazo se lee como un corte también sobre la letra */
+  box-shadow: 0 0 0 max(1.5px, .011em) #000;
   background: linear-gradient(#f6f5f1, #cfccc4); border-radius: .03em;
   transform: translate(-50%, -50%) translate(.05em, .08em) rotate(33deg);
 }
