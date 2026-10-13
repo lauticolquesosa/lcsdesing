@@ -11,7 +11,7 @@
 <title>Proyectos de diseño web y UX/UI — LCS · Salta</title>
 <meta name="description" content="24 casos reales de diseño web y UX/UI en Argentina y Colombia: gastronomía, salud, construcción e institucional, con problema, proceso y resultado." />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/dmserifdisplay-latin.woff2" crossorigin />
 <link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s mono.js no confirmó que corre (error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
@@ -71,15 +71,21 @@
 
 <main id="main">
 
-  <section class="phero">
+  <!-- ============ HERO — la palabra como pieza (js/hero-fx.js) ============ -->
+  <section class="bhero bhero--long">
     <div class="wrap">
-      <h1 aria-label="Proyectos. Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado.">
-        <span class="display display--xl" aria-hidden="true" data-es="Proyectos" data-en="Work">Proyectos</span>
-      </h1>
-      <div class="phero__grid">
-        <div>
-          <p class="statement" data-es="Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado." data-en="Selected work. Real cases, from live sites to UX/UI projects in progress. Click a card to open the case study: problem, goal, process and result.">Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado.</p>
+      <div class="bhero__stage" data-bhero>
+        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+        <div class="bhero__lockup">
+          <h1 class="bhero__word" data-bhero-shape aria-label="Proyectos. Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado."><span aria-hidden="true">Pr<span data-bhero-sphere>o</span>yectos<i class="bhero__base"></i></span></h1>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><span data-es="Sitios en vivo" data-en="Live sites">Sitios en vivo</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><span data-es="Casos reales" data-en="Real cases">Casos reales</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><span data-es="24 proyectos" data-en="24 projects">24 proyectos</span><i class="bhero__shine"></i></span></p>
         </div>
+        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
+      </div>
+      <div class="bhero__copy">
+          <p class="statement" data-es="Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado." data-en="Selected work. Real cases, from live sites to UX/UI projects in progress. Click a card to open the case study: problem, goal, process and result.">Trabajo seleccionado. Casos reales entre sitios en vivo y proyectos de UX/UI en proceso. Hacé clic en una tarjeta para abrir el case study: problema, objetivo, proceso y resultado.</p>
       </div>
     </div>
   </section>
@@ -270,6 +276,7 @@
       </footer>
 <!--/footer-->
 <script src="/js/projects.js" defer></script>
+<script src="/js/hero-fx.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>

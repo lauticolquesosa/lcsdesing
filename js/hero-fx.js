@@ -55,6 +55,7 @@
   const small = innerWidth < 700;
   const N_DUST = small ? 520 : 1100;     // se desprenden de las letras
   const N_FLOAT = small ? 220 : 420;     // polvo flotante a lo largo de la palabra
+  const N_FIELD = small ? 360 : 900;     // portada: polvo en todo el hero, más ralo lejos del logo
   const N_ERODE = small ? 520 : 1100;    // motas negras sobre las letras
   const N_RING = 150;                    // anillo alrededor de la esfera
 
@@ -183,10 +184,16 @@
     p.t0 = t; p.dur = 3.5 + rnd() * 4.5; p.born = true;
   }
 
-  // Polvo flotante: un elipsoide ancho que cubre toda la palabra.
+  // Polvo flotante: un elipsoide ancho que cubre toda la palabra. En la portada
+  // cubre todo el hero: u, v van de -1 a 1 (del logo al borde) y la densidad cae
+  // con la distancia al centro.
   const float = [];
-  for (let i = 0; i < N_FLOAT; i++) {
+  const nFloat = isImg ? N_FIELD : N_FLOAT;
+  for (let i = 0; i < nFloat; i++) {
+    let u, v;
+    do { u = rnd() * 2 - 1; v = rnd() * 2 - 1; } while (rnd() > Math.exp(-(u * u + v * v) / (2 * .42 * .42)) + .04);
     float.push({
+      u, v,
       x: gauss() * .78, y: gauss() * .55 - .05, z: gauss() * .6, // x en mitades del ancho de la forma
       size: .7 + rnd() * 1.6, tone: 140 + ((rnd() * 115) | 0), alpha: .25 + rnd() * .55,
       ph: rnd() * 6.283, sp: .15 + rnd() * .35, amp: .02 + rnd() * .05,
@@ -418,8 +425,10 @@
 
     // ---- polvo flotante
     for (const p of float) {
-      const x = p.sx + (p.x * Math.max(1, G.half) + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * p.amp) - p.sx) * k;
-      const y = p.sy + (p.y + (reduced ? 0 : Math.cos(t * p.sp * .8 + p.ph) * p.amp) - p.sy) * k;
+      const fx0 = isImg ? (p.u < 0 ? p.u * G.cx : p.u * (W - G.cx)) / fs : p.x * Math.max(1, G.half);
+      const fy0 = isImg ? (p.v < 0 ? p.v * G.cy : p.v * (H - G.cy)) / fs : p.y;
+      const x = p.sx + (fx0 + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * p.amp) - p.sx) * k;
+      const y = p.sy + (fy0 + (reduced ? 0 : Math.cos(t * p.sp * .8 + p.ph) * p.amp) - p.sy) * k;
       const [sx, sy, Z, sc] = proj(x, y, p.z);
       repel(p, sx, sy, R2, F0);
       const ctx = Z > 0 ? bx : fx;

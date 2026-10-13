@@ -949,7 +949,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
    (el <h1> conserva la frase completa para buscadores y lectores de pantalla) */
 .bhero__stage { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: default; }
 
-/* etiquetas: chapas en 3D con canto, orbe negro y punto violeta. Se inclinan
+/* etiquetas: chapas en 3D con canto y punto violeta. Se inclinan
    hacia el puntero, un destello diagonal las cruza y se pueden arrastrar:
    al soltarlas vuelven a su lugar con un rebote (js/hero-fx.js). */
 .bhero__tag {
@@ -961,7 +961,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .bhero__tag.is-drag { cursor: grabbing; z-index: 6; }
 .bhero__card {
   position: relative; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
-  padding: 8px 15px 8px 9px; border-radius: 6px;
+  padding: 9px 16px; border-radius: 6px;
   background: linear-gradient(180deg, #dcdcda 0%, #bcbcb9 100%);
   color: #121212; font-size: clamp(11px, .95vw, 14px); font-weight: 500; letter-spacing: -.01em; line-height: 1;
   transform-style: preserve-3d;
@@ -977,12 +977,6 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 .bhero__tag:hover .bhero__card { --lift: 22px; }
 .bhero__tag.is-tilt .bhero__card { transition: transform .15s linear, box-shadow .6s var(--ease); }
 .bhero__tag.is-drag .bhero__card { --lift: 34px; transition: transform .08s linear, box-shadow .3s var(--ease); }
-.bhero__orb {
-  flex: 0 0 auto; width: 1.55em; height: 1.55em; border-radius: 50%;
-  background: radial-gradient(circle at 34% 30%, #7a7a7a 0%, #1d1d1d 42%, #000 70%);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.5), 0 2px 4px rgba(0,0,0,.35);
-  transform: translateZ(10px);
-}
 .bhero__card::after {
   content: ""; position: absolute; top: -4px; right: -4px; width: 9px; height: 9px; border-radius: 50%;
   background: #9333ff; box-shadow: 0 0 0 2px rgba(147,51,255,.18), 0 0 10px rgba(147,51,255,.7);
@@ -1027,51 +1021,49 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 @media (max-width: 560px) {
   .bhero__stage { padding: 92px 0 100px; }
   .bhero__lockup { font-size: 22.6vw; }
-  .bhero__card { padding: 6px 11px 6px 7px; gap: 7px; }
+  .bhero__card { padding: 7px 12px; }
   .bhero__tag--1 { left: 0; top: -58%; }
   .bhero__tag--2 { left: 48%; top: -78%; }
   .bhero__tag--3 { left: 54%; top: 116%; }
 }
-/* Diseño web: la palabra es más larga, va un poco más chica */
-.bhero--web .bhero__lockup { font-size: clamp(56px, 10.4vw, 164px); }
-.bhero--web .bhero__tag--1 { left: 1%; top: -36%; }
-.bhero--web .bhero__tag--2 { left: 56%; top: -42%; }
-.bhero--web .bhero__tag--3 { left: 76%; top: 98%; }
+/* Palabras largas (Diseño web, Servicios, Proyectos, Inversión): un poco más chicas */
+.bhero--long .bhero__lockup { font-size: clamp(56px, 10.4vw, 164px); }
+.bhero--long .bhero__tag--1 { left: 1%; top: -36%; }
+.bhero--long .bhero__tag--2 { left: 56%; top: -42%; }
+.bhero--long .bhero__tag--3 { left: 76%; top: 98%; }
 
-/* Portada: el escenario rodea al logo, que queda intacto y centrado */
-.bhero--home { overflow: hidden; }
+/* Portada: el escenario rodea al logo, que queda intacto y centrado; los
+   lienzos cubren todo el hero, y las partículas se ralean lejos del logo */
+.bhero--home { position: relative; overflow: hidden; }
+.bhero--home > .bhero__fx { left: 0; width: 100%; }
 .bhero__stage--home { justify-content: center; padding: clamp(64px, 6vw, 96px) 0 clamp(28px, 3vw, 44px); }
 .bhero__lockup--logo { font-size: 1rem; }
 .bhero__lockup--logo .hero__logo { position: relative; z-index: 2; }
 .bhero__stage img { -webkit-user-drag: none; }
-.bhero--home .bhero__tag--1 { left: -26%; top: -46%; }
-.bhero--home .bhero__tag--2 { left: 74%; top: -62%; }
-.bhero--home .bhero__tag--3 { left: 82%; top: 96%; }
+.bhero--home .bhero__tag--1 { left: -22%; top: -44%; }
+.bhero--home .bhero__tag--2 { left: 80%; top: 92%; }
 .bhero--home h1 { position: relative; z-index: 5; }
 .bhero--home .pill { position: relative; z-index: 5; }
 
 /* con la intro del logo, las etiquetas de la portada entran cuando sube la cortina */
 html.js.intro-on .bhero--home .bhero__tag--1 .bhero__card { animation-delay: 3.1s, calc(var(--delay, 0s) + 4s); }
 html.js.intro-on .bhero--home .bhero__tag--2 .bhero__card { animation-delay: 3.25s, calc(var(--delay, 0s) + 4.15s); }
-html.js.intro-on .bhero--home .bhero__tag--3 .bhero__card { animation-delay: 3.4s, calc(var(--delay, 0s) + 4.3s); }
 
 @media (max-width: 900px) {
-  .bhero--web .bhero__tag--1 { left: 0; top: -44%; }
-  .bhero--web .bhero__tag--2 { left: 50%; top: -56%; }
-  .bhero--web .bhero__tag--3 { left: 60%; top: 104%; }
-  .bhero--home .bhero__tag--1 { left: -14%; top: -64%; }
-  .bhero--home .bhero__tag--2 { left: 52%; top: -80%; }
-  .bhero--home .bhero__tag--3 { left: 58%; top: 104%; }
+  .bhero--long .bhero__tag--1 { left: 0; top: -44%; }
+  .bhero--long .bhero__tag--2 { left: 50%; top: -56%; }
+  .bhero--long .bhero__tag--3 { left: 60%; top: 104%; }
+  .bhero--home .bhero__tag--1 { left: -10%; top: -60%; }
+  .bhero--home .bhero__tag--2 { left: 64%; top: 100%; }
 }
 @media (max-width: 560px) {
-  .bhero--web .bhero__lockup { font-size: 18.4vw; }
-  .bhero--web .bhero__tag--1 { left: 0; top: -66%; }
-  .bhero--web .bhero__tag--2 { left: 46%; top: -86%; }
-  .bhero--web .bhero__tag--3 { left: 60%; top: 114%; }
+  .bhero--long .bhero__lockup { font-size: 18.4vw; }
+  .bhero--long .bhero__tag--1 { left: 0; top: -66%; }
+  .bhero--long .bhero__tag--2 { left: 46%; top: -86%; }
+  .bhero--long .bhero__tag--3 { left: 60%; top: 114%; }
   .bhero__stage--home { padding: 84px 0 40px; }
-  .bhero--home .bhero__tag--1 { left: -10%; top: -78%; }
-  .bhero--home .bhero__tag--2 { left: 44%; top: -98%; }
-  .bhero--home .bhero__tag--3 { left: 44%; top: 108%; }
+  .bhero--home .bhero__tag--1 { left: -6%; top: -74%; }
+  .bhero--home .bhero__tag--2 { left: 54%; top: 106%; }
 }
 @media (prefers-reduced-motion: reduce) {
   html.js .bhero__word, html.js .bhero__copy, html.js .bhero__card, .bhero__card, .bhero__shine::before { animation: none; }

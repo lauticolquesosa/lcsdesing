@@ -11,7 +11,7 @@
 <title>Precios de diseño web — LCS · Salta</title>
 <meta name="description" content="Cuánto cuesta una web en Salta: tres planes con precio estimado, qué incluye cada uno y qué afecta el presupuesto. Precio cerrado por proyecto, sin letra chica." />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/dmserifdisplay-latin.woff2" crossorigin />
 <link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s mono.js no confirmó que corre (error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
@@ -71,15 +71,21 @@
 
 <main id="main">
 
-  <section class="phero">
+  <!-- ============ HERO — la palabra como pieza (js/hero-fx.js) ============ -->
+  <section class="bhero bhero--long">
     <div class="wrap">
-      <h1 aria-label="Inversión. Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla.">
-        <span class="display display--xl" aria-hidden="true" data-es="Inversión" data-en="Investment">Inversión</span>
-      </h1>
-      <div class="phero__grid">
-        <div>
-          <p class="statement" data-es="Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla." data-en="Clear prices. No surprises, no fine print. Every project is unique, so these are estimated reference prices: the final quote is adjusted to your real scope after a first conversation.">Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla.</p>
+      <div class="bhero__stage" data-bhero>
+        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+        <div class="bhero__lockup">
+          <h1 class="bhero__word" data-bhero-shape aria-label="Inversión. Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla."><span aria-hidden="true">In<span data-bhero-sphere>v</span>ersión<i class="bhero__base"></i></span></h1>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><span data-es="Precio cerrado" data-en="Fixed price">Precio cerrado</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><span data-es="Plazos claros" data-en="Clear timelines">Plazos claros</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><span data-es="Sin letra chica" data-en="No fine print">Sin letra chica</span><i class="bhero__shine"></i></span></p>
         </div>
+        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
+      </div>
+      <div class="bhero__copy">
+          <p class="statement" data-es="Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla." data-en="Clear prices. No surprises, no fine print. Every project is unique, so these are estimated reference prices: the final quote is adjusted to your real scope after a first conversation.">Precios claros. Sin sorpresas ni letra chica. Cada proyecto es único, así que estos son precios estimativos de referencia: el presupuesto final se ajusta a tu alcance real tras una primera charla.</p>
       </div>
     </div>
   </section>
@@ -258,6 +264,7 @@
       </footer>
 <!--/footer-->
 
+<script src="/js/hero-fx.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>

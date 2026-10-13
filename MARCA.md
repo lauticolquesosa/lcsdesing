@@ -429,16 +429,19 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 - **Tiras automáticas.** Avanzan de a una tarjeta con una pausa corta; descansan cuando
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
-- **Heros de la portada, Branding y Diseño web** (`js/hero-fx.js`, un solo motor). En `/branding`
-  y `/diseno-web` la pieza es la palabra; en la portada es el logo, que no se toca: las
-  partículas salen de su silueta y aparecen recién al separarse, sin erosión, con la esfera
-  a la izquierda de la L y el arranque después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra y la g
+- **Heros con partículas** (`js/hero-fx.js`, un solo motor) en la portada y en las homes,
+  servicios, proyectos e inversión de los dos caminos. En las páginas internas la pieza es la
+  palabra (Branding, Diseño web, Servicios, Proyectos, Inversión) arriba a la izquierda, con
+  tres etiquetas propias de cada página; en la portada es el logo, que no se toca: las
+  partículas salen de su silueta y aparecen recién al separarse, sin erosión; un polvo cubre
+  todo el hero y se ralea lejos del logo; la esfera va a la izquierda de la L, hay solo dos
+  etiquetas (Branding y Diseño web) y el efecto arranca después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra y la g
   cruzada como una ø; la palabra es una pieza gráfica: no se selecciona y el cursor queda
   normal (el `<h1>` conserva la frase para buscadores). Se lee la forma real de las letras y
   de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante y motas
   negras que erosionan las letras. La esfera de manchas tipo luna, debajo de la a, tiene
   luz, brillo y un anillo en órbita: con el mouse encima crece, gira más rápido, se inclina
-  hacia el cursor y suelta partículas. Las tres etiquetas son chapas en 3D con canto: se
+  hacia el cursor y suelta partículas. Las etiquetas son chapas en 3D con canto y un punto violeta: se
   inclinan hacia el puntero, un destello diagonal las cruza y se pueden arrastrar; al
   soltarlas vuelven con un rebote. El motor arranca cuando la página terminó de cargar.
 

@@ -77,22 +77,21 @@
 <main id="main">
 
   <!-- ============ HERO — el logo, grande ============ -->
-  <section class="hero bhero--home">
+  <section class="hero bhero--home" data-bhero data-sphere-x="-.13" data-sphere-y=".76" data-sphere-r=".3">
+    <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+    <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
     <div class="wrap">
       <!-- El logo queda intacto: las partículas salen de su silueta y lo
            rodean, con la esfera a la izquierda y tres etiquetas en 3D
-           (js/hero-fx.js). -->
-      <div class="bhero__stage bhero__stage--home" data-bhero data-sphere-x="-.13" data-sphere-y=".76" data-sphere-r=".3">
-        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+           (js/hero-fx.js). Los lienzos cubren todo el hero. -->
+      <div class="bhero__stage bhero__stage--home">
         <div class="bhero__lockup bhero__lockup--logo">
           <div class="hero__logo">
             <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372" fetchpriority="high" decoding="async" data-bhero-shape>
           </div>
-          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Identidad visual" data-en="Visual identity">Identidad visual</span><i class="bhero__shine"></i></span></p>
-          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Dirección creativa" data-en="Creative direction">Dirección creativa</span><i class="bhero__shine"></i></span></p>
-          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><i class="bhero__orb"></i><span data-es="Diseño web" data-en="Web design">Diseño web</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><span data-es="Branding" data-en="Branding">Branding</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><span data-es="Diseño web" data-en="Web design">Diseño web</span><i class="bhero__shine"></i></span></p>
         </div>
-        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
       </div>
       <h1 data-es="Estudio de Diseño Web y Branding" data-en="Web Design &amp; Branding Studio">Estudio de Diseño Web y Branding</h1>
       <a class="pill pill--light" href="https://wa.me/543874834041?text=Hola%20LCS%2C%20quiero%20contarte%20mi%20proyecto." target="_blank" rel="noopener" data-es="Hablanos por tu proyecto" data-en="Tell us about your project">Hablanos por tu proyecto</a>

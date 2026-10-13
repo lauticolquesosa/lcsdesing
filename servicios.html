@@ -11,7 +11,7 @@
 <title>Servicios de diseño web y UX/UI — LCS · Salta</title>
 <meta name="description" content="Diseño y desarrollo de sitios web a medida en Salta: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar." />
 <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-var-latin.woff2" crossorigin />
-<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/manrope-var-latin.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/dmserifdisplay-latin.woff2" crossorigin />
 <link rel="stylesheet" href="/css/mono.css" />
 <script>/* Marca que hay JS para que los reveals arranquen ocultos. Red de seguridad: si en 4s mono.js no confirmó que corre (error de red), se quita la marca y todo el texto queda visible igual. */(function(d){var r=d.documentElement;r.classList.add('js');setTimeout(function(){if(!r.dataset.anim)r.classList.remove('js');},4000);})(document);</script>
 <!-- SEO:START -->
@@ -71,19 +71,25 @@
 
 <main id="main">
 
-  <section class="phero">
+  <!-- ============ HERO — la palabra como pieza (js/hero-fx.js) ============ -->
+  <section class="bhero bhero--long">
     <div class="wrap">
-      <h1 aria-label="Servicios. Diseño web. Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar.">
-        <span class="display display--xl" aria-hidden="true" data-es="Servicios" data-en="Services">Servicios</span>
-      </h1>
-      <div class="phero__grid">
-        <div>
+      <div class="bhero__stage" data-bhero>
+        <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
+        <div class="bhero__lockup">
+          <h1 class="bhero__word" data-bhero-shape aria-label="Servicios. Diseño web. Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar."><span aria-hidden="true">Se<span data-bhero-sphere>r</span>vicios<i class="bhero__base"></i></span></h1>
+          <p class="bhero__tag bhero__tag--1" aria-hidden="true"><span class="bhero__card"><span data-es="Diseño UX/UI" data-en="UX/UI design">Diseño UX/UI</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--2" aria-hidden="true"><span class="bhero__card"><span data-es="Desarrollo web" data-en="Web development">Desarrollo web</span><i class="bhero__shine"></i></span></p>
+          <p class="bhero__tag bhero__tag--3" aria-hidden="true"><span class="bhero__card"><span data-es="SEO y velocidad" data-en="SEO and speed">SEO y velocidad</span><i class="bhero__shine"></i></span></p>
+        </div>
+        <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
+      </div>
+      <div class="bhero__copy">
           <p class="statement" data-es="Diseño web. Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar." data-en="Web design. Design and development of sites with their own identity: landing pages, portfolios and corporate websites. Clean, responsive and optimised code, ready to publish.">Diseño web. Diseño y desarrollo de sitios con identidad propia: landings, portfolios y webs institucionales. Código limpio, responsive y optimizado, listo para publicar.</p>
           <div class="btns">
             <a class="pill pill--light" href="/contacto" data-es="Quiero mi web" data-en="I want my site">Quiero mi web</a>
             <a class="txtlink arw" href="#proceso" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</a>
           </div>
-        </div>
       </div>
     </div>
   </section>
@@ -274,6 +280,7 @@
       </footer>
 <!--/footer-->
 
+<script src="/js/hero-fx.js" defer></script>
 <script src="/js/mono.js" defer></script>
 </body>
 </html>
