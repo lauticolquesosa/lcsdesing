@@ -93,7 +93,7 @@
       $('.vplayer__nav', el).hidden = list.length < 2;
       const at = keepTime ? video.currentTime : 0;
       video.src = f.src;
-      video.poster = list[idx].dataset.prev.replace('-prev.mp4', '-poster.webp');
+      video.poster = list[idx].dataset.prev.replace(/-prev(-v\d+)?\.mp4$/, '-poster$1.webp');
       if (at) video.addEventListener('loadedmetadata', () => { video.currentTime = Math.min(at, video.duration - .1); }, { once: true });
       play(video);
     }

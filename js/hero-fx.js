@@ -56,10 +56,10 @@
   const depthTone = (tone, Z) => Math.round(tone + (200 - tone) * clamp(Z * .3, 0, .6));
 
   const small = innerWidth < 700;
-  const N_DUST = small ? 70 : 140;       // se desprenden de las letras
-  const N_FLOAT = small ? 30 : 60;       // polvo ralo a lo largo de la palabra
-  const N_FIELD = small ? 50 : 110;      // portada: polvo en todo el hero, más ralo lejos del logo
-  const N_ERODE = small ? 200 : 380;     // motas del color del fondo sobre las letras
+  const N_DUST = small ? 26 : 55;       // se desprenden de las letras
+  const N_FLOAT = small ? 10 : 22;       // polvo ralo a lo largo de la palabra
+  const N_FIELD = small ? 18 : 40;      // portada: polvo en todo el hero, más ralo lejos del logo
+  const N_ERODE = small ? 90 : 170;     // motas del color del fondo sobre las letras
 
   /* ---------- Medidas y forma ---------- */
   let W = 0, H = 0, dpr = 1, fs = 100, scale = 1;

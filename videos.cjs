@@ -17,15 +17,15 @@ const CATS = [
 
 // t = título, a = artista o marca, k = tipo (es/en), d = descripción (es/en), f = formatos
 const V = [
-  { id: 'arruinarse', cat: 'lyric', t: 'Arruinarse', a: 'Tan Biónica', kEs: 'Video lyric', kEn: 'Lyric video',
-    dEs: 'Tipografía que se rompe, gira y crece con cada palabra, en bordó, negro y crema.',
-    dEn: 'Type that breaks, spins and grows with every word, in burgundy, black and cream.',
-    f: [{ r: '16:9', src: 'arruinarse', d: '0:54' }] },
   { id: 'fuego', cat: 'lyric', t: 'Fuego', a: 'SIZE ft. 2Kan y Lizard', kEs: 'Video lyric', kEn: 'Lyric video',
     dEs: 'La tapa del single llevada a pixel art: cada artista entra como personaje de videojuego. Con versión horizontal y reel vertical.',
     dEn: 'The single’s cover turned into pixel art: each artist enters as a video-game character. In horizontal and vertical reel versions.',
     deck: 'fuego-reel',
-    f: [{ r: '16:9', src: 'fuego', d: '0:54' }, { r: '9:16', src: 'fuego-reel', d: '0:54', lEs: 'Reel', lEn: 'Reel' }] },
+    f: [{ r: '9:16', src: 'fuego-reel', d: '0:54', lEs: 'Reel', lEn: 'Reel' }, { r: '16:9', src: 'fuego', d: '0:54', lEs: 'Horizontal', lEn: 'Horizontal' }] },
+  { id: 'arruinarse', cat: 'lyric', t: 'Arruinarse', a: 'Tan Biónica', kEs: 'Video lyric', kEn: 'Lyric video',
+    dEs: 'Tipografía que se rompe, gira y crece con cada palabra, en bordó, negro y crema.',
+    dEn: 'Type that breaks, spins and grows with every word, in burgundy, black and cream.',
+    f: [{ r: '16:9', src: 'arruinarse', d: '0:54' }] },
   { id: 'tuchat', cat: 'lyric', t: 'TUCHAT', a: 'Quevedo', kEs: 'Video lyric', kEn: 'Lyric video',
     dEs: 'Afiche rojo y crema donde los íconos actúan la letra: la balanza, la cama, la palabra tachada.',
     dEn: 'A red and cream poster where icons act out the lyrics: the scales, the bed, the crossed-out word.',
@@ -73,10 +73,14 @@ const data = v => `data-id="${v.id}" data-cat="${v.cat}" data-t="${esc(v.t)}" da
 const aria = v => `Ver ${v.t} — ${v.a} con sonido`;
 
 /* ---------- Mazo (inicio de Edición de video) ---------- */
-const deckCards = V.map((v, i) => {
+// orden del mazo: abre Fuego y después alterna los tipos para que no se repitan seguidos
+const DECK = ['fuego', 'pedidosya', 'nexo', 'arruinarse', 'spotify', 'semix-chips', 'tuchat', 'iphone', 'semix-navidad', 'els', 'semix-papas'];
+if (DECK.length !== V.length || V.some(v => !DECK.includes(v.id))) throw new Error('DECK no coincide con V');
+const DV = DECK.map(id => V.find(v => v.id === id));
+const deckCards = DV.map((v, i) => {
   const p = v.deck || v.f[0].src;
-  return `          <li class="vdeck__card" ${data(v)} data-prev="${A}${p}-prev.mp4">
-            <button class="vdeck__hit" type="button" aria-label="${esc(aria(v))}"><img src="${A}${p}-poster.webp" alt="" width="640" height="800"${i > 2 ? ' loading="lazy"' : ''} decoding="async"></button>
+  return `          <li class="vdeck__card" ${data(v)} data-prev="${A}${p}-prev-v2.mp4">
+            <button class="vdeck__hit" type="button" aria-label="${esc(aria(v))}"><img src="${A}${p}-poster-v2.webp" alt="" width="640" height="800"${i > 2 ? ' loading="lazy"' : ''} decoding="async"></button>
           </li>`;
 }).join('\n');
 
@@ -85,7 +89,7 @@ const filters = `<div class="vfilter" role="group" aria-label="Tipo de video" da
 ${CATS.map(c => `          <button type="button" aria-pressed="false" data-f="${c.id}"><span data-es="${c.es}" data-en="${c.en}">${c.es}</span><sup>${V.filter(v => v.cat === c.id).length}</sup></button>`).join('\n')}
         </div>`;
 
-const first = V[0];
+const first = DV[0];
 const deck = `<!-- VSHOW:START — generado por videos.cjs -->
   <!-- ============ TRABAJO RECIENTE — mazo de videos (js/videos.js) ============ -->
   <section class="sec vshow" id="trabajo">
@@ -124,9 +128,9 @@ ${deckCards}
 /* ---------- Grilla clasificada (Proyectos) ---------- */
 const card = v => {
   const p = v.deck || v.f[0].src;
-  return `          <li class="vcard" ${data(v)} data-prev="${A}${p}-prev.mp4" data-rv>
+  return `          <li class="vcard" ${data(v)} data-prev="${A}${p}-prev-v2.mp4" data-rv>
             <button class="vcard__hit" type="button" aria-label="${esc(aria(v))}">
-              <span class="vcard__media"><img src="${A}${p}-poster.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span class="vcard__play" aria-hidden="true"></span></span>
+              <span class="vcard__media"><img src="${A}${p}-poster-v2.webp" alt="" width="640" height="800" loading="lazy" decoding="async"><span class="vcard__play" aria-hidden="true"></span></span>
               <span class="vcard__name"><span>${esc(v.t)}</span><small>${esc(v.a)}</small></span>
               <span class="vcard__sub"><span data-es="${esc(v.kEs)}" data-en="${esc(v.kEn)}">${esc(v.kEs)}</span><span class="vcard__fmt">${esc(fmtLine(v))}</span></span>
             </button>
