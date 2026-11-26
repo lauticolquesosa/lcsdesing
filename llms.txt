@@ -1,8 +1,8 @@
-# LCS — Estudio de Diseño Web y Branding en Salta
+# LCS — Estudio de Diseño Web, Branding, Redes sociales y Edición de video en Salta
 
-> LCS es un estudio de diseño web y branding en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Hace branding y diseño gráfico —logo, identidad visual, manual de marca, packaging, papelería y piezas para redes— y sitios web a medida, con código propio, rápidos y listos para Google. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
+> LCS es un estudio de diseño web y branding en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Hace branding y diseño gráfico —logo, identidad visual, manual de marca, packaging, papelería y piezas para redes— sitios web a medida, con código propio, rápidos y listos para Google, diseño de redes sociales y edición de video. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
 
-El sitio tiene dos caminos que parten de la portada: Branding y Diseño web. Contacto y términos son comunes a los dos.
+El sitio tiene cuatro caminos que parten de la portada: Branding, Diseño web, Redes sociales y Edición de video. Contacto y términos son comunes a todos.
 
 - Ubicación: Salta, Argentina (trabajo 100% remoto)
 - Email: lcsdesignstudio1@gmail.com
@@ -25,6 +25,20 @@ El sitio tiene dos caminos que parten de la portada: Branding y Diseño web. Con
 - [Servicios de diseño web](https://lcsdesignstudio.com.ar/servicios): landings, portfolios y webs institucionales; diseño UX/UI y desarrollo con código propio.
 - [Proyectos web](https://lcsdesignstudio.com.ar/proyectos): 24 casos reales de diseño web y UX/UI en gastronomía, salud, construcción e institucional, en Argentina y Colombia. Entre ellos: Hierronort, La Vaca, Paravicini Arquitectura, PReMeVetNOA, Mundo Verde, Instituto Provincial de Vivienda de Salta (IPV), Daniel Villa Real Estate, JMS Constructora, Nostra Construcción, Odontología Integral Salta, Total Gym Salta, Frigorífico Brunetti, Doña Salta, La Condesa, Piel Canela, Espacio Zur, Jockey Club Salta y Van Strate Cortese.
 - [Inversión en diseño web](https://lcsdesignstudio.com.ar/inversion): tres planes con precio estimado en USD y qué incluye cada uno.
+
+## Redes sociales
+
+- [Diseño de redes sociales](https://lcsdesignstudio.com.ar/redes-sociales): estrategia de contenido, plantillas, posteos, carruseles e historias con la identidad de cada marca.
+- [Servicios de redes sociales](https://lcsdesignstudio.com.ar/redes-sociales/servicios): redes desde cero, renovación de cuentas y contenido mensual.
+- [Proyectos de redes sociales](https://lcsdesignstudio.com.ar/redes-sociales/proyectos): los primeros casos se publican pronto.
+- [Inversión en redes sociales](https://lcsdesignstudio.com.ar/redes-sociales/inversion): tres paquetes (perfil y sistema, contenido mensual, redes + video) con presupuesto cerrado a medida.
+
+## Edición de video
+
+- [Edición de video](https://lcsdesignstudio.com.ar/edicion-de-video): reels, videos para redes y piezas institucionales con ritmo, subtítulos y la identidad de cada marca.
+- [Servicios de edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/servicios): reels y videos cortos, videos institucionales y paquete mensual.
+- [Proyectos de edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/proyectos): los primeros casos se publican pronto.
+- [Inversión en edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/inversion): tres paquetes (video suelto, pack mensual, institucional) con presupuesto cerrado a medida.
 
 ## Estudio
 

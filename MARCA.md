@@ -60,16 +60,17 @@ institucional · clubes · marketing · deporte (proyecto propio, sin cliente).
 
 ---
 
-## 2 · Arquitectura del sitio — dos caminos desde el 2026-10-05
+## 2 · Arquitectura del sitio — cuatro caminos (dos desde el 2026-10-05, cuatro desde el 2026-11-26)
 
 Desde el 5 de octubre de 2026 la portada (`/`) dejó de ser la home de "diseño web" y pasó a
-ser un **portal con dos caminos**: Branding y Diseño web. Cada camino tiene su propia home,
+ser un **portal con dos caminos**: Branding y Diseño web. El 26 de noviembre de 2026 se sumaron
+**Redes sociales** y **Edición de video**, armados igual. Cada camino tiene su propia home,
 sus propios servicios, proyectos e inversión, y comparte el mismo `mono.js`, el mismo pie y
 el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 
 | N.º | Ruta | Qué es |
 |---|---|---|
-| — | `/` | **Portal.** El logo grande con el nombre del estudio, una tira de trabajos que gira sola y las dos cards de camino, Branding y Diseño web. No es la home de ninguno de los dos caminos. |
+| — | `/` | **Portal.** El logo grande con el nombre del estudio, una tira de trabajos que gira sola y las cuatro cards de camino (Branding, Diseño web, Redes sociales y Edición de video), en dos por dos. No es la home de ninguno de los dos caminos. |
 | 01 | `/branding` | Home del camino de branding: hero, tira de los tres casos, beneficios, proceso y preguntas. |
 | 02 | `/branding/servicios` | Formas de arrancar, qué incluye el servicio de identidad visual, proceso y preguntas. |
 | 03 | `/branding/proyectos` | Índice de los tres casos de branding. |
@@ -79,14 +80,22 @@ el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 | 02 | `/servicios` | Qué incluye el servicio de diseño web. |
 | 03 | `/proyectos` | Grilla de los 24 casos de diseño web. |
 | 04 | `/inversion` | Los tres planes de diseño web, con precio. |
-| 05 | `/contacto` | Canales de contacto, común a los dos caminos. |
+| 01 | `/redes-sociales` | Home del camino de redes sociales: hero, beneficios, proceso y preguntas. |
+| 02 | `/redes-sociales/servicios` | Redes desde cero, renovación de redes y contenido mensual; qué incluye, proceso y preguntas. |
+| 03 | `/redes-sociales/proyectos` | Lugares «Próximamente» para los primeros casos (se reemplazan cuando Lautaro pase material) y «En cada caso». |
+| 04 | `/redes-sociales/inversion` | Tres paquetes a medida: Perfil y sistema · Contenido mensual · Redes + video. |
+| 01 | `/edicion-de-video` | Home del camino de edición de video: hero, beneficios, proceso y preguntas. |
+| 02 | `/edicion-de-video/servicios` | Reels y videos cortos, videos institucionales y paquete mensual; qué incluye, proceso y preguntas. |
+| 03 | `/edicion-de-video/proyectos` | Lugares «Próximamente» para los primeros casos y «En cada caso». |
+| 04 | `/edicion-de-video/inversion` | Tres paquetes a medida: Video suelto · Pack mensual · Institucional. |
+| 05 | `/contacto` | Canales de contacto, común a los cuatro caminos. |
 | — | `/terminos` | Términos y condiciones. `noindex`, no está en el sitemap. |
 | — | `/404` | Página propia de «no encontrada». `noindex`. |
 
 **Redirecciones permanentes:** `/proceso` → `/servicios#proceso` · `/sobre` → `/diseno-web#beneficios`
 · cualquier ruta de `lcsdesign.vercel.app` → la misma ruta en `lcsdesignstudio.com.ar`.
 
-**Sitemap:** trece URLs (`sitemap.xml`) con la fecha real del último cambio de cada página:
+**Sitemap:** veintiuna URLs (`sitemap.xml`) con la fecha real del último cambio de cada página:
 prioridad 1.0 para `/`, 0.9 para las dos homes de camino, 0.8 para servicios y proyectos,
 0.7 para inversión y los tres casos de branding, 0.6 para contacto.
 
@@ -99,13 +108,17 @@ prioridad 1.0 para `/`, 0.9 para las dos homes de camino, 0.8 para servicios y p
 La portada no vende un servicio: presenta al estudio y deja elegir. El H1 es el nombre de
 lo que es, **«Estudio de Diseño Web y Branding»**, debajo del logo grande, con un solo
 botón: **«Hablanos por tu proyecto»** (WhatsApp). Después viene una tira de trabajos que
-gira sola, la frase **«Estudio de branding y diseño web en Salta. Hacemos identidades
-visuales completas y sitios a medida: de la marca al sitio en vivo, todo en un mismo
-estudio.»** y las dos cards de camino:
+gira sola, la frase **«Estudio de branding, diseño web, redes sociales y edición de video en
+Salta. Hacemos identidades visuales completas, sitios a medida, contenido para redes y
+videos: de la marca a cada pantalla, todo en un mismo estudio.»** y las cuatro cards de camino:
 
 - **Branding** — «Logo, identidad y manual de marca para que te reconozcan antes de leerte.»
 - **Diseño web** — «Sitios a medida, rápidos y listos para Google, pensados para traer
   consultas.»
+- **Redes sociales** — «Estrategia, plantillas y contenido para que cada publicación se vea
+  como tu marca.»
+- **Edición de video** — «Reels y videos con ritmo, subtítulos y tu identidad, listos para
+  cada red.»
 
 ### El camino de diseño web
 
@@ -324,7 +337,6 @@ custom properties en `:root` de `css/mono.css`.
 ### Reglas de color
 
 - **Sin acento.** El contraste lo da el negro sobre el fondo claro; el énfasis, el tamaño y el peso.
-  Única excepción: el punto violeta `#9333ff` de las etiquetas del hero de Branding.
 - **Invertir en vez de colorear.** Lo destacado (el plan recomendado, el botón principal,
   la barra de trato directo, el hover de las cards de camino) se resuelve pasando a negro
   con texto claro.
@@ -412,7 +424,7 @@ Todo el contenido vive dentro de `.wrap`, que centra a `--max` y aplica el marge
 | **Botón** (`.pill`) | Píldora de 44px, fondo `#ebeae4` con texto negro, mayúsculas de 14px. `.pill--light` es negra con texto claro, de 47px y sin mayúsculas: el CTA principal. |
 | **Enlace con flecha** (`.txtlink.arw`) | Mayúsculas de 14px con una flecha diagonal que se corre 2px al hover. |
 | **Tira** (`.strip`) | Fila horizontal de imágenes de borde a borde con flechas circulares. En la portada y en las homes de camino avanza sola, de a una tarjeta, en un ciclo que no termina nunca. |
-| **Card de camino** (`.path`) | Las dos cards de la portada (Branding / Diseño web): borde fino y número en Manrope; al hover un relleno negro sube desde abajo y la flecha gira 45°. |
+| **Card de camino** (`.path`) | Las cuatro cards de la portada, en dos por dos: borde fino y número en Manrope; al hover un relleno negro sube desde abajo y la flecha gira 45°. |
 | **Card de proyecto** (`.card`) | Captura del sitio real a 1200×825 con nombre y rubro debajo; la imagen escala 1.03 al hover. En `/proyectos` abre el caso completo en un modal. |
 | **Plan** (`.plan`) | Tres cards de precio. La recomendada va invertida (blanca). Tienen cuerpo en 3D: se inclinan hacia el cursor y, en celular, según su lugar en la pantalla. |
 | **Lista numerada** (`.duo`, `.benefits__list`) | Filetes entre filas y numeración en gris. |
@@ -432,20 +444,16 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
   no están en pantalla o la pestaña está oculta.
 - **Cards de precio en 3D**, descriptas arriba.
 - **Heros con partículas** (`js/hero-fx.js`, un solo motor) en la portada y en las homes,
-  servicios, proyectos e inversión de los dos caminos, y en contacto. En las páginas internas la pieza es la
-  palabra (Branding, Diseño web, Servicios, Proyectos, Inversión) arriba a la izquierda, con
-  tres etiquetas propias de cada página; en la portada es el logo, que no se toca: las
-  partículas salen de su silueta y aparecen recién al separarse, sin erosión; un polvo cubre
-  todo el hero y se ralea lejos del logo; la esfera va a la izquierda de la L, hay solo dos
-  etiquetas (Branding y Diseño web) y el efecto arranca después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra oscura y la g
-  cruzada como una ø; la palabra es una pieza gráfica: no se selecciona y el cursor queda
-  normal (el `<h1>` conserva la frase para buscadores). Se lee la forma real de las letras y
-  de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante oscuro y motas
-  del color del fondo que erosionan las letras. La esfera de manchas tipo luna oscura, debajo de la a, tiene
-  luz, brillo y un anillo en órbita: con el mouse encima crece, gira más rápido, se inclina
-  hacia el cursor y suelta partículas. Las etiquetas son chapas en 3D con canto y un punto violeta: se
-  inclinan hacia el puntero, un destello diagonal las cruza y se pueden arrastrar; al
-  soltarlas vuelven con un rebote. El motor arranca cuando la página terminó de cargar.
+  servicios, proyectos e inversión de los dos caminos, y en contacto. En las páginas internas
+  la pieza es la palabra (Branding, Diseño web, Servicios, Proyectos, Inversión) arriba a la
+  izquierda, sin etiquetas ni esfera; en la portada es el logo, que no se toca: las partículas
+  salen de su silueta y un polvo ralo cubre el hero, y el efecto arranca después de la intro.
+  Son **pocas partículas negras** (unas 140 que se desprenden y un polvo de 60 a 110 puntos),
+  con alguna esquirla, que se apartan al paso del cursor. Detalle del de Branding: «Branding»
+  en serif con textura de piedra oscura y la g cruzada como una ø; la palabra es una pieza
+  gráfica: no se selecciona y el cursor queda normal (el `<h1>` conserva la frase para
+  buscadores), y unas motas del color del fondo gastan un poco las letras. El motor arranca
+  cuando la página terminó de cargar.
 
 **Reglas de movimiento:**
 
@@ -731,9 +739,9 @@ La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de b
 
 ### Decisiones que definen el sitio
 
-- **Portal + dos caminos, un solo motor.** `mono.js` arma el encabezado, el menú y el pie
+- **Portal + cuatro caminos, un solo motor.** `mono.js` arma el encabezado, el menú y el pie
   de **todas** las páginas según el camino (`<body data-section>`): `portal`, `branding`,
-  `web` o `shared`. Las compartidas (contacto, términos, 404) heredan el último camino
+  `web`, `redes`, `video` o `shared`. El orden de los caminos vive en `PATHS`. Las compartidas (contacto, términos, 404) heredan el último camino
   recorrido en la visita.
 - **Solo en español.** Los textos conservan sus atributos `data-es` / `data-en` y el
   modal de proyectos su versión en inglés, pero el selector de idioma está apagado y el
@@ -755,7 +763,7 @@ La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de b
   y una `CollectionPage` con los 24 proyectos web), canónicas, Open Graph y Twitter Card,
   sitemap de trece URLs con fecha real de cambio, `llms.txt` para asistentes de IA, clave
   de IndexNow y geolocalización declarada (`AR-A`, Salta).
-- **404 propia** (`404.html`), con el mismo encabezado y pie y salida a los dos caminos.
+- **404 propia** (`404.html`), con el mismo encabezado y pie y salida a los caminos.
 - **Redirección de dominio.** Todo lo que llega a `lcsdesign.vercel.app` redirige 301 a la
   misma ruta en `lcsdesignstudio.com.ar`.
 
@@ -767,7 +775,7 @@ La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de b
    trabajos.
 2. **Ningún texto por debajo de 4.5:1 de contraste**: el gris mínimo es `#767676`.
 3. **Un solo email del estudio:** `lcsdesignstudio1@gmail.com`.
-4. **Nada de plantillas**: es el argumento de venta y la práctica real, en los dos caminos.
+4. **Nada de plantillas**: es el argumento de venta y la práctica real, en todos los caminos.
 5. **`<em>` nunca es itálica.**
 6. **Titulares en mayúsculas; el resto en caja baja.**
 7. **Toda la animación usa `--ease`** y se apaga con `prefers-reduced-motion`.

@@ -25,7 +25,8 @@ const { header, footer, whatsapp } = createRequire(import.meta.url)('./js/mono.j
 
 const files = [
   ...readdirSync('.').filter(f => f.endsWith('.html')),
-  ...readdirSync('branding').filter(f => f.endsWith('.html')).map(f => 'branding/' + f),
+  // las subpáginas de cada camino viven en su carpeta
+  ...['branding', 'redes-sociales', 'edicion-de-video'].flatMap(d => readdirSync(d).filter(f => f.endsWith('.html')).map(f => d + '/' + f)),
 ].sort();
 
 const check = process.argv.includes('--check');

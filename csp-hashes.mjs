@@ -18,10 +18,10 @@ const INLINE = /<script(?![^>]*\ssrc=)[^>]*>([\s\S]*?)<\/script>/g;
 const CONFIG = 'vercel.json';
 
 const hashes = new Set();
-// Las páginas viven en la raíz y en branding/ (el segundo camino del sitio).
+// Las páginas viven en la raíz y en la carpeta de cada camino.
 const files = [
   ...readdirSync('.').filter(f => f.endsWith('.html')),
-  ...readdirSync('branding').filter(f => f.endsWith('.html')).map(f => 'branding/' + f),
+  ...['branding', 'redes-sociales', 'edicion-de-video'].flatMap(d => readdirSync(d).filter(f => f.endsWith('.html')).map(f => d + '/' + f)),
 ].sort();
 for (const file of files) {
   const html = readFileSync(file, 'utf8');

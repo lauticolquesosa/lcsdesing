@@ -19,8 +19,10 @@ const LCS_CHROME = (function () {
 
   const NAVS = {
     portal: [
-      { key: 'branding',  href: '/branding',   es: 'Branding',   en: 'Branding' },
-      { key: 'web',       href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
+      { key: 'branding',  href: '/branding',         es: 'Branding',         en: 'Branding' },
+      { key: 'web',       href: '/diseno-web',       es: 'Diseño web',       en: 'Web design' },
+      { key: 'redes',     href: '/redes-sociales',   es: 'Redes sociales',   en: 'Social media' },
+      { key: 'video',     href: '/edicion-de-video', es: 'Edición de video', en: 'Video editing' },
     ],
     branding: [
       { key: 'servicios', href: '/branding/servicios', es: 'Servicios', en: 'Services' },
@@ -32,12 +34,28 @@ const LCS_CHROME = (function () {
       { key: 'proyectos', href: '/proyectos', es: 'Proyectos', en: 'Work' },
       { key: 'inversion', href: '/inversion', es: 'Inversión', en: 'Investment' },
     ],
+    redes: [
+      { key: 'servicios', href: '/redes-sociales/servicios', es: 'Servicios', en: 'Services' },
+      { key: 'proyectos', href: '/redes-sociales/proyectos', es: 'Proyectos', en: 'Work' },
+      { key: 'inversion', href: '/redes-sociales/inversion', es: 'Inversión', en: 'Investment' },
+    ],
+    video: [
+      { key: 'servicios', href: '/edicion-de-video/servicios', es: 'Servicios', en: 'Services' },
+      { key: 'proyectos', href: '/edicion-de-video/proyectos', es: 'Proyectos', en: 'Work' },
+      { key: 'inversion', href: '/edicion-de-video/inversion', es: 'Inversión', en: 'Investment' },
+    ],
   };
+  // los cuatro caminos, en el orden en que aparecen en la portada, el selector y el pie
+  const PATHS = ['branding', 'web', 'redes', 'video'];
   const HOMES = {
     portal:   { href: '/',           es: 'Inicio',     en: 'Home' },
     branding: { href: '/branding',   es: 'Branding',   en: 'Branding' },
     web:      { href: '/diseno-web', es: 'Diseño web', en: 'Web design' },
+    redes:    { href: '/redes-sociales', es: 'Redes sociales', en: 'Social media' },
+    video:    { href: '/edicion-de-video', es: 'Edición de video', en: 'Video editing' },
   };
+  // nombre corto de cada camino en el selector
+  const SHORT = { branding: ['Branding', 'Branding'], web: ['Web', 'Web'], redes: ['Redes', 'Social'], video: ['Video', 'Video'] };
   const WA = 'https://wa.me/543874834041';
   const IG = 'https://instagram.com/lcswebstudio';
   const MAIL = 'lcsdesignstudio1@gmail.com';
@@ -54,8 +72,7 @@ const LCS_CHROME = (function () {
     const links = [...home, ...NAV].map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
     // selector para pasar al otro camino sin volver a la portada
     const sw = section === 'portal' ? '' : `<nav class="pswitch" aria-label="Área del estudio">${
-      [['branding', '/branding', 'Branding', 'Branding'], ['web', '/diseno-web', 'Web', 'Web']].map(([k, h, es, en]) =>
-        `<a href="${h}"${k === section ? ' aria-current="true"' : ''} ${t(es, en)}>${es}</a>`).join('')}</nav>`;
+      PATHS.map(k => `<a href="${HOMES[k].href}"${k === section ? ' aria-current="true"' : ''} ${t(SHORT[k][0], SHORT[k][1])}>${SHORT[k][0]}</a>`).join('')}</nav>`;
     const menuLinks = [...home, ...NAV, CONTACT]
       .map(n => `<li><a href="${n.href}"${cur(n.key)} ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
 
@@ -89,12 +106,10 @@ const LCS_CHROME = (function () {
   }
 
   function footer(section) {
+    // cada camino con su home; el camino actual suma también sus páginas
     const nav = [
       HOMES.portal,
-      HOMES.branding,
-      ...(section === 'branding' ? NAVS.branding : []),
-      HOMES.web,
-      ...(section === 'web' ? NAVS.web : []),
+      ...PATHS.flatMap(k => [HOMES[k], ...(section === k ? NAVS[k] : [])]),
       CONTACT,
     ].map(n => `<li><a href="${n.href}" ${t(n.es, n.en)}>${n.es}</a></li>`).join('');
 
@@ -154,9 +169,9 @@ if (typeof module === 'object' && module.exports) module.exports = LCS_CHROME;
 
   const PAGE = document.body.dataset.page || '';
 
-  /* ---------- Los dos caminos ----------
+  /* ---------- Los cuatro caminos ----------
      Cada página declara el suyo en <body data-section>: portal (la
-     portada), branding o web. Las compartidas (contacto, términos)
+     portada), branding, web, redes o video. Las compartidas (contacto, términos)
      heredan el último camino recorrido en la visita, para que el menú
      no cambie de golpe al entrar a Contacto. */
   const PATH_KEY = 'lcs-path';
@@ -164,7 +179,7 @@ if (typeof module === 'object' && module.exports) module.exports = LCS_CHROME;
   if (SECTION === 'shared') {
     let last = null;
     try { last = sessionStorage.getItem(PATH_KEY); } catch (e) {}
-    SECTION = last === 'branding' || last === 'web' ? last : 'portal';
+    SECTION = ['branding', 'web', 'redes', 'video'].includes(last) ? last : 'portal';
   } else if (SECTION !== 'portal') {
     try { sessionStorage.setItem(PATH_KEY, SECTION); } catch (e) {}
   }

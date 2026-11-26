@@ -80,10 +80,10 @@ main { padding-top: var(--head-h); }
 .hd__logo { display: block; line-height: 0; transition: opacity .25s var(--ease); }
 .hd__logo:hover { opacity: .75; }
 .hd__logo img { height: 24px; width: auto; }
-.hd__links { display: flex; align-items: center; gap: clamp(24px, 2.6vw, 40px); }
+.hd__links { display: flex; align-items: center; gap: clamp(18px, 2vw, 32px); }
 .hd__links a {
   position: relative; display: block; padding: 8px 0;
-  font-size: 17px; font-weight: 500; text-transform: uppercase; letter-spacing: -.01em; line-height: 1;
+  font-size: 15px; font-weight: 500; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; white-space: nowrap;
   color: var(--fg); transition: opacity .25s var(--ease);
 }
 /* línea fina que crece desde el centro */
@@ -393,7 +393,7 @@ a.card:hover .card__img img { transform: scale(1.03); }
   }
   html.js .plans > .plan[data-rv]:not(.in) { transform: translateY(24px); transition: opacity 1s var(--ease), transform 1.1s var(--ease); }
   /* las capas de espesor no heredan la transparencia de la card en 3D: aparecen cuando la card ya entró */
-  .plan__slab { transition: opacity .5s var(--ease) .6s; }
+  .plan__slab { transition: opacity .4s var(--ease) 1s; }
   html.js .plans > .plan[data-rv]:not(.in) .plan__slab { opacity: 0; transition: none; }
   .plans > .plan.is-tilt { --lift: -24px; --sc: 1.035; z-index: 2; border-color: rgba(10,10,10,.4); box-shadow: 0 50px 100px -30px rgba(10,10,10,.22), 0 0 0 1px rgba(10,10,10,.06); }
   .plans > .plan--main.is-tilt { border-color: var(--fg); box-shadow: 0 50px 110px -30px rgba(10,10,10,.45); }
@@ -540,7 +540,7 @@ html.intro-on .hero { animation: hero-in 1s var(--ease) 2.25s both; }
 .path:hover .path__go, .path:focus-visible .path__go { transform: rotate(45deg); }
 .path__name {
   margin-top: auto; padding: 40px 0 20px; border-bottom: 1px solid var(--line-strong);
-  font-size: clamp(52px, 7.6vw, 120px); font-weight: 500; line-height: .8; text-transform: uppercase; letter-spacing: -.075em;
+  font-size: clamp(48px, 6.4vw, 104px); font-weight: 500; line-height: .8; text-transform: uppercase; letter-spacing: -.075em;
   transition: border-color .5s var(--ease), transform .6s var(--ease);
 }
 .path:hover .path__name, .path:focus-visible .path__name { border-color: rgba(250,249,245,.25); }
@@ -575,6 +575,10 @@ html.intro-on .strip--bleed { animation: hero-in 1s var(--ease) 2.4s both; }
    ============================================================ */
 /* Tarjeta de proyecto con rubro debajo del nombre */
 .card__sub { padding-top: 10px; font-size: 15px; color: var(--muted); letter-spacing: -.02em; }
+/* lugar para un caso que todavía no se publicó (Redes sociales y Edición de video) */
+.card--soon .card__img { display: grid; place-items: center; background: transparent; border: 1px dashed var(--line-strong); }
+.card--soon .card__img span { font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; color: var(--dim); }
+.card--soon .card__name { color: var(--muted); }
 .work--all { gap: clamp(48px, 5vw, 72px) 8px; }
 .work--all .card { cursor: pointer; }
 .work .work__card--more { display: none; }
@@ -762,7 +766,6 @@ html.intro-on .intro__logo { width: min(520px, 76vw); clip-path: inset(0 100% 0 
 body[data-page="portal"] .hero__logo { width: min(400px, 66vw); }
 body[data-page="portal"] .hero h1 { font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -.03em; text-wrap: balance; }
 
-
 /* Tira horizontal de sitios (/diseno-web): proporción de las capturas
    (1200×825) para que el hero de cada sitio entre completo; unas cuatro
    tarjetas en pantalla y el nombre debajo. */
@@ -845,18 +848,19 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 /* Selector de camino (Branding / Web), al lado de Contacto */
 .pswitch { display: inline-flex; padding: 3px; border: 1px solid var(--line-strong); border-radius: 100px; }
 .pswitch a {
-  padding: 8px 14px; border-radius: 100px; line-height: 1;
+  padding: 8px 12px; border-radius: 100px; line-height: 1;
   font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; color: var(--muted);
   transition: color .25s var(--ease), background .25s var(--ease);
 }
 .pswitch a:hover { color: var(--fg); }
 .pswitch a[aria-current] { background: var(--fg); color: var(--bg); }
 /* en el menú móvil va arriba de los links */
-.mm .pswitch { align-self: flex-start; margin-bottom: 24px; }
-.mm .pswitch a { font-size: 14px; padding: 10px 18px; }
+.mm .pswitch { align-self: stretch; margin-bottom: 24px; }
+.mm .pswitch a { flex: 1; text-align: center; font-size: clamp(11px, 3.4vw, 14px); padding: 10px 4px; }
 .mm { justify-content: flex-start; }
 .mm__foot { margin-top: auto; }
-@media (max-width: 900px) { .hd__end .pswitch { display: none; } }
+/* con cuatro caminos el selector no entra al lado de los links en pantallas medianas: queda en el menú */
+@media (max-width: 1180px) { .hd__end .pswitch { display: none; } }
 
 /* Título grande del hero de cada página, un poco más chico */
 .phero .display--xl { font-size: clamp(56px, 11vw, 168px); }
@@ -900,11 +904,9 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 
 /* ============================================================
    HERO DE BRANDING — la palabra como pieza
-   «Branding» en serif de alto contraste con textura de piedra, la g
-   cruzada, una esfera de partículas apoyada debajo de la a y una
-   nube que desarma «and». Las partículas viven en dos canvas (uno
-   detrás y otro delante de las letras) que dibuja js/hero-fx.js;
-   las etiquetas flotan y siguen al puntero con la misma profundidad.
+   «Branding» en serif de alto contraste con textura de piedra y la g
+   cruzada. Unas pocas partículas viven en dos canvas (uno detrás y
+   otro delante de las letras) que dibuja js/hero-fx.js.
    ============================================================ */
 @font-face { font-family: 'DM Serif Display'; font-style: normal; font-weight: 400; font-display: swap;
   src: url('/assets/fonts/dmserifdisplay-latin.woff2') format('woff2');
@@ -912,9 +914,8 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
 
 .bhero { padding: clamp(8px, 1.5vw, 24px) 0 clamp(48px, 5vw, 72px); overflow: hidden; }
 .bhero__stage {
-  --px: 0; --py: 0;
   position: relative; display: flex; justify-content: flex-start;
-  padding: clamp(72px, 7vw, 116px) 0 clamp(64px, 6.5vw, 104px);
+  padding: clamp(48px, 5vw, 88px) 0 clamp(40px, 4.5vw, 72px);
 }
 /* los lienzos llegan hasta el borde de la pantalla: las partículas no se cortan en el margen */
 .bhero__fx { position: absolute; top: 0; left: calc(var(--gut) * -1); width: calc(100% + var(--gut) * 2); height: 100%; pointer-events: none; }
@@ -939,7 +940,7 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 .02em .05em rgba(10,10,10,.22));
 }
-/* referencia invisible de la línea base: el JS la mide para apoyar la esfera */
+/* referencia invisible de la línea base: el JS la mide para ubicar las partículas */
 .bhero__base { display: inline-block; width: 0; height: 0; vertical-align: baseline; }
 /* la g cruzada: un trazo fino en diagonal, como una ø */
 .bhero__g { position: relative; }
@@ -955,88 +956,22 @@ body[data-page="home"] .sh .display { font-size: clamp(38px, 4.4vw, 62px); }
    (el <h1> conserva la frase completa para buscadores y lectores de pantalla) */
 .bhero__stage { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; cursor: default; }
 
-/* etiquetas: chapas en 3D con canto y punto violeta. Se inclinan
-   hacia el puntero, un destello diagonal las cruza y se pueden arrastrar:
-   al soltarlas vuelven a su lugar con un rebote (js/hero-fx.js). */
-.bhero__tag {
-  position: absolute; z-index: 4; font-size: 1rem; perspective: 700px;
-  translate: calc(var(--px) * var(--depth, 10) * 1px) calc(var(--py) * var(--depth, 10) * .7px);
-  transition: translate .9s var(--ease);
-  cursor: grab; touch-action: none;
-}
-.bhero__tag.is-drag { cursor: grabbing; z-index: 6; }
-.bhero__card {
-  position: relative; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
-  padding: 9px 16px; border-radius: 6px;
-  background: linear-gradient(180deg, #dcdcda 0%, #bcbcb9 100%);
-  color: #121212; font-size: clamp(11px, .95vw, 14px); font-weight: 500; letter-spacing: -.01em; line-height: 1;
-  transform-style: preserve-3d;
-  transform: rotateZ(var(--rot, -3deg)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--lift, 0px));
-  /* canto: cinco capas de 1px que oscurecen hacia abajo + la sombra que proyecta */
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.75),
-    0 1px 0 #a3a3a0, 0 2px 0 #959592, 0 3px 0 #878784, 0 4px 0 #777774, 0 5px 0 #5e5e5b,
-    0 calc(16px + var(--lift, 0px) * .6) 30px -8px rgba(10,10,10,.35);
-  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
-  animation: bh-float var(--dur, 6s) ease-in-out var(--delay, 0s) infinite alternate;
-}
-.bhero__tag:hover .bhero__card { --lift: 22px; }
-.bhero__tag.is-tilt .bhero__card { transition: transform .15s linear, box-shadow .6s var(--ease); }
-.bhero__tag.is-drag .bhero__card { --lift: 34px; transition: transform .08s linear, box-shadow .3s var(--ease); }
-.bhero__card::after {
-  content: ""; position: absolute; top: -4px; right: -4px; width: 9px; height: 9px; border-radius: 50%;
-  background: #9333ff; box-shadow: 0 0 0 2px rgba(147,51,255,.18), 0 0 10px rgba(147,51,255,.7);
-  transform: translateZ(14px);
-}
-/* destello: un corte de luz en diagonal que cruza la chapa cada tanto y al pasar el mouse */
-.bhero__shine { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; }
-.bhero__shine::before {
-  content: ""; position: absolute; top: -60%; bottom: -60%; left: -70%; width: 42%;
-  background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.95) 50%, rgba(255,255,255,0) 100%);
-  transform: skewX(-24deg);
-  animation: bh-slash 6s var(--ease) var(--sdelay, 2.4s) infinite;
-}
-.bhero__tag:hover .bhero__shine::before { animation: bh-slash-now .75s var(--ease) both; }
-@keyframes bh-slash { 0% { left: -70%; } 18%, 100% { left: 140%; } }
-@keyframes bh-slash-now { from { left: -70%; } to { left: 140%; } }
-.bhero__tag--1 { left: 1%; top: -36%; --rot: -4deg; --depth: 18; --dur: 6.5s; --sdelay: 2.4s; }
-.bhero__tag--2 { left: 60%; top: -42%; --rot: 3deg; --depth: 12; --dur: 7.5s; --delay: -2s; --sdelay: 4.4s; }
-.bhero__tag--3 { left: 75%; top: 98%; --rot: 3.5deg; --depth: 22; --dur: 5.8s; --delay: -4s; --sdelay: 6.4s; }
-@keyframes bh-float { from { translate: 0 -5px; } to { translate: 0 6px; } }
-
 /* texto y botones debajo, alineados a la izquierda como el resto de las páginas */
 .bhero__copy { position: relative; z-index: 5; max-width: 720px; }
 .bhero__copy .btns { margin-top: 36px; }
 
-/* entrada: la palabra aparece desde el desenfoque, las etiquetas caen en su lugar */
+/* entrada: la palabra aparece desde el desenfoque y después el texto */
 html.js .bhero__word { animation: bh-word 1.6s var(--ease) .15s both; }
-html.js .bhero__card { animation: bh-tag .9s var(--ease) both, bh-float var(--dur, 6s) ease-in-out calc(var(--delay, 0s) + 2s) infinite alternate; }
-html.js .bhero__tag--1 .bhero__card { animation-delay: 1s, calc(var(--delay, 0s) + 1.9s); }
-html.js .bhero__tag--2 .bhero__card { animation-delay: 1.15s, calc(var(--delay, 0s) + 2.05s); }
-html.js .bhero__tag--3 .bhero__card { animation-delay: 1.3s, calc(var(--delay, 0s) + 2.2s); }
 html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 @keyframes bh-word { from { filter: blur(18px) opacity(.2) drop-shadow(0 .02em .05em rgba(10,10,10,.22)); transform: scale(1.04); } to { filter: blur(0) opacity(1) drop-shadow(0 .02em .05em rgba(10,10,10,.22)); transform: none; } }
-@keyframes bh-tag { from { opacity: 0; scale: .8; } to { opacity: 1; scale: 1; } }
 @keyframes bh-copy { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-@media (max-width: 900px) {
-  .bhero__tag--1 { left: 0; top: -44%; }
-  .bhero__tag--2 { left: 54%; top: -56%; }
-  .bhero__tag--3 { left: 62%; top: 104%; }
-}
 @media (max-width: 560px) {
-  .bhero__stage { padding: 92px 0 100px; }
+  .bhero__stage { padding: 56px 0 48px; }
   .bhero__lockup { font-size: 22.6vw; }
-  .bhero__card { padding: 7px 12px; }
-  .bhero__tag--1 { left: 0; top: -58%; }
-  .bhero__tag--2 { left: 48%; top: -78%; }
-  .bhero__tag--3 { left: 54%; top: 116%; }
 }
 /* Palabras largas (Diseño web, Servicios, Proyectos, Inversión): un poco más chicas */
 .bhero--long .bhero__lockup { font-size: clamp(56px, 10.4vw, 164px); }
-.bhero--long .bhero__tag--1 { left: 1%; top: -36%; }
-.bhero--long .bhero__tag--2 { left: 56%; top: -42%; }
-.bhero--long .bhero__tag--3 { left: 76%; top: 98%; }
 
 /* Portada: el escenario rodea al logo, que queda intacto y centrado; los
    lienzos cubren todo el hero, y las partículas se ralean lejos del logo */
@@ -1049,21 +984,12 @@ html.js .bhero__copy { animation: bh-copy 1s var(--ease) .9s both; }
 .bhero--home h1 { position: relative; z-index: 5; }
 .bhero--home .pill { position: relative; z-index: 5; }
 
-@media (max-width: 900px) {
-  .bhero--long .bhero__tag--1 { left: 0; top: -44%; }
-  .bhero--long .bhero__tag--2 { left: 50%; top: -56%; }
-  .bhero--long .bhero__tag--3 { left: 60%; top: 104%; }
-}
 @media (max-width: 560px) {
   .bhero--long .bhero__lockup { font-size: 18.4vw; }
-  .bhero--long .bhero__tag--1 { left: 0; top: -66%; }
-  .bhero--long .bhero__tag--2 { left: 46%; top: -86%; }
-  .bhero--long .bhero__tag--3 { left: 60%; top: 114%; }
   .bhero__stage--home { padding: 84px 0 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  html.js .bhero__word, html.js .bhero__copy, html.js .bhero__card, .bhero__card, .bhero__shine::before { animation: none; }
-  .bhero__tag { transition: none; }
+  html.js .bhero__word, html.js .bhero__copy { animation: none; }
 }
 
 /* ============================================================
