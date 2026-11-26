@@ -6,7 +6,7 @@
    · Partículas en toda la palabra. Se lee la forma real de las letras
      (la palabra se dibuja en un canvas oculto con la misma fuente) y de
      ahí se desprenden partículas y esquirlas en 3D, de la B a la g; un
-     polvo flotante acompaña de punta a punta y motas negras erosionan
+     polvo flotante acompaña de punta a punta y motas del color del fondo erosionan
      las letras.
    · La esfera debajo de la «a»: una luna de manchas pintada píxel por
      píxel, con luz, brillo especular y un anillo de partículas en
@@ -52,12 +52,16 @@
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const smooth = (a, b, v) => { const t = clamp((v - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
   const easeOut = t => 1 - Math.pow(1 - t, 3);
+  // El sitio es claro: las partículas son oscuras, las que quedan atrás (Z > 0)
+  // se aclaran hacia el papel y la erosión pinta con el color del fondo.
+  const PAPER = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#faf9f5';
+  const depthTone = (tone, Z) => Math.round(tone + (236 - tone) * clamp(Z * .3, 0, .6));
 
   const small = innerWidth < 700;
   const N_DUST = small ? 520 : 1100;     // se desprenden de las letras
   const N_FLOAT = small ? 220 : 420;     // polvo flotante a lo largo de la palabra
   const N_FIELD = small ? 360 : 900;     // portada: polvo en todo el hero, más ralo lejos del logo
-  const N_ERODE = small ? 520 : 1100;    // motas negras sobre las letras
+  const N_ERODE = small ? 520 : 1100;    // motas del color del fondo sobre las letras
   const N_RING = 150;                    // anillo alrededor de la esfera
 
   /* ---------- Medidas y forma de las letras ---------- */
@@ -171,7 +175,7 @@
       ax: 0, ay: 0, az: 0, dx: 0, dy: 0, dz: 0, dist: 0,
       t0: -rnd() * 7, dur: 3.5 + rnd() * 4.5,
       size: k < .16 ? 2.4 + rnd() * 4.4 : .8 + rnd() * 1.8, shard: k < .16,
-      tone: 170 + ((rnd() * 85) | 0), alpha: .5 + rnd() * .5,
+      tone: 18 + ((rnd() * 85) | 0), alpha: .5 + rnd() * .5,
       ph: rnd() * 6.283, sp: .3 + rnd() * .7, rot: rnd() * 6.283, vr: (rnd() - .5) * 2,
       ox: 0, oy: 0, born: false,
     });
@@ -196,13 +200,13 @@
     float.push({
       u, v,
       x: gauss() * .78, y: gauss() * .55 - .05, z: gauss() * .6, // x en mitades del ancho de la forma
-      size: .7 + rnd() * 1.6, tone: 140 + ((rnd() * 115) | 0), alpha: .25 + rnd() * .55,
+      size: .7 + rnd() * 1.6, tone: 14 + ((rnd() * 115) | 0), alpha: .25 + rnd() * .55,
       ph: rnd() * 6.283, sp: .15 + rnd() * .35, amp: .02 + rnd() * .05,
       sx: (rnd() - .5) * 5, sy: (rnd() - .5) * 3, ox: 0, oy: 0,
     });
   }
 
-  // Erosión: motas negras sobre puntos de las letras, repartidas en toda la palabra.
+  // Erosión: motas del color del fondo sobre puntos de las letras, repartidas en toda la palabra.
   const erode = [];
   for (let i = 0; i < N_ERODE; i++) {
     erode.push({ x: 0, y: 0, size: .8 + rnd() * 2.8, alpha: .5 + rnd() * .5, gray: rnd() < .3,
@@ -270,7 +274,7 @@
         const spec = Math.pow(clamp(u * HV[0] + v * HV[1] + w * HV[2], 0, 1), 28) * (.25 + blot * .55);
         let val = (.08 + blot * .9) * (lam * .6 + .42) + spec + grain * .08;
         val += Math.pow(1 - Math.sqrt(1 - d2), 4) * (.08 + glow * .35); // borde encendido
-        const g = clamp(val, 0, 1) * 250 | 0;
+        const g = 18 + clamp(val, 0, 1) * 130 | 0;
         const o = (j * size + i) * 4;
         d[o] = d[o + 1] = d[o + 2] = g;
         d[o + 3] = clamp((1 - Math.sqrt(d2)) * Rp * 1.5, 0, 1) * 255 * k | 0;
@@ -408,8 +412,8 @@
     bx.save();
     bx.translate(G.cx, G.cy); bx.scale(G.half * 1.15, .62);
     const haze = bx.createRadialGradient(0, 0, 0, 0, 0, fs);
-    haze.addColorStop(0, `rgba(255,255,255,${.08 * k})`);
-    haze.addColorStop(1, 'rgba(255,255,255,0)');
+    haze.addColorStop(0, `rgba(10,10,10,${.04 * k})`);
+    haze.addColorStop(1, 'rgba(10,10,10,0)');
     bx.fillStyle = haze; bx.fillRect(-fs, -fs, fs * 2, fs * 2);
     bx.restore();
 
@@ -434,7 +438,7 @@
       repel(p, sx, sy, R2, F0);
       const ctx = Z > 0 ? bx : fx;
       ctx.globalAlpha = clamp(p.alpha * k * (1.1 - Z * .4), 0, 1);
-      const v = Math.round(p.tone * clamp(1.05 - Z * .25, .5, 1.1));
+      const v = depthTone(p.tone, Z);
       ctx.fillStyle = `rgb(${v},${v},${v})`;
       dot(ctx, sx + p.ox, sy + p.oy, p.size * sc * sizeK);
     }
@@ -456,14 +460,14 @@
       if (a < .02) continue;
       const ctx = Z > 0 ? bx : fx;
       ctx.globalAlpha = clamp(a, 0, 1);
-      const v = Math.round(p.tone * clamp(1.05 - Z * .25, .5, 1.1));
+      const v = depthTone(p.tone, Z);
       ctx.fillStyle = `rgb(${v},${v},${v})`;
       const s = p.size * sc * sizeK;
       if (p.shard) shard(ctx, sx + p.ox, sy + p.oy, s, p.rot + (reduced ? 0 : t * p.vr));
       else dot(ctx, sx + p.ox, sy + p.oy, s);
     }
 
-    // ---- erosión negra en toda la palabra
+    // ---- erosión en toda la palabra
     const wd = G.word, keep = .35 + scale * .65;
     if (!isImg) for (const p of erode) {
       if (p.keep > keep) continue;
@@ -473,7 +477,7 @@
       sx += p.ox; sy += p.oy;
       if (sx < wd.l || sx > wd.r || sy < wd.t || sy > wd.b) continue;
       fx.globalAlpha = p.alpha * k;
-      fx.fillStyle = p.gray ? '#5a5a58' : '#000';
+      fx.fillStyle = p.gray ? '#b4b2ac' : PAPER;
       const s = p.size * sizeK;
       fx.fillRect(sx - s / 2, sy - s / 2, s, s);
     }
@@ -495,7 +499,7 @@
       const ringA = ((scale > .6 ? .12 : 0) + hov * .7) * k; // con letra chica, solo al tocarla
       const ring = [];
       for (let i = 0; i < N_RING; i++) ring.push(ringPoint(i, reduced ? 0 : t, R, hov, yaw));
-      fx.fillStyle = '#e8e7e3';
+      fx.fillStyle = '#3a3936';
       for (const [x, y, z] of ring) if (z > 0) { fx.globalAlpha = ringA * .55; fx.fillRect(ox + x - .7, oy + y - .7, 1.4, 1.4); }
 
       // sombra de contacto, detrás de las letras para no ensuciarlas
@@ -507,7 +511,7 @@
       if (hov > .02) {
         fx.globalAlpha = hov * .5 * k;
         const gl = fx.createRadialGradient(ox, oy, R * .8, ox, oy, R * 1.6);
-        gl.addColorStop(0, 'rgba(255,255,255,.35)'); gl.addColorStop(1, 'rgba(255,255,255,0)');
+        gl.addColorStop(0, 'rgba(10,10,10,.16)'); gl.addColorStop(1, 'rgba(10,10,10,0)');
         fx.fillStyle = gl; fx.fillRect(ox - R * 1.7, oy - R * 1.7, R * 3.4, R * 3.4);
       }
       fx.globalAlpha = 1;
@@ -516,7 +520,7 @@
       fx.drawImage(sphereCanvas, ox - c, oy - c, c * 2, c * 2);
 
       // anillo de adelante
-      fx.fillStyle = '#f4f3ef';
+      fx.fillStyle = '#1d1c1a';
       for (const [x, y, z] of ring) if (z <= 0) { fx.globalAlpha = ringA; const s = 1.2 + hov * .8; fx.fillRect(ox + x - s / 2, oy + y - s / 2, s, s); }
 
       // partículas que suelta la esfera
@@ -529,7 +533,7 @@
           burst.push({ x: nx, y: ny, vx: nx * sp, vy: ny * sp - .3, life: 0, dur: .9 + rnd() * .9, s: .8 + rnd() * 2 });
         }
       }
-      fx.fillStyle = '#f2f1ed';
+      fx.fillStyle = '#2a2927';
       for (let i = burst.length - 1; i >= 0; i--) {
         const b = burst[i];
         b.life += dt; if (b.life > b.dur) { burst.splice(i, 1); continue; }

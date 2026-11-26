@@ -65,7 +65,7 @@ const LCS_CHROME = (function () {
         <div class="wrap hd__in">
           <div class="hd__start">
             ${page === 'portal' ? '' : `<a class="hd__logo" href="/" aria-label="LCS — Inicio">
-              <img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372">
+              <img src="/assets/logo-lcs-pantera-negro.webp" alt="LCS" width="1200" height="372">
             </a>`}
           </div>
           <nav class="hd__nav" aria-label="Principal">
@@ -121,7 +121,7 @@ const LCS_CHROME = (function () {
             </div>
           </div>
           <div class="ft__bottom">
-            <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-lcs-pantera.webp" alt="LCS" width="1200" height="372" loading="lazy" decoding="async"></a>
+            <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-lcs-pantera-negro.webp" alt="LCS" width="1200" height="372" loading="lazy" decoding="async"></a>
             <div class="ft__legal">
               <span ${t('© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina', '© 2026 LCS · Web Design &amp; Branding Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina</span>
               <a href="/terminos" ${t('Términos y condiciones', 'Terms &amp; conditions')}>Términos y condiciones</a>

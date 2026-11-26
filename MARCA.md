@@ -7,7 +7,7 @@ página del sitio. Todos los datos salen del código de `lcsdesignstudio.com.ar`
 interpretación: los hex son los tokens de `css/mono.css`, las frases son las que están
 publicadas y los precios son los que hoy figuran en `inversion.html` y `branding/inversion.html`.
 
-Última revisión: **12 de octubre de 2026**, completo, después del rediseño en blanco y negro.
+Última revisión: **26 de noviembre de 2026**, después de invertir el sitio a fondo claro (blanco apenas cremoso con texto negro).
 
 ---
 
@@ -302,7 +302,8 @@ Ejemplos publicados:
 
 ## 6 · Color
 
-Desde el 9 de octubre de 2026 el sitio es **blanco y negro**. El verde `#018751` de la
+Desde el 9 de octubre de 2026 el sitio es **blanco y negro**, y desde el 26 de noviembre de 2026 en su versión
+**clara**: fondo blanco apenas cremoso (nada de beige), texto y botones negros. El verde `#018751` de la
 etapa anterior quedó retirado: no aparece en ningún lado. Todos los valores viven como
 custom properties en `:root` de `css/mono.css`.
 
@@ -310,22 +311,23 @@ custom properties en `:root` de `css/mono.css`.
 
 | Token | Hex / valor | Uso |
 |---|---|---|
-| `--bg` | `#000` | Fondo de todo el sitio, del `<body>` y del `theme-color` del navegador. |
-| `--fg` | `#fff` | Texto principal, botón claro, card destacada invertida, foco visible. |
-| `--soft` | `#e6e4e2` | Blanco apagado: números grandes, títulos de servicio, cuerpos de lista. |
-| `--muted` | `#a3a3a3` | Texto secundario: bajadas, respuestas de FAQ, metadatos. |
-| `--dim` | `#767676` | Rótulos y texto legal del pie. Es el gris más oscuro que llega a 4.6:1 sobre negro; el anterior (`#6b6b6b`) daba 3.9 y no pasaba. |
-| `--line` | `rgba(255,255,255,.12)` | Filete suave. |
-| `--line-strong` | `rgba(255,255,255,.22)` | Filete de listas, FAQ y bordes de card. |
-| `--pill` / `--pill-hover` | `#1c1c1c` / `#2a2a2a` | Fondo del botón oscuro. |
+| `--bg` | `#faf9f5` | Fondo de todo el sitio, del `<body>` y del `theme-color` del navegador: blanco apenas cremoso. |
+| `--fg` | `#0a0a0a` | Texto principal, botón negro (CTA), card destacada invertida, foco visible. |
+| `--soft` | `#1f1f1e` | Negro apagado: números grandes, títulos de servicio, cuerpos de lista. |
+| `--muted` | `#5c5b58` | Texto secundario: bajadas, respuestas de FAQ, metadatos (6.4:1). |
+| `--dim` | `#6e6d69` | Rótulos y texto legal del pie: 5.1:1 sobre el fondo, el gris más claro que sigue pasando. |
+| `--line` | `rgba(10,10,10,.12)` | Filete suave. |
+| `--line-strong` | `rgba(10,10,10,.22)` | Filete de listas, FAQ y bordes de card. |
+| `--surface` | `#eeede8` | Fondo de las imágenes mientras cargan y de las piezas de interfaz del modal. |
+| `--pill` / `--pill-hover` | `#ebeae4` / `#e0dfd8` | Fondo del botón secundario, con texto negro. |
 
 ### Reglas de color
 
-- **Sin acento.** El contraste lo da el blanco sobre negro; el énfasis, el tamaño y el peso.
+- **Sin acento.** El contraste lo da el negro sobre el fondo claro; el énfasis, el tamaño y el peso.
   Única excepción: el punto violeta `#9333ff` de las etiquetas del hero de Branding.
 - **Invertir en vez de colorear.** Lo destacado (el plan recomendado, el botón principal,
-  la barra de trato directo, el hover de las cards de camino) se resuelve pasando a blanco
-  con texto negro.
+  la barra de trato directo, el hover de las cards de camino) se resuelve pasando a negro
+  con texto claro.
 - **Texto chico nunca por debajo de `--dim`.** Todo par de texto y fondo pasa 4.5:1.
 - **Los casos de branding llevan la paleta de su marca.** `css/caso.css` define los
   colores de La Vaca, Yerba Mix y María Martin solo dentro de su página (`.case--lv`,
@@ -380,7 +382,7 @@ Fluida con `clamp()`:
 
 ### Carácter
 
-Negro, blanco y mucho aire, en la línea de Estudio Veka: tipografía enorme en mayúsculas,
+Blanco apenas cremoso, negro y mucho aire, en la línea de Estudio Veka: tipografía enorme en mayúsculas,
 filetes finos en lugar de sombras, fotografía real a sangre y numeración visible. El
 trabajo es lo único que pone color en la pantalla.
 
@@ -407,10 +409,10 @@ Todo el contenido vive dentro de `.wrap`, que centra a `--max` y aplica el marge
 
 | Componente | Cómo se ve |
 |---|---|
-| **Botón** (`.pill`) | Píldora de 44px, fondo `#1c1c1c`, mayúsculas de 14px. `.pill--light` es blanca con texto negro, de 47px y sin mayúsculas: el CTA principal. |
+| **Botón** (`.pill`) | Píldora de 44px, fondo `#ebeae4` con texto negro, mayúsculas de 14px. `.pill--light` es negra con texto claro, de 47px y sin mayúsculas: el CTA principal. |
 | **Enlace con flecha** (`.txtlink.arw`) | Mayúsculas de 14px con una flecha diagonal que se corre 2px al hover. |
 | **Tira** (`.strip`) | Fila horizontal de imágenes de borde a borde con flechas circulares. En la portada y en las homes de camino avanza sola, de a una tarjeta, en un ciclo que no termina nunca. |
-| **Card de camino** (`.path`) | Las dos cards de la portada (Branding / Diseño web): borde fino y número en Manrope; al hover un relleno blanco sube desde abajo y la flecha gira 45°. |
+| **Card de camino** (`.path`) | Las dos cards de la portada (Branding / Diseño web): borde fino y número en Manrope; al hover un relleno negro sube desde abajo y la flecha gira 45°. |
 | **Card de proyecto** (`.card`) | Captura del sitio real a 1200×825 con nombre y rubro debajo; la imagen escala 1.03 al hover. En `/proyectos` abre el caso completo en un modal. |
 | **Plan** (`.plan`) | Tres cards de precio. La recomendada va invertida (blanca). Tienen cuerpo en 3D: se inclinan hacia el cursor y, en celular, según su lugar en la pantalla. |
 | **Lista numerada** (`.duo`, `.benefits__list`) | Filetes entre filas y numeración en gris. |
@@ -422,7 +424,7 @@ Todo el contenido vive dentro de `.wrap`, que centra a `--max` y aplica el marge
 CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 
 - **Intro del logo (solo `/`).** Al recargar o llegar desde afuera, el logo de LCS en
-  blanco se descubre de izquierda a derecha sobre negro y la cortina sube. Nunca al volver
+  negro se descubre de izquierda a derecha sobre el fondo claro y la cortina sube. Nunca al volver
   desde otra página del sitio, con el botón atrás ni con movimiento reducido.
 - **Revelado al entrar en pantalla.** Los bloques con `data-rv` suben 24px y aparecen en
   1s, con un escalonado opcional (`--rv-d`). Lo maneja un `IntersectionObserver`.
@@ -435,11 +437,11 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
   tres etiquetas propias de cada página; en la portada es el logo, que no se toca: las
   partículas salen de su silueta y aparecen recién al separarse, sin erosión; un polvo cubre
   todo el hero y se ralea lejos del logo; la esfera va a la izquierda de la L, hay solo dos
-  etiquetas (Branding y Diseño web) y el efecto arranca después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra y la g
+  etiquetas (Branding y Diseño web) y el efecto arranca después de la intro. Detalle del de Branding: «Branding» en serif con textura de piedra oscura y la g
   cruzada como una ø; la palabra es una pieza gráfica: no se selecciona y el cursor queda
   normal (el `<h1>` conserva la frase para buscadores). Se lee la forma real de las letras y
-  de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante y motas
-  negras que erosionan las letras. La esfera de manchas tipo luna, debajo de la a, tiene
+  de toda la palabra se desprenden partículas y esquirlas en 3D, con polvo flotante oscuro y motas
+  del color del fondo que erosionan las letras. La esfera de manchas tipo luna oscura, debajo de la a, tiene
   luz, brillo y un anillo en órbita: con el mouse encima crece, gira más rápido, se inclina
   hacia el cursor y suelta partículas. Las etiquetas son chapas en 3D con canto y un punto violeta: se
   inclinan hacia el puntero, un destello diagonal las cruza y se pueden arrastrar; al
@@ -454,7 +456,7 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 
 ### Chrome
 
-- **Encabezado fijo** negro con filete inferior, en tres columnas: logo · secciones del
+- **Encabezado fijo** claro con filete inferior, en tres columnas: logo · secciones del
   camino · selector **Branding / Web**. En la portada va sin logo (el logo ya está grande
   en el hero).
 - **Menú de celular** a pantalla completa debajo de 900px, con el selector de camino
@@ -736,7 +738,7 @@ La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de b
 - **Solo en español.** Los textos conservan sus atributos `data-es` / `data-en` y el
   modal de proyectos su versión en inglés, pero el selector de idioma está apagado y el
   sitio se muestra siempre en español.
-- **Accesibilidad de serie.** `prefers-reduced-motion` respetado, foco visible blanco de
+- **Accesibilidad de serie.** `prefers-reduced-motion` respetado, foco visible negro de
   2px, enlace «Saltar al contenido», `aria-current` en la página activa, botón de menú de
   44px y contrastes de 4.5:1 o más en todo el texto. Lighthouse: 100 en accesibilidad.
 - **Seguridad por cabeceras.** CSP estricta sin `unsafe-inline` —los scripts en línea de
@@ -761,7 +763,7 @@ La Vaca es además el caso web p1, y los dos casos se enlazan entre sí: el de b
 
 ## 12 · Reglas que no se negocian
 
-1. **Blanco y negro.** Sin color de acento en la marca del estudio; el color lo ponen los
+1. **Blanco apenas cremoso y negro.** Sin color de acento en la marca del estudio; el color lo ponen los
    trabajos.
 2. **Ningún texto por debajo de 4.5:1 de contraste**: el gris mínimo es `#767676`.
 3. **Un solo email del estudio:** `lcsdesignstudio1@gmail.com`.
