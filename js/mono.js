@@ -138,7 +138,7 @@ const LCS_CHROME = (function () {
           <div class="ft__bottom">
             <a class="ft__logo" href="/" aria-label="LCS"><img src="/assets/logo-lcs-pantera-negro.webp" alt="LCS" width="1200" height="372" loading="lazy" decoding="async"></a>
             <div class="ft__legal">
-              <span ${t('© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina', '© 2026 LCS · Web Design &amp; Branding Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina</span>
+              <span ${t('© 2026 LCS · Estudio de Branding, Diseño Web, Redes y Video · Salta, Argentina', '© 2026 LCS · Branding, Web Design, Social Media &amp; Video Studio · Salta, Argentina')}>© 2026 LCS · Estudio de Branding, Diseño Web, Redes y Video · Salta, Argentina</span>
               <a href="/terminos" ${t('Términos y condiciones', 'Terms &amp; conditions')}>Términos y condiciones</a>
             </div>
           </div>
@@ -461,14 +461,6 @@ if (typeof module === 'object' && module.exports) module.exports = LCS_CHROME;
     });
   }
 
-  /* La intro de la portada se saca del árbol cuando terminó de subir */
-  function intro() {
-    const el = $('.intro');
-    if (!el) return;
-    if (!root.classList.contains('intro-on')) { el.remove(); return; }
-    el.addEventListener('animationend', e => { if (e.animationName === 'intro-up') el.remove(); });
-  }
-
   document.addEventListener('DOMContentLoaded', () => {
     header();
     footer();
@@ -478,6 +470,5 @@ if (typeof module === 'object' && module.exports) module.exports = LCS_CHROME;
     strips();
     reveals();
     tilt();
-    intro();
   });
 })();

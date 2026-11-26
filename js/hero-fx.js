@@ -1,6 +1,6 @@
 /* ============================================================
    LCS — hero-fx.js
-   Heros de la portada y de las páginas de los dos caminos, en dos
+   Heros de la portada y de las páginas de cada camino, en dos
    canvas 2D y sin librerías. La forma es una palabra (Branding,
    Diseño web, Servicios…) o el logo de la portada.
 
@@ -23,14 +23,21 @@
   if (!stage) return;
   const back = stage.querySelector('.bhero__fx--back');
   const front = stage.querySelector('.bhero__fx--front');
-  // La forma puede ser una palabra (<h1 data-bhero-shape>) o una imagen (el logo de la portada)
+  // La forma puede ser una palabra (<h1 data-bhero-shape>) o el logo de la portada (<svg data-bhero-shape>)
   const shape = stage.querySelector('[data-bhero-shape]');
-  const isImg = !!shape && shape.tagName === 'IMG';
-  const word = isImg ? null : shape;
+  const isLogo = !!shape && shape.tagName.toLowerCase() === 'svg';
+  const word = isLogo ? null : shape;
   const text = word && word.firstElementChild;
   const baseEl = stage.querySelector('.bhero__base');
   if (!back || !front || !shape || !back.getContext) return;
-  if (!isImg && (!text || !baseEl)) return;
+  if (!isLogo && (!text || !baseEl)) return;
+  // el logo se lee de una copia del mismo SVG en una imagen (sin las animaciones de entrada)
+  const pic = isLogo ? new Image() : null;
+  if (pic) {
+    const copy = shape.cloneNode(true);   // con medidas propias: un SVG sin ancho ni alto puede leerse en 0
+    copy.setAttribute('width', 1096); copy.setAttribute('height', 344);
+    pic.src = 'data:image/svg+xml,' + encodeURIComponent(new XMLSerializer().serializeToString(copy));
+  }
 
   const bx = back.getContext('2d');
   const fx = front.getContext('2d');
@@ -62,13 +69,13 @@
   // El logo se dibuja en un canvas chico y se guarda cada píxel lleno: es su silueta.
   function sampleImage(r) {
     const ir = shape.getBoundingClientRect();
-    if (!ir.width || !shape.complete) return [];
+    if (!ir.width || !pic.complete || !pic.naturalWidth) return [];
     const q = Math.min(1, 80 / ir.height);
     const w = Math.ceil(ir.width * q), h = Math.ceil(ir.height * q);
     const off = document.createElement('canvas');
     off.width = w; off.height = h;
     const o = off.getContext('2d', { willReadFrequently: true });
-    o.drawImage(shape, 0, 0, w, h);
+    o.drawImage(pic, 0, 0, w, h);
     const data = o.getImageData(0, 0, w, h).data;
     const pts = [];
     for (let y = 0; y < h; y++) {
@@ -114,7 +121,7 @@
     bx.setTransform(dpr, 0, 0, dpr, 0, 0);
     fx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-    if (isImg) {
+    if (isLogo) {
       // la unidad es el alto del logo: así todo escala con él
       const ir = shape.getBoundingClientRect();
       fs = ir.height * 1.15 || 100;
@@ -168,7 +175,7 @@
   // cubre todo el hero: u, v van de -1 a 1 (del logo al borde) y la densidad
   // cae con la distancia al centro.
   const float = [];
-  const nFloat = isImg ? N_FIELD : N_FLOAT;
+  const nFloat = isLogo ? N_FIELD : N_FLOAT;
   for (let i = 0; i < nFloat; i++) {
     let u, v;
     do { u = rnd() * 2 - 1; v = rnd() * 2 - 1; } while (rnd() > Math.exp(-(u * u + v * v) / (2 * .42 * .42)) + .04);
@@ -257,8 +264,8 @@
 
     // ---- polvo ralo
     for (const p of float) {
-      const fx0 = isImg ? (p.u < 0 ? p.u * G.cx : p.u * (W - G.cx)) / fs : p.x * Math.max(1, G.half);
-      const fy0 = isImg ? (p.v < 0 ? p.v * G.cy : p.v * (H - G.cy)) / fs : p.y;
+      const fx0 = isLogo ? (p.u < 0 ? p.u * G.cx : p.u * (W - G.cx)) / fs : p.x * Math.max(1, G.half);
+      const fy0 = isLogo ? (p.v < 0 ? p.v * G.cy : p.v * (H - G.cy)) / fs : p.y;
       const x = p.sx + (fx0 + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * p.amp) - p.sx) * k;
       const y = p.sy + (fy0 + (reduced ? 0 : Math.cos(t * p.sp * .8 + p.ph) * p.amp) - p.sy) * k;
       const [sx, sy, Z, sc] = proj(x, y, p.z);
@@ -282,7 +289,7 @@
       const z = p.az + p.dz * e * p.dist;
       const [sx, sy, Z, sc] = proj(x, y, z);
       repel(p, sx, sy, R2, F0);
-      const life = (reduced ? .8 : smooth(0, .12, age) * (1 - smooth(.55, 1, age))) * (isImg ? smooth(.1, .3, age) : 1);
+      const life = (reduced ? .8 : smooth(0, .12, age) * (1 - smooth(.55, 1, age))) * (isLogo ? smooth(.1, .3, age) : 1);
       const a = p.alpha * life * k;
       if (a < .02) continue;
       const ctx = Z > 0 ? bx : fx;
@@ -296,7 +303,7 @@
 
     // ---- erosión de las letras (el logo de la portada no se toca)
     const wd = G.word, keep = .35 + scale * .65;
-    if (!isImg) for (const p of erode) {
+    if (!isLogo) for (const p of erode) {
       if (p.keep > keep) continue;
       let sx = G.cx + (p.x + (reduced ? 0 : Math.sin(t * p.sp + p.ph) * .008)) * fs;
       let sy = G.cy + (p.y + (reduced ? 0 : Math.cos(t * p.sp + p.ph) * .006)) * fs;
@@ -313,9 +320,9 @@
   }
 
   /* ---------- Ciclo ---------- */
-  // arranca cuando la página terminó de cargar: mientras tanto la palabra
-  // entra con su animación de CSS y el hilo principal queda libre
-  let running = false, visible = true, raf = 0, ready = document.readyState === 'complete';
+  // arranca cuando termina la entrada del logo (CSS, ~1,1 s desde que empezó
+  // a cargar la página): mientras tanto el hilo principal queda libre
+  let running = false, visible = true, raf = 0, ready = false;
   function loop(now) { draw(now); raf = requestAnimationFrame(loop); }
   function sync() {
     const go = ready && !reduced && visible && !document.hidden;
@@ -334,11 +341,9 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; sync(); }).observe(stage);
   }
   document.addEventListener('visibilitychange', sync);
-  const introWait = document.documentElement.classList.contains('intro-on') ? 2300 : 120;
-  const start = () => setTimeout(() => { ready = true; t0 = performance.now(); sync(); }, introWait);
-  if (!ready) addEventListener('load', start, { once: true });
-  else if (introWait > 120) { ready = false; start(); }
-  if (isImg && !shape.complete) shape.addEventListener('load', relayout, { once: true });
+  const introEnd = document.documentElement.classList.contains('intro-on') ? 1100 : 0;
+  setTimeout(() => { ready = true; t0 = performance.now(); sync(); }, Math.max(120, introEnd - performance.now()));
+  if (pic) pic.addEventListener('load', relayout, { once: true });
   sync();
   if (reduced) draw(performance.now());
 })();

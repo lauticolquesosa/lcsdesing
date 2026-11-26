@@ -1,6 +1,6 @@
 # LCS — Manual de marca
 
-**Estudio de Branding y Diseño Web · Salta, Argentina**
+**Estudio de Branding, Diseño Web, Redes y Video · Salta, Argentina**
 
 Documento de referencia del estudio: quién es, cómo habla, cómo se ve y qué dice cada
 página del sitio. Todos los datos salen del código de `lcsdesignstudio.com.ar`, no de una
@@ -15,8 +15,8 @@ publicadas y los precios son los que hoy figuran en `inversion.html` y `branding
 
 | | |
 |---|---|
-| **Nombre** | LCS — Estudio de Branding y Diseño Web |
-| **Nombre alternativo** | LCS Web Studio · LCS Design Studio |
+| **Nombre** | LCS — Estudio de Branding, Diseño Web, Redes y Video (desde el 2026-11-26, cuando se sumaron redes y video) |
+| **Nombre alternativo** | LCS Web Studio · LCS Design Studio · los anteriores «Estudio de Branding y Diseño Web» y «Estudio de Diseño Web y Branding» (siguen como `alternateName` en los datos estructurados) |
 | **Titular** | Lautaro Colque Sosa — Diseñador de marca, web y UX/UI |
 | **Base** | Salta, Argentina · trabajo 100% remoto |
 | **Zona atendida** | Argentina y Colombia |
@@ -27,7 +27,7 @@ publicadas y los precios son los que hoy figuran en `inversion.html` y `branding
 | **Email** | lcsdesignstudio1@gmail.com — único email del estudio, no se usa otro en ningún lado |
 | **Teléfono / WhatsApp** | +54 387 483 4041 |
 | **Instagram** | [@lcswebstudio](https://instagram.com/lcswebstudio) |
-| **Copyright del pie** | © 2026 LCS · Estudio de Diseño Web y Branding · Salta, Argentina |
+| **Copyright del pie** | © 2026 LCS · Estudio de Branding, Diseño Web, Redes y Video · Salta, Argentina |
 
 ### Qué hace
 
@@ -49,8 +49,9 @@ En branding, los tres paquetes publicados son una guía que se combina y ajusta 
 
 ### Descripción corta (la de la portada)
 
-> Estudio de branding y diseño web en Salta. Hacemos identidades visuales completas y
-> sitios a medida: de la marca al sitio en vivo, todo en un mismo estudio.
+> Estudio de branding, diseño web, redes sociales y edición de video en Salta. Hacemos
+> identidades visuales completas, sitios a medida, contenido para redes y videos: de la marca
+> a cada pantalla, todo en un mismo estudio.
 
 ### Rubros donde ya trabajó
 
@@ -85,9 +86,9 @@ el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 | 03 | `/redes-sociales/proyectos` | Lugares «Próximamente» para los primeros casos (se reemplazan cuando Lautaro pase material) y «En cada caso». |
 | 04 | `/redes-sociales/inversion` | Tres paquetes a medida: Perfil y sistema · Contenido mensual · Redes + video. |
 | 01 | `/edicion-de-video` | Home del camino de edición de video: hero, beneficios, proceso y preguntas. |
-| 02 | `/edicion-de-video/servicios` | Reels y videos cortos, videos institucionales y paquete mensual; qué incluye, proceso y preguntas. |
+| 02 | `/edicion-de-video/servicios` | Reels y videos para redes · Motion graphics (textos, gráficos y logos animados) · Video lyrics · Videos institucionales; qué incluye, proceso y preguntas. |
 | 03 | `/edicion-de-video/proyectos` | Lugares «Próximamente» para los primeros casos y «En cada caso». |
-| 04 | `/edicion-de-video/inversion` | Tres paquetes a medida: Video suelto · Pack mensual · Institucional. |
+| 04 | `/edicion-de-video/inversion` | Tres paquetes a medida: Video suelto · Pack mensual · Motion graphics y video lyrics (los institucionales se cotizan aparte). |
 | 05 | `/contacto` | Canales de contacto, común a los cuatro caminos. |
 | — | `/terminos` | Términos y condiciones. `noindex`, no está en el sitemap. |
 | — | `/404` | Página propia de «no encontrada». `noindex`. |
@@ -106,7 +107,7 @@ prioridad 1.0 para `/`, 0.9 para las dos homes de camino, 0.8 para servicios y p
 ### La portada (el portal)
 
 La portada no vende un servicio: presenta al estudio y deja elegir. El H1 es el nombre de
-lo que es, **«Estudio de Diseño Web y Branding»**, debajo del logo grande, con un solo
+lo que es, **«Estudio de Branding, Diseño Web, Redes y Video»**, debajo del logo grande, con un solo
 botón: **«Hablanos por tu proyecto»** (WhatsApp). Después viene una tira de trabajos que
 gira sola, la frase **«Estudio de branding, diseño web, redes sociales y edición de video en
 Salta. Hacemos identidades visuales completas, sitios a medida, contenido para redes y
@@ -117,8 +118,8 @@ videos: de la marca a cada pantalla, todo en un mismo estudio.»** y las cuatro 
   consultas.»
 - **Redes sociales** — «Estrategia, plantillas y contenido para que cada publicación se vea
   como tu marca.»
-- **Edición de video** — «Reels y videos con ritmo, subtítulos y tu identidad, listos para
-  cada red.»
+- **Edición de video** — «Reels, motion graphics y video lyrics con ritmo y tu identidad,
+  listos para cada red.»
 
 ### El camino de diseño web
 
@@ -435,9 +436,12 @@ Todo el contenido vive dentro de `.wrap`, que centra a `--max` y aplica el marge
 
 CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 
-- **Intro del logo (solo `/`).** Al recargar o llegar desde afuera, el logo de LCS en
-  negro se descubre de izquierda a derecha sobre el fondo claro y la cortina sube. Nunca al volver
-  desde otra página del sitio, con el botón atrás ni con movimiento reducido.
+- **Entrada del logo (solo `/`, en cada carga, siempre igual).** Sin cortina ni pantalla de
+  carga: el logo en vector (una pieza por letra, en línea en `index.html`) se arma en su lugar.
+  La L, la C y la S suben desde su línea de base escalonadas, la pantera salta sobre la S con
+  un leve rebote y un brillo cruza el logo; detrás entran el encabezado, el título, el botón y
+  la tira. Solo CSS (`html.intro-on`, que pone el `<head>`), ~1,3 s; las partículas arrancan
+  al terminar. Con movimiento reducido no corre.
 - **Revelado al entrar en pantalla.** Los bloques con `data-rv` suben 24px y aparecen en
   1s, con un escalonado opcional (`--rv-d`). Lo maneja un `IntersectionObserver`.
 - **Tiras automáticas.** Avanzan de a una tarjeta con una pausa corta; descansan cuando
@@ -447,7 +451,7 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
   servicios, proyectos e inversión de los dos caminos, y en contacto. En las páginas internas
   la pieza es la palabra (Branding, Diseño web, Servicios, Proyectos, Inversión) arriba a la
   izquierda, sin etiquetas ni esfera; en la portada es el logo, que no se toca: las partículas
-  salen de su silueta y un polvo ralo cubre el hero, y el efecto arranca después de la intro.
+  salen de su silueta y un polvo ralo cubre el hero, y el efecto arranca al terminar la entrada del logo.
   Son **pocas partículas negras** (unas 140 que se desprenden y un polvo de 60 a 110 puntos),
   con alguna esquirla, que se apartan al paso del cursor. Detalle del de Branding: «Branding»
   en serif con textura de piedra oscura y la g cruzada como una ø; la palabra es una pieza
@@ -458,7 +462,7 @@ CSS y un solo archivo de JavaScript propio (`js/mono.js`), sin librerías.
 **Reglas de movimiento:**
 
 - Todo usa `--ease`.
-- `prefers-reduced-motion` apaga la intro, los revelados, las tiras automáticas y el 3D.
+- `prefers-reduced-motion` apaga la entrada del logo, los revelados, las tiras automáticas y el 3D.
 - Red de seguridad: si a los 4 segundos `mono.js` no confirmó que corre, se quita la
   marca `.js` y **todo el contenido queda visible igual**.
 
@@ -502,11 +506,11 @@ proyecto.»** con la promesa de respuesta en 24–48 h, «Empecemos» y WhatsApp
 
 ### El portal — `/`
 
-**Título SEO:** Estudio de Diseño Web y Branding en Salta | LCS
-**Descripción:** LCS es un estudio de diseño web y branding en Salta, Argentina: sitios
-web a medida, identidad visual, logo y manual de marca para negocios de todo el país.
+**Título SEO:** Estudio de Branding, Diseño Web, Redes y Video en Salta | LCS
+**Descripción:** LCS es un estudio de branding, diseño web, redes sociales y video en Salta:
+identidad visual, sitios a medida, contenido para redes, edición y motion graphics para todo el país.
 
-Intro del logo → hero con el logo grande, el H1 «Estudio de Diseño Web y Branding» y
+Entrada del logo → hero con el logo grande, el H1 «Estudio de Branding, Diseño Web, Redes y Video» y
 «Hablanos por tu proyecto» → tira de trabajos que gira sola (fotos de La Vaca, Yerba Mix y
 María Martin) → «Quiénes somos» con la frase del estudio y «Elegí por dónde empezar» →
 las dos cards de camino → pie.
@@ -640,7 +644,7 @@ a cotizar.
 
 ### Contacto — `/contacto`
 
-**Título SEO:** Contacto — LCS · Estudio de Diseño Web y Branding en Salta
+**Título SEO:** Contacto — LCS · Estudio de Branding, Diseño Web, Redes y Video en Salta
 **Frase:** Trabajemos juntos. Común a los dos caminos.
 
 | Canal | Dato | Para qué |
@@ -654,7 +658,7 @@ información ayuda a cotizar, si hay videollamada y en cuánto tiempo se respond
 
 ### Términos y condiciones — `/terminos`
 
-`noindex`. El sitio pertenece a LCS, estudio de branding y diseño web operado por Lautaro
+`noindex`. El sitio pertenece a LCS, estudio de branding, diseño web, redes sociales y video operado por Lautaro
 Colque Sosa con base en Salta. Alcances, plazos y precios se acuerdan con cada cliente y
 quedan en la propuesta enviada por email. El contenido es de LCS, salvo el material de
 clientes usado con su autorización. Los datos que llegan por email o WhatsApp se usan solo

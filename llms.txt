@@ -1,6 +1,6 @@
 # LCS — Estudio de Diseño Web, Branding, Redes sociales y Edición de video en Salta
 
-> LCS es un estudio de diseño web y branding en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Hace branding y diseño gráfico —logo, identidad visual, manual de marca, packaging, papelería y piezas para redes— sitios web a medida, con código propio, rápidos y listos para Google, diseño de redes sociales y edición de video. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
+> LCS es un estudio de branding, diseño web, redes sociales y video en Salta, Argentina, dirigido por Lautaro Colque Sosa (diseñador de marca, web y UX/UI). Hace branding y diseño gráfico —logo, identidad visual, manual de marca, packaging, papelería y piezas para redes— sitios web a medida, con código propio, rápidos y listos para Google, diseño de redes sociales, edición de video, motion graphics y video lyrics. Trabaja de forma remota con clientes de Argentina y Colombia, en español e inglés.
 
 El sitio tiene cuatro caminos que parten de la portada: Branding, Diseño web, Redes sociales y Edición de video. Contacto y términos son comunes a todos.
 
@@ -33,12 +33,12 @@ El sitio tiene cuatro caminos que parten de la portada: Branding, Diseño web, R
 - [Proyectos de redes sociales](https://lcsdesignstudio.com.ar/redes-sociales/proyectos): los primeros casos se publican pronto.
 - [Inversión en redes sociales](https://lcsdesignstudio.com.ar/redes-sociales/inversion): tres paquetes (perfil y sistema, contenido mensual, redes + video) con presupuesto cerrado a medida.
 
-## Edición de video
+## Edición de video y motion graphics
 
-- [Edición de video](https://lcsdesignstudio.com.ar/edicion-de-video): reels, videos para redes y piezas institucionales con ritmo, subtítulos y la identidad de cada marca.
-- [Servicios de edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/servicios): reels y videos cortos, videos institucionales y paquete mensual.
+- [Edición de video y motion graphics](https://lcsdesignstudio.com.ar/edicion-de-video): reels y videos para redes, motion graphics, video lyrics y piezas institucionales, con ritmo, tipografía en movimiento y la identidad de cada marca.
+- [Servicios de edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/servicios): reels y videos para redes, motion graphics (textos, gráficos y logos animados), video lyrics para artistas y videos institucionales.
 - [Proyectos de edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/proyectos): los primeros casos se publican pronto.
-- [Inversión en edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/inversion): tres paquetes (video suelto, pack mensual, institucional) con presupuesto cerrado a medida.
+- [Inversión en edición de video](https://lcsdesignstudio.com.ar/edicion-de-video/inversion): tres paquetes (video suelto, pack mensual, motion graphics y video lyrics) con presupuesto cerrado a medida.
 
 ## Estudio
 
