@@ -5,3 +5,4 @@ csp-hashes.mjs
 .gitignore
 .vercelignore
 chrome.mjs
+videos.cjs
