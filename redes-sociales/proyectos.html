@@ -76,37 +76,47 @@
       <div class="bhero__stage" data-bhero>
         <canvas class="bhero__fx bhero__fx--back" aria-hidden="true"></canvas>
         <div class="bhero__lockup">
-          <h1 class="bhero__word" data-bhero-shape aria-label="Proyectos. Redes con sistema. Muy pronto vas a ver acá las cuentas diseñadas por el estudio, de la estrategia a cada publicación."><span aria-hidden="true">Proyectos<i class="bhero__base"></i></span></h1>
+          <h1 class="bhero__word" data-bhero-shape aria-label="Proyectos. Redes con sistema. Cada caso, completo: el perfil, los carruseles, los videos y las historias, tal como se ven en el celular. Elegí uno para recorrerlo."><span aria-hidden="true">Proyectos<i class="bhero__base"></i></span></h1>
         </div>
         <canvas class="bhero__fx bhero__fx--front" aria-hidden="true"></canvas>
       </div>
       <div class="bhero__copy">
-          <p class="statement" data-es="Redes con sistema. Muy pronto vas a ver acá las cuentas diseñadas por el estudio, de la estrategia a cada publicación." data-en="Social media with a system. Soon you’ll see here the accounts designed by the studio, from strategy to every post.">Redes con sistema. Muy pronto vas a ver acá las cuentas diseñadas por el estudio, de la estrategia a cada publicación.</p>
+          <p class="statement" data-es="Redes con sistema. Cada caso, completo: el perfil, los carruseles, los videos y las historias, tal como se ven en el celular. Elegí uno para recorrerlo." data-en="Social media with a system. Every case in full: the profile, carousels, videos and stories, just as they look on a phone. Pick one to browse it.">Redes con sistema. Cada caso, completo: el perfil, los carruseles, los videos y las historias, tal como se ven en el celular. Elegí uno para recorrerlo.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ CASOS ============
-       Lugares para los primeros casos: cada tarjeta se reemplaza por la
-       del proyecto real (con su imagen y su página) cuando esté listo. -->
+  <!-- ============ TIRA — piezas de los casos, de borde a borde ============
+       Cada tarjeta lleva a su caso: el perfil navegable, los carruseles,
+       los videos y las historias viven en la página de cada proyecto. -->
+  <div class="strip strip--bleed strip--photo" data-strip data-strip-start="1" data-strip-auto>
+    <ul class="strip__vp" aria-label="Casos de redes sociales" data-label-es="Casos de redes sociales" data-label-en="Social media cases">
+      <li class="strip__it"><a href="/redes-sociales/achilata"><figure><img src="/assets/redes/achilata/p01-1.webp" alt="Achilata Salta — Hay achilata en Salta" width="864" height="1080" decoding="async"></figure><span class="strip__name">Achilata Salta</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/bancala"><figure><img src="/assets/redes/bancala/b02-1.webp" alt="Bancala — Conocé a Quito" width="864" height="1080" decoding="async"></figure><span class="strip__name">Bancala</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/achilata"><figure><video src="/assets/redes/achilata/p11.mp4" poster="/assets/redes/achilata/p11-poster.webp" width="608" height="1080" muted loop playsinline autoplay preload="metadata" aria-label="Achilata Salta — reel Te la llevamos"></video></figure><span class="strip__name">Achilata Salta</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/bancala"><figure><img src="/assets/redes/bancala/b04-1.webp" alt="Bancala — Te banco en todas" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Bancala</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/achilata"><figure><img src="/assets/redes/achilata/p12-1.webp" alt="Achilata Salta — Achilata en tu fiesta" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Achilata Salta</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/bancala"><figure><img src="/assets/redes/bancala/b08-1.webp" alt="Bancala — Un día en la vida de Quito" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Bancala</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/achilata"><figure><img src="/assets/redes/achilata/p09-1.webp" alt="Achilata Salta — No deslices" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Achilata Salta</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/bancala"><figure><video src="/assets/redes/bancala/b03.mp4" poster="/assets/redes/bancala/b03-poster.webp" width="864" height="1080" muted loop playsinline autoplay preload="metadata" aria-label="Bancala — video Testigo de tus historias"></video></figure><span class="strip__name">Bancala</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/achilata"><figure><img src="/assets/redes/achilata/p13-1.webp" alt="Achilata Salta — Pedí desde la web" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Achilata Salta</span></a></li>
+      <li class="strip__it"><a href="/redes-sociales/bancala"><figure><img src="/assets/redes/bancala/b01-1.webp" alt="Bancala — Hola, soy Quito" width="864" height="1080" loading="lazy" decoding="async"></figure><span class="strip__name">Bancala</span></a></li>
+    </ul>
+    <button class="strip__btn strip__btn--prev" type="button" aria-label="Anterior" data-label-es="Anterior" data-label-en="Previous"><svg viewBox="0 0 14 14"><path d="M9 2 4 7l5 5"/></svg></button>
+    <button class="strip__btn strip__btn--next" type="button" aria-label="Siguiente" data-label-es="Siguiente" data-label-en="Next"><svg viewBox="0 0 14 14"><path d="m5 2 5 5-5 5"/></svg></button>
+  </div>
+
+  <!-- ============ ÍNDICE ============ -->
   <section class="sec">
     <div class="wrap">
       <header class="sh" data-rv>
         <h2 class="display" data-es="Casos" data-en="Cases">Casos</h2>
-        <p data-es="Los primeros casos se publican muy pronto." data-en="The first cases are coming very soon.">Los primeros casos se publican muy pronto.</p>
+        <p data-es="Elegí uno para recorrer su Instagram completo." data-en="Pick one to browse its full Instagram.">Elegí uno para recorrer su Instagram completo.</p>
       </header>
-      <div class="work">
-        <div class="card card--soon" data-rv>
-          <div class="card__img"><span data-es="Próximamente" data-en="Coming soon">Próximamente</span></div>
-          <p class="card__name"><span data-es="Caso 01" data-en="Case 01">Caso 01</span></p>
-          <p class="card__sub" data-es="En preparación" data-en="In progress">En preparación</p>
-        </div>
-        <div class="card card--soon" data-rv>
-          <div class="card__img"><span data-es="Próximamente" data-en="Coming soon">Próximamente</span></div>
-          <p class="card__name"><span data-es="Caso 02" data-en="Case 02">Caso 02</span></p>
-          <p class="card__sub" data-es="En preparación" data-en="In progress">En preparación</p>
-        </div>
-      </div>
+      <nav class="cidx" aria-label="Casos de redes sociales" data-rv>
+        <a class="cidx__row" href="/redes-sociales/achilata"><span class="cidx__name">Achilata Salta</span><span class="cidx__cat">Helado tucumano</span><span class="cidx__year">2026</span><span class="cidx__go" aria-hidden="true"></span></a>
+        <a class="cidx__row" href="/redes-sociales/bancala"><span class="cidx__name">Bancala</span><span class="cidx__cat">Campaña universitaria</span><span class="cidx__year">2026</span><span class="cidx__go" aria-hidden="true"></span></a>
+      </nav>
     </div>
   </section>
 

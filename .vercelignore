@@ -6,3 +6,4 @@ csp-hashes.mjs
 .vercelignore
 chrome.mjs
 videos.cjs
+redes.cjs
