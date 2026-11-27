@@ -79,7 +79,7 @@ el mismo sistema visual. Sin barra final y con URLs limpias (`cleanUrls`).
 | 04 | `/branding/inversion` | Los tres paquetes de branding. |
 | 01 | `/diseno-web` | Home del camino de diseño web: hero, tira de los 24 sitios, beneficios, proceso y preguntas. |
 | 02 | `/servicios` | Qué incluye el servicio de diseño web. |
-| 03 | `/proyectos` | Grilla de los 24 casos de diseño web. |
+| 03 | `/proyectos` | Grilla de los 23 casos de diseño web. |
 | 04 | `/inversion` | Los tres planes de diseño web, con precio. |
 | 01 | `/redes-sociales` | Home del camino de redes sociales: hero, beneficios, proceso y preguntas. |
 | 02 | `/redes-sociales/servicios` | Redes desde cero, renovación de redes y contenido mensual; qué incluye, proceso y preguntas. |
@@ -193,12 +193,12 @@ por un dato, va el dato.
    persona del singular, y es deliberada: contesta la misma persona que hace el trabajo.
 3. **El problema antes que la solución.** Cada sección arranca por lo que le importa al
    lector, no por lo que ofrece el estudio.
-4. **Números en lugar de adjetivos.** «24–48 h», «2 a 4 semanas», «24 casos», «USD 500»,
+4. **Números en lugar de adjetivos.** «24–48 h», «2 a 4 semanas», «23 casos», «USD 500»,
    «treinta mil cabezas por año». Nada de «rápido», «excelente», «de calidad».
 5. **Frases cortas, verbo concreto.** Escribir, llamar, reservar, comprar, publicar, medir.
 6. **Cero jerga de agencia.** No aparecen —y no deben aparecer— *solución integral,
    sinergia, transformación digital, innovador, líder, pasión, excelencia*. Verificado el
-   12 de octubre de 2026: cero ocurrencias en todo el sitio y en los 24 casos.
+   12 de octubre de 2026: cero ocurrencias en todo el sitio y en los 23 casos.
 7. **Admitir límites vende.** «A medida» en los paquetes de branding en vez de un precio
    inventado. «Versión de muestra» cuando el caso no está aprobado. «Estimado» en los
    precios de diseño web. «Proyecto propio» cuando no hay cliente real detrás.
@@ -212,7 +212,7 @@ por un dato, va el dato.
 ### Idioma
 
 El sitio se muestra **solo en español**. Cada texto conserva su versión en inglés en
-`data-en` (y los 24 casos la suya en `js/projects.js`), lista por si se vuelve a activar
+`data-en` (y los 23 casos la suya en `js/projects.js`), lista por si se vuelve a activar
 el selector de idioma. El inglés no es una traducción literal: es el mismo tono en
 registro neutro («enquiries», «no strings attached»); el voseo se vuelve un «you»
 directo, nunca una pasiva corporativa.
@@ -296,15 +296,14 @@ Ejemplos publicados:
 > «Cuando un local no toma reservas ni tiene delivery, la web no está para vender online:
 > está para ahorrar llamadas.» *(Doña Salta)*
 
-> «En salud, decir que no también vende.» *(La Condesa)*
+> «Con cincuenta sabores, mostrarlos todos de golpe es lo mismo que no mostrar ninguno.» *(Rosmari)*
 
 > «En una urgencia nadie lee: toca.» *(PReMeVetNOA)*
 
 > «En una desarrolladora, la desconfianza no se vence explicando el proceso: se vence con
 > fecha.» *(JMS Constructora)*
 
-> «En un tratamiento caro, lo que decide no es el tratamiento sino quién lo hace.»
-> *(Odontología Integral)*
+> «Cuando el producto es desconocido, el primer trabajo es explicarlo.» *(Achilata Salta)*
 
 > «Contra la desconfianza no funciona prometer más, sino dar la vara con la que te van a
 > medir.» *(Nostra Construcción)*
@@ -617,7 +616,7 @@ complejo 6–8.
 **Título SEO:** Proyectos de diseño web y UX/UI — LCS · Salta
 **Frase:** Trabajo seleccionado.
 
-**24 casos.** La grilla muestra seis y el resto aparece con «Ver todos los proyectos».
+**23 casos.** La grilla muestra seis y el resto aparece con «Ver todos los proyectos».
 Cada tarjeta abre un modal a pantalla completa (también por enlace directo, por ejemplo
 `/proyectos#p1`) con la estructura fija **Problema → Objetivo → Proceso (4 pasos) →
 Resultado → Aprendizaje**, más el año, la URL en vivo, las herramientas y la captura de
@@ -680,33 +679,34 @@ mismo orden en los dos lugares); los seis primeros son los visibles antes de des
 | # | Proyecto | Año | Rubro / cliente | Stack | En vivo |
 |---|---|---|---|---|---|
 | p15 | **Hierronort** | 2026 | Distribuidor de hierro · Salta | Figma · HTML/CSS · JS | hierronort.vercel.app |
-| p1 | **La Vaca** | 2025 | Bar de barrio · Grand Bourg, Salta | Figma · HTML/CSS · JS | la-vaca-web.vercel.app |
-| p16 | **Paravicini Arquitectura** | 2026 | Estudio de arquitectura · Salta | Figma · Next.js · React | paraviciniarquitectura.vercel.app |
 | p22 | **PReMeVetNOA** | 2026 | Policlínico veterinario · Salta | Figma · Next.js · React | premevetnoa.vercel.app |
+| p16 | **Paravicini Arquitectura** | 2026 | Estudio de arquitectura · Salta | Figma · Next.js · React | paraviciniarquitectura.vercel.app |
 | p23 | **Mundo Verde** | 2026 | Paisajismo · Salta y Jujuy | Figma · Next.js · React | mundo-verde-three.vercel.app |
+| p1 | **La Vaca** | 2025 | Bar de barrio · Grand Bourg, Salta | Figma · HTML/CSS · JS | la-vaca-web.vercel.app |
 | p6 | **IPV** | 2026 | Instituto Provincial de Vivienda · Salta | Figma · HTML/CSS · JS | ipv-salta.vercel.app |
+| p27 | **Fili Helados** | 2026 | Heladería artesanal · Salta | Figma · Next.js · React | fili-helados.vercel.app |
+| p28 | **Achilata Salta** | 2026 | Helado tucumano · Salta (emprendimiento propio) | Figma · HTML/CSS · JS · Three.js | achilata-salta.vercel.app |
+| p29 | **Il Cavallino** | 2026 | Fábrica de helado · Salta | Figma · Next.js · React | il-cavallino.vercel.app |
+| p30 | **Rosmari Helados** | 2026 | Heladería y café · Salta | Figma · Next.js · React | rosmari-helados.vercel.app |
+| p31 | **El chico de los menús** | 2026 | Menús universitarios · Lima, Perú (demo de propuesta) | Figma · HTML/CSS · JS | el-chico-de-los-menus.vercel.app |
 | **p26** | **Leo Messi — sitio homenaje** | **2026** | **Proyecto propio · sin cliente, sin afiliación con el jugador** | **Figma · HTML/CSS · JS · Three.js · GSAP** | **messiweb.vercel.app** |
 | p9 | **Daniel Villa Real Estate** | 2026 | Inmobiliaria · Salta | Figma · HTML/CSS · JS · Supabase | danielvilla.vercel.app |
 | p20 | **Vero Saguier** | 2026 | Diseño del paisaje · Salta y Bs. As. | Figma · Next.js · React | vero-saguier.vercel.app |
 | p18 | **JMS Constructora** | 2026 | Desarrolladora · La Plata | Figma · Next.js · React | jms-constructora.vercel.app |
 | p25 | **Nostra Construcción** | 2026 | Desarrolladora · Villa María, Córdoba | Figma · Next.js · React | nostra-construccion.vercel.app |
-| p24 | **Odontología Integral Salta** | 2026 | Odontología · Salta capital | Figma · Next.js · React | odontologia-integral-salta.vercel.app |
-| p7 | **Dra. Karina Forlani** | 2026 | Odontología · Campana, Bs. As. | Figma · HTML/CSS · JS | odontologiaforlani.vercel.app |
 | p10 | **Total Gym Salta** | 2026 | Gimnasio y pilates · Salta | Figma · HTML/CSS · JS | totalgymsalta.vercel.app |
 | p2 | **Frigorífico Brunetti** | 2025 | Frigorífico · Salta | Figma · HTML/CSS · JS | brunetti-jade.vercel.app |
-| p8 | **Baltazar Aguiar** | 2026 | Marketing gastronómico | Figma · Next.js · React | baltazar-aguiar.vercel.app |
 | p3 | **Doña Salta** | 2026 | Bodegón · Salta capital | Figma · HTML/CSS · JS | dona-salta-landing.vercel.app |
-| p13 | **La Condesa** | 2026 | Medicina estética · Bucaramanga, Colombia | Figma · HTML/CSS · JS | lacondesa-one.vercel.app |
-| p14 | **Piel Canela** | 2026 | Spa & bronceo · Bucaramanga, Colombia | Figma · HTML/CSS · JS | pielcanela-spa.vercel.app |
 | p17 | **Todo Áridos Salta** | 2026 | Áridos y piscinas · Salta | Figma · Next.js · React | todosaridosalta.vercel.app |
-| p19 | **Dr. Petersen Pfister** | 2026 | Cirugía · Salta | Figma · Next.js · React | dr-petersen-pfister.vercel.app |
 | p4 | **Espacio Zur** | 2026 | Movimiento consciente · Salta | Figma · HTML/CSS · JS | espacio-zur.vercel.app |
 | p5 | **Jockey Club Salta** | 2026 | Club deportivo · Salta | Figma · HTML/CSS · JS | jockeyclubsalta.vercel.app |
 | p21 | **Van Strate Cortese** | 2026 | Estudio de arquitectura · Santa Fe | Figma · Next.js · React | van-strate-cortese.vercel.app |
 
-**Distribución:** 2 casos de 2025 y 22 de 2026 · 21 en Argentina, 2 en Colombia y 1 sin
-geografía de cliente (proyecto propio) · 12 sitios en HTML/CSS/JS a mano, 11 en Next.js +
+**Distribución:** 2 casos de 2025 y 21 de 2026 · 21 en Argentina, 1 en Perú (demo) y 1 sin
+geografía de cliente (proyecto propio) · 9 sitios en HTML/CSS/JS a mano (Achilata suma Three.js), 12 en Next.js +
 React y 1 (Leo Messi) que suma Three.js y GSAP sobre HTML/CSS/JS · 1 con Supabase.
+El 2026-11-26 se sacaron Forlani, Petersen Pfister, Odontología Integral, La Condesa, Piel Canela y Baltazar Aguiar
+(borrados también de GitHub, Vercel y la computadora) y entraron cuatro heladerías y El chico de los menús.
 
 **p26 — Leo Messi, el único caso sin cliente.** Sitio homenaje no oficial, sin vínculo con
 Lionel Messi ni sus representantes, hecho como pieza propia del estudio para mostrar motion
