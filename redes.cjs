@@ -23,6 +23,8 @@ const CASES = [
   {
     slug: 'achilata', file: 'redes-sociales/achilata.html', dir: '/assets/redes/achilata/',
     user: 'achilatasalta', name: 'Achilata Salta',
+    // Lauti, 2026-11-26: el caso termina en Video, sobre el rojo de la marca; sin historias ni placas
+    hide: ['st', 'one'], vidTone: 'tone-1',
     bio: ['Helado tucumano en Salta 🍧', 'Potes y carrito para eventos', 'Envíos a San Lorenzo, El Tipal, Grand Bourg y más', 'Pedí al 387 483 4041 o 387 468 4498'],
     link: { href: 'https://achilata-salta.vercel.app', label: 'achilata-salta.vercel.app' },
     txt: {
@@ -297,7 +299,7 @@ function videos(c, n) {
     ...c.stories.filter(s => s[2]).map(([id, t]) => ({ id, t: t.replace(/ Video$/, ''), r: '9/16', k: 'Historia', story: id }))];
   return `
     <!-- VIDEOS -->
-    <section class="cp rc-vid tone-3" data-rv aria-labelledby="vid-t">
+    <section class="cp rc-vid ${c.vidTone || 'tone-3'}" data-rv aria-labelledby="vid-t">
       <header class="cp__hd"><span>Video</span><span>${pad(n)}. Movimiento</span></header>
       <div class="rl">
         <div class="rl__head">
@@ -378,8 +380,9 @@ function build(c) {
   let n = 0;
   const parts = [profile(c, ++n), carousels(c, ++n)];
   if (c.feed.some(p => p.k === 'video') || c.stories.some(s => s[2])) parts.push(videos(c, ++n));
-  parts.push(stories(c, ++n));
-  if (c.feed.some(p => p.k === 'post' && p.s.length === 1)) parts.push(singles(c, ++n));
+  const hide = c.hide || [];
+  if (!hide.includes('st')) parts.push(stories(c, ++n));
+  if (!hide.includes('one') && c.feed.some(p => p.k === 'post' && p.s.length === 1)) parts.push(singles(c, ++n));
   if (c.extra) parts.push(extra(c, ++n));
   return `<!-- RCASE:START — generado por redes.cjs -->
   <div class="wrap cpanels">
