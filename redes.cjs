@@ -92,6 +92,8 @@ const CASES = [
   {
     slug: 'bancala', file: 'redes-sociales/bancala.html', dir: '/assets/redes/bancala/',
     user: 'bancala_conquito', name: 'Bancala', audio: true,
+    // Lauti, 2026-11-26: sin Placas ni Campaña; el panel de Video, en el azul de la marca
+    hide: ['one', 'x'], vidTone: 'tone-1',
     bio: ['Mucho más que un banco 🪑', 'Soy Quito, el banquito de la facu', 'Cuidar la banca es bancar al que viene', 'UCASAL Sustentable'],
     txt: {
       pf: ['Conocé a Quito.', 'La cuenta de la campaña, con Quito como protagonista: el banco del campus que vio de todo y te pide que lo cuides. Tocá una publicación, mirá el video o abrí las destacadas.'],
@@ -383,7 +385,7 @@ function build(c) {
   const hide = c.hide || [];
   if (!hide.includes('st')) parts.push(stories(c, ++n));
   if (!hide.includes('one') && c.feed.some(p => p.k === 'post' && p.s.length === 1)) parts.push(singles(c, ++n));
-  if (c.extra) parts.push(extra(c, ++n));
+  if (c.extra && !hide.includes('x')) parts.push(extra(c, ++n));
   return `<!-- RCASE:START — generado por redes.cjs -->
   <div class="wrap cpanels">
 ${parts.join('\n')}
